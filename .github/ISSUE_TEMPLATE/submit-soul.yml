@@ -1,0 +1,40 @@
+name: 送一个魂进 Open Souls
+description: 不会用 git 也行。填完提交，机器人会把 ta 写成灵魂、开 PR、验完进村。
+title: "[进村] 角色名"
+labels: ["open-souls"]
+body:
+  - type: input
+    id: name
+    attributes: { label: 角色名, description: 村里独一无二 }
+    validations: { required: true }
+  - type: input
+    id: one_line
+    attributes: { label: 一句话, description: 写张力，别写简历 }
+    validations: { required: true }
+  - type: input
+    id: drives
+    attributes: { label: 想要什么, description: 用逗号分隔 2-3 个，要能制造冲突 }
+    validations: { required: true }
+  - type: input
+    id: says
+    attributes: { label: 裂缝·嘴上说, description: ta 嘴上要的 }
+    validations: { required: true }
+  - type: input
+    id: does
+    attributes: { label: 裂缝·实际做, description: ta 实际扑向的（和上面相反才有戏） }
+    validations: { required: true }
+  - type: input
+    id: under_pressure
+    attributes: { label: 被逼到墙角会怎样, description: 给道德区间，不是标签 }
+    validations: { required: true }
+  - type: input
+    id: voice
+    attributes: { label: 说话方式 }
+    validations: { required: true }
+  - type: textarea
+    id: backstory
+    attributes: { label: 背景（可选，几句就够） }
+  - type: input
+    id: boundaries
+    attributes: { label: 边界, value: "可暧昧可心碎；不写露骨、不写自我伤害" }
+    validations: { required: true }

@@ -1,0 +1,46 @@
+<!doctype html><html lang="zh"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Souls · 众魂连载</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15131b;--ink2:#1d1a25;--whisper:#7d7790;--page:#efe6d2;--page-ink:#2a2520;--rule:#332f3e;--ember:#e0833b}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--ink);color:var(--page);font-family:"Noto Sans SC",system-ui,sans-serif;line-height:1.6;
+background-image:radial-gradient(120% 80% at 50% -10%,#211c2c 0%,var(--ink) 55%)}
+.wrap{max-width:760px;margin:0 auto;padding:7vh 22px 18vh}
+header{text-align:center;margin-bottom:8vh}
+.mark{font-family:"Noto Serif SC",serif;font-weight:600;font-size:clamp(40px,9vw,76px);letter-spacing:.22em;text-indent:.22em;margin:0;
+background:linear-gradient(180deg,#f5ecd9,var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--whisper);font-size:14px;margin-top:14px;letter-spacing:.04em}
+.cast{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.who{font-size:12px;color:var(--whisper);border:1px solid var(--rule);border-radius:999px;padding:4px 12px}
+.who b{color:var(--page);font-weight:500}
+.ch{position:relative;background:var(--page);color:var(--page-ink);border-radius:3px;padding:38px 36px 34px;margin:34px 0;
+box-shadow:0 0 0 1px #00000022,0 26px 60px -28px #000,0 0 90px -30px var(--ember);animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.ch .no{font-family:"Noto Serif SC",serif;color:#9c8f74;font-size:13px;letter-spacing:.1em}
+.ch .season{float:right;font-size:11px;color:#b09a73;border:1px solid #d8c9a6;border-radius:999px;padding:1px 9px}
+.ch h2{font-family:"Noto Serif SC",serif;font-weight:600;font-size:25px;margin:.25em 0 .1em;color:#221d18}
+.ch .meta{color:#8a7d63;font-size:12.5px;margin-bottom:18px}
+.ch p{font-family:"Noto Serif SC",serif;font-size:18px;line-height:2;margin:0;text-align:justify;text-indent:2em}
+.empty{color:var(--whisper);text-align:center;margin-top:14vh;font-size:15px;line-height:2.1}
+.empty code{background:var(--ink2);padding:2px 8px;border-radius:5px;color:var(--ember)}
+footer{text-align:center;color:#4f4a5c;font-size:12px;margin-top:10vh}footer a{color:var(--whisper)}
+@media(prefers-reduced-motion:reduce){.ch{animation:none}}
+</style></head><body><div class="wrap">
+<header><h1 class="mark">Open<h1 class="mark">村子</h1>nbsp;Souls</h1><div class="sub">谁都没承认 · 谁都记住了</div><div class="cast" id="cast"></div></header>
+<main id="feed"></main>
+<footer>开放无限流连载 · <a href="https://github.com/你的用户名/village/issues/new?template=submit-soul.yml">送一个魂进来 →</a></footer>
+</div><script>
+const feed=document.getElementById('feed'),castEl=document.getElementById('cast');
+fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
+ if(!rows.length){feed.innerHTML='<div class="empty">村子还很安静。<br>跑一次 <code>python engine/village.py</code>，第一回就会落在这里。</div>';return;}
+ const cast=[...new Set(rows.flatMap(r=>r.cast))];
+ castEl.innerHTML=cast.map(n=>`<span class="who"><b>${n}</b></span>`).join('');
+ feed.innerHTML=rows.map(r=>`<article class="ch">
+  <div class="no">第 ${r.n} 回 <span class="season">第 ${r.season||1} 季</span></div>
+  <h2>${r.title}</h2><div class="meta">${r.date} · ${r.cast.join(' / ')}</div>
+  <p>${(r.body||'').replace(/\n/g,'<br>')}</p></article>`).join('');
+}).catch(()=>{feed.innerHTML='<div class="empty">连载还没生成。</div>';});
+</script></body></html>

@@ -1,0 +1,9 @@
+name: 学趋势
+on:
+  schedule: [{ cron: "0 0 * * 1" }]   # 每周一刷新一次
+  workflow_dispatch:
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "在这里跑你的趋势抓取（web_search 当下热门题材 → 蒸馏成 trends.md → commit）。只存套路形状，不存原文。"

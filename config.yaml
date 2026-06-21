@@ -1,0 +1,10 @@
+rating: 暧昧                # 默认尺度：温馨/暧昧/成人擦边/黑深残（硬线由审校卡）
+cadence: "0 */6 * * *"        # 多久续写一回
+target_chapter_chars: 320     # 每回篇幅，史官按这个写（按一定篇幅续写）
+chapters_per_beat: 3          # 每个 arc 节拍几回，控制赛季节奏
+default_pressure: 0.2         # 日常张力（0 安稳 … 1 = 0号宇宙）
+newcomer_priority: true       # 新进村的角色优先被写进剧情
+model_tiers:
+  light: claude-haiku-4-5
+  heavy: claude-sonnet-4-6
+  peak:  claude-opus-4-8

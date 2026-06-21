@@ -1,0 +1,28 @@
+name: 续写
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      ticks:    { description: "续写几回", default: "1" }
+      pressure: { description: "压力 0-1（1=0号宇宙）", default: "0.2" }
+  push:
+    branches: [main]
+    paths: ["souls/**"]
+concurrency: village-tick
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - env: { ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }} }
+        run: python engine/village.py --ticks ${{ github.event.inputs.ticks || 1 }} --pressure ${{ github.event.inputs.pressure || 0.2 }}
+      - run: |
+          git config user.name "村子史官"; git config user.email "chronicler@village.local"
+          git add souls seasons docs CAST.md
+          git commit -m "续写一回" || echo "今晚无事发生"
+          git push
