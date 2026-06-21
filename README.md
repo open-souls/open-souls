@@ -1,4 +1,6 @@
 # Open Souls / 众魂
+<img width="1672" height="941" alt="logo" src="https://github.com/user-attachments/assets/7e7617bf-2851-43a0-a733-8d1d9eed0cbe" />
+
 
 一部**开源的无限流网文**。任何人送一个魂进来，它就在别人的世界里活一遍——
 暧昧、背叛、变故、天灾，什么都能发生。写手系统按篇幅持续续写，每个角色都有迹可循。
