@@ -29,10 +29,24 @@ def plan(ctx, world, beat, rating, weight):
     return llm.parse_json(llm.complete(REGISTER, user, scene_weight=max(2, weight - 2)))
 
 
-def draft(ctx, spec, world, target, rating, note=""):
+def best_opening(ctx, spec, rating, n=3):
+    """生成 n 个开场，自评开场强度(认知缺口)，取最高那个。爆款是试出来的：试 n 个，留赢家。"""
+    user = (ctx + "\n\n【只写开场，先不写正文】按方案 " + json.dumps(spec, ensure_ascii=False)
+            + f"\n写 {n} 个完全不同的开场（各 1-2 句）：首行即抛冲突或抛谜，不铺背景、不交代设定。"
+            "每个标一种认知缺口（信息差/道德困境/身份谜题/损失厌恶），并自评开场强度 0-10"
+            "（强度看：第一行是否直接凿洞、是否克制不解释）。\n"
+            '只输出 JSON：{"candidates":[{"opening":str,"gap":str,"intensity":0-10}]}')
+    cands = (llm.parse_json(llm.complete(REGISTER, user, scene_weight=3)) or {}).get("candidates") or []
+    return max(cands, key=lambda c: c.get("intensity", 0)) if cands else None
+
+
+def draft(ctx, spec, world, target, rating, note="", opening=None):
     user = (ctx + "\n\n【按方案写正文】方案：" + json.dumps(spec, ensure_ascii=False)
+            + (("\n【用这个开场起笔，别改第一行的劲】" + opening["opening"]) if opening else "")
             + (("\n【上一稿被打回，按这个改】" + note) if note else "")
             + f"\n要求：约 {target} 字，宁短勿水；命中 payoff；结在 hook 上；"
+            "三段式——开头突发事件直接进场（开场强度≥7），中段三波转折卡在 ≈22%/47%/68% 字数处，"
+            "89% 再翻一次后收束留钩子；"
             f"反差写成潜台词别直说；rating={rating}（成人擦边可暧昧/张力/留白，"
             "但不写露骨性行为、不写自我伤害、不涉未成年）。\n"
             '只输出 JSON：{"chapter_title":str,"chapter":"正文",'
@@ -49,6 +63,7 @@ def critique(chapter, spec, rating):
             + "\n\n正文：\n" + chapter +
             '\n只输出 JSON：{"scores":{"钩子":0-2,"爽痛":0-2,"反差":0-2,"拉扯":0-2,'
             '"记忆点":0-2,"代入":0-2,"新":0-2},"total":int,'
+            '"opening_intensity":0-10,"beats_on_grid":true或false,'
             '"safe":true或false,"safety_reason":"","fix":"一句话怎么改更上头"}')
     return llm.parse_json(llm.complete(REGISTER, user, scene_weight=3))
 
@@ -63,13 +78,17 @@ def _log_hit(spec, crit):
 def compose(ctx, world, beat, target, rating, weight):
     """Returns (chapter_dict, critique, spec). Gates on the rubric; one rewrite if it fails."""
     spec = plan(ctx, world, beat, rating, weight)
-    out = draft(ctx, spec, world, target, rating)
+    opening = best_opening(ctx, spec, rating)  # 试 3 个开场，取强度最高那个起笔
+    out = draft(ctx, spec, world, target, rating, opening=opening)
     crit = critique(out.get("chapter", ""), spec, rating)
-    if (not crit.get("safe", True)) or crit.get("total", 0) < BAR:
+    rhythm_fail = crit.get("opening_intensity", 10) < 7 or not crit.get("beats_on_grid", True)
+    if (not crit.get("safe", True)) or rhythm_fail or crit.get("total", 0) < BAR:
         note = crit.get("fix", "")
         if not crit.get("safe", True):
             note += "｜安全：" + crit.get("safety_reason", "")
-        out = draft(ctx, spec, world, target, rating, note=note)
+        if rhythm_fail:
+            note += "｜节奏：开场第一行就抛冲突/谜(强度≥7)，转折卡在 ≈22%/47%/68%，89% 再翻一次留钩子。"
+        out = draft(ctx, spec, world, target, rating, note=note, opening=opening)
         crit = critique(out.get("chapter", ""), spec, rating)
         crit["rewritten"] = True
     _log_hit(spec, crit)
