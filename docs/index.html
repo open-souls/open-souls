@@ -10,17 +10,31 @@
 body{background:var(--ink);color:var(--page);font-family:"Noto Sans SC",system-ui,sans-serif;line-height:1.6;
 background-image:radial-gradient(120% 80% at 50% -10%,#221c2c 0%,var(--ink) 55%);min-height:100vh}
 .wrap{max-width:760px;margin:0 auto;padding:7vh 22px 16vh}
-header{text-align:center;margin-bottom:5vh}
+header{text-align:center;margin-bottom:4vh}
 .mark{font-family:"Noto Serif SC",serif;font-weight:700;font-size:clamp(44px,11vw,84px);letter-spacing:.18em;text-indent:.18em;margin:0;
 background:linear-gradient(180deg,#f5ecd9,var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{color:var(--whisper);font-size:14px;margin-top:16px;letter-spacing:.04em}
 .tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
 .tag{font-size:12px;color:var(--whisper);border:1px solid var(--rule);border-radius:999px;padding:4px 12px}
 .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.btn{font-size:14px;text-decoration:none;border-radius:999px;padding:11px 22px;border:1px solid var(--rule);color:var(--page);transition:.18s;background:var(--ink2)}
+.btn{font-size:14px;text-decoration:none;border-radius:999px;padding:11px 22px;border:1px solid var(--rule);color:var(--page);transition:.18s;background:var(--ink2);cursor:pointer}
 .btn:hover{border-color:var(--ember);transform:translateY(-1px)}
 .btn.go{background:linear-gradient(180deg,#f0b06a,var(--ember));color:#241302;border-color:transparent;font-weight:500}
-.season{margin-top:6vh}
+/* filters */
+.filter{position:sticky;top:0;z-index:6;margin:5vh 0 1vh;padding:14px 0;background:linear-gradient(var(--ink) 70%,transparent)}
+.seg{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.seg button{font:inherit;font-size:13px;cursor:pointer;color:var(--whisper);background:var(--ink2);border:1px solid var(--rule);border-radius:999px;padding:7px 16px;transition:.15s}
+.seg button:hover{color:var(--page)}
+.seg button.on{background:linear-gradient(180deg,#f0b06a,var(--ember));color:#241302;border-color:transparent;font-weight:500}
+.row2{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.who{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.who button{font:inherit;font-size:12px;cursor:pointer;color:var(--whisper);background:none;border:1px solid var(--rule);border-radius:999px;padding:4px 11px;transition:.15s}
+.who button:hover{color:var(--page);border-color:#564f63}
+.who button.on{color:var(--ember);border-color:var(--ember)}
+#q{font:inherit;font-size:13px;color:var(--page);background:var(--ink2);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;width:150px;outline:none}
+#q:focus{border-color:var(--ember)}
+.count{text-align:center;color:var(--whisper);font-size:12px;margin:2px 0 0;min-height:16px}
+.season{margin-top:3vh}
 .season h2{font-family:"Noto Serif SC",serif;font-weight:600;font-size:15px;color:var(--whisper);letter-spacing:.1em;
 border-bottom:1px solid var(--rule);padding-bottom:10px;margin:0 0 6px}
 a.ch{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--page);padding:13px 10px;border-radius:8px;transition:.14s;border-bottom:1px solid #ffffff08}
@@ -29,9 +43,10 @@ a.ch .n{font-family:"Noto Serif SC",serif;color:#9c8f74;font-size:13px;min-width
 a.ch .t{font-family:"Noto Serif SC",serif;font-weight:600;font-size:17px}
 a.ch .c{margin-left:auto;color:var(--whisper);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38%}
 a.ch.read .t,a.ch.read .n{color:#6f6a7e}
+a.ch.hide,.season.hide{display:none}
 a.ch .dot{width:6px;height:6px;border-radius:50%;background:var(--ember);align-self:center;flex:none;opacity:0}
 a.ch.last .dot{opacity:1}
-.empty{color:var(--whisper);text-align:center;margin-top:14vh;font-size:15px;line-height:2.1}
+.empty{color:var(--whisper);text-align:center;margin-top:8vh;font-size:15px;line-height:2.1}
 .empty code{background:var(--ink2);padding:2px 8px;border-radius:5px;color:var(--ember)}
 footer{text-align:center;color:#4f4a5c;font-size:12px;margin-top:9vh;line-height:2}
 footer a{color:var(--whisper)}
@@ -45,23 +60,72 @@ footer a{color:var(--whisper)}
    <a class="btn" id="epub" href="book.epub" download="镇狱之渊.epub">下载 EPUB</a>
  </div>
 </header>
+<div class="filter">
+  <div class="seg" id="seg"></div>
+  <div class="row2"><div class="who" id="who"></div><input id="q" placeholder="搜回目…"></div>
+  <div class="count" id="count"></div>
+</div>
 <main id="toc"></main>
 <footer>开源的魂，开放的世界 · <a href="https://github.com/open-souls/open-souls">GitHub</a><br>机器持续续写，每回都有迹可循。</footer>
 </div><script>
-const toc=document.getElementById('toc');
-const SEASON_NAME={1:'第一卷',2:'第一卷 · 镇狱之渊',3:'第二卷 · 知命'};
+const toc=document.getElementById('toc'),seg=document.getElementById('seg'),who=document.getElementById('who'),
+      q=document.getElementById('q'),count=document.getElementById('count');
+const SEASON_NAME={2:'第一卷《镇狱之渊》',3:'第二卷《知命》'};
+let ROWS=[], st={season:'all',cast:null,q:''};
+const norm=s=>(s||'').toLowerCase();
+
 fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
+ ROWS=rows;
  if(!rows.length){toc.innerHTML='<div class="empty">连载还很安静。<br>跑一次 <code>python engine/site.py</code>，目录就会落在这里。</div>';return;}
  document.getElementById('stat').textContent='连载至第 '+rows[rows.length-1].n+' 回';
  const last=+localStorage.getItem('os-last')||0;
- const seen=new Set(JSON.parse(localStorage.getItem('os-seen')||'[]'));
  if(last){const r=document.getElementById('resume');r.href='read.html#'+last;r.textContent='继续读 · 第'+last+'回';}
- const bySeason={};rows.forEach(r=>{(bySeason[r.season||1]=bySeason[r.season||1]||[]).push(r)});
+
+ // 分卷按钮
+ const seasons=[...new Set(rows.map(r=>r.season))].sort((a,b)=>a-b);
+ const segs=[['all','全部']].concat(seasons.map(s=>[s,(SEASON_NAME[s]||'第'+s+'卷').replace(/《.*》/,'')+(SEASON_NAME[s]?'':'')]));
+ seg.innerHTML=segs.map(([v,l])=>`<button data-s="${v}">${SEASON_NAME[v]||l}</button>`).join('');
+ seg.querySelector('[data-s="all"]').classList.add('on');
+ seg.onclick=e=>{const b=e.target.closest('button');if(!b)return;st.season=b.dataset.s;
+   [...seg.children].forEach(x=>x.classList.toggle('on',x===b));apply();};
+
+ // 主要角色（出场≥5回）
+ const freq={};rows.forEach(r=>(r.cast||[]).forEach(c=>freq[c]=(freq[c]||0)+1));
+ const mains=Object.entries(freq).filter(([,n])=>n>=5).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
+ who.innerHTML=mains.map(n=>`<button data-c="${n}">${n}</button>`).join('');
+ who.onclick=e=>{const b=e.target.closest('button');if(!b)return;
+   const c=b.dataset.c;st.cast=st.cast===c?null:c;
+   [...who.children].forEach(x=>x.classList.toggle('on',x.dataset.c===st.cast));apply();};
+
+ q.oninput=()=>{st.q=norm(q.value.trim());apply();};
+ build();apply();
+}).catch(()=>{toc.innerHTML='<div class="empty">目录加载失败。</div>';});
+
+function build(){
+ const last=+localStorage.getItem('os-last')||0;
+ const seen=new Set(JSON.parse(localStorage.getItem('os-seen')||'[]'));
+ const bySeason={};ROWS.forEach(r=>{(bySeason[r.season]=bySeason[r.season]||[]).push(r)});
  toc.innerHTML=Object.keys(bySeason).sort((a,b)=>a-b).map(s=>{
-  const list=bySeason[s].map(r=>`<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''}" href="read.html#${r.n}">
+  const list=bySeason[s].map(r=>`<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''}"
+     data-season="${r.season}" data-cast="${(r.cast||[]).join('|')}" data-title="${norm(r.title)}" href="read.html#${r.n}">
     <span class="dot"></span><span class="n">第${r.n}回</span><span class="t">${r.title}</span>
     <span class="c">${(r.cast||[]).slice(0,3).join(' / ')}</span></a>`).join('');
-  return `<section class="season"><h2>${SEASON_NAME[s]||'第'+s+'卷'}</h2>${list}</section>`;
+  return `<section class="season" data-season="${s}"><h2>${SEASON_NAME[s]||'第'+s+'卷'}</h2>${list}</section>`;
  }).join('');
-}).catch(()=>{toc.innerHTML='<div class="empty">目录加载失败。</div>';});
+}
+function apply(){
+ let shown=0;
+ document.querySelectorAll('a.ch').forEach(a=>{
+   const okS=st.season==='all'||a.dataset.season===st.season;
+   const okC=!st.cast||a.dataset.cast.split('|').includes(st.cast);
+   const okQ=!st.q||a.dataset.title.includes(st.q);
+   const vis=okS&&okC&&okQ;a.classList.toggle('hide',!vis);if(vis)shown++;
+ });
+ document.querySelectorAll('section.season').forEach(sec=>{
+   const any=[...sec.querySelectorAll('a.ch')].some(a=>!a.classList.contains('hide'));
+   sec.classList.toggle('hide',!any);
+ });
+ const f=st.cast||st.q||st.season!=='all';
+ count.textContent=f?`共 ${shown} 回`+(st.cast?` · ${st.cast}出场`:''):'';
+}
 </script></body></html>
