@@ -1,0 +1,93 @@
+<!doctype html><html lang="zh"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>阅读 · 镇狱之渊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--fs:19px}
+[data-theme=dark]{--bg:#15131b;--fg:#d9d3c4;--dim:#7d7790;--rule:#2c2937;--card:#1d1a25;--ember:#e0833b}
+[data-theme=sepia]{--bg:#efe6d2;--fg:#3a322a;--dim:#9a8c72;--rule:#ddceb0;--card:#f7efdd;--ember:#b96a1f}
+[data-theme=light]{--bg:#faf8f4;--fg:#26242c;--dim:#9b95a6;--rule:#e6e2d8;--card:#fff;--ember:#cc6a24}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:"Noto Sans SC",system-ui,sans-serif;transition:background .2s,color .2s}
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;padding:12px 18px;
+background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar a,.bar button{color:var(--dim);background:none;border:0;font:inherit;cursor:pointer;text-decoration:none;font-size:14px;padding:6px;border-radius:6px}
+.bar a:hover,.bar button:hover{color:var(--fg)}
+.bar .mid{flex:1;text-align:center;font-family:"Noto Serif SC",serif;font-size:14px;color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tools{display:none;gap:6px;align-items:center}
+.tools.on{display:flex}
+.tools button{border:1px solid var(--rule)}
+.tools .sw{width:22px;height:22px;border-radius:50%;padding:0;border:1px solid var(--rule)}
+.read{max-width:680px;margin:0 auto;padding:6vh 26px 14vh}
+h1{font-family:"Noto Serif SC",serif;font-weight:700;font-size:calc(var(--fs) + 9px);text-align:center;margin:0 0 .3em;letter-spacing:.04em}
+.meta{text-align:center;color:var(--dim);font-size:13px;margin-bottom:1em}
+.hook{color:var(--dim);font-size:13.5px;font-style:italic;border-left:2px solid var(--ember);padding:2px 0 2px 14px;margin:0 auto 3em;max-width:90%;line-height:1.8}
+.body{font-family:"Noto Serif SC",serif;font-size:var(--fs);line-height:2.05;text-align:justify}
+.body p{margin:0 0 .1em;text-indent:2em}
+.body hr.brk{border:0;text-align:center;margin:1.8em 0}
+.body hr.brk:after{content:"❦";color:var(--ember);opacity:.7;font-size:.9em}
+.nav{display:flex;gap:12px;margin-top:7vh}
+.nav a{flex:1;text-align:center;text-decoration:none;color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:16px 12px;font-size:14px;transition:.15s}
+.nav a:hover{border-color:var(--ember)}
+.nav a.dis{opacity:.35;pointer-events:none}
+.nav a small{display:block;color:var(--dim);font-size:11px;margin-bottom:4px}
+.nav a b{font-family:"Noto Serif SC",serif;font-weight:600}
+.load{text-align:center;color:var(--dim);margin-top:20vh}
+</style></head><body>
+<div class="bar">
+ <a href="index.html">← 目录</a>
+ <div class="mid" id="crumb">…</div>
+ <button id="gear">Aa</button>
+ <div class="tools" id="tools">
+   <button data-fs="-1">A−</button><button data-fs="1">A＋</button>
+   <button class="sw" data-th="dark" style="background:#15131b" title="夜"></button>
+   <button class="sw" data-th="sepia" style="background:#efe6d2" title="纸"></button>
+   <button class="sw" data-th="light" style="background:#fff" title="昼"></button>
+ </div>
+</div>
+<article class="read"><div class="load" id="load">展卷中…</div></article>
+<script>
+const $=s=>document.querySelector(s),read=$('.read');
+let rows=[],idx={};
+const fsBase=18,fsMin=15,fsMax=26;
+function applyPrefs(){
+ document.documentElement.dataset.theme=localStorage.getItem('os-theme')||'dark';
+ document.documentElement.style.setProperty('--fs',(+localStorage.getItem('os-fs')||fsBase)+'px');
+}
+applyPrefs();
+$('#gear').onclick=()=>$('#tools').classList.toggle('on');
+$('#tools').onclick=e=>{
+ const b=e.target;
+ if(b.dataset.th){localStorage.setItem('os-theme',b.dataset.th);applyPrefs();}
+ if(b.dataset.fs){let v=(+localStorage.getItem('os-fs')||fsBase)+(+b.dataset.fs);v=Math.max(fsMin,Math.min(fsMax,v));localStorage.setItem('os-fs',v);applyPrefs();}
+};
+function curN(){return Math.max(1,parseInt(location.hash.slice(1))||1);}
+function markSeen(n){const s=new Set(JSON.parse(localStorage.getItem('os-seen')||'[]'));s.add(n);localStorage.setItem('os-seen',JSON.stringify([...s]));localStorage.setItem('os-last',n);}
+function render(){
+ const n=curN(),c=idx[n];
+ if(!c){read.innerHTML='<div class="load">没有第'+n+'回。<br><a href="index.html" style="color:var(--ember)">回目录</a></div>';return;}
+ document.title='第'+n+'回 '+c.title+' · 镇狱之渊';
+ $('#crumb').textContent='第'+n+'回 · '+c.title;
+ const prev=idx[n-1],next=idx[n+1];
+ read.innerHTML=`<h1>第${n}回 · ${c.title}</h1>
+  <div class="meta">${c.date||''}${c.cast&&c.cast.length?'　'+c.cast.join(' / '):''}</div>
+  ${c.hook?`<div class="hook">${c.hook}</div>`:''}
+  <div class="body">${c.html}</div>
+  <nav class="nav">
+   <a class="${prev?'':'dis'}" href="#${n-1}"><small>上一回</small><b>${prev?'第'+(n-1)+'回 '+prev.title:'已是开篇'}</b></a>
+   <a class="${next?'':'dis'}" href="#${n+1}"><small>下一回</small><b>${next?'第'+(n+1)+'回 '+next.title:'追到这了'}</b></a>
+  </nav>`;
+ markSeen(n);window.scrollTo(0,0);
+}
+addEventListener('hashchange',render);
+addEventListener('keydown',e=>{
+ if(e.key==='ArrowLeft'&&idx[curN()-1])location.hash=curN()-1;
+ if(e.key==='ArrowRight'&&idx[curN()+1])location.hash=curN()+1;
+});
+fetch('./chronicle.json?'+Date.now()).then(r=>r.json()).then(d=>{
+ rows=d;d.forEach(r=>idx[r.n]=r);
+ if(!location.hash)location.hash=localStorage.getItem('os-last')||1;
+ render();
+}).catch(()=>{read.innerHTML='<div class="load">加载失败，刷新重试。</div>';});
+</script></body></html>

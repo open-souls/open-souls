@@ -1,0 +1,193 @@
+# -*- coding: utf-8 -*-
+"""把 chronicle/*.md 连载编译成可读的网站数据 + EPUB。
+
+产出（写进 docs/）：
+  chronicle.json   每章 {n, season, title, date, cast, pov, hook, html}，给 index/read 两个 SPA 用
+  <书名>.epub      整本电子书，可离线/导入阅读器
+
+index.html / read.html 是静态壳，不在这里生成；它们 fetch chronicle.json 渲染。
+"""
+import os, re, json, glob, html, zipfile, datetime
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SEASON_DIR = os.path.join(ROOT, "seasons", "02-xianxia")
+CHRON_DIR = os.path.join(SEASON_DIR, "chronicle")
+DOCS = os.path.join(ROOT, "docs")
+BOOK_TITLE = "镇狱之渊"
+BOOK_AUTHOR = "众魂 · Open Souls"
+BOOK_ID = "open-souls-zhenyuzhiyuan"
+
+
+# ---------- 解析 ----------
+
+def split_front_matter(text):
+    """返回 (frontmatter_dict, body_str)。无 frontmatter 则 ({}, text)。"""
+    if not text.startswith("---"):
+        return {}, text
+    m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", text, re.S)
+    if not m:
+        return {}, text
+    import yaml
+    fm = yaml.safe_load(m.group(1)) or {}
+    return fm, m.group(2)
+
+
+def render_body(md):
+    """把正文 markdown 渲染成 xhtml 片段。每个空行分隔的块=一段；--- = 分场线。"""
+    out = []
+    for block in re.split(r"\n\s*\n", md.strip()):
+        block = block.strip()
+        if not block:
+            continue
+        if block.startswith("# "):          # 章节标题，单独展示，正文里去掉
+            continue
+        if re.fullmatch(r"-{3,}|\*{3,}", block):
+            out.append('<hr class="brk"/>')
+            continue
+        text = html.escape(block).replace("\n", "<br/>")
+        out.append("<p>%s</p>" % text)
+    return "\n".join(out)
+
+
+def load_dates():
+    """从 INDEX.md 抽每回日期：'- 第82回《名》— … （2026-06-22）'。"""
+    dates = {}
+    idx = os.path.join(CHRON_DIR, "INDEX.md")
+    if not os.path.exists(idx):
+        return dates
+    for line in open(idx, encoding="utf-8"):
+        m = re.search(r"第\s*(\d+)\s*回.*?（(\d{4}-\d{2}-\d{2})）", line)
+        if m:
+            dates[int(m.group(1))] = m.group(2)
+    return dates
+
+
+def collect():
+    dates = load_dates()
+    by_n = {}
+    for path in glob.glob(os.path.join(CHRON_DIR, "*.md")):
+        name = os.path.basename(path)
+        if name == "INDEX.md":
+            continue
+        fm, body = split_front_matter(open(path, encoding="utf-8").read())
+        if not fm.get("cast"):          # 跳过扩写副本等非正章
+            continue
+        n = fm.get("chapter")
+        if n is None:
+            mm = re.match(r"(\d+)", name)
+            n = int(mm.group(1)) if mm else None
+        if n is None:
+            continue
+        n = int(n)
+        entry = {
+            "n": n,
+            "season": fm.get("season", 1),
+            "title": str(fm.get("title", "")).strip(),
+            "date": dates.get(n, ""),
+            "cast": fm.get("cast", []),
+            "pov": fm.get("pov", ""),
+            "hook": str(fm.get("hook", "")).strip(),
+            "html": render_body(body),
+        }
+        # 同回多文件时，优先 frontmatter 字段更全的（有 hook 的）
+        prev = by_n.get(n)
+        if prev is None or (not prev["hook"] and entry["hook"]):
+            by_n[n] = entry
+    return [by_n[n] for n in sorted(by_n)]
+
+
+# ---------- EPUB ----------
+
+EPUB_CSS = """
+body{font-family:"Noto Serif CJK SC",serif;line-height:1.9;margin:5% 6%;color:#1d1a17}
+h1{font-size:1.4em;text-align:center;margin:1.6em 0 .2em;font-weight:600}
+.meta{text-align:center;color:#8a7d63;font-size:.8em;margin-bottom:2em}
+p{text-indent:2em;margin:.2em 0;text-align:justify}
+hr.brk{border:0;text-align:center;margin:1.6em 0}
+hr.brk:after{content:"\\2042";color:#b3a07a;font-size:1.1em}
+"""
+
+XHTML = ('<?xml version="1.0" encoding="utf-8"?>\n'
+         '<!DOCTYPE html>\n'
+         '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh"><head>'
+         '<meta charset="utf-8"/><title>{title}</title>'
+         '<link rel="stylesheet" type="text/css" href="style.css"/></head>'
+         '<body>{body}</body></html>')
+
+
+def build_epub(chapters, out_path):
+    z = zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED)
+    z.writestr("mimetype", "application/epub+zip", zipfile.ZIP_STORED)
+    z.writestr("META-INF/container.xml",
+               '<?xml version="1.0"?>\n<container version="1.0" '
+               'xmlns="urn:oasis:names:tc:opendocument:xmlns:container">'
+               '<rootfiles><rootfile full-path="OEBPS/content.opf" '
+               'media-type="application/oebps-package+xml"/></rootfiles></container>')
+    z.writestr("OEBPS/style.css", EPUB_CSS)
+
+    files = []
+    for c in chapters:
+        fn = "chap%03d.xhtml" % c["n"]
+        body = ('<h1>第%d回 · %s</h1><div class="meta">%s%s</div>%s'
+                % (c["n"], html.escape(c["title"]),
+                   c["date"], ("　" + " / ".join(c["cast"])) if c["cast"] else "",
+                   c["html"]))
+        z.writestr("OEBPS/" + fn,
+                   XHTML.format(title="第%d回 %s" % (c["n"], html.escape(c["title"])), body=body))
+        files.append((fn, c))
+
+    manifest = '\n'.join('<item id="c%03d" href="%s" media-type="application/xhtml+xml"/>' % (c["n"], fn)
+                         for fn, c in files)
+    spine = '\n'.join('<itemref idref="c%03d"/>' % c["n"] for _, c in files)
+    today = datetime.date.today().isoformat()
+    opf = ('<?xml version="1.0" encoding="utf-8"?>\n'
+           '<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid">'
+           '<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">'
+           '<dc:identifier id="bookid">urn:uuid:%s</dc:identifier>'
+           '<dc:title>%s</dc:title><dc:creator>%s</dc:creator>'
+           '<dc:language>zh-CN</dc:language>'
+           '<meta property="dcterms:modified">%sT00:00:00Z</meta></metadata>'
+           '<manifest>'
+           '<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>'
+           '<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>'
+           '<item id="css" href="style.css" media-type="text/css"/>'
+           '%s</manifest><spine toc="ncx">%s</spine></package>'
+           % (BOOK_ID, html.escape(BOOK_TITLE), html.escape(BOOK_AUTHOR), today, manifest, spine))
+    z.writestr("OEBPS/content.opf", opf)
+
+    navlis = '\n'.join('<li><a href="%s">第%d回 %s</a></li>' % (fn, c["n"], html.escape(c["title"]))
+                       for fn, c in files)
+    z.writestr("OEBPS/nav.xhtml",
+               XHTML.format(title="目录",
+                            body='<nav epub:type="toc" xmlns:epub="http://www.idpf.org/2007/ops">'
+                                 '<h1>目录</h1><ol>%s</ol></nav>' % navlis))
+
+    points = '\n'.join('<navPoint id="n%03d" playOrder="%d"><navLabel><text>第%d回 %s</text></navLabel>'
+                       '<content src="%s"/></navPoint>'
+                       % (c["n"], i + 1, c["n"], html.escape(c["title"]), fn)
+                       for i, (fn, c) in enumerate(files))
+    z.writestr("OEBPS/toc.ncx",
+               '<?xml version="1.0" encoding="utf-8"?>\n'
+               '<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">'
+               '<head><meta name="dtb:uid" content="urn:uuid:%s"/></head>'
+               '<docTitle><text>%s</text></docTitle><navMap>%s</navMap></ncx>'
+               % (BOOK_ID, html.escape(BOOK_TITLE), points))
+    z.close()
+
+
+# ---------- main ----------
+
+def main():
+    os.makedirs(DOCS, exist_ok=True)
+    chapters = collect()
+    with open(os.path.join(DOCS, "chronicle.json"), "w", encoding="utf-8") as f:
+        json.dump(chapters, f, ensure_ascii=False, separators=(",", ":"))
+    epub_path = os.path.join(DOCS, BOOK_TITLE + ".epub")
+    build_epub(chapters, epub_path)
+    # 给前端一个固定文件名的副本，省得 URL 编码中文
+    build_epub(chapters, os.path.join(DOCS, "book.epub"))
+    print("built %d chapters -> docs/chronicle.json + epub" % len(chapters))
+
+
+if __name__ == "__main__":
+    main()

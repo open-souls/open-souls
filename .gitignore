@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+# 由 engine/site.py 在部署时重建，无需入库
+docs/*.epub

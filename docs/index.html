@@ -1,46 +1,67 @@
 <!doctype html><html lang="zh"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Open Souls · 众魂连载</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>镇狱之渊 · 众魂连载</title>
+<meta name="description" content="一部开源无限流网文，机器持续续写。复盘剧透、扮猪吃虎、长线复仇。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#15131b;--ink2:#1d1a25;--whisper:#7d7790;--page:#efe6d2;--page-ink:#2a2520;--rule:#332f3e;--ember:#e0833b}
+:root{--ink:#15131b;--ink2:#1d1a25;--whisper:#8a849c;--page:#efe6d2;--rule:#332f3e;--ember:#e0833b}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--ink);color:var(--page);font-family:"Noto Sans SC",system-ui,sans-serif;line-height:1.6;
-background-image:radial-gradient(120% 80% at 50% -10%,#211c2c 0%,var(--ink) 55%)}
-.wrap{max-width:760px;margin:0 auto;padding:7vh 22px 18vh}
-header{text-align:center;margin-bottom:8vh}
-.mark{font-family:"Noto Serif SC",serif;font-weight:600;font-size:clamp(40px,9vw,76px);letter-spacing:.22em;text-indent:.22em;margin:0;
+background-image:radial-gradient(120% 80% at 50% -10%,#221c2c 0%,var(--ink) 55%);min-height:100vh}
+.wrap{max-width:760px;margin:0 auto;padding:7vh 22px 16vh}
+header{text-align:center;margin-bottom:5vh}
+.mark{font-family:"Noto Serif SC",serif;font-weight:700;font-size:clamp(44px,11vw,84px);letter-spacing:.18em;text-indent:.18em;margin:0;
 background:linear-gradient(180deg,#f5ecd9,var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--whisper);font-size:14px;margin-top:14px;letter-spacing:.04em}
-.cast{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-.who{font-size:12px;color:var(--whisper);border:1px solid var(--rule);border-radius:999px;padding:4px 12px}
-.who b{color:var(--page);font-weight:500}
-.ch{position:relative;background:var(--page);color:var(--page-ink);border-radius:3px;padding:38px 36px 34px;margin:34px 0;
-box-shadow:0 0 0 1px #00000022,0 26px 60px -28px #000,0 0 90px -30px var(--ember);animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
-@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-.ch .no{font-family:"Noto Serif SC",serif;color:#9c8f74;font-size:13px;letter-spacing:.1em}
-.ch .season{float:right;font-size:11px;color:#b09a73;border:1px solid #d8c9a6;border-radius:999px;padding:1px 9px}
-.ch h2{font-family:"Noto Serif SC",serif;font-weight:600;font-size:25px;margin:.25em 0 .1em;color:#221d18}
-.ch .meta{color:#8a7d63;font-size:12.5px;margin-bottom:18px}
-.ch p{font-family:"Noto Serif SC",serif;font-size:18px;line-height:2;margin:0;text-align:justify;text-indent:2em}
+.sub{color:var(--whisper);font-size:14px;margin-top:16px;letter-spacing:.04em}
+.tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.tag{font-size:12px;color:var(--whisper);border:1px solid var(--rule);border-radius:999px;padding:4px 12px}
+.acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{font-size:14px;text-decoration:none;border-radius:999px;padding:11px 22px;border:1px solid var(--rule);color:var(--page);transition:.18s;background:var(--ink2)}
+.btn:hover{border-color:var(--ember);transform:translateY(-1px)}
+.btn.go{background:linear-gradient(180deg,#f0b06a,var(--ember));color:#241302;border-color:transparent;font-weight:500}
+.season{margin-top:6vh}
+.season h2{font-family:"Noto Serif SC",serif;font-weight:600;font-size:15px;color:var(--whisper);letter-spacing:.1em;
+border-bottom:1px solid var(--rule);padding-bottom:10px;margin:0 0 6px}
+a.ch{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--page);padding:13px 10px;border-radius:8px;transition:.14s;border-bottom:1px solid #ffffff08}
+a.ch:hover{background:#ffffff09}
+a.ch .n{font-family:"Noto Serif SC",serif;color:#9c8f74;font-size:13px;min-width:42px;letter-spacing:.05em}
+a.ch .t{font-family:"Noto Serif SC",serif;font-weight:600;font-size:17px}
+a.ch .c{margin-left:auto;color:var(--whisper);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38%}
+a.ch.read .t,a.ch.read .n{color:#6f6a7e}
+a.ch .dot{width:6px;height:6px;border-radius:50%;background:var(--ember);align-self:center;flex:none;opacity:0}
+a.ch.last .dot{opacity:1}
 .empty{color:var(--whisper);text-align:center;margin-top:14vh;font-size:15px;line-height:2.1}
 .empty code{background:var(--ink2);padding:2px 8px;border-radius:5px;color:var(--ember)}
-footer{text-align:center;color:#4f4a5c;font-size:12px;margin-top:10vh}footer a{color:var(--whisper)}
-@media(prefers-reduced-motion:reduce){.ch{animation:none}}
+footer{text-align:center;color:#4f4a5c;font-size:12px;margin-top:9vh;line-height:2}
+footer a{color:var(--whisper)}
 </style></head><body><div class="wrap">
-<header><h1 class="mark">Open<h1 class="mark">村子</h1>nbsp;Souls</h1><div class="sub">谁都没承认 · 谁都记住了</div><div class="cast" id="cast"></div></header>
-<main id="feed"></main>
-<footer>开放无限流连载 · <a href="https://github.com/你的用户名/village/issues/new?template=submit-soul.yml">送一个魂进来 →</a></footer>
+<header>
+ <h1 class="mark">镇狱之渊</h1>
+ <div class="sub">玄幻 · 复仇群像 · 隐忍扮猪吃虎 · 长线打脸</div>
+ <div class="tags"><span class="tag">开源无限流</span><span class="tag">机器续写</span><span class="tag" id="stat">…</span></div>
+ <div class="acts">
+   <a class="btn go" id="resume" href="read.html#1">开始阅读</a>
+   <a class="btn" id="epub" href="book.epub" download="镇狱之渊.epub">下载 EPUB</a>
+ </div>
+</header>
+<main id="toc"></main>
+<footer>开源的魂，开放的世界 · <a href="https://github.com/open-souls/open-souls">GitHub</a><br>机器持续续写，每回都有迹可循。</footer>
 </div><script>
-const feed=document.getElementById('feed'),castEl=document.getElementById('cast');
+const toc=document.getElementById('toc');
+const SEASON_NAME={1:'第一卷',2:'第一卷 · 镇狱之渊',3:'第二卷 · 知命'};
 fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
- if(!rows.length){feed.innerHTML='<div class="empty">村子还很安静。<br>跑一次 <code>python engine/village.py</code>，第一回就会落在这里。</div>';return;}
- const cast=[...new Set(rows.flatMap(r=>r.cast))];
- castEl.innerHTML=cast.map(n=>`<span class="who"><b>${n}</b></span>`).join('');
- feed.innerHTML=rows.map(r=>`<article class="ch">
-  <div class="no">第 ${r.n} 回 <span class="season">第 ${r.season||1} 季</span></div>
-  <h2>${r.title}</h2><div class="meta">${r.date} · ${r.cast.join(' / ')}</div>
-  <p>${(r.body||'').replace(/\n/g,'<br>')}</p></article>`).join('');
-}).catch(()=>{feed.innerHTML='<div class="empty">连载还没生成。</div>';});
+ if(!rows.length){toc.innerHTML='<div class="empty">连载还很安静。<br>跑一次 <code>python engine/site.py</code>，目录就会落在这里。</div>';return;}
+ document.getElementById('stat').textContent='连载至第 '+rows[rows.length-1].n+' 回';
+ const last=+localStorage.getItem('os-last')||0;
+ const seen=new Set(JSON.parse(localStorage.getItem('os-seen')||'[]'));
+ if(last){const r=document.getElementById('resume');r.href='read.html#'+last;r.textContent='继续读 · 第'+last+'回';}
+ const bySeason={};rows.forEach(r=>{(bySeason[r.season||1]=bySeason[r.season||1]||[]).push(r)});
+ toc.innerHTML=Object.keys(bySeason).sort((a,b)=>a-b).map(s=>{
+  const list=bySeason[s].map(r=>`<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''}" href="read.html#${r.n}">
+    <span class="dot"></span><span class="n">第${r.n}回</span><span class="t">${r.title}</span>
+    <span class="c">${(r.cast||[]).slice(0,3).join(' / ')}</span></a>`).join('');
+  return `<section class="season"><h2>${SEASON_NAME[s]||'第'+s+'卷'}</h2>${list}</section>`;
+ }).join('');
+}).catch(()=>{toc.innerHTML='<div class="empty">目录加载失败。</div>';});
 </script></body></html>
