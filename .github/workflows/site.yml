@@ -1,12 +1,7 @@
 name: 出版
 on:
-  push:
-    branches: [main]
-    paths:
-      - "seasons/02-xianxia/chronicle/**"
-      - "docs/index.html"
-      - "docs/read.html"
-      - "engine/site.py"
+  schedule:
+    - cron: "0 * * * *"
   workflow_dispatch:
 permissions:
   contents: read
