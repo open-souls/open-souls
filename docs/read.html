@@ -67,23 +67,30 @@ function markSeen(n){const s=new Set(JSON.parse(localStorage.getItem('os-seen')|
 function render(){
  const n=curN(),c=idx[n];
  if(!c){read.innerHTML='<div class="load">没有第'+n+'回。<br><a href="index.html" style="color:var(--ember)">回目录</a></div>';return;}
- document.title='第'+n+'回 '+c.title+' · 镇狱之渊';
- $('#crumb').textContent='第'+n+'回 · '+c.title;
- const prev=idx[n-1],next=idx[n+1];
- read.innerHTML=`<h1>第${n}回 · ${c.title}</h1>
+ const isInt=!!c.interlude;
+ const label=isInt?`插章 ${c.interlude} · ${c.title}`:`第${n}回 · ${c.title}`;
+ document.title=label+' · 镇狱之渊';
+ $('#crumb').textContent=label;
+ // 顺序按 rows（混合主线 + 插章），不再用 n-1/n+1（主线→插章会断）
+ const i=rows.findIndex(r=>r.n===n);
+ const prev=i>0?rows[i-1]:null, next=i>=0&&i<rows.length-1?rows[i+1]:null;
+ const pLabel=prev?(prev.interlude?`插章 ${prev.interlude} ${prev.title}`:`第${prev.n}回 ${prev.title}`):'已是开篇';
+ const nLabel=next?(next.interlude?`插章 ${next.interlude} ${next.title}`:`第${next.n}回 ${next.title}`):'追到这了';
+ read.innerHTML=`<h1>${label}</h1>
   <div class="meta">${c.date||''}${c.cast&&c.cast.length?'　'+c.cast.join(' / '):''}</div>
   ${c.hook?`<div class="hook">${c.hook}</div>`:''}
   <div class="body">${c.html}</div>
   <nav class="nav">
-   <a class="${prev?'':'dis'}" href="#${n-1}"><small>上一回</small><b>${prev?'第'+(n-1)+'回 '+prev.title:'已是开篇'}</b></a>
-   <a class="${next?'':'dis'}" href="#${n+1}"><small>下一回</small><b>${next?'第'+(n+1)+'回 '+next.title:'追到这了'}</b></a>
+   <a class="${prev?'':'dis'}" href="#${prev?prev.n:1}"><small>上一回</small><b>${pLabel}</b></a>
+   <a class="${next?'':'dis'}" href="#${next?next.n:1}"><small>下一回</small><b>${nLabel}</b></a>
   </nav>`;
  markSeen(n);window.scrollTo(0,0);
 }
 addEventListener('hashchange',render);
 addEventListener('keydown',e=>{
- if(e.key==='ArrowLeft'&&idx[curN()-1])location.hash=curN()-1;
- if(e.key==='ArrowRight'&&idx[curN()+1])location.hash=curN()+1;
+ const n=curN(),i=rows.findIndex(r=>r.n===n);
+ if(e.key==='ArrowLeft'&&i>0)location.hash=rows[i-1].n;
+ if(e.key==='ArrowRight'&&i>=0&&i<rows.length-1)location.hash=rows[i+1].n;
 });
 fetch('./chronicle.json?'+Date.now()).then(r=>r.json()).then(d=>{
  rows=d;d.forEach(r=>idx[r.n]=r);

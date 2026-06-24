@@ -13,6 +13,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEASON_DIR = os.path.join(ROOT, "seasons", "01-xianxia")
 CHRON_DIR = os.path.join(SEASON_DIR, "chronicle")
 DRAFTS_DIR = os.path.join(SEASON_DIR, "drafts")
+INTERLUDES_DIR = os.path.join(SEASON_DIR, "interludes")
 DOCS = os.path.join(ROOT, "docs")
 BOOK_TITLE = "镇狱之渊"
 BOOK_AUTHOR = "众魂 · Open Souls"
@@ -96,6 +97,7 @@ def collect(include_drafts=False):
     sources = [CHRON_DIR]
     if include_drafts:
         sources.append(DRAFTS_DIR)
+    sources.append(INTERLUDES_DIR)   # 插章固定包含（不是 drafts）
     # 第一遍：扫所有 cast，构造全局角色集合
     for src_dir in sources:
         if not os.path.isdir(src_dir):
@@ -119,16 +121,25 @@ def collect(include_drafts=False):
             if not fm.get("cast"):          # 跳过扩写副本等非正章
                 continue
             n = fm.get("chapter")
+            interlude_code = None
             if n is None:
                 mm = re.match(r"(\d+)", name)
                 n = int(mm.group(1)) if mm else None
+            elif isinstance(n, str) and n.startswith("I-"):
+                # 插章：保留 "I-016" 作为 code，n 用 1000+ 偏移避开主线章号
+                interlude_code = n
+                mm = re.match(r"(\d+)", n[2:])   # 跳过 "I-" 前缀再取数字
+                n = 1000 + int(mm.group(1)) if mm else None
+            else:
+                n = int(n)
             if n is None:
                 continue
-            n = int(n)
             html_text = render_body(body)
             declared = fm.get("cast", [])
             entry = {
                 "n": n,
+                "interlude": interlude_code,    # None for 主线，"I-016" for 插章
+                "insert_after": fm.get("insert_after"),
                 "season": fm.get("season", 1),
                 "title": str(fm.get("title", "")).strip(),
                 "date": dates.get(n, ""),

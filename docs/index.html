@@ -45,6 +45,8 @@ a.ch .n{font-family:"Noto Serif SC",serif;color:#9c8f74;font-size:13px;min-width
 a.ch .t{font-family:"Noto Serif SC",serif;font-weight:600;font-size:17px}
 a.ch .c{margin-left:auto;color:var(--whisper);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38%}
 a.ch.read .t,a.ch.read .n{color:#6f6a7e}
+a.ch.int .n{color:#5e7a6a;font-style:italic}
+a.ch.int .t{font-weight:500}
 a.ch.hide,.season.hide{display:none}
 a.ch .dot{width:6px;height:6px;border-radius:50%;background:var(--ember);align-self:center;flex:none;opacity:0}
 a.ch.last .dot{opacity:1}
@@ -113,10 +115,14 @@ function build(){
  const seen=new Set(JSON.parse(localStorage.getItem('os-seen')||'[]'));
  const bySeason={};ROWS.forEach(r=>{(bySeason[r.season]=bySeason[r.season]||[]).push(r)});
  toc.innerHTML=Object.keys(bySeason).sort((a,b)=>a-b).map(s=>{
-  const list=bySeason[s].map(r=>`<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''}"
+  const list=bySeason[s].map(r=>{
+    const isInt=!!r.interlude;
+    const nLabel=isInt?`插·${r.interlude}`:`第${r.n}回`;
+    return `<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''} ${isInt?'int':''}"
      data-season="${r.season}" data-cast="${eff(r).join('|')}" data-title="${norm(r.title)}" href="read.html#${r.n}">
-    <span class="dot"></span><span class="n">第${r.n}回</span><span class="t">${r.title}</span>
-    <span class="c">${eff(r).slice(0,3).join(' / ')}</span></a>`).join('');
+    <span class="dot"></span><span class="n">${nLabel}</span><span class="t">${r.title}</span>
+    <span class="c">${eff(r).slice(0,3).join(' / ')}</span></a>`;
+  }).join('');
   return `<section class="season" data-season="${s}"><h2>${SEASON_NAME[s]||'第'+s+'卷'}</h2>${list}</section>`;
  }).join('');
 }
