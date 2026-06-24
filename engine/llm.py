@@ -70,6 +70,13 @@ def _mock(user):
             "reflection": None,
         }, ensure_ascii=False)
 
+    if "【文笔检阅" in user:  # 独立编辑复读：mock 一律放行
+        return json.dumps({"verdict": "pass", "problems": []}, ensure_ascii=False)
+
+    if "【文笔重写" in user:  # 只改文笔层：mock 原样返回正文
+        chap = user.split("正文：", 1)[-1].rsplit("只输出 JSON", 1)[0].strip()
+        return json.dumps({"chapter": chap}, ensure_ascii=False)
+
     if "【审校" in user:
         chap = user.split("正文：", 1)[-1]
         if "再没亮过" in chap:

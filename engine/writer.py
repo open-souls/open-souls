@@ -1,10 +1,17 @@
-"""写手 skill 的脑子：策划 → 写手 → 审校(上线门)。审校不过线就带意见重写一次。"""
+"""写手 skill 的脑子：策划 → 写手 → 审校(上线门) → 文笔检阅(独立编辑反复读，不过就重写)。
+
+审校(critique) 看流量密码 + 安全；文笔检阅(prose_review + 文笔门) 单独把关「能不能读」——
+中英混写、逗号碎句这类机器腔，由 prose_lint 确定性卡死，再叠一道独立编辑 LLM 复读。
+文笔不过线就只改文笔层、反复重写；到上限还不过，compose 标 _prose_clean=False，
+由 village.py 拒发——宁可这一回不更，也不让垃圾稿上线。
+"""
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
 import llm
 import prose_lint
 
-BAR = 9  # 满分 14，低于此退回重写
+BAR = 9          # 满分 14，低于此退回重写
+PROSE_TRIES = 3  # 文笔门最多重写几次，到顶还不过就拒发
 
 REGISTER = (
     "你是一部开放无限流网文的写作系统，目标是好玩、有流量、有粘度——读者会追更、会截图转发。"
@@ -89,8 +96,41 @@ def _prose_note(chapter):
     return "；".join(bad)
 
 
+def prose_review(chapter):
+    """独立编辑复读：只看文笔（不管剧情/流量），挑中英混写、逗号碎句、机器腔。"""
+    user = ("【文笔检阅 / 独立编辑复读】你是另一位编辑，只读文笔，不评剧情、不评流量。"
+            "盯三件事：(1) 正文有没有混进英文（he said / she said 这类对话标签必须是中文）；"
+            "(2) 有没有把句子剁成一两字一顿的逗号碎句（『她，没有，敲门，进来』这种机器腔）；"
+            "(3) 读起来顺不顺、像不像人写的克制散文。挑出具体问题，给可执行的修改方向。\n\n正文：\n"
+            + chapter +
+            '\n只输出 JSON：{"verdict":"pass"或"fail","problems":["具体问题1","具体问题2"]}')
+    try:
+        return llm.parse_json(llm.complete(REGISTER, user, scene_weight=3))
+    except Exception:
+        return {"verdict": "pass", "problems": []}
+
+
+def polish(chapter, note):
+    """只改文笔层：英文标签转中文、碎句揉顺，情节/对话/人物一律不动。返回新正文。"""
+    user = ("【文笔重写 / 只改文笔层，不动情节】下面这章文笔不过关：" + note +
+            "\n把英文对话标签改成中文（他道/她说/他停了停），把一两字一顿的逗号碎句揉成通顺的"
+            "文言短句，向克制、留白的开篇文笔看齐。铁律：情节、对话语义、人物、出场顺序一律不变，"
+            "不增不删情节，只把文笔揉顺。\n\n正文：\n" + chapter +
+            '\n只输出 JSON：{"chapter":"改好的正文"}')
+    try:
+        out = llm.parse_json(llm.complete(REGISTER, user, scene_weight=8))
+        return out.get("chapter") or chapter
+    except Exception:
+        return chapter
+
+
 def compose(ctx, world, beat, target, rating, weight):
-    """Returns (chapter_dict, critique, spec). Gates on the rubric; one rewrite if it fails."""
+    """Returns (chapter_dict, critique, spec).
+
+    两道门：先按 rubric(流量+安全+节奏) 重写一次；再过文笔检阅门——独立编辑复读 +
+    prose_lint 确定性卡，文笔不过就只改文笔层反复重写；到 PROSE_TRIES 仍不过则
+    crit['prose_clean']=False，village.py 据此拒发，不让垃圾稿上线。
+    """
     spec = plan(ctx, world, beat, rating, weight)
     opening = best_opening(ctx, spec, rating)  # 试 3 个开场，取强度最高那个起笔
     out = draft(ctx, spec, world, target, rating, opening=opening)
@@ -108,6 +148,20 @@ def compose(ctx, world, beat, target, rating, weight):
         out = draft(ctx, spec, world, target, rating, note=note, opening=opening)
         crit = critique(out.get("chapter", ""), spec, rating)
         crit["rewritten"] = True
-        crit["prose"] = _prose_note(out.get("chapter", "")) or "ok"
+
+    # —— 文笔检阅门：独立编辑反复读，不过就只改文笔层重写 ——
+    polishes = 0
+    for _ in range(PROSE_TRIES):
+        det = _prose_note(out.get("chapter", ""))    # 确定性门
+        rev = prose_review(out.get("chapter", ""))    # 独立编辑复读
+        if not det and rev.get("verdict") != "fail":
+            break
+        fix = det
+        if rev.get("problems"):
+            fix += ("｜检阅：" + "；".join(str(p) for p in rev["problems"][:4]))
+        out["chapter"] = polish(out.get("chapter", ""), fix)
+        polishes += 1
+    crit["prose_polishes"] = polishes
+    crit["prose_clean"] = not _prose_note(out.get("chapter", ""))
     _log_hit(spec, crit)
     return out, crit, spec

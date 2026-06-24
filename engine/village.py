@@ -106,6 +106,13 @@ def tick(cfg, souls, sdir, world, ties, arc, pressure):
     out, crit, spec = writer.compose(ctx, world, SE.beat_line(arc),
                                      cfg["target_chapter_chars"], rating, weight)
 
+    # 文笔检阅门：到上限还没揉顺（中英混写 / 逗号碎句）就拒发——
+    # 宁可这一回不更，也不让垃圾稿上线。不写文件、不动关系/记忆、不推进节拍。
+    if not crit.get("prose_clean", True):
+        print(f"⚠ 本回文笔未过检阅门（重写 {crit.get('prose_polishes','?')} 次仍不过），"
+              f"跳过不发布。[{' / '.join(chosen)}]")
+        return
+
     for name, role in (out.get("incarnations") or {}).items():
         if name in souls:
             st = states[name]
