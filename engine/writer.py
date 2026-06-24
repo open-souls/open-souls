@@ -2,6 +2,7 @@
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
 import llm
+import prose_lint
 
 BAR = 9  # 满分 14，低于此退回重写
 
@@ -75,6 +76,19 @@ def _log_hit(spec, crit):
                 f"hook: {str(spec.get('hook',''))[:28]} | safe={crit.get('safe')}\n")
 
 
+def _prose_note(chapter):
+    """跑确定性文笔门，返回一句修改意见；过线返回空串。"""
+    m = prose_lint.measure(chapter)
+    if m["chars"] < 50:
+        return ""
+    bad = []
+    if m["eng"]:
+        bad.append("正文别夹英文，对话标签写中文（他道/她说/他停了停）")
+    if m["micro"] > prose_lint.MICRO_ERROR or m["avg"] < prose_lint.AVGSEG_ERROR:
+        bad.append("别把句子剁成一两字一顿的碎片，把逗号碎句揉成通顺的中文短句")
+    return "；".join(bad)
+
+
 def compose(ctx, world, beat, target, rating, weight):
     """Returns (chapter_dict, critique, spec). Gates on the rubric; one rewrite if it fails."""
     spec = plan(ctx, world, beat, rating, weight)
@@ -82,14 +96,18 @@ def compose(ctx, world, beat, target, rating, weight):
     out = draft(ctx, spec, world, target, rating, opening=opening)
     crit = critique(out.get("chapter", ""), spec, rating)
     rhythm_fail = crit.get("opening_intensity", 10) < 7 or not crit.get("beats_on_grid", True)
-    if (not crit.get("safe", True)) or rhythm_fail or crit.get("total", 0) < BAR:
+    prose_fail = _prose_note(out.get("chapter", ""))  # 文笔硬门：中英混写 / 逗号碎句
+    if (not crit.get("safe", True)) or rhythm_fail or prose_fail or crit.get("total", 0) < BAR:
         note = crit.get("fix", "")
         if not crit.get("safe", True):
             note += "｜安全：" + crit.get("safety_reason", "")
         if rhythm_fail:
             note += "｜节奏：开场第一行就抛冲突/谜(强度≥7)，转折卡在 ≈22%/47%/68%，89% 再翻一次留钩子。"
+        if prose_fail:
+            note += "｜文笔：" + prose_fail
         out = draft(ctx, spec, world, target, rating, note=note, opening=opening)
         crit = critique(out.get("chapter", ""), spec, rating)
         crit["rewritten"] = True
+        crit["prose"] = _prose_note(out.get("chapter", "")) or "ok"
     _log_hit(spec, crit)
     return out, crit, spec
