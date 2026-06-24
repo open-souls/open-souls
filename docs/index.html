@@ -31,6 +31,8 @@ background:linear-gradient(180deg,#f5ecd9,var(--ember));-webkit-background-clip:
 .who button{font:inherit;font-size:12px;cursor:pointer;color:var(--whisper);background:none;border:1px solid var(--rule);border-radius:999px;padding:4px 11px;transition:.15s}
 .who button:hover{color:var(--page);border-color:#564f63}
 .who button.on{color:var(--ember);border-color:var(--ember)}
+.who button em{font-style:normal;color:var(--ember);font-weight:600;margin-left:3px}
+.who button small{font-size:10px;color:var(--dim);margin-left:4px}
 #q{font:inherit;font-size:13px;color:var(--page);background:var(--ink2);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;width:150px;outline:none}
 #q:focus{border-color:var(--ember)}
 .count{text-align:center;color:var(--whisper);font-size:12px;margin:2px 0 0;min-height:16px}
@@ -92,8 +94,12 @@ fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
  // 主要角色（出场≥5回）— 用正文真实出现 (r.present) 而非 frontmatter cast 声明
  const eff=r=>r.present&&r.present.length?r.present:r.cast;
  const freq={};rows.forEach(r=>eff(r).forEach(c=>freq[c]=(freq[c]||0)+1));
+ const pov={};rows.forEach(r=>{const p=r.pov;if(p)pov[p]=(pov[p]||0)+1});
  const mains=Object.entries(freq).filter(([,n])=>n>=5).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
- who.innerHTML=mains.map(n=>`<button data-c="${n}">${n} <em>${freq[n]}</em></button>`).join('');
+ who.innerHTML=mains.map(n=>{
+   const p=pov[n]||0;
+   return `<button data-c="${n}" title="正文出现 ${freq[n]} 回 · POV ${p} 回">${n} <em>${freq[n]}</em><small>POV ${p}</small></button>`;
+ }).join('');
  who.onclick=e=>{const b=e.target.closest('button');if(!b)return;
    const c=b.dataset.c;st.cast=st.cast===c?null:c;
    [...who.children].forEach(x=>x.classList.toggle('on',x.dataset.c===st.cast));apply();};
@@ -127,6 +133,7 @@ function apply(){
    sec.classList.toggle('hide',!any);
  });
  const f=st.cast||st.q||st.season!=='all';
- count.textContent=f?`共 ${shown} 回`+(st.cast?` · ${st.cast}出场`:''):'';
+ const total=ROWS.length;
+ count.textContent=f?`共 ${shown} 回`+(st.cast?` · ${st.cast}出场`:''):`共 ${total} 回 · 角色按钮显示「正文出现次数」与「POV 章数」`;
 }
 </script></body></html>
