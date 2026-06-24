@@ -1,0 +1,265 @@
+✗ seasons\01-xianxia\chronicle\001-退婚书.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\024-放榜.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\032-取药日.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\033-梧桐下.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\036-第二人.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\042-知味楼.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\044-师徒.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\051-铜板.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\061-转移.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\072-灰衣.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\074-七十里.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\076-阵眼.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\078-玉枢.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\080-压太久.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\081-顺路.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\082-我自己.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\091-三年.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\098-监守.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\099-二十八岁.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\101-访客记录.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\102-后院空档.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\103-就在宗门.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\104-灯下等.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\106-收东西.md
+   warn   微碎片率 33% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\107-监守.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\108-不是余伯.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\109-三个字.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\110-未寄.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\111-三日.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\112-落子.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\113-三条.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\114-断网.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\115-旧交.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\116-底牌.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\117-同夜.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\118-早知.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\119-家传.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\120-殷勤.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\121-锋芒.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\123-二十.md
+   warn   微碎片率 39% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\124-上门.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\126-看你.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\127-联线.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\133-阿湄沉了.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\135-那一问.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\139-识忆.md
+   warn   微碎片率 33% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\140-空着.md
+   warn   微碎片率 39% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\141-知道.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\142-剑骨.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\143-传信.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\146-出手.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\147-备行.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\148-账册.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\149-为谁.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\158-排查.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\163-起身.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\164-缺页.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\186-另压一件.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\188-是他.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\190-连着谁.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\191-为你.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\192-没人问.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\193-见他.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\195-一声.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\196-不愿意.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\199-不一样.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\200-散了.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\203-见过了.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\213-白做了.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+   warn   正文残留 1 处拉丁字母(交叉引用/标记?)，建议清掉
+✗ seasons\01-xianxia\chronicle\215-寻问.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\235-放了一个.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\255-又一个.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\266-等不了.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\270-空缺里.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\271-家里的.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\274-还活着.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\276-那个人.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\281-另一半.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\283-保管了.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\284-先一步.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\285-路过了.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\286-去过了.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\287-帮个忙.md
+   ERROR  填充描写：3 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\288-腾出来.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\289-见一面.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\290-读出来.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\291-等一下.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\292-划掉了.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\293-快了.md
+   ERROR  填充描写：2 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\294-那个东西.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\295-快到了.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\298-不在那.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\300-那一年.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+✗ seasons\01-xianxia\chronicle\320-已验了.md
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+⚠ seasons\01-xianxia\chronicle\395-告诉你.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\396-那张纸.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\397-无命数.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\399-大局.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\400-入水.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\401-两天.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\402-没锁.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\403-进门.md
+   warn   微碎片率 34% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\404-不等.md
+   warn   微碎片率 34% 偏高(>30%)，可再揉顺
+   warn   平均段长 4.5 偏短(<4.5)
+⚠ seasons\01-xianxia\chronicle\405-遗命.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\406-那封信.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\407-北上.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+   warn   平均段长 4.5 偏短(<4.5)
+⚠ seasons\01-xianxia\chronicle\408-等你.md
+   warn   微碎片率 34% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\410-兑了.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\412-一个人.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\418-认得.md
+   ERROR  逗号碎句：微碎片率 79% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.7 < 3.5（句子被剁太碎）
+✗ seasons\01-xianxia\chronicle\419-那条路.md
+   ERROR  逗号碎句：微碎片率 79% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.5 < 3.5（句子被剁太碎）
+✗ seasons\01-xianxia\chronicle\420-棋子.md
+   ERROR  逗号碎句：微碎片率 91% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.2 < 3.5（句子被剁太碎）
+✗ seasons\01-xianxia\chronicle\421-那半块糖.md
+   ERROR  逗号碎句：微碎片率 83% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.4 < 3.5（句子被剁太碎）
+✗ seasons\01-xianxia\chronicle\422-来迟.md
+   ERROR  逗号碎句：微碎片率 90% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.2 < 3.5（句子被剁太碎）
+⚠ seasons\01-xianxia\chronicle\423-接下.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+✗ seasons\01-xianxia\chronicle\424-暂歇.md
+   ERROR  逗号碎句：微碎片率 43% > 42%，把一两字一顿的碎句合成通顺短句
+✗ seasons\01-xianxia\chronicle\425-知情.md
+   ERROR  中英混写：正文出现 2 处英文对话标签(he said / she said …)，改成中文
+   ERROR  逗号碎句：微碎片率 95% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.1 < 3.5（句子被剁太碎）
+   warn   正文残留 4 处拉丁字母(交叉引用/标记?)，建议清掉
+✗ seasons\01-xianxia\chronicle\426-家书.md
+   ERROR  中英混写：正文出现 4 处英文对话标签(he said / she said …)，改成中文
+   ERROR  逗号碎句：微碎片率 93% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.0 < 3.5（句子被剁太碎）
+   warn   正文残留 8 处拉丁字母(交叉引用/标记?)，建议清掉
+✗ seasons\01-xianxia\chronicle\427-动身.md
+   ERROR  中英混写：正文出现 3 处英文对话标签(he said / she said …)，改成中文
+   ERROR  逗号碎句：微碎片率 95% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.0 < 3.5（句子被剁太碎）
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+   warn   正文残留 6 处拉丁字母(交叉引用/标记?)，建议清掉
+✗ seasons\01-xianxia\chronicle\428-算过.md
+   ERROR  中英混写：正文出现 5 处英文对话标签(he said / she said …)，改成中文
+   ERROR  逗号碎句：微碎片率 92% > 42%，把一两字一顿的碎句合成通顺短句
+   ERROR  逗号碎句：平均段长 2.1 < 3.5（句子被剁太碎）
+   ERROR  填充描写：1 处「屋里安静/院里静/夜很静/心里咚」之类——删了，或换成具体写景写人
+   warn   正文残留 10 处拉丁字母(交叉引用/标记?)，建议清掉
+
+扫了 428 章：67 章退回(ERROR)，53 章有提醒(WARN)。
+文笔没过线。中文叙述、把碎句揉成通顺短句，再上线。

@@ -47,12 +47,17 @@ def parse_chapter_range(spec):
 
 
 def find_files(nums):
+    """Find canonical chapter files. Prefer shorter filename (canonical)."""
     files = []
     for n in nums:
-        for f in sorted(os.listdir(CHRONICLE)):
-            if re.match(rf"^{n:03d}-", f):
-                files.append((n, os.path.join(CHRONICLE, f)))
-                break
+        candidates = [f for f in os.listdir(CHRONICLE) if re.match(rf"^{n:03d}-", f)]
+        # Prefer canonical: sort by length, then alphabetically
+        # Skip files with extra markers like "-扩写" / "-alt"
+        canonical = [f for f in candidates if not re.search(r"-(?:扩写|alt|draft|副本)", f)]
+        chosen = (canonical or candidates)
+        chosen.sort(key=lambda x: (len(x), x))
+        if chosen:
+            files.append((n, os.path.join(CHRONICLE, chosen[0])))
     return files
 
 
