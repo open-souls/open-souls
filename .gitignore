@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 # 由 engine/site.py 在部署时重建，无需入库
 docs/*.epub
+# Claude Code 本地会话状态（runtime lock），不入库
+.claude/
