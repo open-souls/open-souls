@@ -21,6 +21,8 @@ jobs:
       - run: pip install pyyaml
       - env: { ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }} }
         run: python engine/village.py --ticks ${{ github.event.inputs.ticks || 1 }} --pressure ${{ github.event.inputs.pressure || 0.2 }}
+      - name: 文笔上线门（兜底：垃圾稿绝不入库）
+        run: python engine/prose_lint.py
       - run: |
           git config user.name "村子史官"; git config user.email "chronicler@village.local"
           git add souls seasons docs CAST.md

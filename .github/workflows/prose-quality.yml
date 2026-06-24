@@ -1,0 +1,17 @@
+name: 验文笔
+on:
+  pull_request:
+    paths: ["seasons/**/chronicle/**"]
+  push:
+    branches: [main]
+    paths: ["seasons/**/chronicle/**"]
+jobs:
+  prose-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - name: 文笔上线门（卡中英混写 + 逗号碎句）
+        run: python engine/prose_lint.py
