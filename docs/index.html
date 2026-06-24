@@ -82,7 +82,9 @@ const eff=r=>r.present&&r.present.length?r.present:r.cast;
 fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
  ROWS=rows;
  if(!rows.length){toc.innerHTML='<div class="empty">连载还很安静。<br>跑一次 <code>python engine/site.py</code>，目录就会落在这里。</div>';return;}
- document.getElementById('stat').textContent='连载至第 '+rows[rows.length-1].n+' 回';
+ const mainRows=rows.filter(r=>!r.interlude);
+ const lastN=mainRows.length?Math.max(...mainRows.map(r=>r.n)):0;
+ document.getElementById('stat').textContent='连载至第 '+lastN+' 回';
  const last=+localStorage.getItem('os-last')||0;
  if(last){const r=document.getElementById('resume');r.href='read.html#'+last;r.textContent='继续读 · 第'+last+'回';}
 
