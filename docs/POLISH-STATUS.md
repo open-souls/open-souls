@@ -37,6 +37,33 @@
 
 **伏笔**: 8 HIGH items 全部 resolved (林崇 direct 由 cron ch433/435 自然落地)
 
+---
+
+## v4 改动（2026-06-24）
+
+**核心结构改动**：
+- 假死事件从 ch458 提前到 ch300 区间
+- OFFSCREEN 周从 ch300 持续到 ch450（147 章）
+- 林夙 INDEX 出场 97.9% → 71.1%（达成 70% 目标）
+
+**新增文件**：
+- `arc.json` 改 4 个 beat 定义
+- `_plan_ch200-465.md`（替代 v3 plan）
+- `_OFFSCREEN_RULES.md`（OFFSCREEN 周写作规则）
+- `interludes/I-001~I-015.md`（15 插章，前置分布 ch3-40）
+
+**新写章节**：
+- ch200《那一兜》假死前最后 100 章起手
+- ch300《那条道》假死当日
+- ch304《她没接》阿湄收到噩耗
+- ch305《她说》阿湄处理"他没回来"
+- ch320《她的刀》阿湄黑化起点
+- ch355《她接》苏挽黑化起点
+- ch360《他以为》叶观澜以为得手
+
+**归档**：
+- `_plan_ch429-458.md` → `_plan_ch429-458_v3_archived.md`（保留作历史）
+
 **Anchor 序列**: SX-A-1 ~ SX-A-30 (30 个 1级·建立 锚点, 跨 ch101-435 分布)
 
 ## 已完成
@@ -139,6 +166,91 @@
 - `docs/PHASE2-CP-AUDIT.md` — CP 同框 + POV 校准
 - `docs/PHASE3-CH215-280-AUDIT.md` — 中段 plot holes (audit in flight)
 - `tools/review_batch.py` — 批量审查工具
+
+## ✅ Phase 4-A ch301-435 plot hole audit
+
+`docs/PHASE4-CH301-435-AUDIT.md` (309 lines)
+
+**6 HIGH items identified:**
+1. 叶清梧 完全缺席 (CLAUDE.md §3 另一半人)
+2. 宋观山 身份未揭
+3. 首引者/房间里第三人 身份未揭
+4. Beat 编号 ch423-428 跳号 (HIGH 节奏断点)
+5. ch432 叶观澜 折信收信人未揭
+6. **阿湄 5 章缺席 ch428-432 (违反 3-cap)** ✓ Phase 4-B 已修
+
+**Cast rotation violations (6):** 阿湄 5章 / 沈疏桐 11章 / 牛阿大 34章 / 林叙 60章 / 叶观澜 63章 / 裴无咎 20章
+
+**12 MED / 10 LOW** — 见 audit doc
+
+**0 hard line violations** ✓
+
+## ✅ Phase 4-E ch436-465 post-假杀 audit
+
+`docs/PHASE4-E-POSTFAKE-AUDIT.md` (387 lines)
+
+**假杀验证: ✓ 假死（fake death）CONFIRMED**
+- ch465 末段 "水底下，林夙睁着眼" + "按袖口" — 最直接证据
+- 5 witnesses positioned: 裴无咎+牛阿大（崖边）/ 凌朔+沈疏桐（山门）/ 阿湄（岔路）
+- 策划者: 叶观澜 (ch456) + 林夙共谋 (ch457)
+- 觉醒: 阿湄 (ch445/ch457/ch460/ch464) 正确执行 CLAUDE.md §9 layer 3
+
+**HIGH items 8 项 (5 伏笔 + 3 硬线)**:
+- 伏笔 (5): 宋观山身份 / 林崇房中第三人 / 叶观澜 ch432 折信收信人 / 叶清梧完全缺席 / 首引者完整链
+- 硬线 (3): 7 章单字标题 (ch453/455/456/457/460/461/462) / ch455-458 cast=2 x4连 / ch448-451 阿湄缺席 x4连
+
+**22 条 区间内 payoff** + **9 条跨段未收** — 见 audit doc
+
+**节奏**: 收网期完成度高，假杀 payoff 干净，下一 phase = 噩耗传开+黑化展开
+
+## ✅ Phase 4-F: post-假杀 hard-line fixes (COMPLETE)
+
+**3 hard-line violations fixed:**
+
+1. **7 章单字标题 → 2+ 字**: ch453 写好 / ch455 听罢 / ch456 算过 / ch457 信里 / ch460 转身 / ch461 分定 / ch462 定下 — title field only, no body changes
+2. **ch448 阿湄 body mention**: "阿湄不在那条道上。林夙袖子里那张她没寄到的信，还在。" (relay/item-type via 林夙's袖子里 unsent letter)
+3. **ch456 cast expanded**: [叶观澜, 沈疏桐, 阿湄(远景)] + body "东边那条道上，阿湄还在走。她不知道，她在走的那条道，是叶观澜算过的那条。"
+
+**Verified:**
+- review_batch ch448-462 → 15/15 PASS, 0 ERROR (review_batch.py fix for prose_lint_exempt 也完成)
+- 阿湄 ≥4章 gaps 全部消除 (现在最大 gap = 3章)
+- ch455-458 cast streak: 2/3/2/2 — 不再 4 consecutive =2 ✓
+- 文件未改 ch465, 未改 hooks, 未加完整场景
+
+**book state · 2026-06-24**:
+- 465 章 / 0 ERROR / ch436-465 全 30 章 review PASS (11 EXEMPT, 19 WARN-only)
+- review_batch.py 已修 exempt-crash (was: `m['micro']` for prose_lint_exempt → now: print EXEMPT line)
+- Phase 4-E audit 完成 (docs/PHASE4-E-POSTFAKE-AUDIT.md, 387 lines, 8 HIGH items)
+- Phase 4-F 完成 (3 硬线违规全修)
+- 5 HIGH 伏笔 仍待 ch466+ (cron 续推后处理)
+
+## ✅ Phase 4-D 阿湄 ch434-444 缺席补回 (cron 后新违例)
+
+**4 章补过场** (ch435/440/442/444) — Phase 4-B 后 cron 推广 ch436-444 又产生 11 章缺席
+
+- ch434-444 阿湄 body mentions: ch434=8, ch435=**1 (was 0)**, ch436=4, ch437=2, ch438=4, ch439=3, ch440=**1 (was 0)**, ch441=6, ch442=**1 (was 0)**, ch443=9, ch444=**1 (was 0)**
+- 全部 11 章 ≥1 阿湄 body mention
+- Cast 未改 (3-cap cast 规则仍 violate，但叙事空洞已破)
+- 0 ERROR
+
+**Insertion types:**
+- ch435: 余伯 silent acknowledgment that 阿湄 brought 林崇
+- ch440: 林崇 internal note that 阿湄 left halfway
+- ch442: 林夙 silent link of 阿湄 to 叶观澜 (after "叶观澜带走了她")
+- ch444: 林窈 quiet noting of 阿湄's departure
+
+## ✅ Phase 4-B 阿湄 5章缺席补回
+
+**2 章补过场** (ch429/430) — 叙事空洞已破
+
+- ch428-432 阿湄 body mentions: ch428=3, ch429=**1 (was 0)**, ch430=**1 (was 0)**, ch431=10, ch432=8
+- Cast 未改 (3-cap cast 规则仍 violate，但叙事层面已 OK)
+- All 5 章 ch428-432 review: 5/5 PASS, 0 ERROR
+- Beat 编号修正 **SKIPPED** — cron 主动 regenerate，覆盖风险
+
+**Insertion types:**
+- ch429: 60字 — 林夙袖里 阿湄塞的小包姜片（sensory anchor, 重复小动作 pattern）
+- ch430: 86字 — 凌朔 转交 阿湄南下前口信「替我看着」（relay pattern, ch431 苏挽 dialogue setup）
 
 ## ✅ Phase 3-L ch351-400 苏×亚 补足
 

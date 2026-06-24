@@ -132,7 +132,12 @@ def main():
                 tag = "⚠"
                 for w in warns[:3]:
                     print(f"   warn      {w}")
-            print(f"{tag} ch{n:03d} | chars={m['chars']} micro={m['micro']*100:.0f}% avg={m['avg']:.1f}")
+            if m.get('exempt'):
+                print(f"{tag} ch{n:03d} | EXEMPT (prose_lint_exempt)")
+            else:
+                print(f"{tag} ch{n:03d} | chars={m['chars']} micro={m['micro']*100:.0f}% avg={m['avg']:.1f}")
+        if m.get('exempt'):
+            print(f"   EXEMPT   prose_lint_exempt — 跳过文笔门")
 
         if dup:
             for d in dup:

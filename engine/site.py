@@ -12,6 +12,7 @@ import os, re, json, glob, html, zipfile, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEASON_DIR = os.path.join(ROOT, "seasons", "01-xianxia")
 CHRON_DIR = os.path.join(SEASON_DIR, "chronicle")
+DRAFTS_DIR = os.path.join(SEASON_DIR, "drafts")
 DOCS = os.path.join(ROOT, "docs")
 BOOK_TITLE = "镇狱之渊"
 BOOK_AUTHOR = "众魂 · Open Souls"
@@ -62,37 +63,43 @@ def load_dates():
     return dates
 
 
-def collect():
+def collect(include_drafts=False):
     dates = load_dates()
     by_n = {}
-    for path in glob.glob(os.path.join(CHRON_DIR, "*.md")):
-        name = os.path.basename(path)
-        if name == "INDEX.md":
+    sources = [CHRON_DIR]
+    if include_drafts:
+        sources.append(DRAFTS_DIR)
+    for src_dir in sources:
+        if not os.path.isdir(src_dir):
             continue
-        fm, body = split_front_matter(open(path, encoding="utf-8").read())
-        if not fm.get("cast"):          # 跳过扩写副本等非正章
-            continue
-        n = fm.get("chapter")
-        if n is None:
-            mm = re.match(r"(\d+)", name)
-            n = int(mm.group(1)) if mm else None
-        if n is None:
-            continue
-        n = int(n)
-        entry = {
-            "n": n,
-            "season": fm.get("season", 1),
-            "title": str(fm.get("title", "")).strip(),
-            "date": dates.get(n, ""),
-            "cast": fm.get("cast", []),
-            "pov": fm.get("pov", ""),
-            "hook": str(fm.get("hook", "")).strip(),
-            "html": render_body(body),
-        }
-        # 同回多文件时，优先 frontmatter 字段更全的（有 hook 的）
-        prev = by_n.get(n)
-        if prev is None or (not prev["hook"] and entry["hook"]):
-            by_n[n] = entry
+        for path in glob.glob(os.path.join(src_dir, "*.md")):
+            name = os.path.basename(path)
+            if name == "INDEX.md":
+                continue
+            fm, body = split_front_matter(open(path, encoding="utf-8").read())
+            if not fm.get("cast"):          # 跳过扩写副本等非正章
+                continue
+            n = fm.get("chapter")
+            if n is None:
+                mm = re.match(r"(\d+)", name)
+                n = int(mm.group(1)) if mm else None
+            if n is None:
+                continue
+            n = int(n)
+            entry = {
+                "n": n,
+                "season": fm.get("season", 1),
+                "title": str(fm.get("title", "")).strip(),
+                "date": dates.get(n, ""),
+                "cast": fm.get("cast", []),
+                "pov": fm.get("pov", ""),
+                "hook": str(fm.get("hook", "")).strip(),
+                "html": render_body(body),
+            }
+            # 同回多文件时，优先 frontmatter 字段更全的（有 hook 的）
+            prev = by_n.get(n)
+            if prev is None or (not prev["hook"] and entry["hook"]):
+                by_n[n] = entry
     return [by_n[n] for n in sorted(by_n)]
 
 
@@ -178,8 +185,13 @@ def build_epub(chapters, out_path):
 # ---------- main ----------
 
 def main():
+    import argparse
+    p = argparse.ArgumentParser()
+    p.add_argument("--include-drafts", action="store_true",
+                   help="也读 seasons/*/drafts/ 下的草稿（默认只读 chronicle/）")
+    args = p.parse_args()
     os.makedirs(DOCS, exist_ok=True)
-    chapters = collect()
+    chapters = collect(include_drafts=args.include_drafts)
     with open(os.path.join(DOCS, "chronicle.json"), "w", encoding="utf-8") as f:
         json.dump(chapters, f, ensure_ascii=False, separators=(",", ":"))
     epub_path = os.path.join(DOCS, BOOK_TITLE + ".epub")

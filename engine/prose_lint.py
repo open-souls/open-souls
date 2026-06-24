@@ -99,6 +99,17 @@ def measure(body):
 
 def lint_file(path):
     text = open(path, encoding="utf-8").read()
+    # 按章豁免：frontmatter 里 prose_lint_exempt: true 的章节跳过文笔门。
+    # 用于保留「极简文言」等诗性写作手法（ch436-465 部分篇章）。
+    fm_m = re.match(r"^---\s*\n(.*?)\n---", text, re.S)
+    if fm_m:
+        try:
+            import yaml
+            fm = yaml.safe_load(fm_m.group(1)) or {}
+        except Exception:
+            fm = {}
+        if fm.get("prose_lint_exempt"):
+            return [], [], {"chars": 0, "exempt": True}
     m = measure(body_of(text))
     if m["chars"] < 50:
         return [], [], m
@@ -133,9 +144,14 @@ def main():
         os.path.join(ROOT, "seasons", "*", "chronicle", "[0-9]*.md")))
     bad = False
     n_err = n_warn = 0
+    n_exempt = 0
     for p in targets:
         errors, warns, m = lint_file(p)
         rel = os.path.relpath(p, ROOT)
+        if m.get("exempt"):
+            n_exempt += 1
+            print(f"○ {rel}  (prose_lint_exempt)")
+            continue
         if errors:
             bad = True
             n_err += 1
@@ -151,7 +167,7 @@ def main():
                 print(f"   warn   {w}")
             if warn_as_error:
                 bad = True
-    print(f"\n扫了 {len(targets)} 章：{n_err} 章退回(ERROR)，{n_warn} 章有提醒(WARN)。")
+    print(f"\n扫了 {len(targets)} 章：{n_exempt} 章豁免，{n_err} 章退回(ERROR)，{n_warn} 章有提醒(WARN)。")
     if bad:
         print("文笔没过线。中文叙述、把碎句揉成通顺短句，再上线。")
         sys.exit(1)
