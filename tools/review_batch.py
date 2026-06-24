@@ -32,17 +32,17 @@ HARDLINE_PATTERNS = [
 
 
 def parse_chapter_range(spec):
-    """Parse 'ch001-020' or 'ch005,ch007-010' into list of chapter numbers."""
+    """Parse 'ch001-ch020' or 'ch005,ch007-ch010' or 'ch420-428' into list of chapter numbers."""
     nums = []
     for part in spec.split(","):
-        m = re.match(r"^ch(\d+)-(\d+)$", part.strip())
-        if m:
+        s = part.strip()
+        # accept ch420-ch428, ch420-428, 420-428
+        m = re.match(r"^(?:ch)?(\d+)(?:[-](?:ch)?(\d+))?$", s)
+        if m and m.group(2):
             a, b = int(m.group(1)), int(m.group(2))
             nums.extend(range(a, b + 1))
-        else:
-            m = re.match(r"^ch(\d+)$", part.strip())
-            if m:
-                nums.append(int(m.group(1)))
+        elif m and m.group(1):
+            nums.append(int(m.group(1)))
     return sorted(set(nums))
 
 

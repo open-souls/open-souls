@@ -1,0 +1,133 @@
+⚠ seasons\01-xianxia\chronicle\074-七十里.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\076-阵眼.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\078-玉枢.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\080-压太久.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\081-顺路.md
+   warn   微碎片率 33% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\091-三年.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\098-监守.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\099-二十八岁.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\101-访客记录.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\102-后院空档.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\103-就在宗门.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\104-灯下等.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\106-收东西.md
+   warn   微碎片率 33% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\107-监守.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\108-不是余伯.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\109-三个字.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\110-未寄.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\112-落子.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\113-三条.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\114-断网.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\115-旧交.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\116-底牌.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\117-同夜.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\118-早知.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\119-家传.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\120-殷勤.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\121-锋芒.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\123-二十.md
+   warn   微碎片率 39% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\124-上门.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\127-联线.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\133-阿湄沉了.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\135-那一问.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\139-识忆.md
+   warn   微碎片率 33% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\140-空着.md
+   warn   微碎片率 39% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\141-知道.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\142-剑骨.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\143-传信.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\146-出手.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\147-备行.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\148-账册.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\149-为谁.md
+   warn   微碎片率 40% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\158-排查.md
+   warn   微碎片率 41% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\163-起身.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\164-缺页.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\213-白做了.md
+   warn   正文残留 1 处拉丁字母(交叉引用/标记?)，建议清掉
+⚠ seasons\01-xianxia\chronicle\395-告诉你.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\396-那张纸.md
+   warn   微碎片率 31% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\397-无命数.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\399-大局.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\400-入水.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\401-两天.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\402-没锁.md
+   warn   微碎片率 30% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\403-进门.md
+   warn   微碎片率 34% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\404-不等.md
+   warn   微碎片率 34% 偏高(>30%)，可再揉顺
+   warn   平均段长 4.5 偏短(<4.5)
+⚠ seasons\01-xianxia\chronicle\405-遗命.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\406-那封信.md
+   warn   微碎片率 37% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\407-北上.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+   warn   平均段长 4.5 偏短(<4.5)
+⚠ seasons\01-xianxia\chronicle\408-等你.md
+   warn   微碎片率 34% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\410-兑了.md
+   warn   微碎片率 35% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\412-一个人.md
+   warn   微碎片率 32% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\419-那条路.md
+   warn   微碎片率 39% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\423-接下.md
+   warn   微碎片率 36% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\424-暂歇.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+⚠ seasons\01-xianxia\chronicle\428-算过.md
+   warn   微碎片率 38% 偏高(>30%)，可再揉顺
+
+扫了 428 章：0 章退回(ERROR)，64 章有提醒(WARN)。
+文笔过线。

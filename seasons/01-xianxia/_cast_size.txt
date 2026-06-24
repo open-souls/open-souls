@@ -1,0 +1,24 @@
+=== Cast size per chapter (count of chapters) ===
+cast=2: 139 chapters
+cast=3: 167 chapters
+cast=4: 82 chapters
+cast=5: 26 chapters
+cast=6: 12 chapters
+cast=7: 1 chapters
+cast=8: 1 chapters
+
+=== Sample 10-chapter windows of cast size ===
+ch1-30: avg cast size = 3.67
+ch31-60: avg cast size = 2.80
+ch61-90: avg cast size = 2.97
+ch91-120: avg cast size = 3.50
+ch121-150: avg cast size = 2.63
+ch151-180: avg cast size = 2.73
+ch181-210: avg cast size = 2.90
+ch211-240: avg cast size = 3.13
+ch241-270: avg cast size = 4.30
+ch271-300: avg cast size = 2.60
+ch301-330: avg cast size = 2.97
+ch331-360: avg cast size = 2.87
+ch361-390: avg cast size = 2.73
+ch391-420: avg cast size = 3.20
