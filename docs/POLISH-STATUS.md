@@ -14,6 +14,7 @@
 
 ## 已完成
 
+- ✅ **Batch B** (ch101-200) — 100/100 章过 lint + ships 字段回补 23 章
 - ✅ **Batch C** (ch201-300) — 99/99 章过 lint
 - ✅ **Batch D** (ch301-424) — 0 ERROR + ch423/424 anchors/payoff/transitions 补齐
 - ✅ **ch425-428** (cron 新章) — 4 章 inline polished
@@ -23,7 +24,6 @@
 ## 进行中（agents 后台）
 
 - 🚀 **Batch A** (ch001-100) — editing agent
-- 🚀 **Batch B** (ch101-200) — editing agent
 - 🚀 **Phase 2 POV 旋转** (ch201-428) — 目标把林夙 POV 从 98.4% 压到 60%
 
 ## 下一步触发
