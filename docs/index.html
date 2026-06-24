@@ -89,10 +89,11 @@ fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
  seg.onclick=e=>{const b=e.target.closest('button');if(!b)return;st.season=b.dataset.s;
    [...seg.children].forEach(x=>x.classList.toggle('on',x===b));apply();};
 
- // 主要角色（出场≥5回）
- const freq={};rows.forEach(r=>(r.cast||[]).forEach(c=>freq[c]=(freq[c]||0)+1));
+ // 主要角色（出场≥5回）— 用正文真实出现 (r.present) 而非 frontmatter cast 声明
+ const eff=r=>r.present&&r.present.length?r.present:r.cast;
+ const freq={};rows.forEach(r=>eff(r).forEach(c=>freq[c]=(freq[c]||0)+1));
  const mains=Object.entries(freq).filter(([,n])=>n>=5).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
- who.innerHTML=mains.map(n=>`<button data-c="${n}">${n}</button>`).join('');
+ who.innerHTML=mains.map(n=>`<button data-c="${n}">${n} <em>${freq[n]}</em></button>`).join('');
  who.onclick=e=>{const b=e.target.closest('button');if(!b)return;
    const c=b.dataset.c;st.cast=st.cast===c?null:c;
    [...who.children].forEach(x=>x.classList.toggle('on',x.dataset.c===st.cast));apply();};
@@ -107,9 +108,9 @@ function build(){
  const bySeason={};ROWS.forEach(r=>{(bySeason[r.season]=bySeason[r.season]||[]).push(r)});
  toc.innerHTML=Object.keys(bySeason).sort((a,b)=>a-b).map(s=>{
   const list=bySeason[s].map(r=>`<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''}"
-     data-season="${r.season}" data-cast="${(r.cast||[]).join('|')}" data-title="${norm(r.title)}" href="read.html#${r.n}">
+     data-season="${r.season}" data-cast="${eff(r).join('|')}" data-title="${norm(r.title)}" href="read.html#${r.n}">
     <span class="dot"></span><span class="n">第${r.n}回</span><span class="t">${r.title}</span>
-    <span class="c">${(r.cast||[]).slice(0,3).join(' / ')}</span></a>`).join('');
+    <span class="c">${eff(r).slice(0,3).join(' / ')}</span></a>`).join('');
   return `<section class="season" data-season="${s}"><h2>${SEASON_NAME[s]||'第'+s+'卷'}</h2>${list}</section>`;
  }).join('');
 }

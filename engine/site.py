@@ -34,20 +34,46 @@ def split_front_matter(text):
 
 
 def render_body(md):
-    """把正文 markdown 渲染成 xhtml 片段。每个空行分隔的块=一段；--- = 分场线。"""
+    """把正文 markdown 渲染成 xhtml 片段。每个空行分隔的块=一段；--- = 分场线。
+
+    只 strip 块内第一行的 `# 标题`，不丢掉整块（之前会把"标题紧跟正文"的首段一起吞掉）。
+    """
     out = []
     for block in re.split(r"\n\s*\n", md.strip()):
         block = block.strip()
         if not block:
             continue
-        if block.startswith("# "):          # 章节标题，单独展示，正文里去掉
-            continue
         if re.fullmatch(r"-{3,}|\*{3,}", block):
             out.append('<hr class="brk"/>')
             continue
+        lines = block.split("\n")
+        if lines and re.match(r"^#\s", lines[0]):     # 仅去掉标题行，保留正文
+            lines = lines[1:]
+            if not lines:
+                continue
+            block = "\n".join(lines)
         text = html.escape(block).replace("\n", "<br/>")
         out.append("<p>%s</p>" % text)
     return "\n".join(out)
+
+
+def compute_present(html_text, declared_cast, all_chars):
+    """基于正文 html 真实出现来算"出场"——不只信 frontmatter 的 cast 声明。
+
+    返回在正文里出现的角色名列表（保序）。
+    - declared_cast 里、html 里也出现的：留下
+    - declared_cast 里、html 里没出现的：剔除（避免"写了没用"的水分）
+    - declared_cast 之外、html 里出现的：也补上（修正 cast 漏写）
+    """
+    seen = []
+    seen_set = set()
+    for c in declared_cast:
+        if c in html_text and c not in seen_set:
+            seen.append(c); seen_set.add(c)
+    for c in all_chars:
+        if c in html_text and c not in seen_set:
+            seen.append(c); seen_set.add(c)
+    return seen
 
 
 def load_dates():
@@ -66,9 +92,22 @@ def load_dates():
 def collect(include_drafts=False):
     dates = load_dates()
     by_n = {}
+    all_chars = set()
     sources = [CHRON_DIR]
     if include_drafts:
         sources.append(DRAFTS_DIR)
+    # 第一遍：扫所有 cast，构造全局角色集合
+    for src_dir in sources:
+        if not os.path.isdir(src_dir):
+            continue
+        for path in glob.glob(os.path.join(src_dir, "*.md")):
+            name = os.path.basename(path)
+            if name == "INDEX.md":
+                continue
+            fm, _ = split_front_matter(open(path, encoding="utf-8").read())
+            for c in fm.get("cast", []) or []:
+                all_chars.add(c)
+    # 第二遍：构造 entry，含 present（基于 html 真实出现）
     for src_dir in sources:
         if not os.path.isdir(src_dir):
             continue
@@ -86,15 +125,18 @@ def collect(include_drafts=False):
             if n is None:
                 continue
             n = int(n)
+            html_text = render_body(body)
+            declared = fm.get("cast", [])
             entry = {
                 "n": n,
                 "season": fm.get("season", 1),
                 "title": str(fm.get("title", "")).strip(),
                 "date": dates.get(n, ""),
-                "cast": fm.get("cast", []),
+                "cast": declared,
                 "pov": fm.get("pov", ""),
                 "hook": str(fm.get("hook", "")).strip(),
-                "html": render_body(body),
+                "html": html_text,
+                "present": compute_present(html_text, declared, all_chars),
             }
             # 同回多文件时，优先 frontmatter 字段更全的（有 hook 的）
             prev = by_n.get(n)
