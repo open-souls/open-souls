@@ -10,7 +10,7 @@ index.html / read.html 是静态壳，不在这里生成；它们 fetch chronicl
 import os, re, json, glob, html, zipfile, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SEASON_DIR = os.path.join(ROOT, "seasons", "02-xianxia")
+SEASON_DIR = os.path.join(ROOT, "seasons", "01-xianxia")
 CHRON_DIR = os.path.join(SEASON_DIR, "chronicle")
 DOCS = os.path.join(ROOT, "docs")
 BOOK_TITLE = "镇狱之渊"

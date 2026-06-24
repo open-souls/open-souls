@@ -1,5 +1,5 @@
 ---
-season: 2
+season: 1
 title: 玄幻·镇狱之渊
 genre: 玄幻爽文 + 复仇群像
 tone: 隐忍、扮猪吃虎、长线打脸
