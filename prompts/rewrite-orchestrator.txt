@@ -30,7 +30,7 @@
 - 任何 DOING 且 worker_started 距今 > 40 分钟 且无结果文件 **且 该章文件最近 10 分钟无改动**(用 find -newermt 验)→ 才视为真僵尸,重置回 TODO(回炉列不变)。若文件仍在改 = 慢 worker(多轮回炉),给宽限别回收——回收活进程会造成重复劳动(已踩坑 ch021)。
 
 【3. 派活】
-- 设并发上限 CONCURRENCY=8。当前在跑的 = 状态为 DOING 的行数。可派数量 = 8 - 在跑数,≤0 则跳到第 4 步。
+- 设并发上限 CONCURRENCY=10。当前在跑的 = 状态为 DOING 的行数。可派数量 = 10 - 在跑数,≤0 则跳到第 4 步。
 - 从表里按章号升序取最靠前的若干 TODO(取「可派数量」个),逐个:
     a. 标该行 DOING,worker_started=当前时间。
     b. 后台启动子 agent(用 Bash,nohup ... & disown,输出重定向到 prompts/.results/ch###.log):
@@ -47,6 +47,6 @@
 - 一周期只做一轮调度,不在前台等子进程跑完(全部 run_in_background=true,一次性并发拉起本轮该派的章)。
 - git 提交永远串行、一章一次、先过 publish.sh。
 - **绝不 `git add` 通配 chronicle/*.md 或 -A**：只显式 add 你已复判通过的具体章文件 + editor_progress.md。通配会把仍在重写的在飞章节扫进提交，导致内容落进错误的 commit、专属 rewrite commit 反而空 diff（已发生过一次）。若需修 publish 阻断类的批量数据(如清占位行)，单独成 commit 且也只 add 实际改动的文件。
-- 并发上限 8,同时最多 8 个 claude -p 在跑。子 agent 卡 40 分钟无果就回收重派。
+- 并发上限 10,同时最多 10 个 claude -p 在跑。子 agent 卡 40 分钟无果就回收重派。
 - 子 agent 的 PASS 一律要你亲自读过复判才算数(见第 1 步),绝不盲信自评直接提交。
 - 每 10 个 DONE 回看一次 §零-2 配额(男频≥3/女频≥3/混合≤4)与 POV 轮换,跑偏就在派活时调整后续章的目标主导频(写进该章备注传给子 agent)。
