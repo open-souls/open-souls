@@ -6,3 +6,4 @@ docs/*.epub
 .claude/
 *.log
 prompts/.results/
+.audit_tmp/
