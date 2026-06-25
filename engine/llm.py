@@ -15,8 +15,9 @@ def complete(system, user, scene_weight=3, max_tokens=1100):
         "model": route(scene_weight), "max_tokens": max_tokens,
         "system": system, "messages": [{"role": "user", "content": user}],
     }).encode()
+    base_url = os.environ.get("ANTHROPIC_BASE_URL", "https://api.anthropic.com").rstrip("/")
     req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages", data=body,
+        f"{base_url}/v1/messages", data=body,
         headers={"content-type": "application/json",
                  "x-api-key": os.environ["ANTHROPIC_API_KEY"],
                  "anthropic-version": "2023-06-01"})
