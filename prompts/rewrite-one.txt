@@ -24,7 +24,7 @@
 
 【落地边界 — 严格遵守】
 - 你只能改 TARGET 这一章的文件(正文 + 该章 frontmatter)。绝不碰别的章、不碰 editor_progress.md、不碰 git。
-- 完成后,把裁决写进结果文件 prompts/.results/ch###.md,格式:
+- 完成后,把裁决写进结果文件 **C:/Users/stanc/github/open-souls/prompts/.results/ch###.md**（必须是仓库根下的 prompts/.results/，绝不要写成 seasons/01-xianxia/prompts/.results/ 那种 season 目录下的相对路径——用上面这个绝对路径），格式:
     status: PASS | BLOCKED
     lint: ok|fail
     score: N/14
