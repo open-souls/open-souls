@@ -170,7 +170,7 @@
 
 ## 文档
 
-- `seasons/01-xianxia/JINJIANG-CRAFT.md` — 晋江手法全谱
+- `seasons/01-xianxia/JINJIANG-范文标准.md` — 晋江文笔范文标准（唯一；合并原手法全谱+文笔七维，以第1–10回为范文）
 - `docs/PHASE2-AUDIT-REPORT.md` — 伏笔 actionable
 - `docs/PHASE2-CP-AUDIT.md` — CP 同框 + POV 校准
 - `docs/PHASE3-CH215-280-AUDIT.md` — 中段 plot holes (audit in flight)
