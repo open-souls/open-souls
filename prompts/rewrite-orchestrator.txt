@@ -25,7 +25,7 @@
 - 提交后删除已处理的 prompts/.results/ch###.md。
 
 【2. 回收僵尸 DOING】
-- 任何 DOING 且 worker_started 距今 > 40 分钟 且无结果文件 → 视为失败的子进程,重置回 TODO(回炉列不变)。
+- 任何 DOING 且 worker_started 距今 > 40 分钟 且无结果文件 **且 该章文件最近 10 分钟无改动**(用 find -newermt 验)→ 才视为真僵尸,重置回 TODO(回炉列不变)。若文件仍在改 = 慢 worker(多轮回炉),给宽限别回收——回收活进程会造成重复劳动(已踩坑 ch021)。
 
 【3. 派活】
 - 设并发上限 CONCURRENCY=10。当前在跑的 = 状态为 DOING 的行数。可派数量 = 10 - 在跑数,≤0 则跳到第 4 步。
