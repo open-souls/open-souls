@@ -8,11 +8,12 @@
 | **`文笔范文标准.md`** | **唯一文笔标准**：文笔七维 + 以第1–10回为范文 + 反范文。合并自原 JINJIANG-CRAFT（宏观手法）与文笔七维。 | 人 / AI 写作与审校 |
 | `幕后叙事规则.md` | 幕后 / 省略（offscreen）叙事的处理规则。 | 人 / AI 写作 |
 | `审查流程.md` | 章节审查的流程规范（原 REVIEW-PROTOCOL）。 | 审校 |
+| `评审方法.md` | 单章 `review: \|` + `score: N/14` 的手搓方法论（七维 + 9 硬门 + 输出格式 + worked example）。 | 审校 |
 | `rubric.md` | 章级评分表（钩子/爽痛/反差…）+ 节奏硬门 + 安全审查。 | 引擎 `engine/writer.py` ＋ 人 |
 | `playbook.md` | 流量密码 · 桥段库（中/日/西套路）。 | 引擎 `engine/writer.py` ＋ 人 |
 
 ## 入口
-写 / 审一章前，先读 **`文笔范文标准.md`**；评分用 `rubric.md`；机器门跑 `engine/prose_lint.py`。
+写 / 审一章前，先读 **`文笔范文标准.md`**；评分用 `rubric.md`；单章手搓 `review: \|` + `score: N/14` 看 **`评审方法.md`**；机器门跑 `engine/prose_lint.py`。
 拿不准怎么写——翻回第 1–10 回对，那十章就是范文本体。
 
 ## 关系
