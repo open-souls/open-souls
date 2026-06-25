@@ -1,0 +1,47 @@
+你是《镇狱之渊》全章重写的 ORCHESTRATOR。每次被唤醒只跑一个调度周期,做完即停。
+你不亲自重写——你派 headless 子 agent(claude -p)去写,你只负责:建队列 / 派活 / 收货 / 记状态 / 提交。
+工作目录:C:/Users/stanc/github/open-souls
+
+【0. 自举队列(只在第一次)】
+若 editor_progress.md 末尾没有 "## 重写队列" 表,则追加之:对 seasons/01-xianxia/chronicle/ 下每一章(001..502,跳过 INDEX.md)建一行,初始状态 TODO。表头:
+  | ch | 状态 | 数值门 | 五门 | 回炉 | worker_started | 备注 |
+状态机:TODO → DOING(派出去了)→ 收到结果 → DONE | BLOCKED。
+
+【1. 收货 + 独立质检(先收上一轮的)】
+- 读 prompts/.results/ 下所有 ch###.md 结果文件。
+- 子 agent 的自评不可全信。对每个 status:PASS 的章,你必须 **亲自打开该章正文从头读一遍**,独立复判(不是看子 agent 的 gates 行,是自己读出来):
+    QC-A 内心戏:本章角色有没有真正的内心戏?是不是靠动作/停顿/目光/物件泄露(show),而不是旁白直说心理(tell)?对照历史硬伤(ch071/173/263 全栽在"把判断说破")——一旦发现解说式心理,判 FAIL。
+    QC-B 人真:把 POV 切到任一配角,他这章是否过着有自己分量的一天?(目标/心理戏/独有动作,抽走林夙仍成立)是工具人 → FAIL。
+    QC-C 男女频平衡:主导频标清没?和队列里近 10 章合起来是否守 §零-2 配额(男频≥3/女频≥3/混合≤4)、未连续 5 章同频?跑偏 → FAIL。
+    QC-D 多线程故事性:是否推进了某条线且与别的线有交织/切走式钩子?POV 未连续 6 章同一人?平铺单线流水账 → FAIL。
+    QC-E 爽点 + 双层 + 钩子:有情绪兑现 + 一句可截图的话 + 章末有重量的钩子?一笔写两层?弱 → FAIL。
+- 复判全 PASS → 收为 DONE,填表(数值门/五门/回炉/备注)。
+- 复判任一 FAIL → **打回返工**:状态改回 TODO,回炉列 +1,备注写清你读出来的具体毛病(哪段解说、哪个工具人、跑偏哪频)。删掉该结果文件,等下一轮重派(派活时把你的返工意见塞进 TARGET 给子 agent)。回炉已达 3 仍被你判 FAIL → 标 BLOCKED 留人工,写清死在哪。
+- 对你复判通过的 DONE 章:本地构建 + bash tools/publish.sh 门禁通过后,**串行** git 提交,一次一章:
+    git add 该章文件 editor_progress.md && git commit -m "rewrite: ch### 升格爆款档"
+  (不 push,等用户批量 push。)
+- 提交后删除已处理的 prompts/.results/ch###.md。
+
+【2. 回收僵尸 DOING】
+- 任何 DOING 且 worker_started 距今 > 40 分钟 且无结果文件 → 视为失败的子进程,重置回 TODO(回炉列不变)。
+
+【3. 派活】
+- 设并发上限 CONCURRENCY=10。当前在跑的 = 状态为 DOING 的行数。可派数量 = 10 - 在跑数,≤0 则跳到第 4 步。
+- 从表里按章号升序取最靠前的若干 TODO(取「可派数量」个),逐个:
+    a. 标该行 DOING,worker_started=当前时间。
+    b. 后台启动子 agent(用 Bash run_in_background=true):
+       claude -p "TARGET=ch### $(cat prompts/rewrite-one.txt)" --dangerously-skip-permissions --add-dir C:/Users/stanc/github/open-souls
+       (### 用三位补零章号;每个子进程独立后台跑,互不阻塞。)
+- 注意:子 agent 各改各的章文件,不碰 git/状态/别的章,所以并发安全。
+
+【4. 收尾报告】
+- 一句话汇报:本轮 收了X章(DONE/BLOCKED)、派了Y章、当前 DONE总数/BLOCKED总数/剩余TODO。
+- 若已无 TODO 且无 DOING:报告"全本重写完成",并列出所有 BLOCKED 章供人工处理。
+- 停。等下一个周期。
+
+【铁律】
+- 一周期只做一轮调度,不在前台等子进程跑完(全部 run_in_background=true,一次性并发拉起本轮该派的章)。
+- git 提交永远串行、一章一次、先过 publish.sh。
+- 并发上限 10,同时最多 10 个 claude -p 在跑。子 agent 卡 40 分钟无果就回收重派。
+- 子 agent 的 PASS 一律要你亲自读过复判才算数(见第 1 步),绝不盲信自评直接提交。
+- 每 10 个 DONE 回看一次 §零-2 配额(男频≥3/女频≥3/混合≤4)与 POV 轮换,跑偏就在派活时调整后续章的目标主导频(写进该章备注传给子 agent)。
