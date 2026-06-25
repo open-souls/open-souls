@@ -1,0 +1,28 @@
+Verified:
+- `python engine/prose_lint.py seasons/01-xianxia/chronicle/017-露底.md` → 0 ERROR, 0 WARN (lint ok)
+- 维度6视角/维度7克制 由 1→2 (line 130 闭合, 范文E「不点破」+ 范文F「留白」到位)
+- score 12/14 → 14/14
+- G1–G5 全部 PASS (内心戏+人真 / 世界真+五官感知 / 爽点足 / 男女频平衡+多线程 / 双层)
+- 9 硬门 全 PASS (硬线 / 锚点 / 钩 / 缺席 / 伏笔回改 / 节奏 / 声音 / 群像 / frontmatter)
+
+Decisions:
+- 把 body line 130 从 200+ 字嵌套「且…且…」模板句压缩到「林夙看着她的背影，没接话」——林窈断句三件物象（「不回头」+「三个字」+「走得很快像说慢了就不算数」）已足，林夙反应一句动作+沉默即可，范文F 留白。
+- 补 frontmatter `line: 男频` 与 `thread: 复仇升级线 · 林彻先手两步棋` ——原章违 §六 frontmatter 标准（缺主导频/线字段）；ch15/ch16 都有，这是补齐而非新增。
+- 不动 ships 字段里两条「已回改·锚点说明」历史标注——本次回改是恢复既有锚点而非新增锚点，留 ships 完整。
+
+Evidence:
+- `prompts/.results/ch017.md` 写入 status/lint/score/gates/rounds/note
+- ch017.md frontmatter review block 修复方向字段已改写为「已执行——body line 130 由 200+ 字『且…且…』嵌套模板句回改为『林夙看着她的背影，没接话』一句式留白」
+
+Impact:
+- ch017 在头十章范文序列里读起来是同一支笔：钩切 ch18 余伯案头 = 切走式；「那道门，开了——淬体三重。比他计划的早了十一天」承接修炼加速，与 ch14「五十天」+ ch19 宗门验修闭环。
+- 章末钩 = 物象钩 (门开了) + 信息钩 (早了十一天 = 林夙被逼急了) 双层
+- 全章不破任何配额 / 缺席 / 锚点升级曲线
+
+Assumptions:
+- 上一轮 review 已诊断 body line 130 为病灶并给出「林夙看着她走远，没说话。」式处方，但 frontmatter 修了 review 文案而正文未动——本轮按其处方收尾。
+- score 由 12 升 14 是因为修复闭合了范文H「视角锁定」+ 范文F「该停就停」两维的扣分项；其它五维本就是 2 分。
+
+STATUS: DONE
+FILES_TOUCHED: seasons/01-xianxia/chronicle/017-露底.md, prompts/.results/ch017.md
+BLOCKERS: omit (DONE)
