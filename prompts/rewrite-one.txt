@@ -5,6 +5,7 @@
 本 prompt 开头会写明 TARGET=ch###。你的章文件在 seasons/01-xianxia/chronicle/ 下,文件名形如 ###-标题.md(用 glob 0##-*.md 定位,### 是三位补零的章号)。
 
 【你要做的】
+0. 【硬前置 · 不可跳】先把 TARGET 章 frontmatter 的 cast 列出来,对**每一个**出场角色读 souls/角色名/soul.md(有 dossier.md 也读)——尤其 voice / fracture / under_pressure / seed_relations 字段。绝不凭印象/凭名字猜着写任何人的台词与反应。soul.md 没读过的角色不许给他写台词。每个人的话与举动都必须从他自己的 soul.md 长出来,换个角色就不成立(CLAUDE.md §三红线)。
 1. 读 TARGET 章原文 + 前后各 2 章(连续性) + chronicle/INDEX.md(最近 15 章 cast 频率、缺席最久角色、已有锚点) + CLAUDE.md + seasons/01-xianxia/world-macro.md + docs/standards/文笔范文标准.md + docs/standards/雅俗共赏.md。
 2. 调用 bianjibu skill 对 TARGET 章执行「策划→写手→多路审校→总编裁决→回炉→落地」。把下方五门当审校额外硬门。回炉上限 3。
 3. 过门判定(全满足才算 PASS):
@@ -26,6 +27,7 @@
     score: N/14
     gates: G1✓ G2✓ G3✓ G4✓ G5✓   (失败的标 ✗)
     rounds: 回炉轮数
+    souls_read: 逐个列出本章你读过 soul.md 的 cast 角色名(orchestrator 会抽查;cast 里有人没列即视为没读、打回)
     note: 一句话(卡在哪/改了什么)
 - 写完结果文件即停。git 提交与状态更新由 orchestrator 统一做,不归你。
 
