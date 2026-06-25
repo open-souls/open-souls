@@ -1,0 +1,5 @@
+STATUS: DONE
+FILES_TOUCHED: seasons/01-xianxia/chronicle/091-北山.md, prompts/.results/ch091.md
+BLOCKERS: 
+
+Gender pronoun fix complete: 5 instances of 「他」referring to 沈疏桐 (line 32/36/42/88/94) corrected to 「她」; the 3 instances of 「他」referring to the unknown masked man (line 32/36/42) and all instances referring to 林夙/凌朔 preserved. Lint clean (only pre-existing soft warn on micro-fragment ratio). All five gates + G1e pass; score 14/14; 1 round.
