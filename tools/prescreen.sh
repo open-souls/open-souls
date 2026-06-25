@@ -7,9 +7,10 @@ for c in "$@"; do
   bd(){ awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2' "$fn"; }
   gy=$(bd|grep -oE "$G2"|wc -l); hv=$(bd|grep -oE "$HEAVY"|wc -l); nz=$(bd|grep -oc '是[^，。]*的那种')
   bl=$(bd|awk '{if(length($0)>80 && index($0,"且")>0 && index($0,"的那种")>0)print}'|wc -l)
+  fp=$(grep -c '反派' "$fn")
   st=$( [ -f prompts/.results/ch$c.md ] && head -1 prompts/.results/ch$c.md|tr -d '\r' || echo "no-verdict")
   sc=$( [ -f prompts/.results/ch$c.md ] && grep -m1 '^score:' prompts/.results/ch$c.md|tr -d '\r' )
   sr=$( [ -f prompts/.results/ch$c.md ] && grep -m1 souls_read prompts/.results/ch$c.md|tr -d '\r'|sed 's/.*souls_read://'|cut -c1-22 )
-  flag=""; [ "$gy" -gt 8 ] && flag+="[古言>8]"; [ "$hv" -gt 0 ] && flag+="[romance$hv]"; [ "$nz" -gt 2 ] && flag+="[那种>2]"; [ "$bl" -gt 0 ] && flag+="[bloat$bl]"
+  flag=""; [ "$gy" -gt 8 ] && flag+="[古言>8]"; [ "$hv" -gt 0 ] && flag+="[romance$hv]"; [ "$nz" -gt 2 ] && flag+="[那种>2]"; [ "$bl" -gt 0 ] && flag+="[bloat$bl]"; [ "$fp" -gt 0 ] && flag+="[反派$fp]"
   echo "ch$c ($(basename "$fn")): $st $sc | pov:$(grep -m1 '^pov:' "$fn"|tr -d '\r'|sed 's/pov://') line:$(grep -m1 '^line:' "$fn"|tr -d '\r'|sed 's/line://') | 古言$gy heavy$hv 那种$nz bloat$bl | souls:$sr ${flag:-✓clean}"
 done
