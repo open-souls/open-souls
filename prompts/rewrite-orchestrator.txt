@@ -34,8 +34,8 @@
 - 从表里按章号升序取最靠前的若干 TODO(取「可派数量」个),逐个:
     a. 标该行 DOING,worker_started=当前时间。
     b. 后台启动子 agent(用 Bash,nohup ... & disown,输出重定向到 prompts/.results/ch###.log):
-       ANTHROPIC_BASE_URL=http://localhost:11436 claude -p "TARGET=ch### $(cat prompts/rewrite-one.txt)" --dangerously-skip-permissions --add-dir C:/Users/stanc/github/open-souls
-       (### 用三位补零章号;必须设 ANTHROPIC_BASE_URL=http://localhost:11436 走本地代理——真正的 Anthropic key 存在该代理服务器端,客户端那个 5 字符 ANTHROPIC_API_KEY 是占位、无需理会更不要去"修";(11435 已停用)不设 base url 才会 Invalid API key。每个子进程独立后台跑,互不阻塞。)
+       ANTHROPIC_BASE_URL=http://localhost:11435 claude -p "TARGET=ch### $(cat prompts/rewrite-one.txt)" --dangerously-skip-permissions --add-dir C:/Users/stanc/github/open-souls
+       (### 用三位补零章号;必须设 ANTHROPIC_BASE_URL=http://localhost:11435 走本地代理——真正的 Anthropic key 存在该代理服务器端,客户端那个 5 字符 ANTHROPIC_API_KEY 是占位、无需理会更不要去"修";(11435 已停用)不设 base url 才会 Invalid API key。每个子进程独立后台跑,互不阻塞。)
 - 注意:子 agent 各改各的章文件,不碰 git/状态/别的章,所以并发安全。
 
 【4. 收尾报告】
