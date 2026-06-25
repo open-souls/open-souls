@@ -15,6 +15,7 @@
     QC-C 男女频平衡:主导频标清没?和队列里近 10 章合起来是否守 §零-2 配额(男频≥3/女频≥3/混合≤4)、未连续 5 章同频?跑偏 → FAIL。
     QC-D 多线程故事性:是否推进了某条线且与别的线有交织/切走式钩子?POV 未连续 6 章同一人?平铺单线流水账 → FAIL。
     QC-E 爽点 + 双层 + 钩子:有情绪兑现 + 一句可截图的话 + 章末有重量的钩子?一笔写两层?弱 → FAIL。
+    QC-F 五官感知:写人物和场景有没有落到具体五官(视/听/嗅/味/触,至少 2-3 种)?还是停在"很紧张/很破败"这类抽象?只抽象不感官 → FAIL。
 - 复判全 PASS → 收为 DONE,填表(数值门/五门/回炉/备注)。
 - 复判任一 FAIL → **打回返工**:状态改回 TODO,回炉列 +1,备注写清你读出来的具体毛病(哪段解说、哪个工具人、跑偏哪频)。删掉该结果文件,等下一轮重派(派活时把你的返工意见塞进 TARGET 给子 agent)。回炉已达 3 仍被你判 FAIL → 标 BLOCKED 留人工,写清死在哪。
 - 对你复判通过的 DONE 章:本地构建 + bash tools/publish.sh 门禁通过后,**串行** git 提交,一次一章:
@@ -29,9 +30,9 @@
 - 设并发上限 CONCURRENCY=10。当前在跑的 = 状态为 DOING 的行数。可派数量 = 10 - 在跑数,≤0 则跳到第 4 步。
 - 从表里按章号升序取最靠前的若干 TODO(取「可派数量」个),逐个:
     a. 标该行 DOING,worker_started=当前时间。
-    b. 后台启动子 agent(用 Bash run_in_background=true):
-       claude -p "TARGET=ch### $(cat prompts/rewrite-one.txt)" --dangerously-skip-permissions --add-dir C:/Users/stanc/github/open-souls
-       (### 用三位补零章号;每个子进程独立后台跑,互不阻塞。)
+    b. 后台启动子 agent(用 Bash,nohup ... & disown,输出重定向到 prompts/.results/ch###.log):
+       ANTHROPIC_BASE_URL=http://localhost:11435 claude -p "TARGET=ch### $(cat prompts/rewrite-one.txt)" --dangerously-skip-permissions --add-dir C:/Users/stanc/github/open-souls
+       (### 用三位补零章号;必须设 ANTHROPIC_BASE_URL=http://localhost:11435 走本地代理——真正的 Anthropic key 存在该代理服务器端,客户端那个 5 字符 ANTHROPIC_API_KEY 是占位、无需理会更不要去"修";不设 base url 才会 Invalid API key。每个子进程独立后台跑,互不阻塞。)
 - 注意:子 agent 各改各的章文件,不碰 git/状态/别的章,所以并发安全。
 
 【4. 收尾报告】
@@ -42,6 +43,7 @@
 【铁律】
 - 一周期只做一轮调度,不在前台等子进程跑完(全部 run_in_background=true,一次性并发拉起本轮该派的章)。
 - git 提交永远串行、一章一次、先过 publish.sh。
+- **绝不 `git add` 通配 chronicle/*.md 或 -A**：只显式 add 你已复判通过的具体章文件 + editor_progress.md。通配会把仍在重写的在飞章节扫进提交，导致内容落进错误的 commit、专属 rewrite commit 反而空 diff（已发生过一次）。若需修 publish 阻断类的批量数据(如清占位行)，单独成 commit 且也只 add 实际改动的文件。
 - 并发上限 10,同时最多 10 个 claude -p 在跑。子 agent 卡 40 分钟无果就回收重派。
 - 子 agent 的 PASS 一律要你亲自读过复判才算数(见第 1 步),绝不盲信自评直接提交。
 - 每 10 个 DONE 回看一次 §零-2 配额(男频≥3/女频≥3/混合≤4)与 POV 轮换,跑偏就在派活时调整后续章的目标主导频(写进该章备注传给子 agent)。
