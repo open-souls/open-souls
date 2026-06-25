@@ -30,7 +30,7 @@ def plan(ctx, world, beat, rating, weight):
     user = (ctx + "\n\n【策划这一回 / showrunner】先别写正文，先定方案。"
             f"\n世界：{world.get('title')}（{world.get('genre')}，rating={rating}）。当前节拍：{beat}。"
             "\n从流量密码库里挑，结合出场人物的『裂缝 / 被逼到墙角』，设计这一回：\n"
-            + _read("writer/playbook.md") +
+            + _read("docs/standards/playbook.md") +
             '\n只输出 JSON：{"hook":"章末钩子","payoff":"本回的爽点或痛点",'
             '"contrast":"利用谁的哪个反差","trope":"用哪个桥段(标来源 中/日/西)",'
             '"pov":"跟谁的视角","turn":"一个意外转折"}')
@@ -66,7 +66,7 @@ def draft(ctx, spec, world, target, rating, note="", opening=None):
 
 def critique(chapter, spec, rating):
     user = ("【审校 / 上线门】先按流量密码评分表给这一回打分，再做安全审查。\n"
-            + _read("writer/rubric.md", 1200)
+            + _read("docs/standards/rubric.md", 1200)
             + "\n\n方案目标：" + json.dumps(spec, ensure_ascii=False)
             + "\n\n正文：\n" + chapter +
             '\n只输出 JSON：{"scores":{"钩子":0-2,"爽痛":0-2,"反差":0-2,"拉扯":0-2,'

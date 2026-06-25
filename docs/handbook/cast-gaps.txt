@@ -1,0 +1,10 @@
+=== Gaps for main characters ===
+林夙: total=421, last_seen=ch428, max_gap=4 (ch413-416)
+阿湄: total=184, last_seen=ch427, max_gap=16 (ch9-24)
+苏挽: total=159, last_seen=ch427, max_gap=12 (ch71-82)
+裴无咎: total=101, last_seen=ch428, max_gap=92 (ch1-92)
+凌朔: total=97, last_seen=ch427, max_gap=29 (ch1-29)
+牛阿大: total=87, last_seen=ch428, max_gap=56 (ch34-89)
+沈疏桐: total=60, last_seen=ch424, max_gap=54 (ch19-72)
+余伯: total=47, last_seen=ch428, max_gap=87 (ch1-87)
+林窈: total=22, last_seen=ch426, max_gap=295 (ch96-390)

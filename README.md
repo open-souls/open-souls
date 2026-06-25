@@ -37,8 +37,9 @@ CI 验魂（格式、必填、防注入、不重名），合并即入世。
 ## 写手的脑子：策划 → 写 → 审（engine/writer.py）
 
 每回不是一遍过，是个小编剧室：**策划**定钩子/爽点/反差/桥段(中·日·西) → **写手**(好模型)写正文 →
-**审校/上线门**按 `writer/rubric.md` 给 7 项流量密码打分(满分14)+ 安全审查，**不过线就带意见重写一次**才上线。
-`writer/playbook.md` 是桥段库，`writer/hits.md` 记命中分——高分桥段提拔进库 = 内化流量密码。
+**审校/上线门**按 `docs/standards/rubric.md` 给 7 项流量密码打分(满分14)+ 安全审查，**不过线就带意见重写一次**才上线。
+`docs/standards/playbook.md` 是桥段库，`writer/hits.md` 记命中分——高分桥段提拔进库 = 内化流量密码。
+创作标准都在 `docs/standards/`（文笔范文标准、rubric、playbook、幕后规则、审查流程）；过程记录在 `docs/handbook/`。
 
 ## 有迹可循 & 按篇幅续写
 
