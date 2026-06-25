@@ -22,7 +22,7 @@ BOOK_ID = "open-souls-zhenyuzhiyuan"
 
 # ---------- 解析 ----------
 
-def split_front_matter(text):
+def split_front_matter(text, source=None):
     """返回 (frontmatter_dict, body_str)。无 frontmatter 则 ({}, text)。"""
     if not text.startswith("---"):
         return {}, text
@@ -30,7 +30,11 @@ def split_front_matter(text):
     if not m:
         return {}, text
     import yaml
-    fm = yaml.safe_load(m.group(1)) or {}
+    try:
+        fm = yaml.safe_load(m.group(1)) or {}
+    except yaml.YAMLError as e:
+        where = source or "<unknown>"
+        raise SystemExit(f"frontmatter YAML 解析失败：{where}\n{e}")
     return fm, m.group(2)
 
 
@@ -106,7 +110,7 @@ def collect(include_drafts=False):
             name = os.path.basename(path)
             if name == "INDEX.md":
                 continue
-            fm, _ = split_front_matter(open(path, encoding="utf-8").read())
+            fm, _ = split_front_matter(open(path, encoding="utf-8").read(), source=path)
             for c in fm.get("cast", []) or []:
                 all_chars.add(c)
     # 第二遍：构造 entry，含 present（基于 html 真实出现）
@@ -117,7 +121,7 @@ def collect(include_drafts=False):
             name = os.path.basename(path)
             if name == "INDEX.md":
                 continue
-            fm, body = split_front_matter(open(path, encoding="utf-8").read())
+            fm, body = split_front_matter(open(path, encoding="utf-8").read(), source=path)
             if not fm.get("cast"):          # 跳过扩写副本等非正章
                 continue
             n = fm.get("chapter")
