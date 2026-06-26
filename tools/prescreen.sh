@@ -8,9 +8,13 @@ for c in "$@"; do
   gy=$(bd|grep -oE "$G2"|wc -l); hv=$(bd|grep -oE "$HEAVY"|wc -l); nz=$(bd|grep -oc '是[^，。]*的那种')
   bl=$(bd|awk '{if(length($0)>80 && index($0,"且")>0 && index($0,"的那种")>0)print}'|wc -l)
   fp=$(grep -c '反派' "$fn")
+  shipsblk(){ awk '/^ships:/{p=1;next} p&&/^[a-z_]+:/{exit} p' "$fn"; }
+  sc_chain=$(shipsblk|grep -cE 'ch[0-9]{3}\+ch[0-9]{3}')
+  sc_qie=$(shipsblk|awk '{n=gsub(/且/,"且"); if(n>1)print}'|wc -l)
+  sb=$((sc_chain + sc_qie))
   st=$( [ -f prompts/.results/ch$c.md ] && head -1 prompts/.results/ch$c.md|tr -d '\r' || echo "no-verdict")
   sc=$( [ -f prompts/.results/ch$c.md ] && grep -m1 '^score:' prompts/.results/ch$c.md|tr -d '\r' )
   sr=$( [ -f prompts/.results/ch$c.md ] && grep -m1 souls_read prompts/.results/ch$c.md|tr -d '\r'|sed 's/.*souls_read://'|cut -c1-22 )
-  flag=""; [ "$gy" -gt 8 ] && flag+="[古言>8]"; [ "$hv" -gt 0 ] && flag+="[romance$hv]"; [ "$nz" -gt 2 ] && flag+="[那种>2]"; [ "$bl" -gt 0 ] && flag+="[bloat$bl]"; [ "$fp" -gt 0 ] && flag+="[反派$fp]"
+  flag=""; [ "$gy" -gt 8 ] && flag+="[古言>8]"; [ "$hv" -gt 0 ] && flag+="[romance$hv]"; [ "$nz" -gt 2 ] && flag+="[那种>2]"; [ "$bl" -gt 0 ] && flag+="[bloat$bl]"; [ "$fp" -gt 0 ] && flag+="[反派$fp]"; [ "$sb" -gt 0 ] && flag+="[ships臃肿$sb]"
   echo "ch$c ($(basename "$fn")): $st $sc | pov:$(grep -m1 '^pov:' "$fn"|tr -d '\r'|sed 's/pov://') line:$(grep -m1 '^line:' "$fn"|tr -d '\r'|sed 's/line://') | 古言$gy heavy$hv 那种$nz bloat$bl | souls:$sr ${flag:-✓clean}"
 done
