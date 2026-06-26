@@ -1,3 +1,5 @@
+<!-- writer subagents dispatchable via claude -p via localhost:11435 and localhost:11436 -->
+
 # 执笔规则 · 镇狱之渊
 
 ---
