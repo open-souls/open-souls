@@ -7,3 +7,4 @@ docs/*.epub
 *.log
 prompts/.results/
 .audit_tmp/
+tmp/
