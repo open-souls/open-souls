@@ -26,6 +26,7 @@
 
 【落地边界 — 严格遵守】
 - 你只能改 TARGET 这一章的文件(正文 + 该章 frontmatter)。绝不碰别的章、不碰 editor_progress.md、不碰 git。
+- 【硬禁·越界】读邻章/范文章**只读不写**:绝不许往任何非 TARGET 章追加 review/score/注记,哪怕你发现它缺 frontmatter、缺 review、score 为 0——那不归你管,发现了也只字不动。你这一轮**只能有一个被修改的章文件 = TARGET**。往别的章写一个字即重大违规。
 - 完成后,把裁决写进结果文件 **C:/Users/stanc/github/open-souls/prompts/.results/ch###.md**（必须是仓库根下的 prompts/.results/，绝不要写成 seasons/01-xianxia/prompts/.results/ 那种 season 目录下的相对路径——用上面这个绝对路径），格式:
     status: PASS | BLOCKED
     lint: ok|fail
