@@ -54,7 +54,11 @@ a.ch.last .dot{opacity:1}
 .empty code{background:var(--ink2);padding:2px 8px;border-radius:5px;color:var(--ember)}
 footer{text-align:center;color:#4f4a5c;font-size:12px;margin-top:9vh;line-height:2}
 footer a{color:var(--whisper)}
+.cover-wrap{margin:-7vh -22px 5vh;overflow:hidden;position:relative;max-height:56vw}
+.cover-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,var(--ink) 100%)}
+.cover-wrap img{width:100%;display:block;object-fit:cover;object-position:center top;filter:brightness(.85)}
 </style></head><body><div class="wrap">
+<div class="cover-wrap"><img src="assets/images/image.jpg" alt="众魂 · 镇狱之渊 群像"/></div>
 <header>
  <h1 class="mark">镇狱之渊</h1>
  <div class="sub">玄幻 · 复仇群像 · 隐忍扮猪吃虎 · 长线打脸</div>
