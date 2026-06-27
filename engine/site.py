@@ -9,6 +9,10 @@ index.html / read.html 是静态壳，不在这里生成；它们 fetch chronicl
 """
 import os, re, json, glob, html, zipfile, datetime
 
+def normalize_cast_name(name):
+    """Strip editorial annotations like '叶观澜(暗线)' → '叶观澜'."""
+    return re.sub(r"\s*[\(（].*?[\)）]\s*$", "", name).strip()
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEASON_DIR = os.path.join(ROOT, "seasons", "01-xianxia")
 CHRON_DIR = os.path.join(SEASON_DIR, "chronicle")
@@ -112,7 +116,7 @@ def collect(include_drafts=False):
                 continue
             fm, _ = split_front_matter(open(path, encoding="utf-8").read(), source=path)
             for c in fm.get("cast", []) or []:
-                all_chars.add(c)
+                all_chars.add(normalize_cast_name(c))
     # 第二遍：构造 entry，含 present（基于 html 真实出现）
     for src_dir in sources:
         if not os.path.isdir(src_dir):
@@ -139,7 +143,7 @@ def collect(include_drafts=False):
             if n is None:
                 continue
             html_text = render_body(body)
-            declared = fm.get("cast", [])
+            declared = [normalize_cast_name(c) for c in (fm.get("cast", []) or [])]
             entry = {
                 "n": n,
                 "interlude": interlude_code,    # None for 主线，"I-016" for 插章
