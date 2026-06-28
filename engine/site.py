@@ -150,7 +150,6 @@ def collect(include_drafts=False):
                 "insert_after": fm.get("insert_after"),
                 "season": fm.get("season", 1),
                 "title": str(fm.get("title", "")).strip(),
-                "date": dates.get(n, ""),
                 "cast": declared,
                 "pov": fm.get("pov", ""),
                 "hook": str(fm.get("hook", "")).strip(),
@@ -196,10 +195,8 @@ def build_epub(chapters, out_path):
     files = []
     for c in chapters:
         fn = "chap%03d.xhtml" % c["n"]
-        body = ('<h1>第%d回 · %s</h1><div class="meta">%s%s</div>%s'
-                % (c["n"], html.escape(c["title"]),
-                   c["date"], ("　" + " / ".join(c["cast"])) if c["cast"] else "",
-                   c["html"]))
+        body = ('<h1>第%d回 · %s</h1>%s'
+                % (c["n"], html.escape(c["title"]), c["html"]))
         z.writestr("OEBPS/" + fn,
                    XHTML.format(title="第%d回 %s" % (c["n"], html.escape(c["title"])), body=body))
         files.append((fn, c))
