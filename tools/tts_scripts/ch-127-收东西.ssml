@@ -1,0 +1,198 @@
+<speak xmlns:mstts="http://www.w3.org/2001/mstts">
+
+<voice name="zh-CN-XiaoxiaoNeural">
+<mstts:express-as style="narration-relaxed">
+第一百二十七回，收东西。
+</mstts:express-as>
+
+<break time="700ms"/>
+
+<mstts:express-as style="narration-relaxed">
+阿湄叩门的时候，已经把要说的话在嘴里过了一遍。
+三下。
+</mstts:express-as>
+
+<break time="500ms"/>
+
+轻，快，是那种报信时候的节奏……不是叶观澜教的那一种，是她自己这么多年在南边那几条街上，跟那种人交换消息时留下来的：叩三下，是"我有东西要递"。叩两下，是"我人在"。叩一下，是"人不在"。
+
+<break time="700ms"/>
+
+<mstts:express-as style="narration-relaxed">
+门里有人应：进来。
+是林夙的声音。
+
+她推门，把门带上，进门那一脚……鞋底先贴地，然后才是脚步，是那种"进门之前已经听了一息里头动静"的脚。她扫了一圈。
+
+屋里，三个人。
+
+裴无咎，往椅背上一靠，剑搭回臂弯。桌上那枚竹牌搁在桌角……她扫到的时候，那枚牌刚好翻回正面，正面两个字，<emphasis level="moderate">还债</emphasis>，和背面那一个字，压在光里。
+
+她没去细看那个背面……她在进门那一扫里，已经扫到了。
+
+牛阿大，攥在桌沿上的那只手，松开过……指节的位置，比他平日的手指头白了不止一分，又慢慢回到了血色。那碗粥，还在他手边，没往林夙那边推得动。
+</mstts:express-as>
+
+<break time="400ms"/>
+
+<mstts:express-as style="narration-relaxed">
+林夙，坐在桌边。
+</mstts:express-as>
+
+<break time="500ms"/>
+
+<mstts:express-as style="narration-relaxed">
+他的右手按在那枚竹牌上……不是握着，是按着，<prosody pitch="-5%">指节压住桌沿的方式，跟他平日按东西的那种按，重了不止一分。</prosody>
+</mstts:express-as>
+
+<break time="600ms"/>
+
+<mstts:express-as style="narration-relaxed">
+她进门那一扫，比她以前在叶观澜手下学的那一套轻了一点。
+
+看见人都在。
+</mstts:express-as>
+
+<break time="800ms"/>
+
+<mstts:express-as style="sad">
+她把声音压到最低：
+</mstts:express-as>
+
+<break time="400ms"/>
+
+<prosody pitch="-8%" rate="slow">余伯那边，</prosody>她道，不说废话，一句切进去，<emphasis level="strong">有人在收他的东西。</emphasis>今早开始的，弟子们说是长老安排，没说是哪个长老……但那个院子，朝向是赤渊斋室方向。
+
+<break time="900ms"/>
+
+<mstts:express-as style="narration-relaxed">
+屋里，三个人，都没动。
+</mstts:express-as>
+</voice>
+
+<voice name="zh-CN-YunxiNeural">
+<emphasis level="strong">收，</emphasis>林夙道，是他搬走了，还是东西在，人没了。
+</voice>
+
+<voice name="zh-CN-XiaoxiaoNeural">
+<mstts:express-as style="sad">
+人，
+</mstts:express-as>
+阿湄道，今早没有出来，帘子放着，我站了一刻钟，没有动静，但有人呼吸的气味……还在里面。<break time="500ms"/>她停了一下，但东西在被拿，是他自己在收，还是别人在替他收，从外头看不出来。
+</voice>
+
+<break time="700ms"/>
+
+<voice name="zh-CN-XiaoxiaoNeural">
+<mstts:express-as style="narration-relaxed">
+她没把"是谁在替他收"这半句说出来……她知道，这一句，今夜这一屋里的人，都在算。
+
+裴无咎，把那枚竹牌，往林夙那边推了一下，站起来。
+
+他的眼睛扫过她这一边，那一眼里有一种"你在场，那这一件事的份量，我刚才没算错"的确认……她认得那种眼神，是同行的人之间才有的。
+
+那，他道，那个痞气的语调，这一次带了一点刃，<prosody pitch="+5%">你们打算什么时候去。</prosody>
+</mstts:express-as>
+
+<break time="400ms"/>
+
+<mstts:express-as style="narration-relaxed">
+不是去不去，是什么时候。
+
+她知道，这一句，是他替他们把这一夜的节奏，按下去了一格。
+</mstts:express-as>
+
+<break time="500ms"/>
+
+<mstts:express-as style="narration-relaxed">
+林夙，把那枚竹牌收回袖中，站起来，看了她一眼：
+</mstts:express-as>
+</voice>
+
+<voice name="zh-CN-YunxiNeural">
+<emphasis level="moderate">余伯院子里的弟子，几个。</emphasis>
+</voice>
+
+<voice name="zh-CN-XiaoxiaoNeural">
+两个，阿湄道，搬东西的，一个进一个出，轮着走，没有守门的样子，就是普通帮工。
+</voice>
+
+<voice name="zh-CN-YunxiNeural">
+<emphasis level="moderate">有没有，</emphasis>比帮工更不普通的人，在附近。
+</voice>
+
+<voice name="zh-CN-XiaoxiaoNeural">
+<break time="1000ms"/>
+
+<mstts:express-as style="sad">
+她沉默了一息……那个沉默，已经是答案：
+</mstts:express-as>
+
+<break time="500ms"/>
+
+斋室区廊道的那头，有一个人，内门弟子服，站了很久，像在等人，但位置对着余伯院子的方向。
+</voice>
+
+<break time="700ms"/>
+
+<voice name="zh-CN-XiaoxiaoNeural">
+<mstts:express-as style="narration-relaxed">
+她没把"那个人没动过"这一句说出来……她知道，林夙听完这一句，已经在心里描完了一条线。
+
+林夙，把那条线，在脑子里描了一遍……
+</mstts:express-as>
+
+<break time="900ms"/>
+
+<mstts:express-as style="narration-relaxed">
+阿湄知道他在描什么。
+
+余伯，归隐谷生还，命里空缺，账册抄进了那片空白，还没读出来。
+
+这件事，只有他们几个知道。
+
+但昨夜，他进过赤渊的后院，触过阵，阵会告诉赤渊：<emphasis level="strong">有人来过。</emphasis>
+
+赤渊不知道是谁。
+
+但他知道，有人在往他这个方向走。
+
+她认得林夙说这一段话时，眼里那种把"有人"两个字压住的方式……他没说那个"有人"是谁，他不必说。
+</mstts:express-as>
+
+<break time="900ms"/>
+</voice>
+
+<voice name="zh-CN-YunxiNeural">
+<emphasis level="strong">现在去，</emphasis>林夙道，往门口走，声音没有起伏，快一点。
+</voice>
+
+<voice name="zh-CN-XiaoxiaoNeural">
+<break time="500ms"/>
+
+<mstts:express-as style="narration-relaxed">
+她没拦他。
+
+<break time="300ms"/>
+
+她没拦裴无咎。
+
+<break time="300ms"/>
+
+她没拦牛阿大。
+</mstts:express-as>
+
+<break time="600ms"/>
+
+<mstts:express-as style="narration-relaxed">
+牛阿大，第一个站起来，把凳子往后带了一下，那动作，比他平时快了半拍。
+</mstts:express-as>
+
+<break time="500ms"/>
+
+<mstts:express-as style="empathetic">
+她认得那种快……是憨人急了的那种急，比聪明人的急更费劲，也更真。
+</mstts:express-as>
+</voice>
+
+</speak>
