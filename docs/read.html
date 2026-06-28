@@ -77,7 +77,7 @@ function render(){
  const pLabel=prev?(prev.interlude?`插章 ${prev.interlude} ${prev.title}`:`第${prev.n}回 ${prev.title}`):'已是开篇';
  const nLabel=next?(next.interlude?`插章 ${next.interlude} ${next.title}`:`第${next.n}回 ${next.title}`):'追到这了';
  read.innerHTML=`<h1>${label}</h1>
-  <div class="meta">${c.date||''}${c.cast&&c.cast.length?'　'+c.cast.join(' / '):''}</div>
+  <div class="meta">${c.cast&&c.cast.length?c.cast.join(' / '):''}</div>
   ${c.hook?`<div class="hook">${c.hook}</div>`:''}
   <div class="body">${c.html}</div>
   <nav class="nav">
