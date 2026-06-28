@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys; sys.stdout.reconfigure(encoding='utf-8') if hasattr(sys.stdout, 'reconfigure') else None
 """文笔上线门 / prose quality gate.
 
 确定性地扫描 chronicle/*.md 的正文，卡住把这部连载写垮的四类退化：
