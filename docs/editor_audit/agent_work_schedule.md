@@ -1,8 +1,8 @@
 # Agent Work Schedule & Task Board
 
 > **Dispatcher**: Antigravity Task Dispatcher v1.1
-> **Last Dispatched Timestamp**: `2026-07-07 05:02:36`
-> **Progress**: Total infected: 769 | Fixed: 5 | Pending: 764
+> **Last Dispatched Timestamp**: `2026-07-07 06:49:42`
+> **Progress**: Total infected: 772 | Fixed: 9 | Pending: 763
 
 ---
 
@@ -38,8 +38,12 @@ Subagents must claim and rewrite the following chapters, then submit for review:
 ---
 
 ## 📈 3. Archival of Fixed Chapters
-The following 5 chapters have been successfully cleaned and archived:
+The following 9 chapters have been successfully cleaned and archived:
 
+- `[x]` Ch 505 | 505-分别.md
+- `[x]` Ch 508 | ch508-两个人.md
+- `[x]` Ch 510 | ch510-南道再见.md
+- `[x]` Ch 517 | ch517-不哭.md
 - `[x]` Ch 666 | ch666-旧账.md
 - `[x]` Ch 667 | ch667-两把.md
 - `[x]` Ch 668 | ch668-纸.md

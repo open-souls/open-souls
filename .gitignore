@@ -8,3 +8,4 @@ docs/*.epub
 prompts/.results/
 .audit_tmp/
 tmp/
+**.mp3
