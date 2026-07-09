@@ -8,3 +8,6 @@ model_tiers:
   light: claude-haiku-4-5
   heavy: claude-sonnet-4-6
   peak:  claude-opus-4-8
+
+delegation:
+  max_concurrent_children: 12  # 提升到 12 以支持 12 subagent 并行 polish (open-souls 2026-07-08)

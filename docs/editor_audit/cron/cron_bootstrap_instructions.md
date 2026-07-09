@@ -22,7 +22,12 @@ To set up the automated sweeps again, run the following two `schedule` tool call
 
 ---
 
-## 📂 Backup Scripts Reference
+## 📂 Dynamic Invocation of Local `claude -p` for Any Chapter
 
-* **[cron_chapter_audit.py](file:///c:/Users/stanc/github/open-souls/docs/editor_audit/cron/cron_chapter_audit.py)**: Loads all `chronicle/*.md` files, verifies styling parameters (eliminating '按完', index tags, and 3D offset variables), and updates `chapter_diagnostic_ledger.md`.
-* **[cron_agent_task_dispatcher.py](file:///c:/Users/stanc/github/open-souls/docs/editor_audit/cron/cron_agent_task_dispatcher.py)**: Compares current repository files with the ledger to figure out the active queue, and writes the top 5 priorities to `agent_work_schedule.md`.
+Rather than keeping redundant prompt copies, you can dynamically prepend the target chapter ID and pipe it to Claude via standard input.
+
+To manually trigger a rewrite for **Ch 519** (or any other chapter), run this single-line command in PowerShell:
+
+```powershell
+$env:ANTHROPIC_BASE_URL="http://localhost:11435"; ("TARGET=ch519`n" + (Get-Content -Raw C:\Users\stanc\github\open-souls\prompts\rewrite-one.txt)) | claude -p --dangerously-skip-permissions --add-dir C:/Users/stanc/github/open-souls > C:\Users\stanc\github\open-souls\prompts\.results\ch519.log 2>&1
+```
