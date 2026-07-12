@@ -73,6 +73,10 @@ HAN = re.compile(r"[一-鿿]")
 
 def body_of(text):
     """去掉 frontmatter、标题行、分场线，留正文。"""
+    # 去 BOM（utf-8-sig 写入时容易带上）和统一换行
+    if text.startswith("\ufeff"):
+        text = text[1:]
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
     m = re.match(r"^---\s*\n.*?\n---\s*\n?(.*)$", text, re.S)
     b = m.group(1) if m else text
     b = re.sub(r"^#.*$", "", b, flags=re.M)          # 标题行
