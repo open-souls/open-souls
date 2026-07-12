@@ -160,7 +160,42 @@ def collect(include_drafts=False):
             prev = by_n.get(n)
             if prev is None or (not prev["hook"] and entry["hook"]):
                 by_n[n] = entry
+    _fill_placeholders(by_n)  # 给已知缺口章号填 placeholder（让 index.html 视觉连续）
     return [by_n[n] for n in sorted(by_n)]
+
+
+# ---------- 占位补充 ----------
+#
+# 按 docs/problematic_chapters.md 调研结果，有 144 个章号属于"缺口"：
+#   * ch791-793 = §七.1 第二道墙封档（3 章）
+#   * ch857-997 = "等治本样品，严禁写"（141 章）
+# 为让 GitHub Pages 上 index.html 的章节目录在视觉上不出现断层，
+# 在 chronicle.json 里给这些章号补一条 placeholder 条目。
+# 前端 index.html 会给它们加 .pending class（半透明 + 标 "待开写"），
+# 不允许点击跳转到 read.html，避免被误当真章阅读。
+KNOWN_GAPS = {791, 792, 793} | set(range(857, 998))  # 144 章
+
+
+def _fill_placeholders(by_n):
+    for n in sorted(KNOWN_GAPS):
+        if n in by_n:
+            continue
+        # season 跟随前一章；若无前一章则 fallback 1
+        prev = max((k for k in by_n if k < n), default=None)
+        prev_season = by_n[prev]["season"] if prev is not None else 1
+        by_n[n] = {
+            "n": n,
+            "interlude": None,
+            "insert_after": None,
+            "season": prev_season,
+            "title": "待开写",
+            "cast": [],
+            "pov": "",
+            "hook": "本回按 §七.1 边界条件档暂留，等治本样品通过后开写。",
+            "html": "<p><em>本章为待补占位（%d 回），详见 <code>docs/problematic_chapters.md §4.3</code>。</em></p>" % n,
+            "present": [],
+            "pending": True,
+        }
 
 
 # ---------- EPUB ----------

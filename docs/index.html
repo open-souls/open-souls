@@ -50,6 +50,13 @@ a.ch.int .t{font-weight:500}
 a.ch.hide,.season.hide{display:none}
 a.ch .dot{width:6px;height:6px;border-radius:50%;background:var(--ember);align-self:center;flex:none;opacity:0}
 a.ch.last .dot{opacity:1}
+/* placeholder 卡（缺口占位） */
+a.ch.pending{opacity:.42;pointer-events:none;cursor:default}
+a.ch.pending .t{color:#5a556a;font-weight:400}
+a.ch.pending .t::before{content:"待开写 · ";color:var(--dim);font-weight:400}
+a.ch.pending .n{color:#5a556a}
+a.ch.pending .c{color:#3f3a4d}
+a.ch.pending:hover{background:transparent}
 .empty{color:var(--whisper);text-align:center;margin-top:8vh;font-size:15px;line-height:2.1}
 .empty code{background:var(--ink2);padding:2px 8px;border-radius:5px;color:var(--ember)}
 footer{text-align:center;color:#4f4a5c;font-size:12px;margin-top:9vh;line-height:2}
@@ -87,8 +94,12 @@ fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
  ROWS=rows;
  if(!rows.length){toc.innerHTML='<div class="empty">连载还很安静。<br>跑一次 <code>python engine/site.py</code>，目录就会落在这里。</div>';return;}
  const mainRows=rows.filter(r=>!r.interlude);
- const lastN=mainRows.length?Math.max(...mainRows.map(r=>r.n)):0;
- document.getElementById('stat').textContent='连载至第 '+lastN+' 回';
+ if(mainRows.length){
+  const sortedN=mainRows.map(r=>r.n).sort((a,b)=>a-b);
+  const gaps=(sortedN[sortedN.length-1]-sortedN[0]+1)-mainRows.length;
+  const lastN=sortedN[sortedN.length-1];
+  document.getElementById('stat').textContent='连载至第 '+lastN+' 回 · 共 '+mainRows.length+' 回'+(gaps?' · '+gaps+' 回待补':'');
+ }
  const last=+localStorage.getItem('os-last')||0;
  if(last){const r=document.getElementById('resume');r.href='read.html#'+last;r.textContent='继续读 · 第'+last+'回';}
 
@@ -123,9 +134,10 @@ function build(){
  toc.innerHTML=Object.keys(bySeason).sort((a,b)=>a-b).map(s=>{
   const list=bySeason[s].map(r=>{
     const isInt=!!r.interlude;
+    const isPending=!!r.pending;
     const nLabel=isInt?`插·${r.interlude}`:`第${r.n}回`;
-    return `<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''} ${isInt?'int':''}"
-     data-season="${r.season}" data-cast="${eff(r).join('|')}" data-title="${norm(r.title)}" href="read.html#${r.n}">
+    return `<a class="ch ${seen.has(r.n)?'read':''} ${r.n===last?'last':''} ${isInt?'int':''} ${isPending?'pending':''}"
+     data-season="${r.season}" data-cast="${eff(r).join('|')}" data-title="${norm(r.title)}" href="${isPending?'#':'read.html#'+r.n}">
     <span class="dot"></span><span class="n">${nLabel}</span><span class="t">${r.title}</span>
     <span class="c">${eff(r).slice(0,3).join(' / ')}</span></a>`;
   }).join('');
