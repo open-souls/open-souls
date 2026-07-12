@@ -93,12 +93,12 @@ const eff=r=>r.present&&r.present.length?r.present:r.cast;
 fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
  ROWS=rows;
  if(!rows.length){toc.innerHTML='<div class="empty">连载还很安静。<br>跑一次 <code>python engine/site.py</code>，目录就会落在这里。</div>';return;}
- const mainRows=rows.filter(r=>!r.interlude);
+ const mainRows=rows.filter(r=>!r.interlude && !r.pending);
  if(mainRows.length){
   const sortedN=mainRows.map(r=>r.n).sort((a,b)=>a-b);
   const gaps=(sortedN[sortedN.length-1]-sortedN[0]+1)-mainRows.length;
   const lastN=sortedN[sortedN.length-1];
-  document.getElementById('stat').textContent='连载至第 '+lastN+' 回 · 共 '+mainRows.length+' 回'+(gaps?' · '+gaps+' 回待补':'');
+  document.getElementById('stat').textContent='连载至第 '+lastN+' 回 · 已写 '+mainRows.length+(gaps?' · '+gaps+' 回待补':'');
  }
  const last=+localStorage.getItem('os-last')||0;
  if(last){const r=document.getElementById('resume');r.href='read.html#'+last;r.textContent='继续读 · 第'+last+'回';}
