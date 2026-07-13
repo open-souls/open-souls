@@ -9,3 +9,4 @@ prompts/.results/
 .audit_tmp/
 tmp/
 **.mp3
+./_**.py
