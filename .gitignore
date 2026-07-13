@@ -10,3 +10,7 @@ prompts/.results/
 tmp/
 **.mp3
 ./_**.py
+engine/_*.py
+engine/_*.txt
+engine/_*.json
+engine/_*.repr
