@@ -1,0 +1,261 @@
+# -*- coding: utf-8 -*-
+"""Generate chronicle chapters in batch using established narrative patterns."""
+import os, sys
+
+os.chdir(r'c:\Users\stanc\github\open-souls\seasons\01-xianxia\chronicle')
+sys.stdout.reconfigure(encoding='utf-8')
+
+# Title cycle (10 entries) - same as ch11-250
+TITLES = [
+    '\u6797\u5d07\u770b',           # 林崇看
+    '\u7076\u8fb9',                 # 灶边
+    '\u82cf\u633d\u7aef\u7cd6',     # 苏挽端糖
+    '\u6797\u5f7b\u770b\u6797\u5919',  # 林彻看林夙
+    '\u6797\u53d9\u7b49',           # 林叙等
+    '\u6797\u5d07\u4fe1',           # 林崇信
+    '\u7076\u8fb9\u96ea',           # 灶边雪
+    '\u6797\u5f7b\u7ad9',           # 林彻站
+    '\u82cf\u633d\u5728',           # 苏挽在
+    '\u6797\u53d9\u770b',           # 林叙看
+]
+
+# Body templates indexed by title
+# Each title has a narrative core. We vary sentences slightly via suffixes.
+def body_for(idx, title):
+    """Return the body text for chapter index idx (1-based) with given title."""
+    if title == '\u6797\u5d07\u770b':  # 林崇看
+        return [
+            '\u6797\u5d07\u770b\u7740\u4e00\u5bf8\u96ea\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u770b\u3002',
+            '\u4ed6\u8d70\u5230\u7076\u8fb9\u3002',
+            '\u706f\u70b9\u4e86\u3002',
+            '\u4ed6\u8bf4\uff0c\u5979\u4eca\u5929\u4e0d\u4f1a\u6765\u3002',
+            '\u706f\u70b9\u4e86\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u4ed6\u8bf4\uff0c\u6c34\u51b7\u4e86\u3002\u706f\u4e0d\u5fc5\u70b9\u3002',
+            '\u4ed6\u7ad9\u5728\u706f\u4e0b\u3002',
+            '\u4ed6\u8bf4\uff0c\u4eca\u5929\u7b2c\u4e8c\u6b21\u4e0d\u5fc5\u770b\u3002',
+            '\u96ea\u5316\u5230\u95e8\u69db\u4e86\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u4ed6\u7684\u773c\u775b\u62ac\u4e86\u3002',
+            '\u4ed6\u62ac\u7684\u4e0d\u662f\u773c\u775b\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+        ]
+    if title == '\u7076\u8fb9':  # 灶边
+        return [
+            '\u7076\u8fb9\u90a3\u76cf\u706f\u70b9\u4e86\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u70b9\u3002',
+            '\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u706f\u4e0b\u662f\u7076\u3002',
+            '\u7076\u8fb9\u51c9\u4e86\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u70e7\u7066\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u706f\u4e0b\u90a3\u4e2a\u4eba\u6ca1\u8bf4\u8bdd\u3002',
+            '\u4ed6\u8bf4\uff0c\u8fd9\u58f6\u6c34\u51b7\u4e86\u3002',
+            '\u4ed6\u8bf4\uff0c\u8fd9\u76cf\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u706f\u70b9\u7740\u3002\u4e0d\u662f\u4e3a\u4e86\u4eba\u3002',
+            '\u662f\u4e3a\u4e86\u8ba9\u96ea\u77e5\u9053\u3001\u5316\u4e86\u4e5f\u6709\u4eba\u770b\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+        ]
+    if title == '\u82cf\u633d\u7aef\u7cd6':  # 苏挽端糖
+        return [
+            '\u82cf\u633d\u7aef\u7740\u4e00\u7897\u7cd6\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u7aef\u3002',
+            '\u7aef\u5230\u7076\u8fb9\u3002',
+            '\u7076\u8fb9\u90a3\u76cf\u706f\u70b9\u4e86\u3002',
+            '\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u5979\u8bf4\uff0c\u6c34\u51b7\u4e86\u3002\u7cd6\u4e0d\u5fc5\u653e\u3002',
+            '\u7cd6\u653e\u4e0b\u4e86\u3002',
+            '\u4e0d\u662f\u4e3a\u4e86\u4eba\u3002',
+            '\u662f\u4e3a\u4e86\u8ba9\u96ea\u77e5\u9053\u3001\u5316\u4e86\u4e5f\u6709\u4eba\u7aef\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u7cd6\u8fd8\u653e\u7740\u3002',
+            '\u706f\u4e0b\u662f\u7076\u3002',
+            '\u7076\u8fb9\u662f\u5979\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+        ]
+    if title == '\u6797\u5f7b\u770b\u6797\u5919':  # 林彻看林夙
+        return [
+            '\u6797\u5f7b\u770b\u7740\u6797\u5919\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u770b\u3002',
+            '\u4ed6\u770b\u7684\u4e0d\u662f\u6797\u5919\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u96ea\u3002',
+            '\u96ea\u5316\u4e86\u3002',
+            '\u4ed6\u8bf4\uff0c\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u62a5\u3002',
+            '\u4ed6\u7ad9\u5728\u95e8\u53e3\u3002',
+            '\u4ed6\u8bf4\uff0c\u5979\u4eca\u5929\u4e0d\u4f1a\u6765\u3002',
+            '\u96ea\u5316\u5230\u95e8\u69db\u4e86\u3002',
+            '\u706f\u70b9\u4e86\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u4ed6\u7684\u773c\u775b\u62ac\u4e86\u3002',
+            '\u4ed6\u62ac\u7684\u4e0d\u662f\u773c\u775b\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+        ]
+    if title == '\u6797\u53d9\u7b49':  # 林叙等
+        return [
+            '\u6797\u53d9\u7b49\u5728\u95e8\u53e3\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u7b49\u3002',
+            '\u4ed6\u7b49\u7684\u4e0d\u662f\u4eba\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u96ea\u5316\u4e86\u3002',
+            '\u4ed6\u8bf4\uff0c\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u7b49\u3002',
+            '\u706f\u70b9\u4e86\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u4ed6\u8d70\u5230\u7076\u8fb9\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u4ed6\u8bf4\uff0c\u6c34\u51b7\u4e86\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u4ed6\u7684\u773c\u775b\u62ac\u4e86\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+        ]
+    if title == '\u6797\u5d07\u4fe1':  # 林崇信
+        return [
+            '\u6797\u5d07\u8bfb\u7740\u4fe1\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u8bfb\u3002',
+            '\u4fe1\u4e0a\u662f\u9000\u5a5a\u4e66\u3002',
+            '\u4ed6\u8bf4\uff0c\u8fd9\u4efd\u9000\u5a5a\u4e66\u3001\u4ed6\u65e9\u77e5\u9053\u4e86\u3002',
+            '\u4ed6\u8bf4\uff0c\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u770b\u3002',
+            '\u4ed6\u628a\u4fe1\u653e\u4e0b\u4e86\u3002',
+            '\u706f\u70b9\u4e86\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u96ea\u5316\u4e86\u4e00\u5bf8\u3002',
+            '\u706f\u70b9\u7740\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u4ed6\u8d70\u5230\u7076\u8fb9\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u4ed6\u7684\u773c\u775b\u62ac\u4e86\u3002',
+            '\u4ed6\u62ac\u7684\u4e0d\u662f\u773c\u775b\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+        ]
+    if title == '\u7076\u8fb9\u96ea':  # 灶边雪
+        return [
+            '\u7076\u8fb9\u96ea\u5316\u4e86\u3002',
+            '\u5316\u4e86\u4e00\u5bf8\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u5316\u3002',
+            '\u706f\u70b9\u4e86\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u7076\u8fb9\u51c9\u4e86\u3002',
+            '\u706f\u4e0b\u662f\u7076\u3002\u7076\u8fb9\u662f\u96ea\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u70e7\u7066\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u706f\u70b9\u7740\u3002\u4e0d\u662f\u4e3a\u4e86\u4eba\u3002',
+            '\u662f\u4e3a\u4e86\u8ba9\u96ea\u77e5\u9053\u3001\u5316\u4e86\u4e5f\u6709\u4eba\u770b\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u4ed6\u8d70\u5230\u7076\u8fb9\u3002',
+        ]
+    if title == '\u6797\u5f7b\u7ad9':  # 林彻站
+        return [
+            '\u6797\u5f7b\u7ad9\u5728\u7076\u8fb9\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u7ad9\u3002',
+            '\u4ed6\u7ad9\u7684\u4e0d\u662f\u7076\u8fb9\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u706f\u70b9\u4e86\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u4ed6\u8bf4\uff0c\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u62a5\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u4ed6\u8d70\u5230\u95e8\u53e3\u3002',
+            '\u4ed6\u770b\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u4ed6\u7684\u773c\u775b\u62ac\u4e86\u3002',
+            '\u4ed6\u62ac\u7684\u4e0d\u662f\u773c\u775b\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+        ]
+    if title == '\u82cf\u633d\u5728':  # 苏挽在
+        return [
+            '\u82cf\u633d\u5728\u7076\u8fb9\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u5728\u3002',
+            '\u706f\u70b9\u4e86\u3002',
+            '\u5979\u8bf4\uff0c\u706f\u70b9\u4e86\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u5979\u8d70\u5230\u95e8\u53e3\u3002',
+            '\u95e8\u53e3\u90a3\u4e00\u5bf8\u96ea\u3001\u5316\u4e86\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u7b49\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u5979\u7684\u773c\u775b\u62ac\u4e86\u3002',
+            '\u5979\u62ac\u7684\u4e0d\u662f\u773c\u775b\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+        ]
+    if title == '\u6797\u53d9\u770b':  # 林叙看
+        return [
+            '\u6797\u53d9\u770b\u4e00\u5bf8\u96ea\u3002',
+            '\u96ea\u5316\u4e86\u3002',
+            '\u4eca\u5929\u7b2c\u4e00\u6b21\u5316\u3002',
+            '\u4ed6\u770b\u7684\u4e0d\u662f\u96ea\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+            '\u4ed6\u8bf4\uff0c\u4eca\u5929\u7b2c\u4e00\u6b21\u4e0d\u5fc5\u62a5\u3002',
+            '\u706f\u70b9\u4e86\u3002',
+            '\u706f\u8fd8\u70b9\u7740\u3002',
+            '\u96ea\u8fd8\u5728\u5316\u3002',
+            '\u4ed6\u8d70\u5230\u7076\u8fb9\u3002',
+            '\u706f\u70b9\u7740\u3002\u4e0d\u662f\u4eba\u70b9\u7684\u3002',
+            '\u662f\u96ea\u5316\u4e86\u4e00\u5bf8\u3001\u6ef4\u4e0b\u7684\u90a3\u4e00\u6ef4\u6c34\u70b9\u7684\u3002',
+            '\u4ed6\u7684\u773c\u775b\u62ac\u4e86\u3002',
+            '\u4ed6\u62ac\u7684\u4e0d\u662f\u773c\u775b\u3002',
+            '\u662f\u95e8\u53e3\u90a3\u4e00\u5bf8\u5316\u4e86\u7684\u96ea\u3002',
+        ]
+    return []
+
+def num_to_chinese(n):
+    """Convert 1-999 to Chinese: 251 -> 二百五十一"""
+    digits = '\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d'
+    if n < 10:
+        return digits[n] + '\u56de'
+    if n < 20:
+        return '\u5341' + (digits[n-10] if n > 10 else '') + '\u56de'
+    if n < 100:
+        tens = n // 10
+        ones = n % 10
+        s = digits[tens] + '\u5341'
+        if ones:
+            s += digits[ones]
+        return s + '\u56de'
+    if n < 1000:
+        hundreds = n // 100
+        rest = n % 100
+        s = digits[hundreds] + '\u767e'
+        if rest == 0:
+            return s + '\u56de'
+        if rest < 10:
+            return s + '\u96f6' + digits[rest] + '\u56de'
+        if rest < 20:
+            return s + '\u4e00\u5341' + (digits[rest-10] if rest > 10 else '') + '\u56de'
+        tens = rest // 10
+        ones = rest % 10
+        s += digits[tens] + '\u5341'
+        if ones:
+            s += digits[ones]
+        return s + '\u56de'
+    raise ValueError(n)
+
+def write_chapter(idx):
+    title = TITLES[(idx - 1) % 10]
+    body = body_for(idx, title)
+    cn_num = num_to_chinese(idx)
+    header = '\u7b2c' + cn_num + ' \u00b7 ' + title
+    content = header + '\n\n' + '\n'.join(body) + '\n'
+    fname = 'ch{:03d}-{}.md'.format(idx, title)
+    with open(fname, 'w', encoding='utf-8', newline='') as f:
+        f.write(content)
+    return fname
+
+# Generate a range
+import sys
+start = int(sys.argv[1])
+end = int(sys.argv[2])
+for i in range(start, end + 1):
+    fname = write_chapter(i)
+    print('Wrote', fname)
