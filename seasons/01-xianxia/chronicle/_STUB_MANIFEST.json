@@ -13,7 +13,7 @@
     "苏挽在",
     "苏挽端糖"
   ],
-  "count": 613,
+  "count": 607,
   "chapter_numbers": [
     251,
     252,
@@ -537,7 +537,6 @@
     857,
     881,
     890,
-    892,
     896,
     897,
     898,
@@ -547,7 +546,6 @@
     904,
     905,
     906,
-    907,
     908,
     909,
     910,
@@ -559,10 +557,8 @@
     918,
     919,
     920,
-    923,
     924,
     925,
-    926,
     927,
     928,
     929,
@@ -3258,7 +3254,6 @@
       "filename": "ch898-林彻站.md",
       "size_bytes": 274
     },
-
     {
       "chapter": 900,
       "filename": "ch900-林叙看.md",
@@ -3273,11 +3268,6 @@
       "chapter": 905,
       "filename": "ch905-林叙等.md",
       "size_bytes": 262
-    },
-    {
-      "chapter": 907,
-      "filename": "ch907-灶边雪.md",
-      "size_bytes": 293
     },
     {
       "chapter": 908,
@@ -3330,16 +3320,6 @@
       "size_bytes": 256
     },
     {
-      "chapter": 920,
-      "filename": "ch920-林叙看.md",
-      "size_bytes": 259
-    },
-    {
-      "chapter": 923,
-      "filename": "ch923-苏挽端糖.md",
-      "size_bytes": 298
-    },
-    {
       "chapter": 924,
       "filename": "ch924-林彻看林夙.md",
       "size_bytes": 289
@@ -3348,11 +3328,6 @@
       "chapter": 925,
       "filename": "ch925-林叙等.md",
       "size_bytes": 256
-    },
-    {
-      "chapter": 926,
-      "filename": "ch926-林崇信.md",
-      "size_bytes": 280
     },
     {
       "chapter": 927,
@@ -3375,11 +3350,6 @@
       "size_bytes": 268
     },
     {
-      "chapter": 933,
-      "filename": "ch933-苏挽端糖.md",
-      "size_bytes": 314
-    },
-    {
       "chapter": 934,
       "filename": "ch934-林彻看林夙.md",
       "size_bytes": 304
@@ -3393,11 +3363,6 @@
       "chapter": 936,
       "filename": "ch936-林崇信.md",
       "size_bytes": 268
-    },
-    {
-      "chapter": 937,
-      "filename": "ch937-灶边雪.md",
-      "size_bytes": 274
     },
     {
       "chapter": 938,
@@ -3433,11 +3398,6 @@
       "chapter": 947,
       "filename": "ch947-灶边雪.md",
       "size_bytes": 250
-    },
-    {
-      "chapter": 948,
-      "filename": "ch948-林彻站.md",
-      "size_bytes": 277
     },
     {
       "chapter": 949,
