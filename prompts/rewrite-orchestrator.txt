@@ -20,6 +20,11 @@
      QC-I 代词/性别:抽查 cast 里女角(尤其沈疏桐=她)的「他/她」是否对得上 soul.md pronoun。源稿常把沈疏桐误写「他」——grep「沈疏桐.*」.*他」或读其对白标签,凡误用即 FAIL 重派(性别代词错是硬伤)。
      QC-J em-dash 频次门（§七.3.1 · docs/TODO.md 任务 1 硬指标）:本正文字符中 em-dash（——）总频次必须 ≤ 0.40%（即 100 行 ≤ 0.4 个，实际验收 ≤ 1 个）。检查方式：跑 `python tmp/zhubian/_check_real_v4.py <章文件>` 取 `em_dash_ratio` 指标。> 0.40% → FAIL 重派。
      QC-K 翻译公式嵌套门（§七.3.1）:四类嵌套公式「X 的来处是 Y」「X 的方式不是 X」「X 的位是 Y」「X 的方向是 Y」在每 100 行内总频次必须 ≤ 1 次；「X 的 Y——是 Z」模式 ≤ 0 次 / 100 行。> 即 FAIL。
+     QC-K2 §七.1 第二道墙门（Loop_91 · engine/prose_lint.py）:`python engine/prose_lint.py <章文件>` 输出 ERROR 即 FAIL 重派。具体三项：
+       - 后置朝公式（动词+朝+自反代词如「擦朝X自己擦的」）chao_postp >= 2
+       - 「X 的来处/方式/方向是 Y」x_laichu >= 3
+       - 「就第一刹让」机械动作碎解链 first_break >= 3
+       注：信息差 POV（叶观澜）和心理反刍 POV（林夙被压后）作者亲写也破不掉（Loop #91 §四.2），唯一不撞方向 = 苏挽 POV「行为先于意识」写法。
      QC-L ships 字段瘦门（§三 原则三）:frontmatter 中 ships 每条 ≤ 60 字 + ≤ 1 个「且」。任何一条 > 200 字符（嵌入大段镟点分析）即 FAIL。同时指点 doc: `见 docs/anchors/chNNN.md` 是合规形式。
      QC-M OFFSCREEN POV 守门（§任务 4 · docs/TODO.md）:林夙假死段（ch346-437）所有章节，POV 不能是林夙，chapter 不能包含林夙正面台词/动作/表情描写。林夙仅能以「远景/消息/物件反应」三种方式侧面出现。出处：`docs/offscreen_pov_PROTOCOL.md`。
      QC-N ch174 Lint 守门（§任务 5 · docs/TODO.md）:不得出现"屋里安静/院里静/夜很静/心里咚/心里跳/心里颤/心里压了一口气"等抽象景物描写；不得出现「X 静」 + 抽象景物堆叠 ≥ 3 次；必须每章有 ≥ 1 处具体景物描写（触觉/视觉/听觉中至少一种）。出处：`docs/ch174_LINT_FIX_PROTOCOL.md`。
