@@ -13,7 +13,7 @@
     "苏挽在",
     "苏挽端糖"
   ],
-  "count": 627,
+  "count": 625,
   "chapter_numbers": [
     251,
     252,
@@ -479,7 +479,6 @@
     788,
     789,
     790,
-    793,
     794,
     795,
     796,
@@ -545,7 +544,6 @@
     886,
     887,
     888,
-    889,
     890,
     892,
     893,
@@ -2965,11 +2963,6 @@
       "size_bytes": 268
     },
     {
-      "chapter": 793,
-      "filename": "ch793-苏挽端糖.md",
-      "size_bytes": 314
-    },
-    {
       "chapter": 794,
       "filename": "ch794-林彻看林夙.md",
       "size_bytes": 304
@@ -3250,11 +3243,6 @@
       "size_bytes": 277
     },
     {
-      "chapter": 878,
-      "filename": "ch878-林彻站.md",
-      "size_bytes": 277
-    },
-    {
       "chapter": 881,
       "filename": "ch881-林崇看.md",
       "size_bytes": 305
@@ -3283,11 +3271,6 @@
       "chapter": 888,
       "filename": "ch888-林彻站.md",
       "size_bytes": 287
-    },
-    {
-      "chapter": 889,
-      "filename": "ch889-苏挽在.md",
-      "size_bytes": 256
     },
     {
       "chapter": 890,
