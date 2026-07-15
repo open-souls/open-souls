@@ -269,6 +269,7 @@ def main():
     # 只扫真正章节文件：名字以数字开头（001-xxx.md）或 ch<数字>-xxx.md
     # 排除 _STUB_MANIFEST.json 之类元数据文件
     targets = [p for p in targets if re.match(r"^(\d|ch\d)", os.path.basename(p)) and not os.path.basename(p).startswith("_")]
+    skipped = 0
     if stub_set:
         before = len(targets)
         targets = [p for p in targets if os.path.basename(p) not in stub_set]
