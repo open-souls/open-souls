@@ -13,7 +13,7 @@
     "苏挽在",
     "苏挽端糖"
   ],
-  "count": 625,
+  "count": 621,
   "chapter_numbers": [
     251,
     252,
@@ -539,7 +539,6 @@
     875,
     878,
     881,
-    883,
     884,
     886,
     887,
@@ -3246,11 +3245,6 @@
       "chapter": 881,
       "filename": "ch881-林崇看.md",
       "size_bytes": 305
-    },
-    {
-      "chapter": 883,
-      "filename": "ch883-苏挽端糖.md",
-      "size_bytes": 268
     },
     {
       "chapter": 884,
