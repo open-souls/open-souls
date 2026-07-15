@@ -13,7 +13,7 @@
     "苏挽在",
     "苏挽端糖"
   ],
-  "count": 635,
+  "count": 627,
   "chapter_numbers": [
     251,
     252,
@@ -536,25 +536,12 @@
     855,
     856,
     857,
-    860,
-    864,
-    865,
-    866,
-    867,
-    868,
-    869,
-    870,
     874,
     875,
-    877,
     878,
-    879,
-    880,
     881,
-    882,
     883,
     884,
-    885,
     886,
     887,
     888,
@@ -3263,26 +3250,6 @@
       "size_bytes": 277
     },
     {
-      "chapter": 865,
-      "filename": "ch865-林叙等.md",
-      "size_bytes": 271
-    },
-    {
-      "chapter": 867,
-      "filename": "ch867-灶边雪.md",
-      "size_bytes": 274
-    },
-    {
-      "chapter": 868,
-      "filename": "ch868-林彻站.md",
-      "size_bytes": 289
-    },
-    {
-      "chapter": 870,
-      "filename": "ch870-林叙看.md",
-      "size_bytes": 268
-    },
-    {
       "chapter": 874,
       "filename": "ch874-林彻看林夙.md",
       "size_bytes": 295
@@ -3293,29 +3260,14 @@
       "size_bytes": 268
     },
     {
-      "chapter": 877,
-      "filename": "ch877-灶边雪.md",
-      "size_bytes": 250
-    },
-    {
       "chapter": 878,
       "filename": "ch878-林彻站.md",
       "size_bytes": 277
     },
     {
-      "chapter": 879,
-      "filename": "ch879-苏挽在.md",
-      "size_bytes": 295
-    },
-    {
       "chapter": 881,
       "filename": "ch881-林崇看.md",
       "size_bytes": 305
-    },
-    {
-      "chapter": 882,
-      "filename": "ch882-灶边.md",
-      "size_bytes": 296
     },
     {
       "chapter": 883,
@@ -3326,11 +3278,6 @@
       "chapter": 884,
       "filename": "ch884-林彻看林夙.md",
       "size_bytes": 283
-    },
-    {
-      "chapter": 885,
-      "filename": "ch885-林叙等.md",
-      "size_bytes": 265
     },
     {
       "chapter": 886,
