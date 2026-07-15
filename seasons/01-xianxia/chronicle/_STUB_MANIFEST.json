@@ -13,7 +13,7 @@
     "苏挽在",
     "苏挽端糖"
   ],
-  "count": 610,
+  "count": 613,
   "chapter_numbers": [
     251,
     252,
@@ -541,7 +541,6 @@
     896,
     897,
     898,
-    899,
     900,
     902,
     903,
@@ -3259,11 +3258,7 @@
       "filename": "ch898-林彻站.md",
       "size_bytes": 274
     },
-    {
-      "chapter": 899,
-      "filename": "ch899-苏挽在.md",
-      "size_bytes": 283
-    },
+
     {
       "chapter": 900,
       "filename": "ch900-林叙看.md",
