@@ -6,7 +6,6 @@ disease章 + stub占位章). Uses the治本范文章 ch512-不接 as the gold re
 
 Usage:
     python engine/batch_rewrite.py --pick 12           # pick 12 chapters automatically
-    python engine/batch_rewrite.py --pick 12 --parallel 6
     python engine/batch_rewrite.py --chapters ch531,ch532,ch857
     python engine/batch_rewrite.py --stubs-only --pick 20
     python engine/batch_rewrite.py --dry-run --pick 5
@@ -24,21 +23,35 @@ CHRONICLE = ROOT / "seasons" / "01-xianxia" / "chronicle"
 STUB_MANIFEST = CHRONICLE / "_STUB_MANIFEST.json"
 RESULTS_DIR = ROOT / "prompts" / ".results"
 RESULTS_DIR.mkdir(exist_ok=True)
+sys.path.insert(0, str(ROOT / "engine"))
+import village as V
+import prose_lint as PL
+import safety_lint as SL
 
 REFERENCE_CHAPTER = "ch512-不接.md"  # 治本范文章
 
 
 def load_state():
     """Load progress and target queues."""
-    with open(STUB_MANIFEST) as f:
-        stub_data = json.load(f)
-    stub_set = {e["filename"] for e in stub_data["files"]}
-    stub_by_chapter = {e["chapter"]: e["filename"] for e in stub_data["files"]}
+    if not STUB_MANIFEST.exists():
+        stub_data = {"files": []}
+    else:
+        with open(STUB_MANIFEST, encoding="utf-8") as f:
+            stub_data = json.load(f)
+    entries = stub_data.get("files") or []
+    if entries:
+        stub_set = {e["filename"] for e in entries}
+        stub_by_chapter = {e["chapter"]: e["filename"] for e in entries}
+    else:
+        chapter_numbers = {int(number) for number in stub_data.get("chapter_numbers", [])}
+        stub_set = {str(number) for number in chapter_numbers}
+        stub_by_chapter = {number: None for number in chapter_numbers}
 
     # Find disease chapters via lint
     result = subprocess.run(
         ["python", "engine/prose_lint.py"],
-        capture_output=True, text=True, cwd=str(ROOT),
+        capture_output=True, text=True, encoding="utf-8",
+        errors="replace", cwd=str(ROOT),
     )
     error_chs = set()
     for line in result.stdout.splitlines():
@@ -52,6 +65,21 @@ def load_state():
     return stub_set, stub_by_chapter, sorted(error_chs)
 
 
+def parse_chapter_spec(spec):
+    """Parse ch999, 999, ch999-ch1000, or comma-separated combinations."""
+    numbers = []
+    for part in spec.split(","):
+        match = re.fullmatch(r"(?:ch)?(\d+)(?:-(?:ch)?(\d+))?", part.strip(), re.I)
+        if not match:
+            raise ValueError(f"invalid chapter selector: {part}")
+        start = int(match.group(1))
+        end = int(match.group(2) or start)
+        if end < start:
+            raise ValueError(f"chapter range is reversed: {part}")
+        numbers.extend(range(start, end + 1))
+    return sorted(set(numbers))
+
+
 def pick_targets(n, stubs_only=False, disease_only=False, skip_done=True):
     """Pick n chapters to rewrite. Order: stub ch857-997 first (no real chapter
     on disk), then disease chapters by chapter number."""
@@ -63,7 +91,7 @@ def pick_targets(n, stubs_only=False, disease_only=False, skip_done=True):
             if 858 <= ch <= 997:
                 if skip_done and _already_done(ch):
                     continue
-                targets.append(("stub", ch, stub_by_chapter[ch]))
+                targets.append(("stub", ch, stub_by_chapter[ch] or _chapter_file(ch)))
                 if len(targets) >= n:
                     return targets
     if not stubs_only:
@@ -78,13 +106,54 @@ def pick_targets(n, stubs_only=False, disease_only=False, skip_done=True):
 
 def _chapter_file(ch):
     """Resolve a chapter number to a real chapter file on disk."""
-    candidates = list(CHRONICLE.glob(f"ch{ch:03d}-*.md")) + list(CHRONICLE.glob(f"ch{ch}-*.md"))
+    candidates = list(dict.fromkeys(
+        list(CHRONICLE.glob(f"ch{ch:03d}-*.md"))
+        + list(CHRONICLE.glob(f"ch{ch}-*.md"))
+    ))
     candidates = [c for c in candidates if not c.stem.startswith("_")]
     if not candidates:
         return None
-    # Pick the largest non-stub file
-    candidates.sort(key=lambda c: c.stat().st_size, reverse=True)
+    if len(candidates) == 1:
+        return str(candidates[0])
+
+    def candidate_rank(path):
+        try:
+            raw = path.read_text(encoding="utf-8")
+            meta = V.read_frontmatter(raw)
+            errors, _, metrics = PL.lint_file(str(path))
+            publishable = (
+                not errors
+                and not SL.check(PL.body_of(raw))
+                and not V.validate_frontmatter(meta)
+                and not V.validate_editorial_metadata(meta)
+                and metrics.get("chars", 0) >= PL.MIN_CHAPTER_CHARS
+            )
+            lint_clean = not errors and not SL.check(PL.body_of(raw))
+            return (
+                int(publishable),
+                int(lint_clean),
+                metrics.get("chars", 0),
+                path.stat().st_size,
+                -len(path.name),
+                path.name,
+            )
+        except (OSError, UnicodeError):
+            return (0, 0, 0, 0, -len(path.name), path.name)
+
+    # A passing branch beats a larger broken branch.  Size is only a fallback
+    # when duplicate branches have the same gate status.
+    candidates.sort(key=candidate_rank, reverse=True)
     return str(candidates[0])
+
+
+def _cast_names(path):
+    if not path or not os.path.exists(path):
+        return []
+    text = Path(path).read_text(encoding="utf-8")
+    match = re.search(r"^cast:\s*\[(.*?)\]\s*$", text, re.M)
+    if not match:
+        return []
+    return [name.strip().strip("'\"") for name in match.group(1).split(",") if name.strip()]
 
 
 def _already_done(ch):
@@ -94,17 +163,60 @@ def _already_done(ch):
         return False
     if os.path.getsize(f) < 1500:
         return False  # stub
-    r = subprocess.run(
-        ["python", "engine/prose_lint.py", f],
-        capture_output=True, text=True, cwd=str(ROOT),
+    raw = Path(f).read_text(encoding="utf-8")
+    metadata = V.read_frontmatter(raw)
+    if V.validate_frontmatter(metadata) or V.validate_editorial_metadata(metadata, body=PL.body_of(raw)):
+        return False
+    errors, _, metrics = PL.lint_file(f)
+    return not errors and metrics.get("chars", 0) >= PL.MIN_CHAPTER_CHARS
+
+
+def _compact_role_snapshot(name, limit=900):
+    """Inline only the role signals a writer needs; do not make Claude read a huge dossier."""
+    path = ROOT / "souls" / name / "soul.md"
+    if not path.exists():
+        return f"{name}: （无角色卡，严格按目标章 frontmatter）"
+    raw = path.read_text(encoding="utf-8")
+    front = raw.split("---", 2)[1] if raw.startswith("---") and "---" in raw[3:] else raw
+    lines = front.splitlines()
+    wanted = ("name:", "one_line:", "drives:", "fracture:", "under_pressure:", "voice:", "seed_relations:")
+    selected = []
+    for index, line in enumerate(lines):
+        if line.lstrip().startswith(wanted):
+            selected.extend(lines[index:index + 3])
+    compact = "\n".join(dict.fromkeys(line for line in selected if line.strip()))
+    return (compact or f"name: {name}")[:limit]
+
+
+def _reference_snapshot(limit=1800):
+    """Use a bounded beginning/end excerpt instead of a full reference read."""
+    path = CHRONICLE / REFERENCE_CHAPTER
+    if not path.exists():
+        return "（范章缺失；按下列写法约束执行）"
+    body = PL.body_of(path.read_text(encoding="utf-8"))
+    bad_markers = (
+        "方向朝着", "方向朝向", "方向落在", "方向不必替", "不必替上一世",
+        "不必替前世", "他自己守", "她自己守", "的方式不是", "的方式，是",
+        "是……的那种",
     )
-    return "0 章退回" in r.stdout and "文笔过线" in r.stdout
+    body = "\n".join(
+        line for line in body.splitlines()
+        if not any(marker in line for marker in bad_markers)
+    )
+    if len(body) <= limit:
+        return body
+    head = limit * 2 // 3
+    tail = limit - head
+    return body[:head] + "\n……（范章中段省略）……\n" + body[-tail:]
 
 
 def build_prompt(target_ch, target_file):
-    """Build the subagent prompt with the治本范文 ch512 as reference."""
-    reference_path = CHRONICLE / REFERENCE_CHAPTER
-    reference_text = reference_path.read_text(encoding="utf-8")
+    """Build a bounded subagent prompt with compact, target-relevant context."""
+    cast_names = _cast_names(target_file)
+    cast_snapshot = "\n\n".join(
+        f"【{name}】\n{_compact_role_snapshot(name)}" for name in cast_names
+    )
+    reference_snapshot = _reference_snapshot()
 
     # Read pre/post hooks for continuity
     pre_hook = ""
@@ -129,12 +241,13 @@ def build_prompt(target_ch, target_file):
 
     return f"""你是《镇狱之渊》重写工坊的一名写手 sub-agent。本轮 TARGET=ch{target_ch:03d}。
 
-【治本范文章 · 必须先读后写】
-下面是 ch512-不接.md 的全文（这是我亲写的治本章，把 §七.1 第二道墙在 POV 写法层面破掉）。**先精读这章的每个字，然后再开始写 ch{target_ch}**：
-
-========= 范文章 ch512-不接.md =========
-{reference_text}
-========= 范文章结束 =========
+【只读这些上下文，禁止扫描全仓库】
+- 目标章：{target_file}
+- 治本范章的有界片段（仅作节奏参照，不要再打开其他章节）：
+{reference_snapshot}
+- 本章 cast 的有界角色快照（禁止再打开整张 soul.md）：
+{cast_snapshot or '- （未解析到 cast，严格以目标章 frontmatter 为准）'}
+- 机器标准：engine/prose_lint.py、tools/review_batch.py
 
 【ch{target_ch} 当前状态】
 目标文件路径: {target_file}
@@ -146,8 +259,8 @@ def build_prompt(target_ch, target_file):
 {post_hook if post_hook else '(无后一章)'}
 
 【你要做的】
-1. 读 souls/ 里所有 cast 角色的 soul.md（每个角色都读，特别注意 voice / fracture / under_pressure / seed_relations）
-2. 把 ch{target_ch} **整章重写**——不是改改，而是按范文章 ch512 的写法重写：删 §七.1 第二道墙（不写"X 的来处是 Y"/"X 的方式不是 X"/动词+朝+自反代词/"就第一刹让"/"是...的那种..."）；用物象（每个角色一套专属物象）+ 留白（单字收尾）+ 行为先于意识
+1. 只使用上面的角色快照，特别注意 voice / fracture / under_pressure / seed_relations
+2. 把 ch{target_ch} **整章重写**——不是改改，而是按范文章 ch512 的写法重写：删 §七.1 第二道墙（不写"X 的来处是 Y"/"X 的方式不是 X"/动词+朝+自反代词/"就第一刹让"/"是...的那种..."，也不写"方向朝着/方向落在/方向不必替"或"不必替上一世/自己守"的后置回环）；用物象（每个角色一套专属物象）+ 留白（单字收尾）+ 行为先于意识。**同一个物象位置（那一寸/那一道/那一截等）和“我/他/她自己”不能高频换名复述；把回声改成新动作、关系压力或信息。**
 3. 范文章 ch512 的核心写法：
    - 每个角色有自己的专属物象（秤/粥/包子/茶渍/糖玉）
    - 段落短句切镜，不堆砌长释义
@@ -156,17 +269,11 @@ def build_prompt(target_ch, target_file):
    - 余伯声线 = 极短（嗯/我看见了），苏挽声线 = 否决句+嗅觉，林崇声线 = 把字掂一掂再说，赤渊 = 编号排比，裴无咎 = 自嘲+嚼包子，牛阿大 = 全沉默+动作，阿湄 = 计算+备用笑，叶观澜 = 极轻+压字+抹旧痕
 4. 保留 frontmatter 的 cast / pov / line / thread / beat / ships 字段（**改 ships 为 ≤60 字一条，不堆叠章号链**），其他字段可以重写
 5. 字数 ≥ 1500 字（实际正文汉字数）
-6. 写完跑 `python engine/prose_lint.py "{target_file}"`，必须 0 ERROR
-7. 写完结果到 `prompts/.results/ch{target_ch:03d}.md`：
-   - status: PASS | BLOCKED
-   - lint: ok|fail
-   - score: 14/14（如果你能稳定打 14）
-   - gates: G1✓ G2✓ G3✓ G4✓ G5✓
-   - souls_read: 列出本章 cast 角色名
-   - note: 一句话（改了什么 / 治本了什么）
+6. 只做一次有限编辑回合：读目标章，完成整章写入，然后停下。不要反复重读目标章、不要扫描全仓库、不要启动子代理；外层 runner 会独立执行 lint、strict editorial、硬线和公式/回声扫描。
+7. 不要写 prompts/.results 或任何其他文件；只修改 TARGET。不要把命令结果或自报 PASS 写进正文，外层 runner 会独立写 receipt，不能用自报结果放行。
 
 【绝对硬禁】
-- ❌ 不写「X 的来处是 Y」「X 的方式不是 X」「是...的那种...」「按完按完」「就第一刹让」「走朝他自己走的」「擦朝苏挽自己擦的」这类公式
+- ❌ 不写「X 的来处是 Y」「X 的方式不是 X」「是...的那种...」「按完按完」「就第一刹让」「走朝他自己走的」「擦朝苏挽自己擦的」「方向落在」「方向不必替」「不必替上一世」「他自己守」这类公式
 - ❌ 不写「反派」「眸」「缓缓」「方才」「未曾」「须臾」「踱」「坐于」「置于」
 - ❌ 不写男主姓名「反派」标签
 - ❌ 不堆叠 ch-编号交叉引用到 ships 字段
@@ -182,14 +289,25 @@ def main():
     p.add_argument("--chapters", type=str, help="Comma-separated chapter numbers")
     p.add_argument("--stubs-only", action="store_true")
     p.add_argument("--disease-only", action="store_true")
+    p.add_argument("--status", action="store_true", help="Refresh and print current rewrite counts")
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--no-dry-run", dest="dry_run", action="store_false")
     p.add_argument("--no-skip-done", action="store_true")
     args = p.parse_args()
 
+    if args.status:
+        stub_set, stub_by_chapter, error_chs = load_state()
+        stub_remaining = sum(1 for ch in stub_by_chapter if not _already_done(ch))
+        unfinished = sum(1 for ch in error_chs if not _already_done(ch))
+        print(
+            f"stubs_total={len(stub_set)} stubs_remaining={stub_remaining} "
+            f"disease_or_lint_errors={len(error_chs)} unfinished_lint={unfinished}"
+        )
+        return
+
     if args.chapters:
         targets = []
-        for s in args.chapters.split(","):
-            ch = int(s.strip())
+        for ch in parse_chapter_spec(args.chapters):
             targets.append(("manual", ch, _chapter_file(ch)))
     else:
         skip = not args.no_skip_done
@@ -218,7 +336,7 @@ def main():
 
     print(f"\nDispatch prompts ready in {dispatch_dir}/")
     print("To execute, run subagents with:")
-    print("  python engine/run_dispatch.py  (one-shot)  or")
+    print("  python engine/run_dispatch.py --workers 2  (one-shot)  or")
     print("  /loop  with cron  (autonomous batch)")
 
 

@@ -1,5 +1,5 @@
 """Anthropic call with scene-weighted model routing. Mock mode = zero tokens, full loop."""
-import os, json, re, urllib.request
+import os, json, re, time, urllib.error, urllib.request
 
 TIERS = {"light": "claude-haiku-4-5", "heavy": "claude-sonnet-4-6", "peak": "claude-opus-4-8"}
 
@@ -21,17 +21,71 @@ def complete(system, user, scene_weight=3, max_tokens=1100):
         headers={"content-type": "application/json",
                  "x-api-key": os.environ["ANTHROPIC_API_KEY"],
                  "anthropic-version": "2023-06-01"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        data = json.load(r)
+    try:
+        retries = int(os.environ.get("LLM_RETRIES", "2"))
+    except (TypeError, ValueError):
+        retries = 2
+    retries = max(1, min(retries, 3))
+    data = None
+    last_error = None
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                data = json.load(r)
+            break
+        except urllib.error.HTTPError as exc:
+            last_error = exc
+            if exc.code not in {408, 429, 500, 502, 503, 504}:
+                raise
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+            last_error = exc
+        if attempt + 1 < retries:
+            time.sleep(0.25 * (2 ** attempt))
+    if data is None:
+        raise RuntimeError(f"LLM 请求失败（重试 {retries} 次）: {last_error}") from last_error
     return "".join(b.get("text", "") for b in data.get("content", []))
 
 
 def parse_json(text):
-    text = re.sub(r"```(json)?", "", text).strip()
-    m = re.search(r"\{.*\}", text, re.S)
-    if not m:
+    text = re.sub(r"```(json)?", "", text).strip().lstrip("\ufeff")
+    if text.startswith("["):
+        raise ValueError("LLM 返回的不是 JSON 对象:\n" + text[:300])
+    start = text.find("{")
+    if start == -1:
         raise ValueError("LLM 没返回 JSON:\n" + text[:300])
-    return json.loads(m.group(0))
+    depth = 0
+    in_string = False
+    escape = False
+    end = -1
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                end = i
+                break
+    if end == -1:
+        raise ValueError("LLM 没返回完整 JSON 对象:\n" + text[:300])
+    obj = text[start:end + 1]
+    try:
+        parsed = json.loads(obj)
+    except json.JSONDecodeError as e:
+        raise ValueError("LLM 返回的 JSON 解析失败: " + str(e) + "\n" + text[:300])
+    if not isinstance(parsed, dict):
+        raise ValueError("LLM 返回的不是 JSON 对象:\n" + text[:300])
+    return parsed
 
 
 def _mock(user):
@@ -64,7 +118,13 @@ def _mock(user):
                     f"{a}也回应了。气氛还不错，谁都没说什么过分的话。夜就这样平静地过去了。")
             title = f"{a}与{b}的一个晚上"
         return json.dumps({
-            "chapter_title": title, "chapter": body, "incarnations": incarn,
+            "chapter_title": title, "chapter": body,
+            "frontmatter": {
+                "pov": a, "line": "mixed", "thread": title,
+                "beat": "current beat", "ships": {f"{a}x{b}": "door"},
+                "hook": "the door opens",
+            },
+            "incarnations": incarn,
             "updates": [{"from": a, "to": b, "affection_delta": 1, "trust_delta": -1,
                          "tension_delta": 2, "feeling": "逞强被看穿了"}],
             "memories": [{"who": a, "text": f"在{b}面前又没守住那句逞强", "importance": 7}],
@@ -83,10 +143,16 @@ def _mock(user):
         if "再没亮过" in chap:
             return json.dumps({"scores": {"钩子": 2, "爽痛": 2, "反差": 2, "拉扯": 2,
                                "记忆点": 2, "代入": 1, "新": 1}, "total": 12,
-                               "safe": True, "safety_reason": "", "fix": ""}, ensure_ascii=False)
+                               "opening_intensity": 8, "beats_on_grid": True,
+                               "continuity_ok": True, "agency_ok": True,
+                               "safe": True, "safety_reason": "", "fix": "",
+                               "review": "正文证据「那晚之后再没亮过」；开篇以半秒停顿形成信息差，门口动作承接人物欲望。物象和对话区分声线，结尾画面留下未解钩子。"}, ensure_ascii=False)
         return json.dumps({"scores": {"钩子": 0, "爽痛": 1, "反差": 1, "拉扯": 1,
-                           "记忆点": 1, "代入": 1, "新": 2}, "total": 7, "safe": True,
+                           "记忆点": 1, "代入": 1, "新": 2}, "total": 7,
+                           "opening_intensity": 6, "beats_on_grid": False,
+                           "continuity_ok": True, "agency_ok": True, "safe": True,
                            "safety_reason": "",
-                           "fix": "结尾把话说圆了，没钩子。删掉收束，留一个没解开的悬，让逞强在最后一句被一个画面戳穿。"},
+                           "fix": "结尾把话说圆了，没钩子。删掉收束，留一个没解开的悬，让逞强在最后一句被一个画面戳穿。",
+                           "review": "开篇与结尾缺少可追的具体信息；中段动作没有改变关系，需重写后再审。"},
                           ensure_ascii=False)
     return "{}"

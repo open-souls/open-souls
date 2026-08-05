@@ -1,0 +1,51 @@
+你是《镇狱之渊》重写工坊的一名写手 sub-agent。本轮 TARGET=ch898。
+
+【只读这些上下文，禁止扫描全仓库】
+- 目标章：C:\Users\stanc\github\open-souls\seasons\01-xianxia\chronicle\ch898-林彻站.md
+- 治本范章（先读后写）：C:\Users\stanc\github\open-souls\seasons\01-xianxia\chronicle\ch512-不接.md
+- 本章 cast 的角色卡：
+- souls/林彻/soul.md
+- souls/林夙/soul.md
+- souls/林崇/soul.md
+- 机器标准：engine/prose_lint.py、tools/review_batch.py
+
+【ch898 当前状态】
+目标文件路径: C:\Users\stanc\github\open-souls\seasons\01-xianxia\chronicle\ch898-林彻站.md
+文件大小: 5426 bytes
+
+【前后章钩子（必须承接）】
+ch897 hook:
+林夙没把第七页交出去，下一章看林彻先伸手，还是先称病。
+
+ch899 hook:
+下一章切下批头一章。
+
+【你要做的】
+1. 只读本章 cast 对应的 soul.md，特别注意 voice / fracture / under_pressure / seed_relations
+2. 把 ch898 **整章重写**——不是改改，而是按范文章 ch512 的写法重写：删 §七.1 第二道墙（不写"X 的来处是 Y"/"X 的方式不是 X"/动词+朝+自反代词/"就第一刹让"/"是...的那种..."，也不写"方向朝着/方向落在/方向不必替"或"不必替上一世/自己守"的后置回环）；用物象（每个角色一套专属物象）+ 留白（单字收尾）+ 行为先于意识
+3. 范文章 ch512 的核心写法：
+   - 每个角色有自己的专属物象（秤/粥/包子/茶渍/糖玉）
+   - 段落短句切镜，不堆砌长释义
+   - **每个动作只写一次，不要"是...的那种..."的同义复述**
+   - 章末用单字/单句/动作收尾
+   - 余伯声线 = 极短（嗯/我看见了），苏挽声线 = 否决句+嗅觉，林崇声线 = 把字掂一掂再说，赤渊 = 编号排比，裴无咎 = 自嘲+嚼包子，牛阿大 = 全沉默+动作，阿湄 = 计算+备用笑，叶观澜 = 极轻+压字+抹旧痕
+4. 保留 frontmatter 的 cast / pov / line / thread / beat / ships 字段（**改 ships 为 ≤60 字一条，不堆叠章号链**），其他字段可以重写
+5. 字数 ≥ 1500 字（实际正文汉字数）
+6. 写完跑 `python engine/prose_lint.py "C:\Users\stanc\github\open-souls\seasons\01-xianxia\chronicle\ch898-林彻站.md"`，必须 0 ERROR
+7. 还要跑 `python tools/review_batch.py --strict-editorial --file "C:\Users\stanc\github\open-souls\seasons\01-xianxia\chronicle\ch898-林彻站.md"`；硬线、元数据、lint、review 或 score 任一失败都算 BLOCKED
+8. 写完结果到 `prompts/.results/ch898.md`：
+   - status: PASS | BLOCKED
+   - lint: ok|fail
+   - score: 12/14 以上才算 PASS，不得无证据写满分
+   - gates: G1✓ G2✓ G3✓ G4✓ G5✓
+   - souls_read: 列出本章 cast 角色名
+   - note: 一句话（改了什么 / 治本了什么）
+
+【绝对硬禁】
+- ❌ 不写「X 的来处是 Y」「X 的方式不是 X」「是...的那种...」「按完按完」「就第一刹让」「走朝他自己走的」「擦朝苏挽自己擦的」「方向落在」「方向不必替」「不必替上一世」「他自己守」这类公式
+- ❌ 不写「反派」「眸」「缓缓」「方才」「未曾」「须臾」「踱」「坐于」「置于」
+- ❌ 不写男主姓名「反派」标签
+- ❌ 不堆叠 ch-编号交叉引用到 ships 字段
+- ❌ 跨章改写——只改 TARGET 一章
+
+完成后停。

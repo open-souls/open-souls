@@ -1,5 +1,7 @@
 """CI gate: validate every cast/<name>/soul.md. Exits non-zero on any bad soul."""
 import sys, os, glob
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, os.path.dirname(__file__))
 import soul as SOUL
 

@@ -1,0 +1,383 @@
+# -*- coding: utf-8 -*-
+"""Run bounded Claude Code chapter jobs and independently verify the files.
+
+This is deliberately a thin outer loop: Claude writes one target chapter, while
+the local gates decide whether the result is publishable.  A Claude summary can
+never turn a failed lint or editorial review into PASS.
+
+Usage:
+  python engine/run_dispatch.py --chapters ch897 --dry-run
+    python engine/run_dispatch.py --workers 2 --max-budget-usd 8.0
+"""
+from __future__ import annotations
+
+import argparse
+import concurrent.futures
+import hashlib
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from engine import batch_rewrite as BR  # noqa: E402
+from engine import prose_lint as PL  # noqa: E402
+
+
+DISPATCH_DIR = ROOT / "prompts" / "dispatch"
+RESULTS_DIR = ROOT / "prompts" / ".results"
+DEFAULT_MODEL = "claude-sonnet-4-6"
+DEFAULT_BUDGET = 8.0
+DEFAULT_WORKERS = 2
+# A generation that needs longer than seven minutes is usually looping over
+# context or repeatedly reopening the target. The outer validator must regain
+# control before a bounded job can consume its entire budget on rereads.
+DEFAULT_TIMEOUT = 420
+FORMULA_PATTERNS = (
+    "方向朝着",
+    "方向朝向",
+    "方向落在",
+    "方向落下",
+    "方向不必替",
+    "不必替上一世",
+    "不必替前世",
+    "不必替谁",
+    "他自己守",
+    "她自己守",
+)
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _protected_paths(chapter, target: Path, prompt_path: Path):
+    """List files Claude is not allowed to mutate for this one job.
+
+    The target chapter is intentionally included so the caller can exempt it
+    from the diff. We also watch the job's prompt/receipt, root-level files,
+    and agent/tool/test code. Watching only the target is not enough: a model
+    can otherwise manufacture a convincing receipt or leave a sidecar draft.
+    """
+    paths = {target.resolve(), prompt_path.resolve()}
+    paths.add((RESULTS_DIR / f"ch{chapter:03d}.md").resolve())
+    for path in ROOT.iterdir():
+        if path.is_file():
+            paths.add(path.resolve())
+    for dirname in ("engine", "tools", "tests"):
+        directory = ROOT / dirname
+        if directory.exists():
+            paths.update(path.resolve() for path in directory.rglob("*") if path.is_file())
+    return paths
+
+
+def _snapshot_protected(chapter, target: Path, prompt_path: Path):
+    snapshot = {}
+    for path in _protected_paths(chapter, target, prompt_path):
+        snapshot[str(path)] = _sha256(path) if path.exists() else None
+    return snapshot
+
+
+def _protected_changes(before, chapter, target: Path, prompt_path: Path):
+    after = _snapshot_protected(chapter, target, prompt_path)
+    allowed = str(target.resolve())
+    changed = []
+    for path in sorted(set(before) | set(after)):
+        if path == allowed:
+            continue
+        if before.get(path) != after.get(path):
+            changed.append(path)
+    return changed
+
+
+def _chapter_from_prompt(path: Path) -> int | None:
+    match = re.fullmatch(r"ch(\d+)\.txt", path.name, re.I)
+    return int(match.group(1)) if match else None
+
+
+def _prompt_paths(chapters=None):
+    paths = sorted(DISPATCH_DIR.glob("ch*.txt"))
+    if chapters is None:
+        return paths
+    wanted = set(chapters)
+    return [path for path in paths if _chapter_from_prompt(path) in wanted]
+
+
+def _run_process(command, *, input_text=None, timeout=DEFAULT_TIMEOUT):
+    try:
+        completed = subprocess.run(
+            command,
+            cwd=str(ROOT),
+            input=input_text,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=timeout,
+            check=False,
+        )
+        return {
+            "returncode": completed.returncode,
+            "stdout": completed.stdout or "",
+            "stderr": completed.stderr or "",
+            "timed_out": False,
+        }
+    except subprocess.TimeoutExpired as exc:
+        return {
+            "returncode": 124,
+            "stdout": (exc.stdout or "") if isinstance(exc.stdout, str) else "",
+            "stderr": "timeout",
+            "timed_out": True,
+        }
+    except OSError as exc:
+        return {"returncode": 127, "stdout": "", "stderr": str(exc), "timed_out": False}
+
+
+def _claude(prompt, *, budget, model, effort, timeout, claude_cmd):
+    command = [
+        claude_cmd,
+        "-p",
+        "--bare",
+        "--no-session-persistence",
+        "--model",
+        model,
+        "--max-budget-usd",
+        str(budget),
+        "--effort",
+        effort,
+        "--allowed-tools",
+        "Read,Edit",
+        "--permission-mode",
+        "acceptEdits",
+        "--output-format",
+        "json",
+    ]
+    raw = _run_process(command, input_text=prompt, timeout=timeout)
+    payload = None
+    try:
+        payload = json.loads(raw["stdout"].strip())
+    except (TypeError, json.JSONDecodeError):
+        pass
+    success = (
+        raw["returncode"] == 0
+        and isinstance(payload, dict)
+        and payload.get("is_error") is not True
+        and payload.get("subtype") not in {"error_max_budget_usd", "error"}
+    )
+    return {
+        "ok": success,
+        "returncode": raw["returncode"],
+        "payload": payload,
+        "stdout_tail": raw["stdout"][-2000:],
+        "stderr_tail": raw["stderr"][-1000:],
+        "timed_out": raw["timed_out"],
+    }
+
+
+def _gate(command, *, timeout):
+    result = _run_process(command, timeout=timeout)
+    return {
+        "ok": result["returncode"] == 0 and not result["timed_out"],
+        "returncode": result["returncode"],
+        "output": (result["stdout"] + result["stderr"])[-2500:],
+        "timed_out": result["timed_out"],
+    }
+
+
+def _formula_hits(target: Path):
+    body = PL.body_of(target.read_text(encoding="utf-8"))
+    hits = {pattern: body.count(pattern) for pattern in FORMULA_PATTERNS if pattern in body}
+    metrics = PL.measure(body)
+    if metrics.get("wall_formula", 0) >= PL.WALL_FORMULA_ERROR:
+        hits["wall_formula"] = metrics["wall_formula"]
+    hits.update(PL.machine_echo_hits(body))
+    return hits
+
+
+def _write_result(chapter, target, result):
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    claude_payload = result["claude"].get("payload") or {}
+    claude_note = claude_payload.get("result") if isinstance(claude_payload, dict) else ""
+    if not isinstance(claude_note, str):
+        claude_note = json.dumps(claude_note, ensure_ascii=False)
+    lines = [
+        f"status: {'PASS' if result['pass'] else 'BLOCKED'}",
+        f"chapter: {chapter}",
+        f"target: {target}",
+        f"claude: {'ok' if result['claude']['ok'] else 'fail'}",
+        f"changed: {'yes' if result['changed'] else 'no'}",
+        f"lint: {'ok' if result['lint']['ok'] else 'fail'}",
+        f"strict_editorial: {'ok' if result['strict']['ok'] else 'fail'}",
+        f"formula_scan: {'ok' if not result['formula_hits'] else 'fail'}",
+        f"elapsed_seconds: {result['elapsed_seconds']:.1f}",
+        "claude_subtype: " + str((claude_payload or {}).get("subtype", "")),
+        "claude_stop_reason: " + str((claude_payload or {}).get("stop_reason", "")),
+        "claude_cost_usd: " + str((claude_payload or {}).get("total_cost_usd", "")),
+        "claude_errors: " + json.dumps((claude_payload or {}).get("errors", []), ensure_ascii=False),
+        "formula_hits: " + (json.dumps(result["formula_hits"], ensure_ascii=False) if result["formula_hits"] else "{}"),
+        "side_effects: " + (json.dumps(result.get("side_effects", []), ensure_ascii=False) if result.get("side_effects") else "[]"),
+        "note: " + " ".join(claude_note.strip().split())[:1200],
+    ]
+    (RESULTS_DIR / f"ch{chapter:03d}.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def run_one(prompt_path: Path, *, budget=DEFAULT_BUDGET, model=DEFAULT_MODEL,
+            effort="medium", timeout=DEFAULT_TIMEOUT, claude_cmd="claude.cmd"):
+    chapter = _chapter_from_prompt(prompt_path)
+    if chapter is None:
+        raise ValueError(f"invalid dispatch prompt name: {prompt_path.name}")
+    target_value = BR._chapter_file(chapter)
+    if not target_value:
+        target = ROOT / "__missing_target__"
+        result = {
+            "pass": False,
+            "chapter": chapter,
+            "target": str(target),
+            "changed": False,
+            "claude": {"ok": False, "payload": None},
+            "lint": {"ok": False, "returncode": 2, "output": "missing target"},
+            "strict": {"ok": False, "returncode": 2, "output": "missing target"},
+            "formula_hits": {},
+            "side_effects": [],
+            "elapsed_seconds": 0.0,
+        }
+        _write_result(chapter, target, result)
+        return result
+
+    target = Path(target_value)
+    before = _sha256(target) if target.exists() else ""
+    protected_before = _snapshot_protected(chapter, target, prompt_path)
+    started = time.monotonic()
+    prompt = prompt_path.read_text(encoding="utf-8")
+    claude_result = _claude(
+        prompt,
+        budget=budget,
+        model=model,
+        effort=effort,
+        timeout=timeout,
+        claude_cmd=claude_cmd,
+    )
+    after = _sha256(target) if target.exists() else ""
+    changed = bool(before and after and before != after)
+    side_effects = _protected_changes(protected_before, chapter, target, prompt_path)
+    lint = _gate(
+        [sys.executable, "engine/prose_lint.py", str(target)], timeout=timeout
+    ) if target.exists() else {"ok": False, "returncode": 2, "output": "missing target"}
+    strict = _gate(
+        [
+            sys.executable,
+            "tools/review_batch.py",
+            "--strict-editorial",
+            "--file",
+            str(target),
+        ],
+        timeout=timeout,
+    ) if target.exists() else {"ok": False, "returncode": 2, "output": "missing target"}
+    formula_hits = _formula_hits(target) if target.exists() else {"target": 1}
+    result = {
+        "pass": bool(
+            claude_result["ok"]
+            and changed
+            and lint["ok"]
+            and strict["ok"]
+            and not formula_hits
+            and not side_effects
+        ),
+        "chapter": chapter,
+        "target": str(target),
+        "changed": changed,
+        "claude": claude_result,
+        "lint": lint,
+        "strict": strict,
+        "formula_hits": formula_hits,
+        "side_effects": side_effects,
+        "elapsed_seconds": time.monotonic() - started,
+    }
+    _write_result(chapter, target, result)
+    return result
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--chapters", help="Only dispatch ch numbers, e.g. ch897,ch900-902")
+    parser.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
+    parser.add_argument("--max-budget-usd", type=float, default=DEFAULT_BUDGET)
+    parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--effort", choices=("low", "medium", "high", "xhigh", "max"), default="medium")
+    parser.add_argument("--timeout-sec", type=int, default=DEFAULT_TIMEOUT)
+    parser.add_argument("--claude-cmd", default=os.environ.get("CLAUDE_CMD", "claude.cmd"))
+    parser.add_argument("--force", action="store_true", help="Dispatch chapters that already pass local gates")
+    parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args(argv)
+
+    chapters = BR.parse_chapter_spec(args.chapters) if args.chapters else None
+    paths = _prompt_paths(chapters)
+    selected = []
+    skipped = []
+    for path in paths:
+        chapter = _chapter_from_prompt(path)
+        if chapter is None:
+            continue
+        if not args.force and BR._already_done(chapter):
+            skipped.append(chapter)
+            continue
+        selected.append(path)
+
+    print(f"dispatch_targets={len(selected)} skipped_done={len(skipped)} workers={max(1, args.workers)}")
+    for path in selected:
+        print(f"  ch{_chapter_from_prompt(path):03d} <- {path}")
+    if args.dry_run or not selected:
+        return 0
+
+    outcomes = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+        futures = {
+            pool.submit(
+                run_one,
+                path,
+                budget=args.max_budget_usd,
+                model=args.model,
+                effort=args.effort,
+                timeout=args.timeout_sec,
+                claude_cmd=args.claude_cmd,
+            ): path
+            for path in selected
+        }
+        for future in concurrent.futures.as_completed(futures):
+            path = futures[future]
+            try:
+                result = future.result()
+            except Exception as exc:  # keep the batch moving; the result is blocked
+                result = {
+                    "pass": False,
+                    "chapter": _chapter_from_prompt(path),
+                    "target": str(path),
+                    "changed": False,
+                    "claude": {"ok": False, "payload": None, "stderr_tail": str(exc)},
+                    "lint": {"ok": False},
+                    "strict": {"ok": False},
+                    "formula_hits": {},
+                    "side_effects": [],
+                    "elapsed_seconds": 0.0,
+                }
+                _write_result(result["chapter"], Path(result["target"]), result)
+            outcomes.append(result)
+            state = "PASS" if result["pass"] else "BLOCKED"
+            print(f"ch{result['chapter']:03d}: {state}")
+
+    return 0 if all(item["pass"] for item in outcomes) else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

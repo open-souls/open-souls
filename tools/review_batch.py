@@ -9,6 +9,8 @@ import os, re, sys, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "engine"))
 import prose_lint as PL
+import safety_lint as SL
+import village as V
 
 CHRONICLE = os.path.join(ROOT, "seasons", "01-xianxia", "chronicle")
 EDITOR_PROGRESS = os.path.join(ROOT, "editor_progress.md")
@@ -23,12 +25,9 @@ KNOWN_ANCHORS = [
     "苏挽拓印", "阿湄凉茶",
 ]
 
-# ---- 硬线违例模式 ----
-HARDLINE_PATTERNS = [
-    (r"\b他\s*插入\b", "可能露骨"),
-    (r"\b她\s*插入\b", "可能露骨"),
-    (r"林窈.*?(?:耳根|颈侧|指节|手腕)", "林窈 13 岁不涉及暧昧"),
-]
+# Keep batch review on the same deterministic hardline implementation as the
+# generation hot path.
+HARDLINE_PATTERNS = SL.HARDLINE_PATTERNS
 
 
 def parse_chapter_range(spec):
@@ -46,16 +45,51 @@ def parse_chapter_range(spec):
     return sorted(set(nums))
 
 
-def find_files(nums):
-    """Find canonical chapter files. Prefer shorter filename (canonical)."""
+def _candidate_rank(path, strict_editorial=False):
+    """Prefer a branch that actually passes the requested review gate."""
+    try:
+        raw = open(path, encoding="utf-8").read()
+        meta = V.read_frontmatter(raw)
+        errors, _, metrics = PL.lint_file(path, strict=strict_editorial)
+        hardline = SL.check(PL.body_of(raw))
+        base_ok = not V.validate_frontmatter(meta)
+        editorial_ok = not V.validate_editorial_metadata(meta)
+        length_ok = metrics.get("chars", 0) >= PL.MIN_CHAPTER_CHARS
+        lint_ok = not errors and not hardline
+        publishable = lint_ok and base_ok and (editorial_ok and length_ok if strict_editorial else True)
+        return (
+            int(publishable),
+            int(lint_ok and base_ok),
+            int(editorial_ok),
+            int(length_ok),
+            metrics.get("chars", 0),
+            os.path.getsize(path),
+            -len(os.path.basename(path)),
+            os.path.basename(path),
+        )
+    except (OSError, UnicodeError):
+        return (0, 0, 0, 0, 0, 0, -len(os.path.basename(path)), os.path.basename(path))
+
+
+def find_files(nums, strict_editorial=False):
+    """Find chapter files, preferring a passing duplicate branch over size."""
     files = []
     for n in nums:
-        candidates = [f for f in os.listdir(CHRONICLE) if re.match(rf"^{n:03d}-", f)]
-        # Prefer canonical: sort by length, then alphabetically
+        candidates = [
+            f for f in os.listdir(CHRONICLE)
+            if re.match(rf"^(?:ch)?{n:03d}-", f, re.I)
+        ]
+        # Among duplicate same-number branches, a passing branch is canonical;
+        # file size is only a fallback for equally healthy branches.
         # Skip files with extra markers like "-扩写" / "-alt"
         canonical = [f for f in candidates if not re.search(r"-(?:扩写|alt|draft|副本)", f)]
         chosen = (canonical or candidates)
-        chosen.sort(key=lambda x: (len(x), x))
+        chosen.sort(
+            key=lambda x: _candidate_rank(
+                os.path.join(CHRONICLE, x), strict_editorial=strict_editorial
+            ),
+            reverse=True,
+        )
         if chosen:
             files.append((n, os.path.join(CHRONICLE, chosen[0])))
     return files
@@ -65,11 +99,33 @@ def check_hardline(path):
     """Check hardline violations (露骨/自伤/未成年暧昧)."""
     text = open(path, encoding="utf-8").read()
     body = PL.body_of(text)
-    issues = []
-    for pat, desc in HARDLINE_PATTERNS:
-        if re.search(pat, body):
-            issues.append(f"硬线警告: {desc}")
-    return issues
+    return [f"硬线警告: {issue}" for issue in SL.check(body)]
+
+
+def check_metadata(path, strict_editorial=False):
+    """Apply the same frontmatter schema gate used before publication."""
+    text = open(path, encoding="utf-8").read()
+    body = PL.body_of(text)
+    errors = V.validate_frontmatter(V.read_frontmatter(text))
+    if strict_editorial:
+        errors.extend(V.validate_editorial_metadata(V.read_frontmatter(text), body=body))
+    current_hook = V.read_frontmatter(text).get("hook")
+    current_hook = str(current_hook or "").strip()
+    season_dir = os.path.dirname(os.path.dirname(path))
+    current_number = V.chapter_number(path)
+    previous_hooks = []
+    for number, candidate in V.chapter_files(season_dir):
+        if os.path.abspath(candidate) == os.path.abspath(path) or number >= current_number:
+            continue
+        candidate_meta = V.read_frontmatter(open(candidate, encoding="utf-8").read())
+        hook = str(candidate_meta.get("hook") or "").strip()
+        if hook:
+            previous_hooks.append(hook)
+        if len(previous_hooks) >= 3:
+            break
+    if current_hook and current_hook in previous_hooks:
+        errors.append("hook重复")
+    return [f"元数据: {error}" for error in errors]
 
 
 def check_anchor_dup(path):
@@ -93,16 +149,47 @@ def check_modification_count(path):
 
 def main():
     if len(sys.argv) < 2:
-        print("用法: python tools/review_batch.py ch001-ch020 [ch030-ch040 ...]")
+        print("用法: python tools/review_batch.py [--strict-editorial] ch001-ch020")
+        print("或: python tools/review_batch.py --strict-editorial --file path/to/ch.md")
         print("示例: python tools/review_batch.py ch001-005,ch010")
         sys.exit(1)
 
-    args = sys.argv[1:]
-    all_nums = []
-    for spec in args:
-        all_nums.extend(parse_chapter_range(spec))
+    strict_editorial = "--strict-editorial" in sys.argv[1:]
+    raw_args = [arg for arg in sys.argv[1:] if arg != "--strict-editorial"]
+    args = []
+    exact_paths = []
+    index = 0
+    while index < len(raw_args):
+        arg = raw_args[index]
+        if arg == "--file":
+            if index + 1 >= len(raw_args):
+                print("--file 需要一个路径")
+                sys.exit(1)
+            exact_paths.append(raw_args[index + 1])
+            index += 2
+            continue
+        if arg.startswith("--file="):
+            exact_paths.append(arg.split("=", 1)[1])
+            index += 1
+            continue
+        args.append(arg)
+        index += 1
 
-    files = find_files(all_nums)
+    if exact_paths:
+        files = []
+        for raw_path in exact_paths:
+            path = os.path.abspath(raw_path)
+            number = V.chapter_number(path)
+            if number is None or not os.path.isfile(path):
+                print(f"未找到有效章节文件: {raw_path}")
+                sys.exit(1)
+            files.append((number, path))
+    else:
+        all_nums = []
+        for spec in args:
+            all_nums.extend(parse_chapter_range(spec))
+
+        files = find_files(all_nums, strict_editorial=strict_editorial)
     if not files:
         print("未找到章节文件")
         sys.exit(1)
@@ -112,17 +199,24 @@ def main():
     pass_count = fail_count = 0
     for n, path in files:
         rel = os.path.relpath(path, ROOT)
-        errors, warns, m = PL.lint_file(path)
+        errors, warns, m = PL.lint_file(path, strict=strict_editorial)
+        if strict_editorial and m.get("chars", 0) < PL.MIN_CHAPTER_CHARS:
+            errors.append(
+                f"章节字数不足：{m.get('chars', 0)} < {PL.MIN_CHAPTER_CHARS}"
+            )
         hl = check_hardline(path)
+        metadata = check_metadata(path, strict_editorial=strict_editorial)
         dup = check_anchor_dup(path)
 
-        if hl or errors:
+        if hl or errors or metadata:
             fail_count += 1
             print(f"✗ ch{n:03d} ({rel})")
             for h in hl:
                 print(f"   HARDLINE  {h}")
             for e in errors:
                 print(f"   ERROR     {e}")
+            for item in metadata:
+                print(f"   METADATA  {item}")
             for w in warns[:3]:
                 print(f"   warn      {w}")
         else:

@@ -49,6 +49,7 @@ MIN_CHAPTER_CHARS = 1500      # 章节汉字下限（config.yaml target_chapter_
 CHAO_POSTPOSITIONAL_ERROR = 2  # 后置「朝」公式出现次数上限（动词+朝+自反代词）
 X_LAI_CHU_ERROR = 3           # 「X 的来处是 Y」「X 的方式不是 X」出现次数上限
 FIRST_BREAK_ERROR = 3         # 「就第一刹让」机械动作碎解链出现次数上限
+DIRECTION_FORMULA_ERROR = 3   # 「X 的方向朝着 Y」同构句式出现次数上限
 # WARN：离好文笔还有距离。
 MICRO_WARN = 0.30
 AVGSEG_WARN = 4.5
@@ -87,15 +88,15 @@ FILLER = [
     re.compile(r"(?:屋里|院中|院子里|院里|屋内|屋子里|屋子|厅里|廊下|廊里|门外|"
                r"四周|周遭|巷子里|空气里?|气氛中|夜|风)"
                r"[^一-鿿]{0,3}"
-               r"(?:很\s+|十分\s+|格外\s+|异常\s+|死一般\s+)?"
+               r"(?:很\s*|十分\s*|格外\s*|异常\s*|死一般\s*)?"
                r"(?:安静|寂静|静悄悄|静得|悄|凝重|沉静)"),
     re.compile(r"(?:屋里|院中|院子里|院里|屋内|屋子里|厅里|廊下|廊里)"
                r"[^一-鿿]{0,3}"
-               r"(?:很\s+|十分\s+|格外\s+)?"
+               r"(?:很\s*|十分\s*|格外\s*)?"
                r"(?:空|空荡|空落|空无一人)"),
-    re.compile(r"(?:夜|风)\s*(?:很\s+|十分\s+|格外\s+)?"
+    re.compile(r"(?:夜|风)\s*(?:很\s*|十分\s*|格外\s*)?"
                r"(?:静|深|漫长|寂寥)"),
-    re.compile(r"(?:周围|四周)\s*(?:很\s+|一片\s+)?"
+    re.compile(r"(?:周围|四周)\s*(?:很\s*|一片\s*)?"
                r"(?:安静|寂静|静悄悄)"),
 ]
 # 「心里咚/扑通/咯噔」 — 用拟声糊弄感受
@@ -121,6 +122,32 @@ X_LAI_CHU = re.compile(
 )
 # 公式 3：「就第一刹让 X 先朝 Y」（机械动作碎解链）
 FIRST_BREAK = re.compile(r"就(?:第|头)一刹让")
+# A neighboring failure mode to the old postpositional-"朝" formula:
+# the whole sentence keeps rotating through "...的方向朝着..." with only
+# nouns swapped. A couple of intentional uses are fine; repeated uses are a
+# generation loop and must be revised before publication.
+DIRECTION_FORMULA = re.compile(
+    r"(?:[一-鿿]{1,8}的?)?方向(?:朝(?:向|着)|落在|落下|不必替|是)"
+)
+# 同一批退化稿常把“上一世/替谁/自己守”当作动作的后置解释，
+# 通过换名词无限重复。少量语义使用可以存在，达到阈值即视为生成回路。
+SELF_REPAIR_FORMULA = re.compile(
+    r"(?:不必替(?:上一世|前世|谁)|(?:他|她|我)?自己守)"
+)
+SELF_REPAIR_FORMULA_ERROR = 3
+# “某某的方式，是……那种/那一路”是同一类把动作翻译成自我解释的墙。
+WALL_FORMULA = re.compile(
+    r"(?:[一-鿿]{1,8}的方式\s*[，,:：]?\s*(?:是|不是)|"
+    r"[一-鿿]{1,8}的方式[^。！？\n]{0,20}那种|自己那一路)"
+)
+WALL_FORMULA_ERROR = 2
+
+# 机器稿还会把物象位置和“自我承担”拆成同一个短语反复回放。少量
+# 意象回声可以是作者风格；超过这条线，通常已经不是伏笔而是生成循环。
+MOTIF_SLOT = re.compile(r"那一(?:寸|截|道|笔|料|侧|层|行|刻|处|回|声|端|角|点)")
+SELF_CLAIM = re.compile(r"(?:我|他|她)自己")
+MACHINE_MOTIF_ERROR = 30
+MACHINE_SELF_CLAIM_ERROR = 18
 
 SEG_SPLIT = re.compile(r"[，。！？、：；\n]")
 HAN = re.compile(r"[一-鿿]")
@@ -155,6 +182,11 @@ def measure(body):
     chao_postp = CHAO_POSTPOSITIONAL.findall(body)
     x_laichu = X_LAI_CHU.findall(body)
     first_break = FIRST_BREAK.findall(body)
+    direction_formula = DIRECTION_FORMULA.findall(body)
+    self_repair_formula = SELF_REPAIR_FORMULA.findall(body)
+    wall_formula = WALL_FORMULA.findall(body)
+    motif_slot = MOTIF_SLOT.findall(body)
+    self_claim = SELF_CLAIM.findall(body)
     return {
         "chars": chars,
         "micro": micro,
@@ -166,11 +198,38 @@ def measure(body):
         "chao_postp": len(chao_postp),
         "x_laichu": len(x_laichu),
         "first_break": len(first_break),
+        "direction_formula": len(direction_formula),
+        "self_repair_formula": len(self_repair_formula),
+        "wall_formula": len(wall_formula),
+        "motif_slot": len(motif_slot),
+        "self_claim": len(self_claim),
     }
 
 
-def lint_file(path):
-    text = open(path, encoding="utf-8").read()
+def machine_echo_hits(body):
+    """Return high-confidence repetition loops for generated chapter review.
+
+    This is intentionally stricter than the historical prose lint only when a
+    caller asks for strict editorial review. A recurring image remains legal;
+    a chapter that keeps rephrasing the same location or ``X自己`` claim is
+    returned for human revision instead of being mistaken for polished prose.
+    """
+    metrics = measure(body)
+    hits = {}
+    if metrics["motif_slot"] >= MACHINE_MOTIF_ERROR:
+        hits["motif_slot"] = metrics["motif_slot"]
+    if metrics["self_claim"] >= MACHINE_SELF_CLAIM_ERROR:
+        hits["self_claim"] = metrics["self_claim"]
+    return hits
+
+
+def lint_text(text, min_chars=None, file_size=None, strict=False):
+    """Lint chapter text in memory using the same rules as the CLI.
+
+    ``min_chars`` is intentionally opt-in: historical chapters keep the
+    existing CLI behavior, while newly generated chapters can require the
+    configured target length before they are published.
+    """
     # 按章豁免：frontmatter 里 prose_lint_exempt: true 的章节跳过文笔门。
     fm_m = re.match(r"^---\s*\n(.*?)\n---", text, re.S)
     if fm_m:
@@ -181,12 +240,16 @@ def lint_file(path):
             fm = {}
         if fm.get("prose_lint_exempt"):
             return [], [], {"chars": 0, "exempt": True}
-    m = measure(body_of(text))
-    if m["chars"] < 50:
-        return [], [], m
-    file_size = len(text.encode("utf-8"))
     errors = []
     warns = []
+    m = measure(body_of(text))
+    if min_chars is not None and m["chars"] < min_chars:
+        errors.append(
+            f"章节字数不足：{m['chars']} < {min_chars}，生成稿不得以 stub 形式上线"
+        )
+    if m["chars"] < 50:
+        return errors, warns, m
+    file_size = file_size or 0
     if m["eng"]:
         errors.append(
             f"中英混写：正文出现 {m['eng']} 处英文对话标签"
@@ -229,6 +292,33 @@ def lint_file(path):
             f"§七.1 「就第一刹让」机械动作碎解链：{m['first_break']} 处。"
             f"每个动作被拆 3-5 步,零留白,违反范文 F 单字砸句"
         )
+    if m["direction_formula"] >= DIRECTION_FORMULA_ERROR:
+        errors.append(
+            f"句式回环：{m['direction_formula']} 处「X的方向朝着/落在/不必替Y」"
+            f"同构句式，疑似生成循环。保留必要方向描写，其余改成具体动作、感官或对话"
+        )
+    if m["self_repair_formula"] >= SELF_REPAIR_FORMULA_ERROR:
+        errors.append(
+            f"自我修复回环：{m['self_repair_formula']} 处「不必替上一世/自己守」"
+            f"后置解释，疑似生成循环。把重复解释改成现场动作、关系压力或具体物件"
+        )
+    if m["wall_formula"] >= WALL_FORMULA_ERROR:
+        errors.append(
+            f"自指解释回环：{m['wall_formula']} 处「某某的方式，是……那种/那一路」"
+            f"，把动作改成可观察的身体、物件或对话变化"
+        )
+    if strict:
+        echo_hits = machine_echo_hits(body_of(text))
+        if "motif_slot" in echo_hits:
+            errors.append(
+                f"物象位置回环：{echo_hits['motif_slot']} 处「那一X」位置短语，"
+                "同一物象被机械换名复述；保留关键意象，其余改成动作、冲突或信息"
+            )
+        if "self_claim" in echo_hits:
+            errors.append(
+                f"自我承担回环：{echo_hits['self_claim']} 处「我/他/她自己」后置解释，"
+                "删掉口号式自证，让选择用代价、物件或他人反应落地"
+            )
     # WARN 级
     if not errors:
         if m["micro"] > MICRO_WARN:
@@ -255,6 +345,11 @@ def lint_file(path):
             f"正文残留 {m['latin']} 处拉丁字母(交叉引用/标记?)，建议清掉"
         )
     return errors, warns, m
+
+
+def lint_file(path, strict=False):
+    text = open(path, encoding="utf-8").read()
+    return lint_text(text, file_size=len(text.encode("utf-8")), strict=strict)
 
 
 def main():
