@@ -115,7 +115,7 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 
 - 机器扫描：1331 个章文件；371 章 ERROR，77 章 WARN。全书机器门仍未过，这只是基线观测，不等于本轮绿段的发布证明。
 - `_STUB_MANIFEST.json` 当前使用 `chapter_numbers`，共 607 个 stub 编号；调度器已兼容该格式。
-- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 0 个、manifest-only 编号 220 个、333 个唯一 lint 错误号，其中 39 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch511、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch591–ch592、ch596、ch611、ch622、ch631、ch642–ch650、ch671–ch831（本轮新增 ch721、ch736、ch751、ch806）、ch833–ch857 已通过 1500 字发布门与 strict editorial 联合门；ch851 缺失，ch651、ch652、ch656 尚未形成绿段声明。
+- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 0 个、manifest-only 编号 220 个、333 个唯一 lint 错误号，其中 37 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch511、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch591–ch592、ch596、ch611、ch622、ch631、ch642–ch650、ch671–ch831（本轮新增 ch721、ch736、ch751、ch806、ch821、ch832）、ch833–ch857 已通过 1500 字发布门与 strict editorial 联合门；ch851 缺失，ch651、ch652、ch656 尚未形成绿段声明。
 - runner 的受保护快照现覆盖目标章节所在目录，可拦截 Claude 在目标旁写 `chNNN-new.md` 等 sibling 草稿；并行批次的合法目标另行列入允许集合，避免两个目标互相误报。
 - 并行 runner 现在把同一批次的合法目标集合传入 side-effect gate，避免 ch538 因 ch539 的合法并行写入被误报；新增并行授权回归后 `tests/test_run_dispatch.py` 为 8/8。
 - strict editorial 现额外卡高频物象位置（`那一寸/那一道/那一截` 等）与“我/他/她自己”自我承担回声；调度器只给 Claude `Read,Edit`，本地门负责验证，超时从 900 秒收紧为 420 秒，避免反复回读上下文吞掉整笔预算。
@@ -464,3 +464,5 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - `ch736-林崇信.md`：Claude 首稿命中 7 处 wall 公式且缺关键元数据；主编重写宿州回条、两道刃痕、井栏米粒样本与不认持刀人记录，正文 1557 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
 - `ch751-林崇看.md`：Claude 首稿命中 10 处 wall 公式；主编重写三只纸格、半个叶字、来源分栏与不代补姓名的选择，正文 1557 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
 - `ch806-林崇信.md`：Claude worker 超时且留下元数据与证据门不完整的半稿；主编重写林叙原信、家册青印账页与苏挽转递林夙的分开交接，正文 1554 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
+- `ch821-林崇看.md`：Claude 首稿缺完整元数据且使用灯自己亮等禁用表达；主编重写灶房铜灯、家祭处封蜡与未拆信交接，正文 1826 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
+- `ch832-灶边.md`：Claude 首稿缺完整元数据且含禁用模板；主编重写余伯灶膛、苏挽核对旧笔、封牌分列与三份交接记录，正文 1775 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
