@@ -115,7 +115,7 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 
 - 机器扫描：1330 个章文件；559 章 ERROR，121 章 WARN。
 - `_STUB_MANIFEST.json` 当前使用 `chapter_numbers`，共 607 个 stub 编号；调度器已兼容该格式。
-- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 49 个、manifest-only 编号 220 个、354 个唯一 lint 错误号，其中 105 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch800 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
+- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 47 个、manifest-only 编号 220 个、354 个唯一 lint 错误号，其中 103 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch804 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
 - runner 的受保护快照现覆盖目标章节所在目录，可拦截 Claude 在目标旁写 `chNNN-new.md` 等 sibling 草稿；并行批次的合法目标另行列入允许集合，避免两个目标互相误报。
 - 并行 runner 现在把同一批次的合法目标集合传入 side-effect gate，避免 ch538 因 ch539 的合法并行写入被误报；新增并行授权回归后 `tests/test_run_dispatch.py` 为 8/8。
 - strict editorial 现额外卡高频物象位置（`那一寸/那一道/那一截` 等）与“我/他/她自己”自我承担回声；调度器只给 Claude `Read,Edit`，本地门负责验证，超时从 900 秒收紧为 420 秒，避免反复回读上下文吞掉整笔预算。
@@ -398,3 +398,5 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - `ch798-山顶之上.md`：Claude 有写入但 strict 拒收；主编重写叶观澜收到红绳、香灰与半字三件失控证据，决定不追阿湄，留门等林夙上山，正文 1554 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
 - `ch799-山门外.md`：Claude 超时未改目标且命中 30 处 self_claim；主编重写林夙在山门接住阿湄带下来的药瓶线索与苏挽交出的蓝线副本，收下林窈糖玉后独自上山，正文 1540 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
 - `ch800-林叙等.md`：Claude 超时未改目标且旧模板命中方向、物象位置与自指公式；主编重写林叙留下未获同意的第三页，改信署正牛阿大之名，最终被牛阿大拒绝代送并由林窈拆穿回报心思，正文 1514 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch803-苏挽端糖.md`：Claude 实际改写但留下 3 处 wall_formula；主编重写苏挽核对旧糖纸、药糖与叶蜡，拒绝替阿湄传话，带物证去药庐，正文 1595 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch804-林彻看林夙.md`：Claude 超时未改目标且旧模板循环；主编重写林彻在林崇逼问下把林夙写进家册，并用叶家半枚印留下不可逆证词，正文 1713 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
