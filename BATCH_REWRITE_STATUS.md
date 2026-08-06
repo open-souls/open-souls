@@ -115,7 +115,7 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 
 - 机器扫描：1330 个章文件；559 章 ERROR，121 章 WARN。
 - `_STUB_MANIFEST.json` 当前使用 `chapter_numbers`，共 607 个 stub 编号；调度器已兼容该格式。
-- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 57 个、manifest-only 编号 220 个、355 个唯一 lint 错误号，其中 113 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch789 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
+- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 55 个、manifest-only 编号 220 个、355 个唯一 lint 错误号，其中 111 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch794 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
 - runner 的受保护快照现覆盖目标章节所在目录，可拦截 Claude 在目标旁写 `chNNN-new.md` 等 sibling 草稿；并行批次的合法目标另行列入允许集合，避免两个目标互相误报。
 - 并行 runner 现在把同一批次的合法目标集合传入 side-effect gate，避免 ch538 因 ch539 的合法并行写入被误报；新增并行授权回归后 `tests/test_run_dispatch.py` 为 8/8。
 - strict editorial 现额外卡高频物象位置（`那一寸/那一道/那一截` 等）与“我/他/她自己”自我承担回声；调度器只给 Claude `Read,Edit`，本地门负责验证，超时从 900 秒收紧为 420 秒，避免反复回读上下文吞掉整笔预算。
@@ -390,3 +390,5 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - `ch787-灶边雪.md` 的 Claude 首稿命中 36 处方向公式、47 处 motif_slot 与 42 处 self_claim；主编重写老仆认出牛阿大，把粥、纸和灶火交给他送入柴房，正文 1506 汉字，最终 lint、安全、公式扫描与 strict editorial review PASS，Claude 回执保留 BLOCKED。
 - `ch788-林彻站.md`：Claude worker 超时且未改目标；主编重写为林彻保留“见证：林夙在”的副本，未焚毁或改字，站到父亲门外递入，正文 1634 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
 - `ch789-苏挽在.md`：Claude worker 有写入但留下 2 处 wall_formula，严格门拒收；主编重写为苏挽保留原账、交出可核验副本、拒绝叶家取原页，正文 1591 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch790-林叙看.md`：Claude 未改目标且回执 BLOCKED；主编重写林崇拒绝替林叙落名、林夙取走原页、林叙把经手事实写进第三页，正文 1599 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch794-半山.md`：Claude 未改目标，原回执虽过 lint 与公式门但 strict 元数据拒收；主编重写半山药瓶、蓝线副本与糖纸的证据交接，林夙叫阿湄后她带证据下山，正文 1653 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
