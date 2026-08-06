@@ -113,9 +113,9 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - ch960–ch973 已形成连续 14/14 绿段：正文指标依次为 1729、1651、2187、1521、1611、1516、1603、1507、1512、1500、1502、1597、2229、1500。
 - 这组数据覆盖的是本轮主编复核范围，不是全书市场证明；旧条目中 ch960–ch973 的旧字数记录已被本节最新实测覆盖。
 
-- 机器扫描：1331 个章文件；395 章 ERROR，78 章 WARN。全书机器门仍未过，这只是基线观测，不等于本轮绿段的发布证明。
+- 机器扫描：1331 个章文件；393 章 ERROR，78 章 WARN。全书机器门仍未过，这只是基线观测，不等于本轮绿段的发布证明。
 - `_STUB_MANIFEST.json` 当前使用 `chapter_numbers`，共 607 个 stub 编号；调度器已兼容该格式。
-- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 25 个、manifest-only 编号 220 个、352 个唯一 lint 错误号，其中 81 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch828 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
+- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 23 个、manifest-only 编号 220 个、352 个唯一 lint 错误号，其中 79 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch830 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
 - runner 的受保护快照现覆盖目标章节所在目录，可拦截 Claude 在目标旁写 `chNNN-new.md` 等 sibling 草稿；并行批次的合法目标另行列入允许集合，避免两个目标互相误报。
 - 并行 runner 现在把同一批次的合法目标集合传入 side-effect gate，避免 ch538 因 ch539 的合法并行写入被误报；新增并行授权回归后 `tests/test_run_dispatch.py` 为 8/8。
 - strict editorial 现额外卡高频物象位置（`那一寸/那一道/那一截` 等）与“我/他/她自己”自我承担回声；调度器只给 Claude `Read,Edit`，本地门负责验证，超时从 900 秒收紧为 420 秒，避免反复回读上下文吞掉整笔预算。
@@ -422,3 +422,5 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - `ch826-还有气.md`：Claude 虽完成改写但命中 117 处物象槽位、26 处自指与方向公式；主编整章重写红墙下确认林夙呼吸、侧门取门板与护字副本，避开未成年角色暧昧身体描写，正文 1553 字，最终 lint、公式扫描、strict editorial 与 safety PASS。
 - `ch827-阿湄背.md`：Claude 首稿命中 6 处墙式公式与 22 处自指；主编重写门板卡住后的搬运阻力，让阿湄收刀背林夙、苏挽压伤口、林窈带路入偏房，正文 1513 字，最终 lint、公式扫描、strict editorial 与 safety PASS。
 - `ch828-林窈跟.md`：Claude runner lint 过但 strict 未过；主编重写林窈用旧钥匙开药箱、关侧门并当面喊哥哥醒来，把跟随变成承担，正文 1637 字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch829-苏挽在.md`：Claude 首稿 lint 过但 strict metadata 未过；主编重写苏挽在偏房记录“看见的事实”，把旧笔和冬账留给林窈，保留林夙呼吸的未决状态，正文 1532 字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch830-林叙看.md`：Claude 超时且未形成可收稿目标；主编重写林叙以红土实报、林崇旧秤和松开的钥匙绳确认林夙尚活，不把救命记成人情，正文 1532 字，最终 lint、公式扫描、strict editorial 与 safety PASS。
