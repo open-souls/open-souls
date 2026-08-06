@@ -6,6 +6,8 @@ Run `python engine/batch_rewrite.py --status` to refresh.
 
 本轮主编复核 `034-顺手.md` 与 `035-凌朔案前.md`：Claude 两个作业均真实改动目标但因独立 strict editorial 缺 review/score 而 BLOCKED；主编分别重写到 1596、1560 字，lint、安全、公式扫描与 strict editorial 全部通过。全量机器基线由 336 章 ERROR 降为 334 章 ERROR，WARN 仍为 77；这不是全书发布通过声明。
 
+第二批主编复核 `042-姜玉衡议.md` 与 `054-礼匣.md`：ch042 的 Claude 在 420 秒内未完成，原稿的 wall_formula 由主编整章改写消除；ch054 的 Claude 真实改动但缺 review/score。主编最终分别通过 1536、1727 字的 lint、安全、公式扫描与 strict editorial；全量机器基线再降为 332 章 ERROR、77 章 WARN。
+
 **Total scope**: 876 chapters to bring to gold standard
 - 244 §七.1 disease chapters (have real prose, just broken)
 - 632 stub chapters (9-line templates, need full write)
