@@ -115,7 +115,7 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 
 - 机器扫描：1330 个章文件；559 章 ERROR，121 章 WARN。
 - `_STUB_MANIFEST.json` 当前使用 `chapter_numbers`，共 607 个 stub 编号；调度器已兼容该格式。
-- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 41 个、manifest-only 编号 220 个、354 个唯一 lint 错误号，其中 97 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch811 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
+- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 39 个、manifest-only 编号 220 个、353 个唯一 lint 错误号，其中 95 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch642–ch650、ch671–ch813 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
 - runner 的受保护快照现覆盖目标章节所在目录，可拦截 Claude 在目标旁写 `chNNN-new.md` 等 sibling 草稿；并行批次的合法目标另行列入允许集合，避免两个目标互相误报。
 - 并行 runner 现在把同一批次的合法目标集合传入 side-effect gate，避免 ch538 因 ch539 的合法并行写入被误报；新增并行授权回归后 `tests/test_run_dispatch.py` 为 8/8。
 - strict editorial 现额外卡高频物象位置（`那一寸/那一道/那一截` 等）与“我/他/她自己”自我承担回声；调度器只给 Claude `Read,Edit`，本地门负责验证，超时从 900 秒收紧为 420 秒，避免反复回读上下文吞掉整笔预算。
@@ -406,3 +406,5 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - `ch809-同一坐标系.md`：Claude 实际改写但留下 5 处 wall_formula且触发阿湄身体描写安全线；主编重写三处巷图、叶家蓝线与林夙的“我在这里等”，将线改为桌面物证，正文 1508 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
 - `ch810-林叙看.md`：Claude 实际改写但留下 18 处方向、3 处 wall 与物象位置回环；主编重写林叙在旧砚角找到经手纸，交出事实而不追加回报，正文 1514 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
 - `ch811-林崇看.md`：Claude 超时未改目标且旧模板命中方向、位置与自指公式；主编重写林崇先把送林夙上山的责任落名，再让林彻留下亲眼见证，正文 1565 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch812-灶边.md`：Claude 实际改写但 strict metadata 未过且带入自己、朝等模板词；主编保留灶边冲突，重写牛阿大只签见证，不替林家或林窈落名，正文 1559 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
+- `ch813-苏挽端糖.md`：Claude 实际改写但正文仅 1217 字且 ships 自配对、metadata 失败；主编重写苏挽把糖纸、牛阿大回条与阿湄药糖写成可核验物证，拒绝代答，正文 1569 汉字，最终 lint、公式扫描、strict editorial 与 safety PASS。
