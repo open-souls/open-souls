@@ -215,3 +215,41 @@ def test_run_one_allows_another_selected_target_in_same_directory(tmp_path, monk
 
     assert result["pass"] is True
     assert result["side_effects"] == []
+
+
+def test_run_one_honors_exact_target_marker_for_duplicate_branch(tmp_path, monkeypatch):
+    chronicle = tmp_path / "chronicle"
+    chronicle.mkdir()
+    canonical = _chapter_file(chronicle)
+    alternate = chronicle / "ch901-灶边雪.md"
+    alternate.write_text(canonical.read_text(encoding="utf-8"), encoding="utf-8")
+    prompt = tmp_path / "ch901.txt"
+    prompt.write_text(
+        f"TARGET_FILE: {alternate.resolve()}\n只改目标章",
+        encoding="utf-8",
+    )
+    results = tmp_path / "results"
+    monkeypatch.setattr(run_dispatch, "ROOT", tmp_path)
+    monkeypatch.setattr(run_dispatch, "RESULTS_DIR", results)
+    monkeypatch.setattr(run_dispatch.BR, "CHRONICLE", chronicle)
+    monkeypatch.setattr(run_dispatch.BR, "_chapter_file", lambda chapter: str(canonical))
+
+    def fake_claude(*args, **kwargs):
+        alternate.write_text(
+            alternate.read_text(encoding="utf-8") + "\n新动作。",
+            encoding="utf-8",
+        )
+        return {"ok": True, "payload": {"result": "PASS"}, "stdout_tail": "", "stderr_tail": ""}
+
+    monkeypatch.setattr(run_dispatch, "_claude", fake_claude)
+    monkeypatch.setattr(
+        run_dispatch,
+        "_gate",
+        lambda *args, **kwargs: {"ok": True, "returncode": 0, "output": "ok"},
+    )
+
+    result = run_dispatch.run_one(prompt, timeout=1)
+
+    assert result["target"] == str(alternate)
+    assert result["changed"] is True
+    assert canonical.read_text(encoding="utf-8") == alternate.read_text(encoding="utf-8").removesuffix("\n新动作。")

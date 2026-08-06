@@ -31,6 +31,50 @@ import safety_lint as SL
 REFERENCE_CHAPTER = "ch512-不接.md"  # 治本范文章
 
 
+EXCLUDED_BRANCHES = frozenset({"alternate", "parallel", "archive"})
+
+
+def _chapter_number_from_path(path_or_name):
+    """Extract a chapter number from ``857-title.md`` or ``ch857-title.md``."""
+    name = Path(str(path_or_name)).name
+    match = re.match(r"(?:ch)?(\d{3,4})-", name, re.I)
+    return int(match.group(1)) if match else None
+
+
+def _resolve_reported_path(reported_path):
+    """Resolve the relative Windows path printed by prose_lint."""
+    raw = str(reported_path).strip().strip("`")
+    if os.sep != "\\":
+        raw = raw.replace("\\", os.sep)
+    path = Path(raw)
+    if not path.is_absolute():
+        path = ROOT / path
+    return path if path.exists() and path.is_file() else None
+
+
+def _parse_lint_error_targets(output):
+    """Return exact ``(chapter, path)`` pairs for every lint ERROR file."""
+    targets = []
+    seen = set()
+    for line in output.splitlines():
+        stripped = line.lstrip()
+        if not stripped.startswith("\u2717"):
+            continue
+        match = re.match(r"^\u2717\s+(.+\.md)\s*$", stripped)
+        if not match:
+            continue
+        path = _resolve_reported_path(match.group(1))
+        chapter = _chapter_number_from_path(path or match.group(1))
+        if chapter is None or path is None:
+            continue
+        key = str(path.resolve())
+        if key in seen:
+            continue
+        seen.add(key)
+        targets.append((chapter, str(path)))
+    return sorted(targets, key=lambda item: (item[0], item[1]))
+
+
 def load_state():
     """Load progress and target queues."""
     if not STUB_MANIFEST.exists():
@@ -53,16 +97,9 @@ def load_state():
         capture_output=True, text=True, encoding="utf-8",
         errors="replace", cwd=str(ROOT),
     )
-    error_chs = set()
-    for line in result.stdout.splitlines():
-        m = re.match(r"^✗\s+(.+\.md)", line)
-        if m:
-            f = m.group(1)
-            mm = re.search(r"ch?(\d{3,4})", f)
-            if mm:
-                error_chs.add(int(mm.group(1)))
+    error_targets = _parse_lint_error_targets(result.stdout)
 
-    return stub_set, stub_by_chapter, sorted(error_chs)
+    return stub_set, stub_by_chapter, error_targets
 
 
 def parse_chapter_spec(spec):
@@ -99,8 +136,9 @@ def pick_targets(n, stubs_only=False, disease_only=False, skip_done=True):
     fixed chapter-number range because older stub chapters can sit below the
     current rewrite frontier.
     """
-    stub_set, stub_by_chapter, error_chs = load_state()
+    stub_set, stub_by_chapter, error_targets = load_state()
     targets = []
+    selected_chapters = set()
     if not disease_only:
         # Every manifest stub is highest priority, including older chapters
         # outside the former ch858-997 rewrite window.
@@ -108,28 +146,56 @@ def pick_targets(n, stubs_only=False, disease_only=False, skip_done=True):
             target_file = _stub_target_file(ch, stub_by_chapter[ch])
             if not target_file:
                 continue
-            if skip_done and _already_done(ch):
+            if ch in selected_chapters:
+                continue
+            if skip_done and _already_done(ch, target_file=target_file):
                 continue
             targets.append(("stub", ch, target_file))
+            selected_chapters.add(ch)
             if len(targets) >= n:
                 return targets
     if not stubs_only:
-        for ch in error_chs:
-            if skip_done and _already_done(ch):
+        for item in error_targets:
+            if isinstance(item, (tuple, list)):
+                ch, target_file = int(item[0]), item[1]
+            else:  # Backward-compatible with callers that supply chapter numbers.
+                ch, target_file = int(item), _chapter_file(int(item))
+            if not target_file or _branch_name(target_file) in EXCLUDED_BRANCHES:
                 continue
-            targets.append(("disease", ch, _chapter_file(ch)))
+            if ch in selected_chapters:
+                continue
+            if skip_done and _already_done(ch, target_file=target_file):
+                continue
+            targets.append(("disease", ch, target_file))
+            selected_chapters.add(ch)
             if len(targets) >= n:
                 return targets
     return targets
 
 
-def _chapter_file(ch):
-    """Resolve a chapter number to a real chapter file on disk."""
+def _chapter_candidates(ch):
+    """Return every non-private file that claims the chapter number."""
     candidates = list(dict.fromkeys(
         list(CHRONICLE.glob(f"ch{ch:03d}-*.md"))
         + list(CHRONICLE.glob(f"ch{ch}-*.md"))
+        + list(CHRONICLE.glob(f"{ch:03d}-*.md"))
+        + list(CHRONICLE.glob(f"{ch}-*.md"))
     ))
-    candidates = [c for c in candidates if not c.stem.startswith("_")]
+    return [c for c in candidates if not c.stem.startswith("_")]
+
+
+def _branch_name(path):
+    """Return a normalized branch marker without treating missing metadata as a branch."""
+    try:
+        raw = Path(path).read_text(encoding="utf-8")
+        return str(V.read_frontmatter(raw).get("branch") or "").strip().lower()
+    except (OSError, UnicodeError):
+        return ""
+
+
+def _chapter_file(ch):
+    """Resolve a chapter number to the best canonical file on disk."""
+    candidates = _chapter_candidates(ch)
     if not candidates:
         return None
     if len(candidates) == 1:
@@ -139,8 +205,7 @@ def _chapter_file(ch):
         try:
             raw = path.read_text(encoding="utf-8")
             meta = V.read_frontmatter(raw)
-            branch = str(meta.get("branch") or "").strip().lower()
-            canonical = branch not in {"alternate", "parallel", "archive"}
+            canonical = _branch_name(path) not in EXCLUDED_BRANCHES
             errors, _, metrics = PL.lint_file(str(path))
             publishable = (
                 not errors
@@ -178,9 +243,9 @@ def _cast_names(path):
     return [name.strip().strip("'\"") for name in match.group(1).split(",") if name.strip()]
 
 
-def _already_done(ch):
+def _already_done(ch, target_file=None):
     """Check if chapter is already gold (PASSed lint)."""
-    f = _chapter_file(ch)
+    f = target_file or _chapter_file(ch)
     if not f or not os.path.exists(f):
         return False
     if os.path.getsize(f) < 1500:
@@ -191,6 +256,31 @@ def _already_done(ch):
         return False
     errors, _, metrics = PL.lint_file(f)
     return not errors and metrics.get("chars", 0) >= PL.MIN_CHAPTER_CHARS
+
+
+def _error_target(item):
+    """Normalize a loaded error record for status and compatibility callers."""
+    if isinstance(item, (tuple, list)):
+        return int(item[0]), item[1]
+    chapter = int(item)
+    return chapter, _chapter_file(chapter)
+
+
+def _duplicate_error_counts(error_targets):
+    """Count failed files hidden behind another same-number candidate."""
+    hidden = 0
+    alternate = 0
+    for item in error_targets:
+        chapter, target_file = _error_target(item)
+        if not target_file:
+            continue
+        if _branch_name(target_file) in EXCLUDED_BRANCHES:
+            alternate += 1
+            continue
+        preferred = _chapter_file(chapter)
+        if preferred and Path(preferred).resolve() != Path(target_file).resolve():
+            hidden += 1
+    return hidden, alternate
 
 
 def _compact_role_snapshot(name, limit=900):
@@ -238,6 +328,7 @@ def build_prompt(target_ch, target_file):
     cast_snapshot = "\n\n".join(
         f"【{name}】\n{_compact_role_snapshot(name)}" for name in cast_names
     )
+    cast_snapshot = f"TARGET_FILE: {Path(target_file).resolve()}\n\n{cast_snapshot}"
     reference_snapshot = _reference_snapshot()
 
     # Read pre/post hooks for continuity
@@ -320,7 +411,7 @@ def main():
     args = p.parse_args()
 
     if args.status:
-        stub_set, stub_by_chapter, error_chs = load_state()
+        stub_set, stub_by_chapter, error_targets = load_state()
         stub_files = {
             ch: _stub_target_file(ch, stub_by_chapter[ch])
             for ch in stub_by_chapter
@@ -328,13 +419,21 @@ def main():
         stub_missing = sum(1 for path in stub_files.values() if not path)
         stub_remaining = sum(
             1 for ch, path in stub_files.items()
-            if path and not _already_done(ch)
+            if path and not _already_done(ch, target_file=path)
         )
-        unfinished = sum(1 for ch in error_chs if not _already_done(ch))
+        error_chapters = {_error_target(item)[0] for item in error_targets}
+        unfinished = sum(
+            1
+            for item in error_targets
+            if not _already_done(*_error_target(item))
+        )
+        hidden_duplicates, alternate_errors = _duplicate_error_counts(error_targets)
         print(
             f"stubs_total={len(stub_set)} stubs_remaining={stub_remaining} "
-            f"stubs_missing={stub_missing} disease_or_lint_errors={len(error_chs)} "
-            f"unfinished_lint={unfinished}"
+            f"stubs_missing={stub_missing} disease_or_lint_errors={len(error_chapters)} "
+            f"error_files={len(error_targets)} unfinished_lint={unfinished} "
+            f"hidden_duplicate_errors={hidden_duplicates} "
+            f"alternate_error_files={alternate_errors}"
         )
         return
 

@@ -84,7 +84,7 @@ def test_picker_reaches_manifest_stubs_outside_legacy_range(monkeypatch):
         "_chapter_file",
         lambda chapter: {251: "old.md", 858: "new.md"}.get(chapter),
     )
-    monkeypatch.setattr(batch_rewrite, "_already_done", lambda _chapter: False)
+    monkeypatch.setattr(batch_rewrite, "_already_done", lambda _chapter, target_file=None: False)
 
     selected = batch_rewrite.pick_targets(1, stubs_only=True)
 
@@ -102,7 +102,7 @@ def test_picker_skips_manifest_only_stub_without_file(monkeypatch):
         "_chapter_file",
         lambda chapter: {251: None, 858: "new.md"}.get(chapter),
     )
-    monkeypatch.setattr(batch_rewrite, "_already_done", lambda _chapter: False)
+    monkeypatch.setattr(batch_rewrite, "_already_done", lambda _chapter, target_file=None: False)
 
     selected = batch_rewrite.pick_targets(1, stubs_only=True)
 
@@ -164,4 +164,40 @@ def test_dispatch_prompt_uses_bounded_inline_context():
     context = prompt.split("【你要做的】", 1)[0]
     assert "的方式不是" not in context
     assert "方向朝着" not in context
+    assert "TARGET_FILE:" in prompt
     assert len(prompt) < 16000
+
+
+def test_lint_error_parser_keeps_exact_duplicate_path(tmp_path, monkeypatch):
+    chronicle = tmp_path / "chronicle"
+    chronicle.mkdir()
+    target = chronicle / "ch857-灶边雪.md"
+    target.write_text("正文", encoding="utf-8")
+    monkeypatch.setattr(batch_rewrite, "ROOT", tmp_path)
+
+    records = batch_rewrite._parse_lint_error_targets(f"✗ {target}\n   ERROR  broken")
+
+    assert records == [(857, str(target))]
+
+
+def test_picker_surfaces_failing_duplicate_even_when_canonical_passes(tmp_path, monkeypatch):
+    chronicle = tmp_path / "chronicle"
+    chronicle.mkdir()
+    good_body = "他把账页压在案角，门外的雪又落了一层。\n\n" * 90
+    bad_body = "他的方向朝着门口。\n\n" * 100
+    good = chronicle / "ch857-不收回.md"
+    bad = chronicle / "ch857-灶边雪.md"
+    good.write_text(_chapter(857, "不收回", good_body, editorial=True), encoding="utf-8")
+    bad.write_text(_chapter(857, "灶边雪", bad_body), encoding="utf-8")
+
+    monkeypatch.setattr(batch_rewrite, "CHRONICLE", chronicle)
+    monkeypatch.setattr(
+        batch_rewrite,
+        "load_state",
+        lambda: (set(), {}, [(857, str(bad))]),
+    )
+
+    selected = batch_rewrite.pick_targets(1, disease_only=True)
+
+    assert selected == [("disease", 857, str(bad))]
+    assert batch_rewrite._duplicate_error_counts([(857, str(bad))]) == (1, 0)

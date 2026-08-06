@@ -115,6 +115,38 @@ def _chapter_from_prompt(path: Path) -> int | None:
     return int(match.group(1)) if match else None
 
 
+def _target_from_prompt(path: Path):
+    """Read the exact target marker emitted by batch_rewrite.
+
+    The chapter number is not a sufficient selector when a canonical file and
+    an unhealthy same-number branch coexist.  Older prompts have no marker and
+    intentionally fall back to the legacy chapter resolver.
+    """
+    try:
+        text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return None
+    match = re.search(r"^TARGET_FILE:\s*(.+?)\s*$", text, re.M)
+    if not match:
+        return None
+    candidate = Path(match.group(1).strip().strip("`"))
+    if not candidate.is_absolute():
+        candidate = ROOT / candidate
+    try:
+        candidate = candidate.resolve()
+        candidate.relative_to(Path(BR.CHRONICLE).resolve())
+    except (OSError, ValueError):
+        return None
+    return str(candidate) if candidate.is_file() else None
+
+
+def _target_for_prompt(path: Path, chapter: int | None = None):
+    """Resolve a prompt to its exact file, with a safe legacy fallback."""
+    return _target_from_prompt(path) or (
+        BR._chapter_file(chapter) if chapter is not None else None
+    )
+
+
 def _prompt_paths(chapters=None):
     paths = sorted(DISPATCH_DIR.glob("ch*.txt"))
     if chapters is None:
@@ -297,7 +329,7 @@ def run_one(prompt_path: Path, *, budget=DEFAULT_BUDGET, model=DEFAULT_MODEL,
     chapter = _chapter_from_prompt(prompt_path)
     if chapter is None:
         raise ValueError(f"invalid dispatch prompt name: {prompt_path.name}")
-    target_value = BR._chapter_file(chapter)
+    target_value = _target_for_prompt(prompt_path, chapter)
     if not target_value:
         target = ROOT / "__missing_target__"
         result = {
@@ -395,7 +427,8 @@ def main(argv=None):
         chapter = _chapter_from_prompt(path)
         if chapter is None:
             continue
-        if not args.force and BR._already_done(chapter):
+        target_value = _target_for_prompt(path, chapter)
+        if not args.force and BR._already_done(chapter, target_file=target_value):
             skipped.append(chapter)
             continue
         selected.append(path)
@@ -409,7 +442,7 @@ def main(argv=None):
     allowed_targets = set()
     for path in selected:
         chapter = _chapter_from_prompt(path)
-        target_value = BR._chapter_file(chapter) if chapter is not None else None
+        target_value = _target_for_prompt(path, chapter)
         if target_value:
             allowed_targets.add(str(Path(target_value).resolve()))
 

@@ -2,6 +2,8 @@
 
 Run `python engine/batch_rewrite.py --status` to refresh.
 
+**Picker audit (2026-08-04)**: 修复同号文件被 canonical 通过稿掩盖的问题后，实测状态为 `stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=336 error_files=336 unfinished_lint=336 hidden_duplicate_errors=298 alternate_error_files=0`。旧的 `0/220` 是文件名解析器漏掉无 `ch` 前缀文件造成的假象；现在 lint 错误保留到具体文件路径，`--disease-only --pick 3 --dry-run` 已实际选出 `034-顺手.md`、`035-凌朔案前.md`、`042-姜玉衡议.md`，不会再误报无任务。
+
 **Total scope**: 876 chapters to bring to gold standard
 - 244 §七.1 disease chapters (have real prose, just broken)
 - 632 stub chapters (9-line templates, need full write)
@@ -102,7 +104,7 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 
 ### 最新后验收快照
 
-- `python engine/batch_rewrite.py --status` 最新为：607 个静态 stub 编号、0 个实际剩余 stub、220 个仅存在于 manifest 而未落盘的编号、298 个唯一 lint 错误号、0 个当前候选文件未过完整发布门。
+- `python engine/batch_rewrite.py --status` 最新为：607 个静态 stub 编号、194 个实际剩余 stub、0 个仅存在于 manifest 而未落盘的编号、336 个唯一 lint 错误号、336 个 error_files、336 个 unfinished_lint、298 个隐藏 duplicate error、0 个 alternate error；此前的 0/220 是解析器漏掉无 `ch` 前缀文件的历史快照。
 - `python tools/review_batch.py --strict-editorial ch960-ch1000`：41 章通过，0 章拒发；ch960–ch1000 已形成连续 41/41 绿段。
 - ch513、ch514 的 Claude worker 均因超时保持 BLOCKED 且未改文件；主编重写后分别为 1761、1624 字，strict editorial 2/2 通过。
 - ch530、ch531 的 Claude worker 均改动了目标但留下公式/元数据问题；主编重写后分别为 1648、1845 字，strict editorial 2/2 通过，方向/墙/物象位置/自指回环均为 0。
