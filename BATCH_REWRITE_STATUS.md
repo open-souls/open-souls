@@ -48,6 +48,8 @@ Stub 重写 (chunks dispatched, awaiting results):
 - [x] ch868-林彻站.md
 - [x] ch869-苏挽在.md
 - [x] ch870-林叙看.md
+- [x] ch873-苏挽端糖.md
+- [x] ch874-林彻看林夙.md
 
 **Remaining after this batch**: ~866 chapters
 
@@ -77,7 +79,7 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 
 ### 最新后验收快照
 
-- `python engine/batch_rewrite.py --status` 最新为：607 个静态 stub 编号、0 个实际剩余 stub、220 个仅存在于 manifest 而未落盘的编号、324 个唯一 lint 错误号、25 个当前候选文件未过完整发布门。
+- `python engine/batch_rewrite.py --status` 最新为：607 个静态 stub 编号、0 个实际剩余 stub、220 个仅存在于 manifest 而未落盘的编号、322 个唯一 lint 错误号、23 个当前候选文件未过完整发布门。
 - `python tools/review_batch.py --strict-editorial ch960-ch1000`：41 章通过，0 章拒发；ch960–ch1000 已形成连续 41/41 绿段。
 - ch513、ch514 的 Claude worker 均因超时保持 BLOCKED 且未改文件；主编重写后分别为 1761、1624 字，strict editorial 2/2 通过。
 - ch530、ch531 的 Claude worker 均改动了目标但留下公式/元数据问题；主编重写后分别为 1648、1845 字，strict editorial 2/2 通过，方向/墙/物象位置/自指回环均为 0。
@@ -116,9 +118,9 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - ch960–ch973 已形成连续 14/14 绿段：正文指标依次为 1729、1651、2187、1521、1611、1516、1603、1507、1512、1500、1502、1597、2229、1500。
 - 这组数据覆盖的是本轮主编复核范围，不是全书市场证明；旧条目中 ch960–ch973 的旧字数记录已被本节最新实测覆盖。
 
-- 机器扫描：1331 个章文件；362 章 ERROR，77 章 WARN。全书机器门仍未过，这只是基线观测，不等于本轮绿段的发布证明。
+- 机器扫描：1331 个章文件；360 章 ERROR，77 章 WARN。全书机器门仍未过，这只是基线观测，不等于本轮绿段的发布证明。
 - `_STUB_MANIFEST.json` 当前使用 `chapter_numbers`，共 607 个 stub 编号；调度器已兼容该格式。
-- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 0 个、manifest-only 编号 220 个、324 个唯一 lint 错误号，其中 25 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch511、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch591–ch592、ch596、ch611、ch622、ch631、ch642–ch650、ch671–ch831（本轮新增 ch721、ch736、ch751、ch806、ch821、ch832、ch841、ch842）、ch833–ch857、ch858、ch863–ch870 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
+- `python engine/batch_rewrite.py --status` 同时报告静态 stub 总数、真实落盘的 `stubs_remaining` 与 manifest-only 的 `stubs_missing`，避免把不存在的章节伪装成可派发任务；当前为 607 个静态 stub 编号、实际剩余 stub 0 个、manifest-only 编号 220 个、322 个唯一 lint 错误号，其中 23 个当前候选文件仍未过完整发布门。扩展公式门新增捕获了旧稿变体，数字变化按独立门结果记录。本轮主编复核范围已扩至 ch1000；ch960–ch1000、ch511、ch513–ch520、ch523–ch525、ch527–ch540、ch542–ch589、ch591–ch592、ch596、ch611、ch622、ch631、ch642–ch650、ch671–ch831（本轮新增 ch721、ch736、ch751、ch806、ch821、ch832、ch841、ch842）、ch833–ch857、ch858、ch863–ch874 已通过 1500 字发布门与 strict editorial 联合门；ch651、ch652、ch656 尚未形成绿段声明。
 - runner 的受保护快照现覆盖目标章节所在目录，可拦截 Claude 在目标旁写 `chNNN-new.md` 等 sibling 草稿；并行批次的合法目标另行列入允许集合，避免两个目标互相误报。
 - 并行 runner 现在把同一批次的合法目标集合传入 side-effect gate，避免 ch538 因 ch539 的合法并行写入被误报；新增并行授权回归后 `tests/test_run_dispatch.py` 为 8/8。
 - strict editorial 现额外卡高频物象位置（`那一寸/那一道/那一截` 等）与“我/他/她自己”自我承担回声；调度器只给 Claude `Read,Edit`，本地门负责验证，超时从 900 秒收紧为 420 秒，避免反复回读上下文吞掉整笔预算。
@@ -481,3 +483,5 @@ The dispatcher skips chapters already at gold (PASS lint). To re-rewrite a passi
 - `ch868-林彻站.md`：Claude 首稿命中 19 处方向、3 处墙式和 66 处物象回声；主编重写为林彻在父亲与门外林夙之间落见件印，不替任何人完成收件，正文 1631 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
 - `ch869-苏挽在.md`：Claude 首稿有可用的“还”字场景，但独立门抓到墙式回声并过度堆叠笔、帕、糖纸；主编重写为苏挽分开抄件、旁证与旧笔，不把人情写成归还，正文 1608 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
 - `ch870-林叙看.md`：Claude 首稿缺有效 review/score 且沿用位置与自指模板；主编重写林叙核对东堂、灶房、余伯院三张纸，只记录看见的动作，保留林夙未收与赴山门的悬念，正文 1513 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
+- `ch873-苏挽端糖.md`：Claude 首稿仍复写笔、帕、糖纸槽位且缺有效 review；主编重写为三块药糖的真实交接，余伯取用一块却不替苏挽把谢意变成签收，正文 1517 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
+- `ch874-林彻看林夙.md`：Claude 首稿基础 lint 失败且沿用秤/门槛模板；主编重写为林夙经手老秤到西门、林彻记录药材见件，未封原信继续留在东堂，正文 1635 字，最终 lint、公式扫描、strict editorial 与 safety PASS，Claude 回执保留 BLOCKED。
