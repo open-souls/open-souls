@@ -3,7 +3,8 @@
 > 更新时间：2026-08-04
 > 工作目录：`C:\Users\stanc\github\open-souls`
 > 当前分支：`main`
-> 本文档对应的上一份工作提交：`d1af5c6`（`editor: pass chapters 042 and 054`）
+> 上一份已推送的交接提交：`c843432`（`docs: add novel agent handoff`）
+> 上一份已推送的小说工作提交：`d1af5c6`（`editor: pass chapters 042 and 054`）
 
 ## 目标与工作分工
 
@@ -48,7 +49,17 @@
 
 本轮 Claude 的具体情况：034、035 有实际改动但因严格 editorial 不通过；042 超时且未形成可接收改动；054 有实际场面但缺 review/score 元数据。最终提交内容以主编版本为准。
 
-### 3. 已完成的验证
+### 3. handoff 提交之后的最近一批
+
+本批目标是 picker 选出的 `061-蒹葭.md` 和 `116-监守.md`。两路 Claude runner 最终都为 `BLOCKED`，没有任何一章可以直接收稿。
+
+- `061-蒹葭.md`：Claude `ok`，实际改动 `120 insertions / 146 deletions`；prose lint、safety、formula scan 都通过，但严格 editorial 因 frontmatter 缺 `review` 和 `score` 拒收。当前改稿仍在工作树中，尚未提交，也没有被主编确认采用。
+- `116-监守.md`：Claude 在 `425.9s` 超时，`changed: no`；receipt 记录 prose lint、strict editorial、formula scan 均失败，命中 `wall_formula: 3`。正文没有被改动。
+- 本次 runner 以 exit code `1` 返回；没有启动下一批，也没有把 Claude 的 BLOCKED 结果伪装成通过。
+
+因此，下一位接手者首先要处理工作树里的 061：重新读全文，判断 Claude 的场面是否值得保留，补足基于正文事实的 review/score 后再跑完整 gate；如果主编复读认为语言或人物压力不够，直接整章回炉。116 则应按原路径重新规划，不能把超时当作已完成。
+
+### 4. 已完成的验证
 
 - `python -m pytest -q`：`44 passed`。
 - `python engine/validate.py`：全部 souls 通过。
@@ -58,28 +69,31 @@
 
 ## 当前实测状态
 
-最近一次 `python engine/batch_rewrite.py --status`：
+最近一次 `python engine/batch_rewrite.py --status`（包含 061 的 prose lint 改善，但不代表严格 editorial 已通过）：
 
 ```text
-stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=332 error_files=332 unfinished_lint=332 hidden_duplicate_errors=298 alternate_error_files=0
+stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 error_files=331 unfinished_lint=331 hidden_duplicate_errors=298 alternate_error_files=0
 ```
 
-最近一次全书 `python engine/prose_lint.py`：
+最近一次全书 `python engine/prose_lint.py`（读取当前工作树，包含未接收的 061 改稿）：
 
 ```text
-扫了 1331 章：0 章豁免，332 章退回(ERROR)，77 章有提醒(WARN)。
+扫了 1331 章：0 章豁免，331 章退回(ERROR)，77 章有提醒(WARN)。
 ```
 
 这意味着：
 
-- agent 的流程和局部质量门禁已经可用，但全书仍不是绿灯，不能声称整本完成。
+- agent 的流程和局部质量门禁已经可用，但全书仍不是绿灯，不能声称整本完成；最近的 061 也只是 prose lint 通过，仍未过 strict editorial。
 - `hidden_duplicate_errors=298` 是需要优先处理的路径问题；不能只用 `_chapter_file(ch)` 找 canonical 文件。
 - `stubs_remaining=194` 是 manifest 中尚未完整通过的候选计数，不等于所有候选都是字面上的九行 stub。
 - 当前已经有主编验收的章节，但还没有完成整本逐章人类通读，也没有真实读者留存、追更、评论或晋江数据证据。
+- 当前工作树有一个未接收的 Claude 改稿：`seasons/01-xianxia/chronicle/061-蒹葭.md`。在主编完成复读和 gate 之前，不要把它加入小说工作提交。
 
 ## 下一步执行队列
 
-1. 先确认状态和下一批精确目标：
+1. 先处理当前未接收改稿：复读 061，决定保留并补齐 metadata，或整章重写；确认它通过 prose、safety、strict editorial 和 hardline 扫描后，才允许提交。
+
+2. 再确认状态和下一批精确目标：
 
    ```powershell
    python engine/batch_rewrite.py --status
@@ -87,19 +101,19 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=332 e
    python engine/batch_rewrite.py --disease-only --pick 2
    ```
 
-2. 检查生成的 prompt 是否包含正确的 `TARGET_FILE`，再做 dispatch dry-run：
+3. 检查生成的 prompt 是否包含正确的 `TARGET_FILE`，再做 dispatch dry-run：
 
    ```powershell
    python engine/run_dispatch.py --chapters chNNN,chMMM --workers 2 --dry-run
    ```
 
-3. 用高预算运行 Claude：
+4. 用高预算运行 Claude：
 
    ```powershell
    python engine/run_dispatch.py --chapters chNNN,chMMM --workers 2 --max-budget-usd 12.0 --effort high --timeout-sec 420
    ```
 
-4. 主编独立读每个目标文件，并逐项执行：
+5. 主编独立读每个目标文件，并逐项执行：
 
    ```powershell
    python engine/prose_lint.py <target>
@@ -109,11 +123,11 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=332 e
 
    另外要做 hardline / 模板回声扫描，确认没有把 Claude 的“解释型修补”留在成稿里。
 
-5. 若 Claude 超时、阻断、只补 metadata、正文不足或仍有公式化表达，主编直接重写目标章节。主编结果写入对应的 `prompts/.results/chNNN.md` receipt，但不能覆盖 Claude 原始状态。
+6. 若 Claude 超时、阻断、只补 metadata、正文不足或仍有公式化表达，主编直接重写目标章节。主编结果写入对应的 `prompts/.results/chNNN.md` receipt，但不能覆盖 Claude 原始状态。
 
-6. 每批完成后重新跑测试、validate、聚焦 gate 和全书状态；同步更新 `BATCH_REWRITE_STATUS.md` 与本交接文档，再只 stage 明确的目标文件，提交并推送。
+7. 每批完成后重新跑测试、validate、聚焦 gate 和全书状态；同步更新 `BATCH_REWRITE_STATUS.md` 与本交接文档，再只 stage 明确的目标文件，提交并推送。
 
-7. 持续处理真实失败路径，直到机器错误显著收敛；随后进入连续章节的人类通读、人物线/伏笔线审计、开篇留存和读者反馈验证。没有这些证据，不把“模型评分高”写成“晋江爆款”。
+8. 持续处理真实失败路径，直到机器错误显著收敛；随后进入连续章节的人类通读、人物线/伏笔线审计、开篇留存和读者反馈验证。没有这些证据，不把“模型评分高”写成“晋江爆款”。
 
 ## 不可退让的编辑底线
 
