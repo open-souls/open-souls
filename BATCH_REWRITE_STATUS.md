@@ -4,6 +4,8 @@ Run `python engine/batch_rewrite.py --status` to refresh.
 
 **Picker audit (2026-08-04)**: 修复同号文件被 canonical 通过稿掩盖的问题后，实测状态为 `stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=336 error_files=336 unfinished_lint=336 hidden_duplicate_errors=298 alternate_error_files=0`。旧的 `0/220` 是文件名解析器漏掉无 `ch` 前缀文件造成的假象；现在 lint 错误保留到具体文件路径，`--disease-only --pick 3 --dry-run` 已实际选出 `034-顺手.md`、`035-凌朔案前.md`、`042-姜玉衡议.md`，不会再误报无任务。
 
+本轮主编复核 `034-顺手.md` 与 `035-凌朔案前.md`：Claude 两个作业均真实改动目标但因独立 strict editorial 缺 review/score 而 BLOCKED；主编分别重写到 1596、1560 字，lint、安全、公式扫描与 strict editorial 全部通过。全量机器基线由 336 章 ERROR 降为 334 章 ERROR，WARN 仍为 77；这不是全书发布通过声明。
+
 **Total scope**: 876 chapters to bring to gold standard
 - 244 §七.1 disease chapters (have real prose, just broken)
 - 632 stub chapters (9-line templates, need full write)
