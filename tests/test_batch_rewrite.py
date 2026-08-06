@@ -7,7 +7,7 @@ from engine import batch_rewrite, village
 from tools import review_batch
 
 
-def _chapter(number, title, body, *, editorial=False):
+def _chapter(number, title, body, *, editorial=False, branch=None):
     meta = {
         "season": 1,
         "chapter": number,
@@ -26,6 +26,8 @@ def _chapter(number, title, body, *, editorial=False):
             "人物主动把信压回案角；节奏通过；下一步落实门外来人。"
         )
         meta["score"] = "12/14"
+    if branch:
+        meta["branch"] = branch
     return village.serialize_frontmatter(meta) + f"\n# 第{number}回 · {title}\n\n{body}\n"
 
 
@@ -45,6 +47,66 @@ def test_duplicate_selection_prefers_passing_branch_over_larger_broken_branch(tm
     selected = review_batch.find_files([999], strict_editorial=True)
     assert Path(selected[0][1]).name == good.name
     assert Path(batch_rewrite._chapter_file(999)).name == good.name
+
+
+def test_duplicate_selection_keeps_canonical_branch_as_edit_target(tmp_path, monkeypatch):
+    chronicle = tmp_path / "chronicle"
+    chronicle.mkdir()
+    canonical_body = "他把账页压在案角，门外的雪又落了一层。\n\n" * 40
+    alternate_body = "他把旧信收进袖中，门外的灯没有灭。\n\n" * 100
+    canonical = chronicle / "ch998-主线.md"
+    alternate = chronicle / "ch998-支线.md"
+    canonical.write_text(
+        _chapter(998, "主线", canonical_body, editorial=True), encoding="utf-8"
+    )
+    alternate.write_text(
+        _chapter(998, "支线", alternate_body, editorial=True, branch="alternate"),
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(batch_rewrite, "CHRONICLE", chronicle)
+
+    assert Path(batch_rewrite._chapter_file(998)).name == canonical.name
+
+
+def test_picker_reaches_manifest_stubs_outside_legacy_range(monkeypatch):
+    monkeypatch.setattr(
+        batch_rewrite,
+        "load_state",
+        lambda: (
+            {"251", "858"},
+            {251: None, 858: None},
+            [],
+        ),
+    )
+    monkeypatch.setattr(
+        batch_rewrite,
+        "_chapter_file",
+        lambda chapter: {251: "old.md", 858: "new.md"}.get(chapter),
+    )
+    monkeypatch.setattr(batch_rewrite, "_already_done", lambda _chapter: False)
+
+    selected = batch_rewrite.pick_targets(1, stubs_only=True)
+
+    assert selected == [("stub", 251, "old.md")]
+
+
+def test_picker_skips_manifest_only_stub_without_file(monkeypatch):
+    monkeypatch.setattr(
+        batch_rewrite,
+        "load_state",
+        lambda: ({"251", "858"}, {251: None, 858: None}, []),
+    )
+    monkeypatch.setattr(
+        batch_rewrite,
+        "_chapter_file",
+        lambda chapter: {251: None, 858: "new.md"}.get(chapter),
+    )
+    monkeypatch.setattr(batch_rewrite, "_already_done", lambda _chapter: False)
+
+    selected = batch_rewrite.pick_targets(1, stubs_only=True)
+
+    assert selected == [("stub", 858, "new.md")]
 
 
 def test_tick_score_is_derived_from_critique_not_payload():
@@ -97,6 +159,8 @@ def test_dispatch_prompt_uses_bounded_inline_context():
     assert "有界片段" in prompt
     assert "prompts/.results" in prompt
     assert "不要再打开其他章节" in prompt
+    assert "先做内容设计，再落句子" in prompt
+    assert "禁止写“下一章切下批头一章”" in prompt
     context = prompt.split("【你要做的】", 1)[0]
     assert "的方式不是" not in context
     assert "方向朝着" not in context

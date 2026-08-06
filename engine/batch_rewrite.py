@@ -80,20 +80,39 @@ def parse_chapter_spec(spec):
     return sorted(set(numbers))
 
 
+def _stub_target_file(chapter, manifest_file=None):
+    """Resolve a manifest entry to an existing chapter file, if any."""
+    if manifest_file:
+        candidate = Path(manifest_file)
+        candidates = [candidate] if candidate.is_absolute() else [CHRONICLE / candidate, ROOT / candidate]
+        for path in candidates:
+            if path.exists() and path.is_file():
+                return str(path)
+    return _chapter_file(chapter)
+
+
 def pick_targets(n, stubs_only=False, disease_only=False, skip_done=True):
-    """Pick n chapters to rewrite. Order: stub ch857-997 first (no real chapter
-    on disk), then disease chapters by chapter number."""
+    """Pick n chapters to rewrite.
+
+    Manifest stubs are always considered before lint-failing disease chapters.
+    The manifest is the source of truth for stub coverage; do not assume a
+    fixed chapter-number range because older stub chapters can sit below the
+    current rewrite frontier.
+    """
     stub_set, stub_by_chapter, error_chs = load_state()
     targets = []
     if not disease_only:
-        # Stub chapters in gap range (ch858-997) are highest priority
+        # Every manifest stub is highest priority, including older chapters
+        # outside the former ch858-997 rewrite window.
         for ch in sorted(stub_by_chapter.keys()):
-            if 858 <= ch <= 997:
-                if skip_done and _already_done(ch):
-                    continue
-                targets.append(("stub", ch, stub_by_chapter[ch] or _chapter_file(ch)))
-                if len(targets) >= n:
-                    return targets
+            target_file = _stub_target_file(ch, stub_by_chapter[ch])
+            if not target_file:
+                continue
+            if skip_done and _already_done(ch):
+                continue
+            targets.append(("stub", ch, target_file))
+            if len(targets) >= n:
+                return targets
     if not stubs_only:
         for ch in error_chs:
             if skip_done and _already_done(ch):
@@ -120,6 +139,8 @@ def _chapter_file(ch):
         try:
             raw = path.read_text(encoding="utf-8")
             meta = V.read_frontmatter(raw)
+            branch = str(meta.get("branch") or "").strip().lower()
+            canonical = branch not in {"alternate", "parallel", "archive"}
             errors, _, metrics = PL.lint_file(str(path))
             publishable = (
                 not errors
@@ -130,6 +151,7 @@ def _chapter_file(ch):
             )
             lint_clean = not errors and not SL.check(PL.body_of(raw))
             return (
+                int(canonical),
                 int(publishable),
                 int(lint_clean),
                 metrics.get("chars", 0),
@@ -138,10 +160,10 @@ def _chapter_file(ch):
                 path.name,
             )
         except (OSError, UnicodeError):
-            return (0, 0, 0, 0, -len(path.name), path.name)
+            return (0, 0, 0, 0, 0, -len(path.name), path.name)
 
-    # A passing branch beats a larger broken branch.  Size is only a fallback
-    # when duplicate branches have the same gate status.
+    # Keep canonical branches as the edit target. Within that branch, a
+    # passing candidate beats a larger broken one.
     candidates.sort(key=candidate_rank, reverse=True)
     return str(candidates[0])
 
@@ -267,10 +289,12 @@ def build_prompt(target_ch, target_file):
    - **每个动作只写一次，不要"是...的那种..."的同义复述**
    - 章末用单字/单句/动作收尾
    - 余伯声线 = 极短（嗯/我看见了），苏挽声线 = 否决句+嗅觉，林崇声线 = 把字掂一掂再说，赤渊 = 编号排比，裴无咎 = 自嘲+嚼包子，牛阿大 = 全沉默+动作，阿湄 = 计算+备用笑，叶观澜 = 极轻+压字+抹旧痕
-4. 保留 frontmatter 的 cast / pov / line / thread / beat / ships 字段（**改 ships 为 ≤60 字一条，不堆叠章号链**），其他字段可以重写
-5. 字数 ≥ 1500 字（实际正文汉字数）
-6. 只做一次有限编辑回合：读目标章，完成整章写入，然后停下。不要反复重读目标章、不要扫描全仓库、不要启动子代理；外层 runner 会独立执行 lint、strict editorial、硬线和公式/回声扫描。
-7. 不要写 prompts/.results 或任何其他文件；只修改 TARGET。不要把命令结果或自报 PASS 写进正文，外层 runner 会独立写 receipt，不能用自报结果放行。
+4. **先做内容设计，再落句子**：先确定一个可观察的现场冲突、一个角色选择和一个不可逆的新信息；每个段落至少推进其中一项。范章只提供节奏，不提供可复制的句法；禁止整章变成“某物在某处—某人按一下—再解释一次”的动作回声。一个物象只在首次出现和关键回收处出现，重复出现必须改变信息或关系。
+5. **反模板硬门**：正文不要使用“方向/位置/那一寸/那一截/那一道”解释人物心理；用门、纸、碗、秤、脚步、气味等具体变化承载选择。不要把动作拆成连续的单字短句堆满整章；短句之间必须有对白、阻力、具体新事实或中段叙述。目标正文 1800–2600 个汉字，宁可写清一场完整交接，也不要用回环凑字数。
+6. 保留 frontmatter 的 cast / pov / line / thread / beat / ships 字段（**改 ships 为 ≤60 字一条，不堆叠章号链**），其他字段可以重写；`hook` 必须是本章正文中真实出现的独特动作或对白，禁止写“下一章切下批头一章”一类占位句。
+7. 字数 ≥ 1500 字（实际正文汉字数）
+8. 只做一次有限编辑回合：读目标章，完成整章写入，然后停下。不要反复重读目标章、不要扫描全仓库、不要启动子代理；外层 runner 会独立执行 lint、strict editorial、硬线和公式/回声扫描。
+9. 不要写 prompts/.results 或任何其他文件；只修改 TARGET。不要把命令结果或自报 PASS 写进正文，外层 runner 会独立写 receipt，不能用自报结果放行。
 
 【绝对硬禁】
 - ❌ 不写「X 的来处是 Y」「X 的方式不是 X」「是...的那种...」「按完按完」「就第一刹让」「走朝他自己走的」「擦朝苏挽自己擦的」「方向落在」「方向不必替」「不必替上一世」「他自己守」这类公式
@@ -297,11 +321,20 @@ def main():
 
     if args.status:
         stub_set, stub_by_chapter, error_chs = load_state()
-        stub_remaining = sum(1 for ch in stub_by_chapter if not _already_done(ch))
+        stub_files = {
+            ch: _stub_target_file(ch, stub_by_chapter[ch])
+            for ch in stub_by_chapter
+        }
+        stub_missing = sum(1 for path in stub_files.values() if not path)
+        stub_remaining = sum(
+            1 for ch, path in stub_files.items()
+            if path and not _already_done(ch)
+        )
         unfinished = sum(1 for ch in error_chs if not _already_done(ch))
         print(
             f"stubs_total={len(stub_set)} stubs_remaining={stub_remaining} "
-            f"disease_or_lint_errors={len(error_chs)} unfinished_lint={unfinished}"
+            f"stubs_missing={stub_missing} disease_or_lint_errors={len(error_chs)} "
+            f"unfinished_lint={unfinished}"
         )
         return
 

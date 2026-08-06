@@ -32,8 +32,9 @@ description: >
 - 审校分数、开篇冲突、节拍、连续性、人物主动性和安全门都通过；文笔复读失败会继续重写，达到次数上限仍失败则拒发。
 - 章节带完整 YAML frontmatter：季、回数、标题、角色、POV、主线、节拍、关系线和章末 hook；缺字段或占位标题拒发。
 - 新生成章还必须落真实 review 证据块和 score: N/14；review 至少逐字引用一条正文原句（用「」等标记），上线档分数低于 12/14 拒发；不能沿用模型随手写的虚高分数。
-- 批量重写必须通过受限 `python engine/run_dispatch.py`：Claude 只拿目标章 prompt，只获 `Read,Edit` 且单任务 420 秒上限；runner 还会快照目标以外的 prompt、receipt、根目录和 agent/tool/test 文件，任何副作用都 BLOCKED。返回后由本地 lint、strict editorial 和公式/回声扫描独立决定 PASS；Claude 自报 PASS 不具备放行权。
+- 批量重写必须通过受限 `python engine/run_dispatch.py --max-budget-usd 12.0 --effort high`：Claude 只拿目标章 prompt，只获 `Read,Edit` 且单任务 420 秒上限；Windows 超时会按进程树终止 `claude.cmd` 包装进程及其子进程，避免孤儿任务。runner 还会快照目标以外的 prompt、receipt、根目录和 agent/tool/test 文件，任何副作用都 BLOCKED。返回后由本地 lint、strict editorial 和公式/回声扫描独立决定 PASS；Claude 自报 PASS 不具备放行权。
 - 元数据也会防回路：章末 hook 不能原样重复最近章节，关系线不能写成角色与自己的自配对。
+- Claude 批量写手提示已加内容先行门：范章只作节奏参照，不得复制其病句；每章先落一个可观察冲突、一个人物选择和一个不可逆新信息，再写成 1800–2600 字正文。`方向/位置/那一寸/那一截/那一道` 不能承担心理解释，物象重复必须带来新信息；hook 必须是正文真实出现的独特动作或对白，不能用“下一章切下批头一章”占位。
 - 结构化模型输出会做有限重试；模型/API/JSON 失败是干净 no-op，不推进状态、不写半章。
 
 这些是机器上线门，不等同于“晋江爆款”证明。编辑仍需逐章检查人物欲望、情绪兑现、追更钩子、连续性和原创边界；`VILLAGE_MOCK=1` 只验证流程与拒发逻辑，不代表成稿质量。

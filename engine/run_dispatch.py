@@ -7,7 +7,7 @@ never turn a failed lint or editorial review into PASS.
 
 Usage:
   python engine/run_dispatch.py --chapters ch897 --dry-run
-    python engine/run_dispatch.py --workers 2 --max-budget-usd 8.0
+  python engine/run_dispatch.py --workers 2 --max-budget-usd 12.0 --effort high
 """
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ from engine import prose_lint as PL  # noqa: E402
 DISPATCH_DIR = ROOT / "prompts" / "dispatch"
 RESULTS_DIR = ROOT / "prompts" / ".results"
 DEFAULT_MODEL = "claude-sonnet-4-6"
-DEFAULT_BUDGET = 8.0
+DEFAULT_BUDGET = 12.0
 DEFAULT_WORKERS = 2
 # A generation that needs longer than seven minutes is usually looping over
 # context or repeatedly reopening the target. The outer validator must regain
@@ -72,6 +72,13 @@ def _protected_paths(chapter, target: Path, prompt_path: Path):
     """
     paths = {target.resolve(), prompt_path.resolve()}
     paths.add((RESULTS_DIR / f"ch{chapter:03d}.md").resolve())
+    # Claude may leave an alternate draft beside the target (for example
+    # ``ch537-new.md``).  Snapshot the target directory so a newly created
+    # sibling is reported as a side effect instead of silently surviving the
+    # job.  This stays scoped to one chapter directory rather than hashing the
+    # whole chronicle tree for every worker.
+    if target.parent.exists():
+        paths.update(path.resolve() for path in target.parent.iterdir() if path.is_file())
     for path in ROOT.iterdir():
         if path.is_file():
             paths.add(path.resolve())
@@ -89,12 +96,14 @@ def _snapshot_protected(chapter, target: Path, prompt_path: Path):
     return snapshot
 
 
-def _protected_changes(before, chapter, target: Path, prompt_path: Path):
+def _protected_changes(before, chapter, target: Path, prompt_path: Path, allowed_paths=None):
     after = _snapshot_protected(chapter, target, prompt_path)
-    allowed = str(target.resolve())
+    allowed = {str(target.resolve())}
+    for path in allowed_paths or ():
+        allowed.add(str(Path(path).resolve()))
     changed = []
     for path in sorted(set(before) | set(after)):
-        if path == allowed:
+        if path in allowed:
             continue
         if before.get(path) != after.get(path):
             changed.append(path)
@@ -114,32 +123,82 @@ def _prompt_paths(chapters=None):
     return [path for path in paths if _chapter_from_prompt(path) in wanted]
 
 
-def _run_process(command, *, input_text=None, timeout=DEFAULT_TIMEOUT):
+def _terminate_process_tree(process):
+    """Terminate a bounded child and any wrapper it spawned.
+
+    On Windows, invoking ``claude.cmd`` creates a command-wrapper process and
+    the actual Claude/Node child can survive ``Popen.kill()``.  That was the
+    source of orphan Claude jobs after a timeout.  ``taskkill /T`` is scoped to
+    this Popen PID, so it cannot touch unrelated long-running Claude sessions.
+    """
+    if os.name == "nt":
+        try:
+            subprocess.run(
+                ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=10,
+                check=False,
+            )
+            return
+        except (OSError, subprocess.TimeoutExpired):
+            pass
     try:
-        completed = subprocess.run(
+        process.kill()
+    except OSError:
+        pass
+
+
+def _run_process(command, *, input_text=None, timeout=DEFAULT_TIMEOUT):
+    creationflags = 0
+    if os.name == "nt":
+        creationflags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
+    try:
+        process = subprocess.Popen(
             command,
             cwd=str(ROOT),
-            input=input_text,
-            capture_output=True,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
             encoding="utf-8",
             errors="replace",
-            timeout=timeout,
-            check=False,
+            creationflags=creationflags,
         )
-        return {
-            "returncode": completed.returncode,
-            "stdout": completed.stdout or "",
-            "stderr": completed.stderr or "",
-            "timed_out": False,
-        }
-    except subprocess.TimeoutExpired as exc:
-        return {
-            "returncode": 124,
-            "stdout": (exc.stdout or "") if isinstance(exc.stdout, str) else "",
-            "stderr": "timeout",
-            "timed_out": True,
-        }
+        try:
+            stdout, stderr = process.communicate(input=input_text, timeout=timeout)
+            return {
+                "returncode": process.returncode,
+                "stdout": stdout or "",
+                "stderr": stderr or "",
+                "timed_out": False,
+            }
+        except subprocess.TimeoutExpired as exc:
+            _terminate_process_tree(process)
+            try:
+                stdout, stderr = process.communicate(timeout=5)
+            except subprocess.TimeoutExpired:
+                # A wrapper that ignores termination must not hold the outer
+                # batch open indefinitely.  This is a last-resort local kill.
+                try:
+                    process.kill()
+                except OSError:
+                    pass
+                stdout, stderr = process.communicate()
+
+            def _text(value):
+                if isinstance(value, bytes):
+                    return value.decode("utf-8", errors="replace")
+                return value or ""
+
+            return {
+                "returncode": 124,
+                "stdout": _text(stdout) or _text(exc.stdout),
+                "stderr": "timeout; process tree terminated\n" + _text(stderr),
+                "timed_out": True,
+            }
     except OSError as exc:
         return {"returncode": 127, "stdout": "", "stderr": str(exc), "timed_out": False}
 
@@ -233,7 +292,8 @@ def _write_result(chapter, target, result):
 
 
 def run_one(prompt_path: Path, *, budget=DEFAULT_BUDGET, model=DEFAULT_MODEL,
-            effort="medium", timeout=DEFAULT_TIMEOUT, claude_cmd="claude.cmd"):
+            effort="medium", timeout=DEFAULT_TIMEOUT, claude_cmd="claude.cmd",
+            allowed_targets=None):
     chapter = _chapter_from_prompt(prompt_path)
     if chapter is None:
         raise ValueError(f"invalid dispatch prompt name: {prompt_path.name}")
@@ -270,7 +330,13 @@ def run_one(prompt_path: Path, *, budget=DEFAULT_BUDGET, model=DEFAULT_MODEL,
     )
     after = _sha256(target) if target.exists() else ""
     changed = bool(before and after and before != after)
-    side_effects = _protected_changes(protected_before, chapter, target, prompt_path)
+    side_effects = _protected_changes(
+        protected_before,
+        chapter,
+        target,
+        prompt_path,
+        allowed_paths=allowed_targets,
+    )
     lint = _gate(
         [sys.executable, "engine/prose_lint.py", str(target)], timeout=timeout
     ) if target.exists() else {"ok": False, "returncode": 2, "output": "missing target"}
@@ -340,6 +406,13 @@ def main(argv=None):
     if args.dry_run or not selected:
         return 0
 
+    allowed_targets = set()
+    for path in selected:
+        chapter = _chapter_from_prompt(path)
+        target_value = BR._chapter_file(chapter) if chapter is not None else None
+        if target_value:
+            allowed_targets.add(str(Path(target_value).resolve()))
+
     outcomes = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
         futures = {
@@ -351,6 +424,7 @@ def main(argv=None):
                 effort=args.effort,
                 timeout=args.timeout_sec,
                 claude_cmd=args.claude_cmd,
+                allowed_targets=allowed_targets,
             ): path
             for path in selected
         }
