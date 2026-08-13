@@ -112,6 +112,16 @@ After acceptance, inspect the generated changes and confirm that `ties.json`, ea
 - Invalid frontmatter or missing review: do not hand-edit around the gate; compare with `engine/village.py` validation and repair the chapter payload or metadata at the source.
 - Prose lint failure: quote the exact lint errors, revise the prose, and rerun the targeted file gate. Do not claim the chapter is clean from a model opinion.
 
+### Claude handoff recovery
+
+When delegating chapter work to Claude, keep the handoff narrow and observable:
+
+- Send a UTF-8 prompt through stdin with the exact target path(s), the relevant gate commands, and the instruction to edit immediately. Do not let the delegate spend the turn diagnosing local proxy ports, asking clarification questions, scanning the whole checkout, or committing/pushing.
+- Require a non-empty successful result plus an actual target-file diff. Empty output, unchanged files, timeout/aborted tools, budget-limit output, mojibake, or a report that only asks to restart an unavailable endpoint means the delegation failed.
+- Retry the same route at most once with less context. After three inadequate attempts on one chapter, take over locally, preserve the failure evidence, and use the same chapter gates yourself. Never treat Claude's score or PASS as proof.
+- For each accepted chapter, independently run strict editorial review, exact-file prose lint, `engine/validate.py`, and `pytest`. Record target evidence separately from full-repository baseline errors and from real-reader/market evidence.
+- After explicit authorization, stage only accepted chapter paths, commit and push the current branch, then verify local and remote commit SHAs. Preserve unrelated dirty files and do not turn a failing baseline pre-push hook into a target failure.
+
 ## Handoff format
 
 Report the story task, files changed, commands and results, generated chapter path, gate status, known baseline failures, and the next human decision. Separate “generated,” “validated,” and “published”; they are different states.
