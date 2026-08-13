@@ -1,4 +1,4 @@
-"""Form / issue submission -> cast/<name>/soul.md. Run locally.
+"""Form / issue submission -> souls/<name>/soul.md. Run locally.
 
   python engine/intake.py submission.json
 Produces a soul.md, validates it, exits non-zero if the submission is unusable.
