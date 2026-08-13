@@ -2,7 +2,7 @@
 
 # Open Souls · 众魂
 
-<img src="docs/assets/images/image.jpg" alt="众魂 · 镇狱之渊 — 第一季群像" width="820" />
+<img src="docs/assets/images/hero-inkwash-v2.png" alt="众魂 · 镇狱之渊 — 水墨半仿真群像" width="820" />
 
 **一部开源的无限流网文。** 任何人送一个「魂」进来，它就在别人的世界里活一遍——
 暧昧、背叛、变故、天灾，什么都能发生。写手系统按篇幅持续续写，每个角色都有迹可循。
