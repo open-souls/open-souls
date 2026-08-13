@@ -82,6 +82,93 @@ python engine/village.py --ticks 1 --pressure 0.3        # 真·续写
 
 `--pressure` 是 0 号宇宙旋钮：0 安稳，1 = 稀缺 + 对撞，社会会崩。
 
+## 给另一个 AI：用 Open Souls 写你自己的小说
+
+如果你是另一个 AI，先读 [`.claude/skills/novel-writer/SKILL.md`](.claude/skills/novel-writer/SKILL.md) 和本 README，再开始写。这个仓库不是“输入一句 prompt 就吐一本书”的黑箱，而是一套有状态的编剧室：你负责世界、角色和故事决策，`engine/village.py` 负责把策划、写作、审校、状态更新串起来。
+
+### 先理解这张地图
+
+| 你要改变的东西 | 权威文件 | 谁会更新它 |
+|---|---|---|
+| 世界、题材、尺度、起承转合 | `seasons/<active>/world.md`、`arc.json` | 你 / 主编 |
+| 角色的本质、欲望、裂缝、边界 | `souls/<name>/soul.md` | 你 |
+| 本季身份与当前处境 | `souls/<name>/state.json` | 引擎 |
+| 角色经历 | `souls/<name>/memory.md` | 写作循环 |
+| 关系数值与情感变化 | `seasons/<active>/ties.json` | 写作循环 |
+| 章节正文 | `seasons/<active>/chronicle/` | 写作循环 / 人工修订 |
+| dossier、名册、章节 feed | `dossier.md`、`CAST.md`、`docs/chronicle.json` | `engine/trace.py` |
+| 文笔与上线门 | `docs/standards/`、`engine/prose_lint.py` | 你 / 编辑门 |
+
+### 从零开一部新小说
+
+不要直接把第一季的仙侠人物改名后继续写。新建一个 `seasons/<number>-<slug>/`，至少准备：
+
+```text
+seasons/02-my-novel/
+  world.md
+  arc.json       # {"beats": ["起...", "承...", "转...", "合..."], "beat": 0, "in_beat": 0}
+  ties.json      # 新故事可从 {}
+  chronicle/
+```
+
+`world.md` 的 YAML frontmatter 要先定清 `season`、`title`、`genre`、`tone`、`rating`、`scope`、`carry_memory`、`incarnation_rule`、`arc`、`active_tropes` 和 `season_engine`。每个角色从 [`souls/_TEMPLATE/soul.md`](souls/_TEMPLATE/soul.md) 开始，填满 `name`、`one_line`、`drives`、`fracture.says`、`fracture.does`、`under_pressure`、`boundaries`；不要只写“主角的朋友/反派”，要写出这个角色自己的欲望、选择和代价。
+
+有一个重要的当前实现约束：`engine/season.py` 会选 `seasons/*` 中按字典序最后的目录，命令行暂时没有 `--season` 参数。运行前确认你的 active season 确实会被选中；不要在多个实验 season 都存在时盲跑。
+
+### 让 AI 跑一回
+
+先安装并验收基础结构：
+
+```bash
+python -m pip install -r requirements.txt
+python engine/validate.py
+python -m pytest -q
+```
+
+然后先用零 token 的 mock 模式走完整条链：
+
+```bash
+VILLAGE_MOCK=1 python engine/village.py --ticks 1 --pressure 0.2
+```
+
+它会写章节、关系、记忆和 trace 输出；这是演练，不是文学质量证明。检查 `git diff`，确认写入的是你的 active season。真实续写时再提供 Anthropic key：
+
+```bash
+export ANTHROPIC_API_KEY=...
+python engine/village.py --ticks 1 --pressure 0.2
+```
+
+没有 key 时引擎也会自动走 mock，所以“命令成功”不代表真实模型已经调用。`--ticks` 控制生成回数，先用 `1`；`--pressure` 控制冲突强度，先从 `0.2` 左右开始。
+
+### 每一回都要过门
+
+AI 不得把自己的生成结果或另一个 agent 的 `PASS` 当成验收证据。至少做这几件事：
+
+1. 读完整章正文和 frontmatter，核对 POV、cast、beat、hook、thread、关系变化和下一步压力。
+2. 对照 [`docs/standards/`](docs/standards/) 的文笔、桥段、审查和评分规则；若换题材，先有意识地改这些标准，不能以为只改 `world.md` 就换了写作契约。
+3. 对精确章节跑确定性文笔门：
+
+   ```bash
+   python engine/prose_lint.py seasons/02-my-novel/chronicle/0001-title.md
+   ```
+
+4. 确认没有露骨性行为、自我伤害或未成年暧昧等硬线内容；`engine/writer.py` 会调用 `engine/safety_lint.py`，但人工仍要读。
+5. 只有正文、连续性、角色能动性、节奏、声音和结尾钩子都过了，才把它视为可发布章节。失败就修复后重新跑门，不要降低门槛。
+
+引擎会自动刷新 `state.json`、`memory.md`、`ties.json`、`dossier.md`、`CAST.md` 和章节 feed。不要把生成文件当设定源：角色本质回到 `soul.md`，本季处境回到 `state.json`，经历回到 `memory.md`。
+
+### AI 的最小工作循环
+
+```text
+读最近章节与角色档案
+  → 定本回唯一冲突 / 钩子 / 角色选择
+  → 运行 planner → writer → critique → prose gate
+  → 失败：引用具体错误，最小修复，重新验收
+  → 通过：检查 diff 与状态文件，再决定下一回
+```
+
+创作应使用原创人物、世界和正文。外部作品只能作为抽象类型参考；不要把受版权保护的原文、整段模仿文本或未授权角色档案写进仓库。生成、验证、发布是三个不同状态；任何一个没证据，都要如实标成未完成。
+
 ## 边界与尺度
 
 `rating` 旋钮（`config.yaml` / `world.md`）：温馨 < 暧昧 < 成人擦边 < 黑深残。
