@@ -1,0 +1,767 @@
+{
+  "version": "1.0",
+  "season": "01-xianxia",
+  "style": "ink-wash-semi-realism",
+  "source_of_truth": "souls/*/soul.md + dossier.md + seasons/01-xianxia/npcs.md + chronicle anchors",
+  "entity_policy": "canonical_named_entities_only",
+  "entity_registry": "../character-entity-registry.md",
+  "aliases": [
+    {
+      "label": "清梧",
+      "canonical_slug": "ye-qingwu",
+      "reason": "正文别称，与叶清梧为同一实体"
+    },
+    {
+      "label": "叶清梧",
+      "canonical_slug": "ye-qingwu",
+      "reason": "canonical name"
+    }
+  ],
+  "excluded_labels": [
+    {
+      "label": "那个人",
+      "type": "anaphora"
+    },
+    {
+      "label": "母亲",
+      "type": "relationship_label"
+    },
+    {
+      "label": "老人",
+      "type": "generic_role"
+    },
+    {
+      "label": "师父",
+      "type": "generic_role"
+    },
+    {
+      "label": "宗门众人",
+      "type": "group"
+    },
+    {
+      "label": "苏家来人",
+      "type": "group"
+    },
+    {
+      "label": "随从",
+      "type": "generic_role"
+    },
+    {
+      "label": "守卫",
+      "type": "generic_role"
+    },
+    {
+      "label": "蛊场管事",
+      "type": "generic_role"
+    }
+  ],
+  "entries": [
+    {
+      "slug": "linsu",
+      "name": "林夙",
+      "kind": "soul",
+      "role": "林家三公子 / 复盘者",
+      "status": "ready",
+      "asset": "char_linsu_sheet.png",
+      "accent": "烟灰",
+      "anchor": "素面竹牌、收着的眼神、贴腕衣袖",
+      "source_labels": [
+        "林夙"
+      ],
+      "appearance_count": 755
+    },
+    {
+      "slug": "suwan",
+      "name": "苏挽",
+      "kind": "soul",
+      "role": "苏家嫡女 / 翻档者",
+      "status": "ready",
+      "asset": "char_suwan_sheet.png",
+      "accent": "骨白",
+      "anchor": "旧账、白玉簪、压住纸边的手",
+      "source_labels": [
+        "苏挽"
+      ],
+      "appearance_count": 667
+    },
+    {
+      "slug": "amei",
+      "name": "阿湄",
+      "kind": "soul",
+      "role": "蛊场出身的情报人",
+      "status": "ready",
+      "asset": "char_amei_sheet.png",
+      "accent": "旧青",
+      "anchor": "小刀、粗陶碗、轻到没有声音的脚步",
+      "source_labels": [
+        "阿湄"
+      ],
+      "appearance_count": 695
+    },
+    {
+      "slug": "yeguanlan",
+      "name": "叶观澜",
+      "kind": "soul",
+      "role": "叶家二房 / 坐轮椅的善人",
+      "status": "ready",
+      "asset": "char_yeguanlan_sheet.png",
+      "accent": "月白",
+      "anchor": "手炉、轮椅、礼数很轻的眼睛",
+      "source_labels": [
+        "叶观澜"
+      ],
+      "appearance_count": 570
+    },
+    {
+      "slug": "shenshutong",
+      "name": "沈疏桐",
+      "kind": "soul",
+      "role": "玄苍宗师姐 / 查灭门案者",
+      "status": "ready",
+      "asset": "char_shenshutong_sheet.png",
+      "accent": "冷玉",
+      "anchor": "袖中指环、浅色道袍、先护后问",
+      "source_labels": [
+        "沈疏桐"
+      ],
+      "appearance_count": 412
+    },
+    {
+      "slug": "ling-shuo",
+      "name": "凌朔",
+      "kind": "soul",
+      "role": "玄苍宗内门 / 变节的眼线",
+      "status": "ready",
+      "asset": "char_lingshuo_sheet.png",
+      "accent": "靛蓝",
+      "anchor": "无剑、法器、几乎无声的步子",
+      "source_labels": [
+        "凌朔"
+      ],
+      "appearance_count": 264
+    },
+    {
+      "slug": "pei-wujiu",
+      "name": "裴无咎",
+      "kind": "soul",
+      "role": "无门散修剑客",
+      "status": "ready",
+      "asset": "char_peiwujiu_sheet.png",
+      "accent": "洗旧青",
+      "anchor": "五个包子、旧剑鞘、靠墙站",
+      "source_labels": [
+        "裴无咎"
+      ],
+      "appearance_count": 164
+    },
+    {
+      "slug": "niu-ada",
+      "name": "牛阿大",
+      "kind": "soul",
+      "role": "护院 / 忠诚的重心",
+      "status": "ready",
+      "asset": "char_niuada_sheet.png",
+      "accent": "土灰",
+      "anchor": "宽肩、缠带、递碗而不是拔刀",
+      "source_labels": [
+        "牛阿大"
+      ],
+      "appearance_count": 173
+    },
+    {
+      "slug": "yubo",
+      "name": "余伯",
+      "kind": "soul",
+      "role": "看账老人 / 活证人",
+      "status": "ready",
+      "asset": "char_yubo_sheet.png",
+      "accent": "旧墨",
+      "anchor": "仿笔、粗指节、腰弯而不退",
+      "source_labels": [
+        "余伯"
+      ],
+      "appearance_count": 354
+    },
+    {
+      "slug": "chi-yuan",
+      "name": "赤渊",
+      "kind": "soul",
+      "role": "玄苍宗长老 / 守墓人",
+      "status": "ready",
+      "asset": "char_chiyuan_sheet.png",
+      "accent": "暗朱砂",
+      "anchor": "半白须发、经卷、最平静的脸",
+      "source_labels": [
+        "赤渊"
+      ],
+      "appearance_count": 277
+    },
+    {
+      "slug": "lin-chong",
+      "name": "林崇",
+      "kind": "soul",
+      "role": "林家家主",
+      "status": "ready",
+      "asset": "char_linchong_sheet.png",
+      "accent": "青灰",
+      "anchor": "老秤、端正肩线、先称人再称事",
+      "source_labels": [
+        "林崇"
+      ],
+      "appearance_count": 205
+    },
+    {
+      "slug": "lin-yao",
+      "name": "林窈",
+      "kind": "soul",
+      "role": "林家女儿 / 被忽略的记忆者",
+      "status": "ready",
+      "asset": "char_linyao_sheet.png",
+      "accent": "淡杏",
+      "anchor": "记生日、袖中小物、站在门边",
+      "source_labels": [
+        "林窈"
+      ],
+      "appearance_count": 248
+    },
+    {
+      "slug": "lin-xu",
+      "name": "林叙",
+      "kind": "soul",
+      "role": "把好处送出去的人",
+      "status": "ready",
+      "asset": "char_linxu_sheet.png",
+      "accent": "旧米白",
+      "anchor": "茶、悄悄记账、退半步",
+      "source_labels": [
+        "林叙"
+      ],
+      "appearance_count": 97
+    },
+    {
+      "slug": "lin-che",
+      "name": "林彻",
+      "kind": "soul",
+      "role": "林家废物弟弟 / 被利用的刀",
+      "status": "ready",
+      "asset": "char_linche_sheet.png",
+      "accent": "冷黑",
+      "anchor": "被人推着走、抬头前的停顿、窄袖",
+      "source_labels": [
+        "林彻"
+      ],
+      "appearance_count": 28
+    },
+    {
+      "slug": "suyi",
+      "name": "苏漪",
+      "kind": "soul",
+      "role": "苏家庶女",
+      "status": "ready",
+      "asset": "char_suyi_sheet.png",
+      "accent": "月白淡一层",
+      "anchor": "浓一点的妆、草蚱蜢、鬓边散发",
+      "source_labels": [
+        "苏漪"
+      ],
+      "appearance_count": 22
+    },
+    {
+      "slug": "suzhenshan",
+      "name": "苏震山",
+      "kind": "soul",
+      "role": "苏家家主 / 言官",
+      "status": "ready",
+      "asset": "char_suzhenshan_sheet.png",
+      "accent": "青灰",
+      "anchor": "袖中手、秤砣、踩砖缝",
+      "source_labels": [
+        "苏震山"
+      ],
+      "appearance_count": 5
+    },
+    {
+      "slug": "yun-zhi",
+      "name": "云栀",
+      "kind": "soul",
+      "role": "玄苍宗剑骨天才",
+      "status": "ready",
+      "asset": "char_yunzhi_sheet.png",
+      "accent": "冷白",
+      "anchor": "白色弟子服、长剑、压住的笑",
+      "source_labels": [
+        "云栀"
+      ],
+      "appearance_count": 31
+    },
+    {
+      "slug": "rong-yun",
+      "name": "容昀",
+      "kind": "soul",
+      "role": "叶观澜旧识 / 防火墙",
+      "status": "ready",
+      "asset": "char_rongyun_sheet.png",
+      "accent": "褪色花青",
+      "anchor": "花哨外衣、壶、把懂当护城河",
+      "source_labels": [
+        "容昀"
+      ],
+      "appearance_count": 0,
+      "source_chapters": []
+    },
+    {
+      "slug": "tu-yaya",
+      "name": "图丫丫",
+      "kind": "soul",
+      "role": "药材铺情报中转人",
+      "status": "ready",
+      "asset": "char_tuyaya_sheet.png",
+      "accent": "药草绿",
+      "anchor": "圆脸、行囊、袖中暗器",
+      "source_labels": [
+        "图丫丫"
+      ],
+      "appearance_count": 3
+    },
+    {
+      "slug": "azhe",
+      "name": "阿哲",
+      "kind": "soul",
+      "role": "散修信使 / 线人",
+      "status": "ready",
+      "asset": "char_zhe_sheet.png",
+      "accent": "灰青",
+      "anchor": "普通脸、旧匕首、进门先扫一眼",
+      "source_labels": [
+        "阿哲"
+      ],
+      "appearance_count": 2
+    },
+    {
+      "slug": "he-qi",
+      "name": "何七",
+      "kind": "soul",
+      "role": "盗跖与叶府之间的眼线",
+      "status": "ready",
+      "asset": "char_heqi_sheet.png",
+      "accent": "铁灰",
+      "anchor": "门缝里的一只眼、刻何短刃、先看脚下",
+      "source_labels": [
+        "何七"
+      ],
+      "appearance_count": 2
+    },
+    {
+      "slug": "ye-qingwu",
+      "name": "叶清梧",
+      "kind": "npc",
+      "role": "叶家旧账的缺席者（清梧为同一人别称）",
+      "status": "ready",
+      "asset": "npc_yeqingwu_sheet.png",
+      "accent": "旧纸黄",
+      "anchor": "未合上的账角、旧书铺、留下字而不回头",
+      "source_labels": [
+        "叶清梧",
+        "清梧"
+      ],
+      "appearance_count": 196
+    },
+    {
+      "slug": "jiang-yuheng",
+      "name": "姜玉衡",
+      "kind": "npc",
+      "role": "反复出现的宗门/城中人物",
+      "status": "ready",
+      "asset": "npc_jiangyuheng_sheet.png",
+      "accent": "石青",
+      "anchor": "木筹、折好的公文、先量房间再开口",
+      "source_labels": [
+        "姜玉衡"
+      ],
+      "appearance_count": 51
+    },
+    {
+      "slug": "song-guanshan",
+      "name": "宋观山",
+      "kind": "npc",
+      "role": "反复出现的宗门人物",
+      "status": "ready",
+      "asset": "npc_songguanshan_sheet.png",
+      "accent": "烟黑",
+      "anchor": "旧杖、地图布、风尘里的停步",
+      "source_labels": [
+        "宋观山"
+      ],
+      "appearance_count": 26
+    },
+    {
+      "slug": "qian-zishi",
+      "name": "钱执事",
+      "kind": "npc",
+      "role": "宗门执事",
+      "status": "ready",
+      "asset": "npc_qianzishi_sheet.png",
+      "accent": "旧棕",
+      "anchor": "竹册、钥匙串、把规矩抱在胸前",
+      "source_labels": [
+        "钱执事"
+      ],
+      "appearance_count": 20
+    },
+    {
+      "slug": "fang-xuan",
+      "name": "方玄",
+      "kind": "npc",
+      "role": "反复出现的修行者",
+      "status": "ready",
+      "asset": "npc_fangxuan_sheet.png",
+      "accent": "靛灰",
+      "anchor": "符匣、窄肩、没有装饰的弟子服",
+      "source_labels": [
+        "方玄"
+      ],
+      "appearance_count": 13
+    },
+    {
+      "slug": "huo-zhanglao",
+      "name": "霍长老",
+      "kind": "npc",
+      "role": "宗门长老",
+      "status": "ready",
+      "asset": "npc_huozhanglao_sheet.png",
+      "accent": "旧朱砂",
+      "anchor": "木杖、卷经、疲惫的制度重量",
+      "source_labels": [
+        "霍长老"
+      ],
+      "appearance_count": 12
+    },
+    {
+      "slug": "huo-an",
+      "name": "霍安",
+      "kind": "npc",
+      "role": "宗门人物",
+      "status": "ready",
+      "asset": "npc_huoan_sheet.png",
+      "accent": "灰青",
+      "anchor": "肩袋、蜡封信、随时准备离开",
+      "source_labels": [
+        "霍安"
+      ],
+      "appearance_count": 10
+    },
+    {
+      "slug": "zheng-sui",
+      "name": "郑穗",
+      "kind": "npc",
+      "role": "反复出现的城中人物",
+      "status": "ready",
+      "asset": "npc_zhengsui_sheet.png",
+      "accent": "淡杏",
+      "anchor": "粮草/药束、围裙、直接的眼神",
+      "source_labels": [
+        "郑穗"
+      ],
+      "appearance_count": 3
+    },
+    {
+      "slug": "jiu-shu",
+      "name": "九叔",
+      "kind": "npc",
+      "role": "反复出现的老人角色",
+      "status": "ready",
+      "asset": "npc_jiushu_sheet.png",
+      "accent": "旧墨",
+      "anchor": "竹篮、旧钥匙、知道巷子但不多话",
+      "source_labels": [
+        "九叔"
+      ],
+      "appearance_count": 3
+    },
+    {
+      "slug": "aji",
+      "name": "阿吉",
+      "kind": "npc",
+      "role": "短线具名人物",
+      "status": "ready",
+      "asset": "npc_aji_sheet.png",
+      "accent": "灰白",
+      "anchor": "布信袋、快脚、侧眼确认出口",
+      "source_labels": [
+        "阿吉"
+      ],
+      "appearance_count": 2
+    },
+    {
+      "slug": "zhou-yang",
+      "name": "周炀",
+      "kind": "npc",
+      "role": "短线具名人物",
+      "status": "ready",
+      "asset": "npc_zhouyang_sheet.png",
+      "accent": "暗青",
+      "anchor": "旧矛/杖、宽颧、把兵器当行李",
+      "source_labels": [
+        "周炀"
+      ],
+      "appearance_count": 2
+    },
+    {
+      "slug": "ergou",
+      "name": "二狗",
+      "kind": "npc",
+      "role": "短线具名人物",
+      "status": "ready",
+      "asset": "npc_ergou_sheet.png",
+      "accent": "土灰",
+      "anchor": "木杆、食物包、普通而不安的手",
+      "source_labels": [
+        "二狗"
+      ],
+      "appearance_count": 2
+    },
+    {
+      "slug": "zhao-mingxuan",
+      "name": "赵明轩",
+      "kind": "npc",
+      "role": "一次性具名人物",
+      "status": "ready",
+      "asset": "npc_zhaomingxuan_sheet.png",
+      "accent": "灰蓝",
+      "anchor": "卷轴筒、腰牌、短暂的宗门相遇",
+      "source_labels": [
+        "赵明轩"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "xuan-yi",
+      "name": "玄一真人",
+      "kind": "npc",
+      "role": "一次性具名真人",
+      "status": "ready",
+      "asset": "npc_xuanyizhenren_sheet.png",
+      "accent": "冷白",
+      "anchor": "木拂尘、折符、白须下的静",
+      "source_labels": [
+        "玄一真人"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "ji-tong",
+      "name": "季桐",
+      "kind": "npc",
+      "role": "一次性具名人物",
+      "status": "ready",
+      "asset": "npc_jitong_sheet.png",
+      "accent": "旧红",
+      "anchor": "药盘、布袋、做事利落的肩线",
+      "source_labels": [
+        "季桐"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "wang-yiniang",
+      "name": "王姨娘",
+      "kind": "npc",
+      "role": "林彻生母 / 林宅内务中的沉默证人",
+      "status": "ready",
+      "asset": "npc_wangyiniang_sheet.png",
+      "accent": "旧棕",
+      "anchor": "挽起的袖口、旧布巾、被压住的铜牌",
+      "source_labels": [
+        "王姨娘"
+      ],
+      "appearance_count": 3
+    },
+    {
+      "slug": "tang-pu-lao-ren",
+      "name": "糖铺老人",
+      "kind": "npc",
+      "role": "糖铺掌柜 / 记得纸上旧痕的人",
+      "status": "ready",
+      "asset": "npc_tangpulaoren_sheet.png",
+      "accent": "糖灰",
+      "anchor": "木勺、糖纸、柜台边不急着回答的手",
+      "source_labels": [
+        "糖铺老人"
+      ],
+      "appearance_count": 8
+    },
+    {
+      "slug": "ling-shuo-shifu",
+      "name": "凌朔师父",
+      "kind": "npc",
+      "role": "凌朔旧师 / 铜路牌的保管者",
+      "status": "ready",
+      "asset": "npc_lingshuoshifu_sheet.png",
+      "accent": "冷青",
+      "anchor": "铜路牌、卷起的旧图、灰发束带",
+      "source_labels": [
+        "凌朔师父"
+      ],
+      "appearance_count": 6
+    },
+    {
+      "slug": "zhou-ping",
+      "name": "周平",
+      "kind": "npc",
+      "role": "林彻亲信 / 记录与守门人",
+      "status": "ready",
+      "asset": "npc_zhou_ping_sheet.png",
+      "accent": "旧墨",
+      "anchor": "茶杯、折账、把话收在门槛内",
+      "source_labels": [
+        "周平",
+        "林彻亲信·周平"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "lao-zhou",
+      "name": "老周",
+      "kind": "npc",
+      "role": "林家看门老仆 / 偷留灯的人",
+      "status": "ready",
+      "asset": "npc_laozhou_sheet.png",
+      "accent": "灯灰",
+      "anchor": "补丁门房袍、小灯、藏在袖里的柴",
+      "source_labels": [
+        "老周",
+        "门房老周",
+        "库房老周"
+      ],
+      "appearance_count": 0,
+      "source_chapters": [
+        40,
+        577,
+        583,
+        585,
+        588,
+        612,
+        614,
+        615
+      ]
+    },
+    {
+      "slug": "jiangshi-shen-mother",
+      "name": "姜氏（沈母）",
+      "kind": "npc",
+      "role": "沈疏桐之母 / 窗前不问的人",
+      "status": "ready",
+      "asset": "npc_jiangshi_shen_sheet.png",
+      "accent": "梅灰",
+      "anchor": "梅枝、旧戒、停在半句前的手",
+      "source_labels": [
+        "沈疏桐之母·姜氏"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "jiangshi-yaolu",
+      "name": "姜氏（药庐）",
+      "kind": "npc",
+      "role": "药庐执事 / 先理外架再让人进里间",
+      "status": "ready",
+      "asset": "npc_jiangshi_yaolu_sheet.png",
+      "accent": "药灰",
+      "anchor": "药册、封口药罐、卷起的实用袖口",
+      "source_labels": [
+        "药庐·执事·姜氏"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "jihetang-zhanggui",
+      "name": "济和堂掌柜",
+      "kind": "npc",
+      "role": "街头药堂掌柜 / 把价钱和药性分开的人",
+      "status": "ready",
+      "asset": "npc_jihetang_zhanggui_sheet.png",
+      "accent": "药棕",
+      "anchor": "算盘、药柜、洗不掉的围裙药渍",
+      "source_labels": [
+        "济和堂掌柜"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "yaopu-zhanggui",
+      "name": "药铺掌柜",
+      "kind": "npc",
+      "role": "街边药铺掌柜 / 谨慎的称量人",
+      "status": "ready",
+      "asset": "npc_yaopu_zhanggui_sheet.png",
+      "accent": "干棕",
+      "anchor": "小秤、药包、背篓与干燥的手",
+      "source_labels": [
+        "药铺掌柜"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "guiyingu-shixin",
+      "name": "归隐谷信使",
+      "kind": "npc",
+      "role": "归隐谷职业信使 / 不替来处解释的人",
+      "status": "ready",
+      "asset": "npc_guiyingu_shixin_sheet.png",
+      "accent": "暗墨",
+      "anchor": "封口信、路线牌、磨破的斗篷下摆",
+      "source_labels": [
+        "归隐谷信使"
+      ],
+      "appearance_count": 3
+    },
+    {
+      "slug": "ye-suicong",
+      "name": "叶家随从",
+      "kind": "npc",
+      "role": "叶家无名随从 / 低声递帖的人",
+      "status": "ready",
+      "asset": "npc_ye_suicong_sheet.png",
+      "accent": "浅灰",
+      "anchor": "折叠传帖、钥匙串、低下去的眼睛",
+      "source_labels": [
+        "叶家随从"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "yaomai-yaopai",
+      "name": "借买腰牌的人",
+      "kind": "npc",
+      "role": "匿名买牌人 / 外八沉步的线索",
+      "status": "ready",
+      "asset": "npc_yaomai_yaopai_sheet.png",
+      "accent": "旧麻",
+      "anchor": "斗笠、腰牌袋、留下指印的热包子",
+      "source_labels": [
+        "借买腰牌的人"
+      ],
+      "appearance_count": 1
+    },
+    {
+      "slug": "ye-oldservant",
+      "name": "叶观澜旧仆",
+      "kind": "npc",
+      "role": "叶观澜身边的长期旧仆 / 收信与缝线的人",
+      "status": "ready",
+      "asset": "npc_ye_oldservant_sheet.png",
+      "accent": "缝线灰",
+      "anchor": "补缀衣袖、麻线、折好的信",
+      "source_labels": [
+        "旧仆",
+        "叶观澜旧仆"
+      ],
+      "appearance_count": 0,
+      "source_chapters": [
+        795,
+        796,
+        798
+      ]
+    }
+  ]
+}

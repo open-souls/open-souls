@@ -1,45 +1,43 @@
 <!doctype html><html lang="zh"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>镇狱之渊 · 众魂连载</title>
-<meta name="description" content="一部开源无限流网文，机器持续续写。复盘剧透、扮猪吃虎、长线复仇。">
+<meta name="description" content="一部开源长篇小说：用可追溯的连载记录，写一群在旧账与新路之间做选择的人。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#15131b;--ink2:#1d1a25;--whisper:#8a849c;--page:#efe6d2;--rule:#332f3e;--ember:#e0833b}
+:root{--ink:#151617;--ink2:#202326;--whisper:#9b9a91;--dim:#76766e;--page:#efe9da;--rule:#42433e;--cinnabar:#b6463b;--jade:#77938b;--paper:#e8e1d1}
 *{box-sizing:border-box}html,body{margin:0}
-body{background:var(--ink);color:var(--page);font-family:"Noto Sans SC",system-ui,sans-serif;line-height:1.6;
-background-image:radial-gradient(120% 80% at 50% -10%,#221c2c 0%,var(--ink) 55%);min-height:100vh}
+body{background:var(--ink);color:var(--page);font-family:"Noto Sans SC",system-ui,sans-serif;line-height:1.6;min-height:100vh}
 .wrap{max-width:760px;margin:0 auto;padding:7vh 22px 16vh}
 header{text-align:center;margin-bottom:4vh}
-.mark{font-family:"Noto Serif SC",serif;font-weight:700;font-size:clamp(44px,11vw,84px);letter-spacing:.18em;text-indent:.18em;margin:0;
-background:linear-gradient(180deg,#f5ecd9,var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mark{font-family:"Noto Serif SC",serif;font-weight:700;font-size:clamp(44px,11vw,84px);letter-spacing:.18em;text-indent:.18em;margin:0;color:var(--page)}
 .sub{color:var(--whisper);font-size:14px;margin-top:16px;letter-spacing:.04em}
 .tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-.tag{font-size:12px;color:var(--whisper);border:1px solid var(--rule);border-radius:999px;padding:4px 12px}
+.tag{font-size:12px;color:var(--whisper);border:1px solid var(--rule);padding:4px 12px;letter-spacing:.08em}
 .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.btn{font-size:14px;text-decoration:none;border-radius:999px;padding:11px 22px;border:1px solid var(--rule);color:var(--page);transition:.18s;background:var(--ink2);cursor:pointer}
-.btn:hover{border-color:var(--ember);transform:translateY(-1px)}
-.btn.go{background:linear-gradient(180deg,#f0b06a,var(--ember));color:#241302;border-color:transparent;font-weight:500}
+.btn{font-size:14px;text-decoration:none;padding:11px 22px;border:1px solid var(--rule);color:var(--page);transition:.18s;background:var(--ink2);cursor:pointer}
+.btn:hover{border-color:var(--cinnabar);transform:translateY(-1px)}
+.btn.go{background:var(--cinnabar);color:#fff4df;border-color:transparent;font-weight:500}
 /* filters */
-.filter{position:sticky;top:0;z-index:6;margin:5vh 0 1vh;padding:14px 0;background:linear-gradient(var(--ink) 70%,transparent)}
+.filter{position:sticky;top:0;z-index:6;margin:5vh 0 1vh;padding:14px 0;background:var(--ink)}
 .seg{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-.seg button{font:inherit;font-size:13px;cursor:pointer;color:var(--whisper);background:var(--ink2);border:1px solid var(--rule);border-radius:999px;padding:7px 16px;transition:.15s}
+.seg button{font:inherit;font-size:13px;cursor:pointer;color:var(--whisper);background:var(--ink2);border:1px solid var(--rule);padding:7px 16px;transition:.15s}
 .seg button:hover{color:var(--page)}
-.seg button.on{background:linear-gradient(180deg,#f0b06a,var(--ember));color:#241302;border-color:transparent;font-weight:500}
+.seg button.on{background:var(--cinnabar);color:#fff4df;border-color:transparent;font-weight:500}
 .row2{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:10px}
 .who{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-.who button{font:inherit;font-size:12px;cursor:pointer;color:var(--whisper);background:none;border:1px solid var(--rule);border-radius:999px;padding:4px 11px;transition:.15s}
+.who button{font:inherit;font-size:12px;cursor:pointer;color:var(--whisper);background:none;border:1px solid var(--rule);padding:4px 11px;transition:.15s}
 .who button:hover{color:var(--page);border-color:#564f63}
-.who button.on{color:var(--ember);border-color:var(--ember)}
-.who button em{font-style:normal;color:var(--ember);font-weight:600;margin-left:3px}
+.who button.on{color:var(--cinnabar);border-color:var(--cinnabar)}
+.who button em{font-style:normal;color:var(--cinnabar);font-weight:600;margin-left:3px}
 .who button small{font-size:10px;color:var(--dim);margin-left:4px}
-#q{font:inherit;font-size:13px;color:var(--page);background:var(--ink2);border:1px solid var(--rule);border-radius:999px;padding:7px 14px;width:150px;outline:none}
-#q:focus{border-color:var(--ember)}
+#q{font:inherit;font-size:13px;color:var(--page);background:var(--ink2);border:1px solid var(--rule);padding:7px 14px;width:150px;outline:none}
+#q:focus{border-color:var(--cinnabar)}
 .count{text-align:center;color:var(--whisper);font-size:12px;margin:2px 0 0;min-height:16px}
 .season{margin-top:3vh}
 .season h2{font-family:"Noto Serif SC",serif;font-weight:600;font-size:15px;color:var(--whisper);letter-spacing:.1em;
 border-bottom:1px solid var(--rule);padding-bottom:10px;margin:0 0 6px}
-a.ch{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--page);padding:13px 10px;border-radius:8px;transition:.14s;border-bottom:1px solid #ffffff08}
+a.ch{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:var(--page);padding:13px 10px;transition:.14s;border-bottom:1px solid #ffffff08}
 a.ch:hover{background:#ffffff09}
 a.ch .n{font-family:"Noto Serif SC",serif;color:#9c8f74;font-size:13px;min-width:42px;letter-spacing:.05em}
 a.ch .t{font-family:"Noto Serif SC",serif;font-weight:600;font-size:17px}
@@ -48,7 +46,7 @@ a.ch.read .t,a.ch.read .n{color:#6f6a7e}
 a.ch.int .n{color:#5e7a6a;font-style:italic}
 a.ch.int .t{font-weight:500}
 a.ch.hide,.season.hide{display:none}
-a.ch .dot{width:6px;height:6px;border-radius:50%;background:var(--ember);align-self:center;flex:none;opacity:0}
+a.ch .dot{width:6px;height:6px;border-radius:50%;background:var(--cinnabar);align-self:center;flex:none;opacity:0}
 a.ch.last .dot{opacity:1}
 /* placeholder 卡（缺口占位） */
 a.ch.pending{opacity:.42;pointer-events:none;cursor:default}
@@ -58,18 +56,36 @@ a.ch.pending .n{color:#5a556a}
 a.ch.pending .c{color:#3f3a4d}
 a.ch.pending:hover{background:transparent}
 .empty{color:var(--whisper);text-align:center;margin-top:8vh;font-size:15px;line-height:2.1}
-.empty code{background:var(--ink2);padding:2px 8px;border-radius:5px;color:var(--ember)}
+.empty code{background:var(--ink2);padding:2px 8px;color:var(--cinnabar)}
 footer{text-align:center;color:#4f4a5c;font-size:12px;margin-top:9vh;line-height:2}
 footer a{color:var(--whisper)}
 .cover-wrap{margin:-7vh -22px 5vh;overflow:hidden;position:relative;max-height:56vw}
-.cover-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,var(--ink) 100%)}
-.cover-wrap img{width:100%;display:block;object-fit:cover;object-position:center top;filter:brightness(.85)}
+.cover-wrap::after{content:none}
+.cover-wrap img{width:100%;display:block;object-fit:cover;object-position:center top}
+.artbook{margin:8vh 0 0;border-top:1px solid var(--rule);padding-top:5vh}
+.artbook-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px}
+.artbook h2{font-family:"Noto Serif SC",serif;font-size:26px;font-weight:600;margin:0;color:var(--page)}
+.artbook p{margin:5px 0 0;color:var(--whisper);font-size:13px}
+.artbook-link{color:var(--cinnabar);font-size:12px;text-decoration:none;white-space:nowrap}
+.character-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.character-card{display:block;color:var(--page);text-decoration:none;background:var(--paper);min-width:0;border:1px solid #c9c0ae;transition:border-color .18s}
+.character-card:hover{border-color:var(--cinnabar)}
+.character-card img{display:block;width:100%;height:260px;aspect-ratio:3/4;object-fit:contain;object-position:center top;background:var(--paper)}
+.character-card .ccopy{padding:10px 11px 13px;color:#272922}
+.character-card strong{display:block;font-family:"Noto Serif SC",serif;font-weight:600;font-size:15px}
+.character-card small{display:block;color:#65665d;font-size:11px;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.character-filter{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+.character-filter button{font:inherit;font-size:12px;cursor:pointer;color:var(--whisper);background:transparent;border:1px solid var(--rule);padding:9px 14px;min-height:40px}
+.character-filter button:hover{color:var(--page);border-color:var(--cinnabar)}
+.character-filter button.on{color:#fff4df;background:var(--cinnabar);border-color:var(--cinnabar)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:640px){.character-grid{grid-template-columns:repeat(2,1fr)}.character-card img{height:180px}.artbook-head{display:block}.artbook-link{display:inline-block;margin-top:12px}}
 </style></head><body><div class="wrap">
-<div class="cover-wrap"><img src="assets/images/image.jpg" alt="众魂 · 镇狱之渊 群像"/></div>
+<div class="cover-wrap"><img src="assets/images/hero-inkwash-v2.png" alt="众魂 · 镇狱之渊 · 水墨群像"/></div>
 <header>
  <h1 class="mark">镇狱之渊</h1>
- <div class="sub">玄幻 · 复仇群像 · 隐忍扮猪吃虎 · 长线打脸</div>
- <div class="tags"><span class="tag">开源无限流</span><span class="tag">机器续写</span><span class="tag" id="stat">…</span></div>
+<div class="sub">玄幻群像 · 旧账与新路 · 每一回都留下可追溯的痕迹</div>
+<div class="tags"><span class="tag">开放连载</span><span class="tag">角色实体谱</span><span class="tag">水墨半仿真</span><span class="tag" id="stat">…</span></div>
  <div class="acts">
    <a class="btn go" id="resume" href="read.html#1">开始阅读</a>
    <a class="btn" id="epub" href="book.epub" download="镇狱之渊.epub">下载 EPUB</a>
@@ -77,11 +93,16 @@ footer a{color:var(--whisper)}
 </header>
 <div class="filter">
   <div class="seg" id="seg"></div>
-  <div class="row2"><div class="who" id="who"></div><input id="q" placeholder="搜回目…"></div>
+  <div class="row2"><div class="who" id="who"></div><label class="sr-only" for="q">搜索回目</label><input id="q" aria-label="搜索回目" placeholder="搜回目…"></div>
   <div class="count" id="count"></div>
 </div>
 <main id="toc"></main>
-<footer>开源的魂，开放的世界 · <a href="https://github.com/open-souls/open-souls">GitHub</a><br>机器持续续写，每回都有迹可循。</footer>
+<section class="artbook" aria-labelledby="artbook-title">
+  <div class="artbook-head"><div><h2 id="artbook-title">角色谱 · 先认人，再读账</h2><p>每张设定图锁定三视角、体态和一件必须存在的物。<span id="role-count"></span></p></div><div><a class="artbook-link" href="assets/character-design-standard.md">查看美术标准 →</a><br><a class="artbook-link" href="assets/character-entity-registry.md">查看实体清单 →</a></div></div>
+  <div class="character-filter" id="character-filter" aria-label="角色类型筛选"><button class="on" data-kind="all" aria-pressed="true">全部</button><button data-kind="soul" aria-pressed="false">魂</button><button data-kind="npc" aria-pressed="false">NPC</button></div>
+  <div class="character-grid" id="character-grid"><div class="empty">角色设定载入中…</div></div>
+</section>
+<footer>开源的魂，开放的世界 · <a href="https://github.com/open-souls/open-souls">GitHub</a><br>每一回都留下可复核的痕迹。</footer>
 </div><script>
 const toc=document.getElementById('toc'),seg=document.getElementById('seg'),who=document.getElementById('who'),
       q=document.getElementById('q'),count=document.getElementById('count');
@@ -106,13 +127,13 @@ fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
  // 分卷按钮
  const seasons=[...new Set(rows.map(r=>r.season))].sort((a,b)=>a-b);
  const segs=[['all','全部']].concat(seasons.map(s=>[s,(SEASON_NAME[s]||'第'+s+'卷').replace(/《.*》/,'')+(SEASON_NAME[s]?'':'')]));
- seg.innerHTML=segs.map(([v,l])=>`<button data-s="${v}">${SEASON_NAME[v]||l}</button>`).join('');
+ seg.innerHTML=segs.map(([v,l])=>`<button data-s="${v}" aria-pressed="${v==='all'}">${SEASON_NAME[v]||l}</button>`).join('');
  seg.querySelector('[data-s="all"]').classList.add('on');
  seg.onclick=e=>{const b=e.target.closest('button');if(!b)return;st.season=b.dataset.s;
-   [...seg.children].forEach(x=>x.classList.toggle('on',x===b));apply();};
+   [...seg.children].forEach(x=>{const active=x===b;x.classList.toggle('on',active);x.setAttribute('aria-pressed',String(active));});apply();};
 
  // 主要角色（出场≥5回）— 用正文真实出现 (r.present) 而非 frontmatter cast 声明
- const freq={};rows.forEach(r=>eff(r).forEach(c=>freq[c]=(freq[c]||0)+1));
+ const freq={};rows.forEach(r=>eff(r).forEach(c=>{const k=String(c||'').replace(/[（(].*?[）)]$/,'');freq[k]=(freq[k]||0)+1;}));
  const pov={};rows.forEach(r=>{const p=r.pov;if(p)pov[p]=(pov[p]||0)+1});
  const mains=Object.entries(freq).filter(([,n])=>n>=5).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
  who.innerHTML=mains.map(n=>{
@@ -126,6 +147,19 @@ fetch('./chronicle.json?'+Date.now()).then(r=>r.ok?r.json():[]).then(rows=>{
  q.oninput=()=>{st.q=norm(q.value.trim());apply();};
  build();apply();
 }).catch(()=>{toc.innerHTML='<div class="empty">目录加载失败。</div>';});
+
+fetch('assets/characters/manifest.json?'+Date.now()).then(r=>r.ok?r.json():{entries:[]}).then(data=>{
+ const ready=(data.entries||[]).filter(x=>x.status==='ready');
+ const filter=document.getElementById('character-filter');let kind='all';
+ const grid=document.getElementById('character-grid');
+ document.getElementById('role-count').textContent=`（${ready.filter(x=>x.kind==='soul').length} 魂 · ${ready.filter(x=>x.kind==='npc').length} NPC）`;
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const appearances=x=>Number(x.appearance_count||0);
+ const render=()=>{const shown=kind==='all'?ready:ready.filter(x=>x.kind===kind);
+  grid.innerHTML=shown.length?shown.map(x=>`<a class="character-card" href="assets/characters/${esc(x.asset)}" target="_blank" rel="noreferrer"><img loading="lazy" src="assets/characters/${esc(x.asset)}" alt="${esc(x.name)} 三视角角色设定图"><span class="ccopy"><strong>${esc(x.name)}</strong><small>${x.kind==='soul'?'魂':'NPC'} · ${esc(x.role)} · 出场 ${appearances(x)} 回</small></span></a>`).join(''):'<div class="empty">角色谱正在落墨。</div>';};
+ filter.onclick=e=>{const b=e.target.closest('button');if(!b)return;kind=b.dataset.kind;[...filter.children].forEach(x=>{const active=x===b;x.classList.toggle('on',active);x.setAttribute('aria-pressed',String(active));});render();};
+ render();
+}).catch(()=>{document.getElementById('character-grid').innerHTML='<div class="empty">角色谱暂时无法载入，请稍后重试。</div>';});
 
 function build(){
  const last=+localStorage.getItem('os-last')||0;

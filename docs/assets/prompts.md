@@ -1,6 +1,8 @@
 # 《众魂 · 镇狱之渊》 美术视觉资源与提示词库
 # (Open Souls: The Abyss of Suppressing Prison - Art Style & Prompts Library)
 
+> **状态说明（2026-08-13）**：本文件中的旧提示词保留作历史参考，不再是生产规范。新的角色身份锚点、三视角交付格式、反 AI 禁止项和网站接入规则，以 [`character-design-standard.md`](character-design-standard.md) 与 [`characters/manifest.json`](characters/manifest.json) 为准。
+
 本文件用于存放和管理第一季《镇狱之渊》的图像生成提示词（Prompts）、美术风格指南以及生成的视觉资产。
 
 ---

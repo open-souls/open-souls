@@ -5,9 +5,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--fs:19px}
-[data-theme=dark]{--bg:#15131b;--fg:#d9d3c4;--dim:#7d7790;--rule:#2c2937;--card:#1d1a25;--ember:#e0833b}
-[data-theme=sepia]{--bg:#efe6d2;--fg:#3a322a;--dim:#9a8c72;--rule:#ddceb0;--card:#f7efdd;--ember:#b96a1f}
-[data-theme=light]{--bg:#faf8f4;--fg:#26242c;--dim:#9b95a6;--rule:#e6e2d8;--card:#fff;--ember:#cc6a24}
+[data-theme=dark]{--bg:#151617;--fg:#d9d3c4;--dim:#8d8d83;--rule:#353734;--card:#202326;--cinnabar:#b6463b}
+[data-theme=sepia]{--bg:#efe6d2;--fg:#3a322a;--dim:#9a8c72;--rule:#ddceb0;--card:#f7efdd;--cinnabar:#a64235}
+[data-theme=light]{--bg:#faf8f4;--fg:#26242c;--dim:#9b95a6;--rule:#e6e2d8;--card:#fff;--cinnabar:#a94336}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--bg);color:var(--fg);font-family:"Noto Sans SC",system-ui,sans-serif;transition:background .2s,color .2s}
 .bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;padding:12px 18px;
@@ -22,14 +22,14 @@ background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px
 .read{max-width:680px;margin:0 auto;padding:6vh 26px 14vh}
 h1{font-family:"Noto Serif SC",serif;font-weight:700;font-size:calc(var(--fs) + 9px);text-align:center;margin:0 0 .3em;letter-spacing:.04em}
 .meta{text-align:center;color:var(--dim);font-size:13px;margin-bottom:1em}
-.hook{color:var(--dim);font-size:13.5px;font-style:italic;border-left:2px solid var(--ember);padding:2px 0 2px 14px;margin:0 auto 3em;max-width:90%;line-height:1.8}
+.hook{color:var(--dim);font-size:13.5px;font-style:italic;border-left:2px solid var(--cinnabar);padding:2px 0 2px 14px;margin:0 auto 3em;max-width:90%;line-height:1.8}
 .body{font-family:"Noto Serif SC",serif;font-size:var(--fs);line-height:2.05;text-align:justify}
 .body p{margin:0 0 .1em;text-indent:2em}
 .body hr.brk{border:0;text-align:center;margin:1.8em 0}
-.body hr.brk:after{content:"❦";color:var(--ember);opacity:.7;font-size:.9em}
+.body hr.brk:after{content:"❦";color:var(--cinnabar);opacity:.7;font-size:.9em}
 .nav{display:flex;gap:12px;margin-top:7vh}
 .nav a{flex:1;text-align:center;text-decoration:none;color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:16px 12px;font-size:14px;transition:.15s}
-.nav a:hover{border-color:var(--ember)}
+.nav a:hover{border-color:var(--cinnabar)}
 .nav a.dis{opacity:.35;pointer-events:none}
 .nav a small{display:block;color:var(--dim);font-size:11px;margin-bottom:4px}
 .nav a b{font-family:"Noto Serif SC",serif;font-weight:600}
@@ -66,7 +66,7 @@ function curN(){return Math.max(1,parseInt(location.hash.slice(1))||1);}
 function markSeen(n){const s=new Set(JSON.parse(localStorage.getItem('os-seen')||'[]'));s.add(n);localStorage.setItem('os-seen',JSON.stringify([...s]));localStorage.setItem('os-last',n);}
 function render(){
  const n=curN(),c=idx[n];
- if(!c){read.innerHTML='<div class="load">没有第'+n+'回。<br><a href="index.html" style="color:var(--ember)">回目录</a></div>';return;}
+ if(!c){read.innerHTML='<div class="load">没有第'+n+'回。<br><a href="index.html" style="color:var(--cinnabar)">回目录</a></div>';return;}
  const isInt=!!c.interlude;
  const label=isInt?`插章 ${c.interlude} · ${c.title}`:`第${n}回 · ${c.title}`;
  document.title=label+' · 镇狱之渊';
