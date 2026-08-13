@@ -16,7 +16,11 @@ echo "==> 3/3 完成"
 if [[ "${1:-}" == "--commit" ]]; then
   echo "验证通过，创建本地提交..."
   git add docs/
-  git commit -m "${2:-chore: 重建站点}" || echo "(无改动可提交)"
+  if git diff --cached --quiet; then
+    echo "(无改动可提交)"
+  else
+    git commit -m "${2:-chore: 重建站点}"
+  fi
   echo "已完成本地提交；仓库不再使用 GitHub Actions。"
 else
   echo "验证通过。本地预览:"
