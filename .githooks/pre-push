@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+export PYTHONIOENCODING="utf-8"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+        continue
+    fi
+    if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+        base="$(git rev-list --max-parents=0 "$local_sha" | tail -n 1)"
+    else
+        base="$remote_sha"
+    fi
+    python tools/validate_changed.py --base "$base" --head "$local_sha"
+done

@@ -80,6 +80,28 @@ export ANTHROPIC_API_KEY=sk-...
 python engine/village.py --ticks 1 --pressure 0.3        # 真·续写
 ```
 
+### 章节改稿的快速验收
+
+单章改稿可用增量门，只检查本次变动的章节：
+
+```bash
+python tools/validate_changed.py --base origin/main --head HEAD
+```
+
+它会对改动章节依次运行 prose、硬线和 strict editorial 三道门；如果改到了共享门禁代码，会要求显式执行全量审计：
+
+```bash
+OPEN_SOULS_FULL_PUSH=1 python tools/validate_changed.py --base origin/main --head HEAD
+```
+
+`engine/batch_rewrite.py --status` 使用 `.audit_tmp/batch_lint_cache.json` 做内容与规则指纹缓存。缓存只加速未变章节的重复扫描，不改变门槛；删除该文件即可强制全量刷新。完整全书 lint 仍然保留为发布前审计，不应被单章快速门替代。
+
+首次使用本地快速 push 门时执行一次：
+
+```bash
+git config core.hooksPath .githooks
+```
+
 `--pressure` 是 0 号宇宙旋钮：0 安稳，1 = 稀缺 + 对撞，社会会崩。
 
 ## 边界与尺度
