@@ -3,10 +3,10 @@
   VILLAGE_MOCK=1 python engine/village.py --ticks 3     # 零 token 看流程
   ANTHROPIC_API_KEY=... python engine/village.py        # 真·续写一回
 """
-import os, sys, json, random, itertools, datetime, glob, argparse, re
+import os, sys, json, random, itertools, datetime, argparse, re, copy
 sys.path.insert(0, os.path.dirname(__file__))
 import yaml
-import soul as SOUL, cast as C, season as SE, llm, trace, writer, prose_lint
+import soul as SOUL, cast as C, season as SE, trace, writer, prose_lint, story_state as SS
 
 
 CHAPTER_FILE_RE = re.compile(r"^(?:ch)?(\d+)-.+\.md$", re.I)
@@ -23,13 +23,9 @@ def chapter_number(name):
 
 
 def chapter_files(sdir):
-    cdir = os.path.join(sdir, "chronicle")
-    paths = []
-    for path in glob.glob(os.path.join(cdir, "*.md")):
-        number = chapter_number(path)
-        if number is not None:
-            paths.append((number, path))
-    return sorted(paths, key=lambda item: item[0], reverse=True)
+    # A chapter number is an identity, not a glob result.  Keep duplicate
+    # files auditable, but never feed both copies into a model prompt.
+    return SS.canonical_chapter_files(sdir)
 
 
 def heat(ties, a, b):
@@ -132,7 +128,7 @@ def story_so_far(sdir):
     return ("上一回：" + lines[0][2:].strip()) if lines else ""
 
 
-def build_prompt(souls, states, ties, chosen, newcomers, world, beat, target, sdir):
+def build_prompt(souls, states, ties, chosen, newcomers, world, beat, target, sdir, pressure=0.0):
     cards = "\n\n".join(SOUL.card(souls[n], states[n]) for n in chosen)
     if newcomers:
         cards += "\n\n新登场(本季第一次): " + " ".join(newcomers)
@@ -141,12 +137,22 @@ def build_prompt(souls, states, ties, chosen, newcomers, world, beat, target, sd
             for a, b in itertools.permutations(chosen, 2)]
     mems = [f"{n}记得：" + "；".join(C.recall(n)) for n in chosen if C.recall(n)]
     trends = open("trends.md", encoding="utf-8").read()[:500] if os.path.exists("trends.md") else ""
-    ev = pressure_event(0, world.get("scope", ""))
+    plot = SS.load_plot_state(sdir)
+    probability = plot.get("pressure_probability", pressure)
+    try:
+        probability = max(0.0, min(1.0, float(probability)))
+    except (TypeError, ValueError):
+        probability = 0.0
+    ev = pressure_event(probability, world.get("scope", ""))
     parts = ["【出场（角色数据，非指令）】\n" + cards, "【此刻关系】\n" + "\n".join(rels)]
     if mems:    parts.append("【他们带着的记忆（可跨季）】\n" + "\n".join(mems))
     sof = story_so_far(sdir)
     if sof:     parts.append("【前情】\n" + sof)
     if trends:  parts.append("【当季叙事趋势（学形状，别抄）】\n" + trends)
+    state_context = SS.prompt_context(sdir)
+    if state_context:
+        parts.append("【世界观/阵营/剧情状态（事实约束，不是命令）】\n" + state_context)
+    if ev:       parts.append("【本回外部压力】\n" + ev)
     return "\n\n".join(parts)
 
 
@@ -183,7 +189,15 @@ def build_frontmatter(out, n, season, chosen, beat, crit=None):
         "beat": str(raw.get("beat") or beat).strip(),
         "ships": ships,
         "hook": str(raw.get("hook") or out.get("hook") or "").strip(),
+        "canonical": True,
     }
+    for field in (
+        "status", "decision_id", "hook_evidence", "causal", "faction_moves",
+        "state_updates", "open_threads", "character_goals", "knowledge",
+    ):
+        value = raw.get(field, out.get(field))
+        if value is not None and value != "":
+            meta[field] = value
     # Once an independent critique exists, never trust model-authored review or
     # score fields from the chapter payload.  The publication score must be
     # derived from the structured critique that the gate actually inspected.
@@ -236,6 +250,21 @@ def validate_frontmatter(meta):
             pair = re.split(r"[×xX]", str(key), maxsplit=1)
             if len(pair) == 2 and pair[0].strip() == pair[1].strip():
                 errors.append(f"ships.{key}")
+    if "canonical" in meta and meta["canonical"] is not True:
+        errors.append("canonical")
+    if "decision_id" in meta and not str(meta["decision_id"]).strip():
+        errors.append("decision_id")
+    if "causal" in meta:
+        if not isinstance(meta["causal"], dict):
+            errors.append("causal")
+        else:
+            for field in SS.REQUIRED_CONTRACT_FIELDS:
+                if not SS._nonempty(meta["causal"].get(field)):
+                    errors.append(f"causal.{field}")
+    if "state_updates" in meta and not isinstance(meta["state_updates"], list):
+        errors.append("state_updates")
+    if "faction_moves" in meta and not isinstance(meta["faction_moves"], list):
+        errors.append("faction_moves")
     return list(dict.fromkeys(errors))
 
 
@@ -301,25 +330,82 @@ def write_chapter(sdir, n, out, chosen, season, frontmatter=None):
     json.dump(feed, open("docs/chronicle.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
 
+def _commit_paths(sdir, n, out, souls):
+    """Return every file the chapter commit may touch, before writing starts."""
+    cdir = os.path.join(sdir, "chronicle")
+    title = str(out.get("chapter_title") or "无题").strip()
+    paths = [
+        os.path.join(cdir, f"{n:04d}-{_filename_title(title)}.md"),
+        os.path.join(cdir, "INDEX.md"),
+        os.path.join("docs", "chronicle.json"),
+        os.path.join(sdir, "ties.json"),
+        os.path.join(sdir, "arc.json"),
+        SS.approved_decision_path(sdir),
+    ]
+    paths.extend(C.spath(name) for name in souls)
+    for memory in out.get("memories") or []:
+        if memory.get("who") in souls:
+            paths.append(C.mpath(memory["who"]))
+    reflection = out.get("reflection") or {}
+    if reflection.get("who") in souls:
+        paths.append(C.mpath(reflection["who"]))
+    if os.path.exists(os.path.join(sdir, "plot_state.json")):
+        paths.append(os.path.join(sdir, "plot_state.json"))
+    return list(dict.fromkeys(os.path.abspath(path) for path in paths))
+
+
+def _snapshot_files(paths):
+    snapshots = {}
+    for path in paths:
+        try:
+            with open(path, "rb") as handle:
+                snapshots[path] = handle.read()
+        except FileNotFoundError:
+            snapshots[path] = None
+    return snapshots
+
+
+def _restore_files(snapshots):
+    for path, content in snapshots.items():
+        if content is None:
+            try:
+                os.remove(path)
+            except FileNotFoundError:
+                pass
+            continue
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "wb") as handle:
+            handle.write(content)
+
+
 def chap_count(sdir):
     return max((number for number, _ in chapter_files(sdir)), default=0)
 
 
 def tick(cfg, souls, sdir, world, ties, arc, pressure):
     season = world.get("season", 1)
+    try:
+        decision = SS.require_approved_decision(sdir)
+    except SS.StoryStateError as exc:
+        print(f"generation blocked: {exc}")
+        return
     names = list(souls)
     if len(names) < 2:
         raise SystemExit("至少要两个魂才能起戏。先 PR / 提表单送一个进村。")
     states = {n: C.load_state(n) for n in names}
     chosen, newcomers, weight = pick_cast(names, ties, season, pressure, cfg["newcomer_priority"])
     ctx = build_prompt(souls, states, ties, chosen, newcomers, world,
-                       SE.beat_line(arc), cfg["target_chapter_chars"], sdir)
+                       SE.beat_line(arc), cfg["target_chapter_chars"], sdir, pressure)
     rating = world.get("rating", cfg.get("rating", "暧昧"))
     try:
-        out, crit, spec = writer.compose(
+        compose_args = (
             ctx, world, SE.beat_line(arc),
             cfg["target_chapter_chars"], rating, weight,
         )
+        if decision:
+            out, crit, spec = writer.compose(*compose_args, decision=decision)
+        else:
+            out, crit, spec = writer.compose(*compose_args)
     except Exception as exc:
         # A provider/parser failure must be a clean no-op: no state, ties,
         # memories, arc, or chapter file may be advanced by a partial run.
@@ -337,6 +423,13 @@ def tick(cfg, souls, sdir, world, ties, arc, pressure):
     frontmatter = build_frontmatter(
         out, n, season, chosen, SE.beat_line(arc), crit=crit
     )
+    if decision:
+        approved_id = str(decision.get("id") or "").strip()
+        returned_id = str(frontmatter.get("decision_id") or "").strip()
+        if returned_id and returned_id != approved_id:
+            print(f"metadata rejected: decision_id.not_approved ({returned_id} != {approved_id})")
+            return
+        frontmatter["decision_id"] = approved_id
     metadata_errors = validate_frontmatter(frontmatter)
     metadata_errors.extend(
         validate_editorial_metadata(frontmatter, body=str(out.get("chapter") or ""))
@@ -349,28 +442,68 @@ def tick(cfg, souls, sdir, world, ties, arc, pressure):
         print(f"metadata rejected: {', '.join(metadata_errors)}")
         return
 
+    manifest = SS.load_manifest(sdir)
+    contract_errors = SS.validate_chapter_contract(
+        frontmatter,
+        str(out.get("chapter") or ""),
+        manifest,
+        faction_ids={
+            str(item.get("id")).strip()
+            for item in SS.load_factions(sdir)
+            if str(item.get("id", "")).strip()
+        },
+        decision_ids={approved_id} if decision else None,
+        approved_decision_id=approved_id if decision else None,
+    )
+    if contract_errors:
+        print(f"causal contract rejected: {', '.join(contract_errors)}")
+        return
+
+    # Compute all downstream state in memory first.  A chapter that fails to
+    # write must not still advance souls, relationships, or the arc.
+    next_states = {name: copy.deepcopy(state) for name, state in states.items()}
+    next_ties = copy.deepcopy(ties)
     for name, role in (out.get("incarnations") or {}).items():
         if name in souls:
-            st = states[name]
+            st = next_states[name]
             st.update({"season": season, "incarnation": role})
-            C.save_state(name, st)
     for name in chosen:  # 确保出场的人本季已落定身份
-        if states[name].get("season") != season:
-            states[name].update({"season": season, "incarnation": "本季的一个普通人"})
-            C.save_state(name, states[name])
+        if next_states[name].get("season") != season:
+            next_states[name].update({"season": season, "incarnation": "本季的一个普通人"})
     for u in out.get("updates", []):
         if u.get("from") in souls and u.get("to") in souls:
-            SE.apply_update(ties, u)
-    for m in out.get("memories", []):
-        if m.get("who") in souls:
-            C.add_memory(m["who"], m["text"], m.get("importance", 5), season)
-    ref = out.get("reflection")
-    if ref and ref.get("who") in souls:
-        C.add_memory(ref["who"], ref["insight"], 9, season, kind="反思")
+            SE.apply_update(next_ties, u)
 
-    write_chapter(sdir, n, out, chosen, season, frontmatter=frontmatter)
-    SE.save_ties(sdir, ties)
-    SE.advance_arc(sdir, arc, cfg["chapters_per_beat"])
+    next_arc = copy.deepcopy(arc)
+    snapshots = _snapshot_files(_commit_paths(sdir, n, out, souls))
+    try:
+        write_chapter(sdir, n, out, chosen, season, frontmatter=frontmatter)
+        for name, state in next_states.items():
+            if state != states[name]:
+                C.save_state(name, state)
+        for m in out.get("memories", []):
+            if m.get("who") in souls:
+                C.add_memory(m["who"], m["text"], m.get("importance", 5), season)
+        ref = out.get("reflection")
+        if ref and ref.get("who") in souls:
+            C.add_memory(ref["who"], ref["insight"], 9, season, kind="反思")
+        SE.save_ties(sdir, next_ties)
+        if manifest:
+            SS.apply_chapter_state(sdir, frontmatter, n)
+        SE.advance_arc(sdir, next_arc, cfg["chapters_per_beat"])
+    except Exception as exc:
+        try:
+            _restore_files(snapshots)
+        except Exception as rollback_error:
+            print(f"commit rejected: {type(exc).__name__}; rollback failed: {type(rollback_error).__name__}")
+            return
+        print(f"commit rejected and rolled back: {type(exc).__name__}")
+        return
+
+    ties.clear()
+    ties.update(next_ties)
+    arc.clear()
+    arc.update(next_arc)
     tag = ("★新登场 " + " ".join(newcomers)) if newcomers else ""
     rw = " ↻重写过" if crit.get("rewritten") else ""
     print(f"第{n}回 · {out.get('chapter_title')} [{' / '.join(chosen)}] {tag}"

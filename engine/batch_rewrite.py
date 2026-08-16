@@ -30,6 +30,8 @@ sys.path.insert(0, str(ROOT / "engine"))
 import village as V
 import prose_lint as PL
 import safety_lint as SL
+import season as SE
+import story_state as SS
 
 REFERENCE_CHAPTER = "ch512-不接.md"  # 治本范文章
 
@@ -511,6 +513,14 @@ def main():
     p.add_argument("--no-skip-done", action="store_true")
     args = p.parse_args()
 
+    active_season = SE.current_dir()
+    if active_season and SS.strict_mode(SS.load_manifest(active_season)):
+        print(
+            "BLOCKED: engine/batch_rewrite.py is a legacy prose-rewrite dispatcher "
+            "and cannot write prompts for a strict season. Use engine/village.py."
+        )
+        return 2
+
     if args.status:
         stub_set, stub_by_chapter, error_targets = load_state()
         stub_files = {
@@ -574,4 +584,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main() or 0)

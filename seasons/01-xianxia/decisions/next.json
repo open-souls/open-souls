@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "purpose": "在进入下一季或重启入口前，先让人选择读者承诺。",
+  "options": [
+    {
+      "id": "A",
+      "label": "男频主线，群像服务于复仇升级",
+      "primary_reader": "男频玄幻",
+      "opening": "从一笔被公开结算的命债开始，主角马上做出不可逆的反击。",
+      "winner": "主角的反击线",
+      "loser": "关系线的优先级",
+      "cost": "女性角色和关系暂时承受工具化风险",
+      "next_pressure": "关系线必须用一次不可逆选择夺回叙事权",
+      "reward_mix": {"power": 0.5, "faction": 0.3, "relationship": 0.2},
+      "risk": "关系线和女性角色容易退化成主线工具。"
+    },
+    {
+      "id": "B",
+      "label": "女频主线，制度冲突通过关系选择进入",
+      "primary_reader": "女频成长/情感",
+      "opening": "从一次保护失败和关系断裂开始，命册制度作为造成选择的压力出现。",
+      "winner": "关系与成长线",
+      "loser": "即时升级爽点",
+      "cost": "放弃废子打脸的快速回报",
+      "next_pressure": "制度压力必须在关系选择中继续追债",
+      "reward_mix": {"relationship": 0.45, "faction": 0.35, "power": 0.2},
+      "risk": "升级爽点需要被重新定义，不能继续沿用废子打脸节奏。"
+    },
+    {
+      "id": "C",
+      "label": "双核群像，所有阵营都支付真实代价",
+      "primary_reader": "中频群像/类型融合",
+      "opening": "同一条命册判决同时落在两个人身上，双方必须作出相反且都合理的选择。",
+      "winner": "立场冲突的可见度",
+      "loser": "单一主角的绝对控制感",
+      "cost": "每章都要承担群像分配和因果核对成本",
+      "next_pressure": "两个核心人物必须分别支付不同代价",
+      "reward_mix": {"faction": 0.4, "relationship": 0.35, "power": 0.25},
+      "risk": "最难写；每章必须清楚谁要什么、谁付什么代价。"
+    }
+  ],
+  "human_approval_required": true
+}

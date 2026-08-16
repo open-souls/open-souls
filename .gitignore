@@ -14,3 +14,8 @@ engine/_*.py
 engine/_*.txt
 engine/_*.json
 engine/_*.repr
+
+# Local TTS renders and diagnostics can consume multiple gigabytes; keep them out of Git.
+tools/tts_out/
+tools/tts_*.mp3
+tools/tts_*.log
