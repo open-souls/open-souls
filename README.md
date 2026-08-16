@@ -2,7 +2,7 @@
 
 # Open Souls · 众魂
 
-<img src="docs/assets/images/image.jpg" alt="众魂 · 镇狱之渊 — 第一季群像" width="820" />
+<img src="docs/assets/images/hero-inkwash-v2.png" alt="众魂 · 镇狱之渊 — 水墨半仿真群像" width="820" />
 
 **一部开源的无限流网文。** 任何人送一个「魂」进来，它就在别人的世界里活一遍——
 暧昧、背叛、变故、天灾，什么都能发生。写手系统按篇幅持续续写，每个角色都有迹可循。
@@ -71,6 +71,28 @@ souls/角色名/
 
 读连载：[`seasons/01-xianxia/chronicle/`](seasons/01-xianxia/chronicle/)，或开 GitHub Pages 指到 `/docs`。
 
+## 给另一个 AI：先选读者，再写章节
+
+本仓库不是“模型自己挑一个最爽方案然后连写”的黑箱。完整协议在
+[`.claude/skills/novel-writer/SKILL.md`](.claude/skills/novel-writer/SKILL.md)：AI 提出 A/B/C，
+人类批准读者承诺和不可逆选择，程序保存阵营/人物/知识/剧情状态，最后才允许写入 canonical chapter。
+
+第一季故意标为 `legacy_mode`：它是素材和审计对象，不是新流程的质量基线。先看：
+
+```bash
+python engine/story_state.py status --season seasons/01-xianxia
+python engine/validate_story.py --season seasons/01-xianxia
+```
+
+新季必须准备 `season_manifest.yaml`、`factions.yaml`、`plot_state.json` 和
+`decisions/next.json`，并设置 `human_decision_required: true`、`legacy_mode: false`。
+没有 `decisions/approved.json` 时，`engine/village.py` 会在调用模型前停止。
+批准记录绑定当前 `last_accepted_chapter`，只消费一个下一章；章节落盘后必须重新批准下一步，不能把一次选择当成整季自动驾驶。
+
+严格章节还必须提供 `causal.pressure/choice/cost/state_change/next_pressure`、
+带正文证据的 `state_updates`/`faction_moves`、`hook_evidence` 和唯一的 canonical 编号；模型的 `PASS` 或
+`continuity_ok: true` 不是连续性证据。
+
 ## 先跑一遍
 
 ```bash
@@ -78,6 +100,28 @@ pip install -r requirements.txt
 VILLAGE_MOCK=1 python engine/village.py --ticks 3        # 零 token，看流程
 export ANTHROPIC_API_KEY=sk-...
 python engine/village.py --ticks 1 --pressure 0.3        # 真·续写
+```
+
+### 章节改稿的快速验收
+
+单章改稿可用增量门，只检查本次变动的章节：
+
+```bash
+python tools/validate_changed.py --base origin/main --head HEAD
+```
+
+它会对改动章节依次运行 prose、硬线和 strict editorial 三道门；如果改到了共享门禁代码，会要求显式执行全量审计：
+
+```bash
+OPEN_SOULS_FULL_PUSH=1 python tools/validate_changed.py --base origin/main --head HEAD
+```
+
+`engine/batch_rewrite.py --status` 使用 `.audit_tmp/batch_lint_cache.json` 做内容与规则指纹缓存。缓存只加速未变章节的重复扫描，不改变门槛；删除该文件即可强制全量刷新。完整全书 lint 仍然保留为发布前审计，不应被单章快速门替代。
+
+首次使用本地快速 push 门时执行一次：
+
+```bash
+git config core.hooksPath .githooks
 ```
 
 `--pressure` 是 0 号宇宙旋钮：0 安稳，1 = 稀缺 + 对撞，社会会崩。

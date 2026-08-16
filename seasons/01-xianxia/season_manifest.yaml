@@ -1,0 +1,29 @@
+version: 1
+season: 1
+title: "玄幻·镇狱之渊"
+status: legacy-audit
+legacy_mode: true
+human_decision_required: false
+
+# This is an honest description of the first season, not a recommendation for
+# season two.  The conflict is recorded so a new season cannot inherit it by
+# accident.
+contract:
+  primary_reader: "男频玄幻读者：复仇、升级、势力博弈"
+  secondary_reader: "喜欢群像和关系线的读者"
+  platform_assumption: "连载网文"
+  opening_promise: "被命册和家族判死的废子，带着能看见前世结局的眼睛回来讨债。"
+  core_question: "一个能读原始命册的人，能否在不成为下一任命册的情况下改命？"
+  reward_mix:
+    power: "复仇升级与制度性反转"
+    relationship: "关系在选择和代价中改变"
+    faction: "命册官僚体与地方势力的博弈"
+  known_mismatch: "男频爽文开局与群像/情感线并置，第一季没有在入口处明确主受众。"
+  decision_before_next_season: "必须先由人选择主读者、入口承诺和三条奖励比例，再开始规划。"
+
+rules:
+  min_body_chars: 1500
+  require_causal_transition: true
+  require_hook_evidence: true
+  require_human_decision: false
+  canonical_filename: "NNNN-title.md"

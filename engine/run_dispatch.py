@@ -29,6 +29,8 @@ if str(ROOT) not in sys.path:
 
 from engine import batch_rewrite as BR  # noqa: E402
 from engine import prose_lint as PL  # noqa: E402
+from engine import season as SE  # noqa: E402
+from engine import story_state as SS  # noqa: E402
 
 
 DISPATCH_DIR = ROOT / "prompts" / "dispatch"
@@ -418,6 +420,15 @@ def main(argv=None):
     parser.add_argument("--force", action="store_true", help="Dispatch chapters that already pass local gates")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
+
+    active_season = SE.current_dir()
+    if active_season and SS.strict_mode(SS.load_manifest(active_season)):
+        print(
+            "BLOCKED: engine/run_dispatch.py is the legacy prose-rewrite path and "
+            "does not atomically consume a human decision or advance plot state. "
+            "Use engine/village.py for a strict season."
+        )
+        return 2
 
     chapters = BR.parse_chapter_spec(args.chapters) if args.chapters else None
     paths = _prompt_paths(chapters)

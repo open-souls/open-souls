@@ -180,6 +180,51 @@ def test_lint_error_parser_keeps_exact_duplicate_path(tmp_path, monkeypatch):
     assert records == [(857, str(target))]
 
 
+def test_cached_lint_error_targets_reuses_unchanged_file(tmp_path, monkeypatch):
+    chronicle = tmp_path / "chronicle"
+    chronicle.mkdir()
+    target = chronicle / "ch857-坏.md"
+    target.write_text("---\nchapter: 857\n---\n\n他的方向落在门口。\n", encoding="utf-8")
+    monkeypatch.setattr(batch_rewrite, "ROOT", tmp_path)
+    monkeypatch.setattr(batch_rewrite, "CHRONICLE", chronicle)
+    monkeypatch.setattr(batch_rewrite, "STUB_MANIFEST", chronicle / "_STUB_MANIFEST.json")
+    calls = []
+
+    def fake_lint(path):
+        calls.append(path)
+        return (["broken"], [], {"chars": 10})
+
+    monkeypatch.setattr(batch_rewrite.PL, "lint_file", fake_lint)
+    first = batch_rewrite._cached_lint_error_targets()
+    second = batch_rewrite._cached_lint_error_targets()
+
+    assert first == [(857, str(target))]
+    assert second == first
+    assert calls == [str(target)]
+
+
+def test_cached_lint_error_targets_invalidates_on_content_change(tmp_path, monkeypatch):
+    chronicle = tmp_path / "chronicle"
+    chronicle.mkdir()
+    target = chronicle / "ch857-坏.md"
+    target.write_text("---\nchapter: 857\n---\n\n旧内容。\n", encoding="utf-8")
+    monkeypatch.setattr(batch_rewrite, "ROOT", tmp_path)
+    monkeypatch.setattr(batch_rewrite, "CHRONICLE", chronicle)
+    monkeypatch.setattr(batch_rewrite, "STUB_MANIFEST", chronicle / "_STUB_MANIFEST.json")
+    calls = []
+
+    def fake_lint(path):
+        calls.append(path)
+        return (["broken"], [], {"chars": 10})
+
+    monkeypatch.setattr(batch_rewrite.PL, "lint_file", fake_lint)
+    batch_rewrite._cached_lint_error_targets()
+    target.write_text(target.read_text(encoding="utf-8") + "新内容。\n", encoding="utf-8")
+    batch_rewrite._cached_lint_error_targets()
+
+    assert calls == [str(target), str(target)]
+
+
 def test_picker_surfaces_failing_duplicate_even_when_canonical_passes(tmp_path, monkeypatch):
     chronicle = tmp_path / "chronicle"
     chronicle.mkdir()

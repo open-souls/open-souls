@@ -2,7 +2,7 @@
 # 本地优先的发布流程。先在本地把站点跑通、验过，再决定 push。
 # 用法:
 #   bash tools/publish.sh          # 构建 + 验证 + 本地预览 (不 push)
-#   bash tools/publish.sh --deploy # 构建 + 验证, 通过后 push 并触发 GitHub Actions
+#   bash tools/publish.sh --commit "提交说明" # 构建 + 验证, 通过后只在本地提交
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -13,15 +13,17 @@ echo "==> 2/3 本地门禁 (verify_site.mjs)"
 node tools/verify_site.mjs   # 不通过会非0退出，下面就不会执行
 
 echo "==> 3/3 完成"
-if [[ "${1:-}" == "--deploy" ]]; then
-  echo "验证通过，开始发布..."
+if [[ "${1:-}" == "--commit" ]]; then
+  echo "验证通过，创建本地提交..."
   git add docs/
-  git commit -m "${2:-chore: 重建站点}" || echo "(无改动可提交)"
-  git push origin main
-  gh workflow run 出版
-  echo "已 push 并触发『出版』workflow。"
+  if git diff --cached --quiet; then
+    echo "(无改动可提交)"
+  else
+    git commit -m "${2:-chore: 重建站点}"
+  fi
+  echo "已完成本地提交；仓库不再使用 GitHub Actions。"
 else
   echo "验证通过。本地预览:"
   echo "  python -m http.server -d docs 8080   然后打开 http://localhost:8080/"
-  echo "确认无误后再跑:  bash tools/publish.sh --deploy \"提交说明\""
+  echo "确认无误后可选地运行:  bash tools/publish.sh --commit \"提交说明\""
 fi

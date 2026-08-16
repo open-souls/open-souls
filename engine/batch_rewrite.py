@@ -11,6 +11,7 @@ Usage:
     python engine/batch_rewrite.py --dry-run --pick 5
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -23,10 +24,14 @@ CHRONICLE = ROOT / "seasons" / "01-xianxia" / "chronicle"
 STUB_MANIFEST = CHRONICLE / "_STUB_MANIFEST.json"
 RESULTS_DIR = ROOT / "prompts" / ".results"
 RESULTS_DIR.mkdir(exist_ok=True)
+LINT_CACHE_NAME = "batch_lint_cache.json"
+_LAST_LINT_ERRORS = {}
 sys.path.insert(0, str(ROOT / "engine"))
 import village as V
 import prose_lint as PL
 import safety_lint as SL
+import season as SE
+import story_state as SS
 
 REFERENCE_CHAPTER = "ch512-不接.md"  # 治本范文章
 
@@ -75,6 +80,104 @@ def _parse_lint_error_targets(output):
     return sorted(targets, key=lambda item: (item[0], item[1]))
 
 
+def _lint_cache_path():
+    """Return the local-only cache path used by status/picker scans."""
+    return ROOT / ".audit_tmp" / LINT_CACHE_NAME
+
+
+def _sha256_file(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _lint_cache_version():
+    """Invalidate cached verdicts when the lint rules or stub manifest change."""
+    digest = hashlib.sha256()
+    for path in (Path(PL.__file__), STUB_MANIFEST):
+        if not path.exists():
+            digest.update(str(path).encode("utf-8"))
+            continue
+        digest.update(str(path).encode("utf-8"))
+        digest.update(_sha256_file(path).encode("ascii"))
+    return digest.hexdigest()
+
+
+def _load_lint_cache():
+    path = _lint_cache_path()
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return {"version": _lint_cache_version(), "files": {}}
+    if payload.get("version") != _lint_cache_version():
+        return {"version": _lint_cache_version(), "files": {}}
+    return {"version": payload["version"], "files": payload.get("files", {})}
+
+
+def _save_lint_cache(cache):
+    path = _lint_cache_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(
+        json.dumps(cache, ensure_ascii=False, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
+    temporary.replace(path)
+
+
+def _chapter_files_for_lint():
+    """Return the same numbered chapter universe as prose_lint's CLI."""
+    stub_set = PL.load_stub_set()
+    paths = []
+    for path in sorted((CHRONICLE).glob("*.md")):
+        if not re.match(r"^(?:\d|ch\d)", path.name, re.I):
+            continue
+        if path.name in stub_set:
+            continue
+        paths.append(path)
+    return paths
+
+
+def _cached_lint_error_targets():
+    """Lint chapters with a content/rule cache, preserving exact error paths."""
+    global _LAST_LINT_ERRORS
+    cache = _load_lint_cache()
+    records = cache["files"]
+    current = set()
+    lint_errors = {}
+    error_targets = []
+    for path in _chapter_files_for_lint():
+        key = str(path.resolve())
+        current.add(key)
+        stat = path.stat()
+        fingerprint = {
+            "size": stat.st_size,
+            "mtime_ns": stat.st_mtime_ns,
+            "sha256": None,
+        }
+        record = records.get(key)
+        if record and all(record.get(field) == fingerprint[field] for field in ("size", "mtime_ns")):
+            fingerprint["sha256"] = record.get("sha256")
+        if not fingerprint["sha256"]:
+            fingerprint["sha256"] = _sha256_file(path)
+        if record and all(record.get(field) == fingerprint[field] for field in ("size", "mtime_ns", "sha256")):
+            errors = record.get("errors", [])
+        else:
+            errors, _, _ = PL.lint_file(str(path))
+            records[key] = {**fingerprint, "errors": list(errors)}
+        lint_errors[key] = list(errors)
+        if errors:
+            chapter = _chapter_number_from_path(path)
+            if chapter is not None:
+                error_targets.append((chapter, str(path)))
+    cache["files"] = {key: value for key, value in records.items() if key in current}
+    _save_lint_cache(cache)
+    _LAST_LINT_ERRORS = lint_errors
+    return sorted(error_targets, key=lambda item: (item[0], item[1]))
+
+
 def load_state():
     """Load progress and target queues."""
     if not STUB_MANIFEST.exists():
@@ -91,13 +194,9 @@ def load_state():
         stub_set = {str(number) for number in chapter_numbers}
         stub_by_chapter = {number: None for number in chapter_numbers}
 
-    # Find disease chapters via lint
-    result = subprocess.run(
-        ["python", "engine/prose_lint.py"],
-        capture_output=True, text=True, encoding="utf-8",
-        errors="replace", cwd=str(ROOT),
-    )
-    error_targets = _parse_lint_error_targets(result.stdout)
+    # Find disease chapters via a content/rule-keyed local cache. Delete
+    # .audit_tmp/batch_lint_cache.json to force a full refresh.
+    error_targets = _cached_lint_error_targets()
 
     return stub_set, stub_by_chapter, error_targets
 
@@ -254,7 +353,11 @@ def _already_done(ch, target_file=None):
     metadata = V.read_frontmatter(raw)
     if V.validate_frontmatter(metadata) or V.validate_editorial_metadata(metadata, body=PL.body_of(raw)):
         return False
-    errors, _, metrics = PL.lint_file(f)
+    errors = _LAST_LINT_ERRORS.get(str(Path(f).resolve()))
+    if errors is None:
+        errors, _, metrics = PL.lint_file(f)
+    else:
+        metrics = PL.measure(PL.body_of(raw))
     return not errors and metrics.get("chars", 0) >= PL.MIN_CHAPTER_CHARS
 
 
@@ -410,6 +513,14 @@ def main():
     p.add_argument("--no-skip-done", action="store_true")
     args = p.parse_args()
 
+    active_season = SE.current_dir()
+    if active_season and SS.strict_mode(SS.load_manifest(active_season)):
+        print(
+            "BLOCKED: engine/batch_rewrite.py is a legacy prose-rewrite dispatcher "
+            "and cannot write prompts for a strict season. Use engine/village.py."
+        )
+        return 2
+
     if args.status:
         stub_set, stub_by_chapter, error_targets = load_state()
         stub_files = {
@@ -473,4 +584,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main() or 0)

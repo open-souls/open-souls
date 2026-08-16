@@ -6,7 +6,13 @@ DEFAULT_ARC = ["起：人物落定", "承：关系与心结积累", "转：一�
 
 
 def current_dir():
-    dirs = sorted(glob.glob("seasons/*/"))
+    # Template/hidden directories are not seasons.  A lexicographic glob
+    # should never make `_TEMPLATE` the active world by accident.
+    dirs = sorted(
+        path.rstrip("/")
+        for path in glob.glob("seasons/*/")
+        if os.path.isdir(path) and not os.path.basename(path.rstrip("/\\")).startswith("_")
+    )
     return dirs[-1].rstrip("/") if dirs else None
 
 
