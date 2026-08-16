@@ -45,8 +45,11 @@ description: >
 | 5 | **连续性** | cast 节奏/缺席上限/锚点升温曲线/声线指纹/弧线一致 | `agents/05-lianxu.md` | sonnet |
 | 6 | **润色** | 拿回炉意见做最小改动重写，只改细节层不动主干 | `agents/06-runse.md` | opus/sonnet（重） |
 
-**派活靠 Agent/Task 工具**（`subagent_type: general-purpose`）：把角色 prompt + 本回上下文塞进 `prompt` 参数。
-审校三路（文笔/硬门/连续性）**并行派**，在一个消息里发三个 Agent 调用。
+**派活必须遵守 `.claude/skills/novel-writer/SKILL.md` 的状态协议**：先读
+`season_manifest.yaml`、`factions.yaml`、`plot_state.json`，再提出 A/B/C 选择，
+停在人类批准门前。不要把 `subagent_type: general-purpose` 当成可用能力；若使用
+Claude Prime，显式指定 bounded worker/verifier，且以 receipt、Git diff 和程序验收为证据。
+审校可以并行，但不能绕过因果账、阵营状态和人类决策。
 批量纯审稿（>5 章、不重写）可直接走 `python tools/parallel_reviewer.py --start N --count K`，那是已有的并行审稿 harness。
 
 ## 2. 工序（一回的生命周期）
@@ -97,6 +100,9 @@ description: >
 2. frontmatter 8 字段齐全（season/chapter/title/cast/pov/beat/ships/hook），标题 2–4 字，cast≥4，hook 含引号用 `|` block scalar，ships 注明本回埋的锚点。
 3. 跑机器门地板：`python engine/prose_lint.py 章节路径`（想更严加 `--warn-as-error`）。0 ERROR 才算落地。
 4. 文件落在 `seasons/01-xianxia/chronicle/NNN-标题.md`（三位数补零，如 `503-换命.md`）。
+5. 新季额外运行 `python engine/validate_story.py --season <active>`；没有
+`causal.pressure/choice/cost/state_change/next_pressure`、`state_updates`、
+`hook_evidence` 或唯一 canonical 编号，不能落地。
 
 ## 3. 过门判据（总编裁决表 · 全过才上线）
 
@@ -141,3 +147,5 @@ description: >
 
 > 把这一回插进第 1–10 回里连着读，读者认不认得出这是同一支笔、会不会想追下一回。
 > 认得出 + 想追 → 上线。否则 → 回炉，并在 `修复方向` 写清从哪一句、改回哪条范文。
+先运行 `python engine/story_state.py status --season <active>`；如果是新季，
+没有 `decisions/approved.json` 就不能调用模型或写 canonical chapter。

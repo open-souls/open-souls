@@ -139,19 +139,29 @@ def _json_call(user, scene_weight, attempts=2):
     ) from last_error
 
 
-def plan(ctx, world, beat, rating, weight):
+def plan(ctx, world, beat, rating, weight, decision=None):
+    decision_note = ""
+    if decision:
+        decision_note = (
+            "\n【人类已批准的方向】只执行这个选项，不自行改选读者承诺："
+            + json.dumps(decision, ensure_ascii=False)[:1800]
+        )
     user = (ctx + "\n\n【策划这一回 / showrunner】先别写正文，先定方案。"
             f"\n世界：{world.get('title')}（{world.get('genre')}，rating={rating}）。当前节拍：{beat}。"
             "\n从流量密码库里挑，结合出场人物的『裂缝 / 被逼到墙角』，设计这一回：\n"
             + _read("docs/standards/playbook.md") +
             '\n只输出 JSON：{"hook":"章末钩子","payoff":"本回的爽点或痛点",'
             '"contrast":"利用谁的哪个反差","trope":"用哪个桥段(标来源 中/日/西)",'
-            '"pov":"跟谁的视角","turn":"一个意外转折"}')
+            '"pov":"跟谁的视角","turn":"一个意外转折"}' + decision_note)
     return _json_call(user, scene_weight=max(2, weight - 2))
 
 
-def best_opening(ctx, spec, rating, n=3):
+def best_opening(ctx, spec, rating, n=3, selected_option=None):
     """生成 n 个开场，自评开场强度(认知缺口)，取最高那个。爆款是试出来的：试 n 个，留赢家。"""
+    if selected_option:
+        opening = str(selected_option.get("opening") or "").strip()
+        if opening:
+            return {"id": selected_option.get("id"), "opening": opening, "gap": "human-approved", "intensity": 10}
     user = (ctx + "\n\n【只写开场，先不写正文】按方案 " + json.dumps(spec, ensure_ascii=False)
             + f"\n写 {n} 个完全不同的开场（各 1-2 句）：首行即抛冲突或抛谜，不铺背景、不交代设定。"
             "每个标一种认知缺口（信息差/道德困境/身份谜题/损失厌恶），并自评开场强度 0-10"
@@ -162,10 +172,11 @@ def best_opening(ctx, spec, rating, n=3):
     return max(cands, key=lambda c: c.get("intensity", 0)) if cands else None
 
 
-def draft(ctx, spec, world, target, rating, note="", opening=None):
+def draft(ctx, spec, world, target, rating, note="", opening=None, decision=None):
     user = (ctx + "\n\n【按方案写正文】方案：" + json.dumps(spec, ensure_ascii=False)
             + (("\n【用这个开场起笔，别改第一行的劲】" + opening["opening"]) if opening else "")
             + (("\n【上一稿被打回，按这个改】" + note) if note else "")
+            + (("\n【本回执行的人类决策】" + json.dumps(decision, ensure_ascii=False)) if decision else "")
             + f"\n要求：约 {target} 字，宁短勿水；命中 payoff；结在 hook 上；"
             "三段式——开头突发事件直接进场（开场强度≥7），中段三波转折卡在 ≈22%/47%/68% 字数处，"
             "89% 再翻一次后收束留钩子；"
@@ -174,6 +185,11 @@ def draft(ctx, spec, world, target, rating, note="", opening=None):
             '只输出 JSON：{"chapter_title":str,"chapter":"正文",'
             '"frontmatter":{"pov":"视角角色","line":"男频/女频/混合","thread":"本章线索",'
             '"beat":"本章节拍","ships":{"关系":"不超过200字的物理锚点"},"hook":"章末钩子"},'
+            '"decision_id":"人类决策 id","hook_evidence":"正文中确实出现的短语",'
+            '"causal":{"pressure":"外部压力","choice":"人物选择","cost":"选择代价",'
+            '"state_change":"本章改变了什么","next_pressure":"下一回压力"},'
+            '"faction_moves":[{"faction":"阵营","move":"本回动作","consequence":"后果","stance_change":"本回立场变化或维持原因","evidence":"正文中的短引文"}],'
+            '"state_updates":[{"entity":"人物/关系/阵营","change":"可验证变化","evidence":"正文中的短引文"}],'
             '"incarnations":{"名":"本季身份"},'
             '"updates":[{"from","to","affection_delta","trust_delta","tension_delta","feeling"}],'
             '"memories":[{"who","text","importance":1-10}],"reflection":{"who","insight"}或null}')
@@ -253,16 +269,20 @@ def polish(chapter, note):
         return chapter
 
 
-def compose(ctx, world, beat, target, rating, weight):
+def compose(ctx, world, beat, target, rating, weight, decision=None):
     """Returns (chapter_dict, critique, spec).
 
     两道门：先按 rubric(流量+安全+节奏) 重写一次；再过文笔检阅门——独立编辑复读 +
     prose_lint 确定性卡，文笔不过就只改文笔层反复重写；到 PROSE_TRIES 仍不过则
     crit['prose_clean']=False，village.py 据此拒发，不让垃圾稿上线。
     """
-    spec = plan(ctx, world, beat, rating, weight)
-    opening = best_opening(ctx, spec, rating)  # 试 3 个开场，取强度最高那个起笔
-    out = draft(ctx, spec, world, target, rating, opening=opening)
+    spec = plan(ctx, world, beat, rating, weight, decision=decision)
+    selected_option = decision.get("option") if isinstance(decision, dict) else None
+    # A strict run uses the human-approved opening/decision directly.  The
+    # model may still propose prose, but it cannot choose among its own
+    # candidates and thereby silently change the story direction.
+    opening = best_opening(ctx, spec, rating, selected_option=selected_option)
+    out = draft(ctx, spec, world, target, rating, opening=opening, decision=decision)
     crit = _apply_hardlines(
         critique(out.get("chapter", ""), spec, rating, context=ctx),
         out.get("chapter", ""),
@@ -285,7 +305,7 @@ def compose(ctx, world, beat, target, rating, weight):
             note += "｜节奏：开场第一行就抛冲突/谜(强度≥7)，转折卡在 ≈22%/47%/68%，89% 再翻一次留钩子。"
         if prose_fail:
             note += "｜文笔：" + prose_fail
-        out = draft(ctx, spec, world, target, rating, note=note, opening=opening)
+        out = draft(ctx, spec, world, target, rating, note=note, opening=opening, decision=decision)
         crit = _apply_hardlines(
             critique(out.get("chapter", ""), spec, rating, context=ctx),
             out.get("chapter", ""),

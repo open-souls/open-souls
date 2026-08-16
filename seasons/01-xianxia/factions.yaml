@@ -1,0 +1,42 @@
+version: 1
+factions:
+  - id: fate-register
+    name: 命册官僚体
+    public_goal: "维持命格登记、等级和不可改命的合法性。"
+    hidden_goal: "让历史中被删改的旧账永远不可追溯。"
+    resources: [记录权, 批命仪式, 官僚层级, 删除资格]
+    red_lines: [原始命册被公开, 黑户重新入册]
+    current_move: "把边陲家族的债务和婚约包装成个人命数。"
+    stance: "制度稳定优先于个人生死。"
+  - id: guiyin-valley
+    name: 归隐谷
+    public_goal: "维持深层秩序，处理越界者和不可记录之事。"
+    hidden_goal: "消除能证明命册曾被改写的人与证据。"
+    resources: [抹除, 隐秘拘押, 无记录行动]
+    red_lines: [旧渊历史被翻出, 任何人建立独立记录链]
+    current_move: "观察林夙是否已经读到不该读到的旧页。"
+    stance: "没有记录，就没有可追究的因果。"
+  - id: qingfeng-sect
+    name: 青锋宗
+    public_goal: "控制灵脉与修行资格，维持宗门秩序。"
+    hidden_goal: "把命格和灵脉变成可收租的生产资料。"
+    resources: [灵脉, 宗门名额, 执事网络, 战力]
+    red_lines: [底层绕过宗门获得资格, 灵脉账目外泄]
+    current_move: "用入宗和名额制造新的依附关系。"
+    stance: "把剥夺说成培养，把租税说成规矩。"
+  - id: border-families
+    name: 边陲寒族
+    public_goal: "在宗门与命册之间保住家族和生计。"
+    hidden_goal: "用婚约、债务和牺牲换取一席可被记录的位置。"
+    resources: [亲族, 婚约, 地方声望, 小额债务网络]
+    red_lines: [家族彻底出册, 被公开证明为无用之人]
+    current_move: "把林夙的归来重新解释成一笔可结算的家族债。"
+    stance: "先活下来，再谈谁有道理。"
+  - id: ye-network
+    name: 叶观澜的蜇场与盗跖网
+    public_goal: "在命册之外交易资源和身份。"
+    hidden_goal: "把人加工成可替换的资源，掌握谁存在、谁消失的中间权。"
+    resources: [黑市身份, 虫场, 盗跖, 被抹除者]
+    red_lines: [交易账被还原, 被抹除者互相认出]
+    current_move: "利用阿湄的空页和林夙的眼睛互相试探。"
+    stance: "自由交易和制度暴力只是两种不同的定价方式。"

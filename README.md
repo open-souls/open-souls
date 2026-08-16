@@ -71,6 +71,28 @@ souls/角色名/
 
 读连载：[`seasons/01-xianxia/chronicle/`](seasons/01-xianxia/chronicle/)，或开 GitHub Pages 指到 `/docs`。
 
+## 给另一个 AI：先选读者，再写章节
+
+本仓库不是“模型自己挑一个最爽方案然后连写”的黑箱。完整协议在
+[`.claude/skills/novel-writer/SKILL.md`](.claude/skills/novel-writer/SKILL.md)：AI 提出 A/B/C，
+人类批准读者承诺和不可逆选择，程序保存阵营/人物/知识/剧情状态，最后才允许写入 canonical chapter。
+
+第一季故意标为 `legacy_mode`：它是素材和审计对象，不是新流程的质量基线。先看：
+
+```bash
+python engine/story_state.py status --season seasons/01-xianxia
+python engine/validate_story.py --season seasons/01-xianxia
+```
+
+新季必须准备 `season_manifest.yaml`、`factions.yaml`、`plot_state.json` 和
+`decisions/next.json`，并设置 `human_decision_required: true`、`legacy_mode: false`。
+没有 `decisions/approved.json` 时，`engine/village.py` 会在调用模型前停止。
+批准记录绑定当前 `last_accepted_chapter`，只消费一个下一章；章节落盘后必须重新批准下一步，不能把一次选择当成整季自动驾驶。
+
+严格章节还必须提供 `causal.pressure/choice/cost/state_change/next_pressure`、
+带正文证据的 `state_updates`/`faction_moves`、`hook_evidence` 和唯一的 canonical 编号；模型的 `PASS` 或
+`continuity_ok: true` 不是连续性证据。
+
 ## 先跑一遍
 
 ```bash
