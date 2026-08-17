@@ -18,7 +18,7 @@ Run `python engine/batch_rewrite.py --status` to refresh.
 
 ## Workflow
 
-1. **范文章 ready**: ch512-不接.md (苏挽 POV, 行为先于意识)
+1. **范文章 ready**: 512-半页.md (苏挽 POV, 行为先于意识)
 2. **Picker**: `python engine/batch_rewrite.py --pick N` chooses N targets (stubs first, then disease)
 3. **Dispatch**: `python engine/batch_rewrite.py --pick N --no-skip-done --no-dry-run` writes dispatch prompts to `prompts/dispatch/ch###.txt`
 4. **Run**: `python engine/run_dispatch.py --workers 2 --max-budget-usd 12.0 --effort high` runs bounded `claude -p` jobs and writes independent PASS/BLOCKED receipts to `prompts/.results/`.
@@ -36,7 +36,7 @@ A chapter counts as DONE iff:
 ## What I Did in This Session (2026-07-15)
 
 范文章:
-- [x] ch512-不接.md — 苏挽 POV 治本范文 (PASS lint, 4780 bytes)
+- [x] 512-半页.md — 苏挽 POV 治本范文 (PASS lint, 4780 bytes)
 
 Disease章 治本 (chunks dispatched, awaiting results):
 - [ ] ch582-位置.md (阿湄 POV 糖玉场景)
