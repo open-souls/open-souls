@@ -183,7 +183,7 @@
       "title": "林窈井边",
       "chapter": 4,
       "score_field": "13/14",
-      "body_chars": 1537,
+      "body_chars": 1604,
       "d7": [
         2,
         1,
@@ -215,20 +215,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 32,
+        "motif_hits": 34,
         "filler_n": 2,
-        "sensory_count": 59,
-        "cn_tags": 2,
+        "sensory_count": 61,
+        "cn_tags": 3,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -911,17 +911,17 @@
       "title": "露底",
       "chapter": 17,
       "score_field": "12/14",
-      "body_chars": 1714,
+      "body_chars": 1781,
       "d7": [
         2,
         1,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
@@ -943,20 +943,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 20,
+        "motif_hits": 22,
         "filler_n": 8,
-        "sensory_count": 49,
-        "cn_tags": 0,
+        "sensory_count": 51,
+        "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -2087,13 +2087,13 @@
       "title": "钱执事收",
       "chapter": 38,
       "score_field": "13/14",
-      "body_chars": 1697,
+      "body_chars": 1764,
       "d7": [
         2,
         1,
+        1,
         2,
-        2,
-        0,
+        1,
         2,
         1
       ],
@@ -2119,20 +2119,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
-        2,
-        1,
         0,
-        1
+        2,
+        2,
+        0,
+        2
       ],
       "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 44,
+        "motif_hits": 46,
         "filler_n": 0,
-        "sensory_count": 49,
-        "cn_tags": 0,
+        "sensory_count": 51,
+        "cn_tags": 1,
         "pov_count": 1,
         "summary_words": 0,
         "judgment_words": 0
@@ -2983,27 +2983,27 @@
       "title": "礼匣",
       "chapter": 54,
       "score_field": "12/14",
-      "body_chars": 1886,
+      "body_chars": 1953,
       "d7": [
         2,
         1,
-        2,
+        1,
         2,
         2,
         2,
         1
       ],
-      "d7_sum": 12,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -3015,19 +3015,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
-        2,
-        1,
         0,
-        0
+        2,
+        2,
+        0,
+        1
       ],
       "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 69,
+        "motif_hits": 71,
         "filler_n": 8,
-        "sensory_count": 81,
+        "sensory_count": 83,
         "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
@@ -5951,27 +5951,27 @@
       "title": "刮去",
       "chapter": 107,
       "score_field": "14/14",
-      "body_chars": 1559,
+      "body_chars": 1626,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -5983,20 +5983,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 25,
+        "motif_hits": 27,
         "filler_n": 3,
-        "sensory_count": 47,
-        "cn_tags": 1,
+        "sensory_count": 49,
+        "cn_tags": 2,
         "pov_count": 1,
         "summary_words": 0,
         "judgment_words": 0
@@ -8135,73 +8135,17 @@
       "title": "等我",
       "chapter": 146,
       "score_field": "14/14",
-      "body_chars": 1569,
+      "body_chars": 1636,
       "d7": [
         2,
         2,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 10,
-      "rubric": [
-        2,
-        2,
-        1,
-        1,
-        2,
-        2,
-        2
-      ],
-      "rubric_sum": 12,
-      "pub": [
-        2,
-        2,
-        2,
-        2,
-        2,
-        2
-      ],
-      "pub_sum": 12,
-      "sh": [
-        1,
-        2,
-        2,
-        2,
-        0,
-        0
-      ],
-      "sh_sum": 7,
-      "total_52": 41,
-      "max_52": 52,
-      "debug": {
-        "motif_hits": 56,
-        "filler_n": 0,
-        "sensory_count": 52,
-        "cn_tags": 0,
-        "pov_count": 2,
-        "summary_words": 0,
-        "judgment_words": 0
-      }
-    },
-    {
-      "file": "147-看你.md",
-      "title": "看你",
-      "chapter": 147,
-      "score_field": "14/14",
-      "body_chars": 1560,
-      "d7": [
-        2,
-        1,
-        0,
-        2,
-        2,
-        2,
-        0
-      ],
-      "d7_sum": 9,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -8223,20 +8167,76 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 82,
+        "motif_hits": 58,
+        "filler_n": 0,
+        "sensory_count": 54,
+        "cn_tags": 1,
+        "pov_count": 2,
+        "summary_words": 0,
+        "judgment_words": 0
+      }
+    },
+    {
+      "file": "147-看你.md",
+      "title": "看你",
+      "chapter": 147,
+      "score_field": "14/14",
+      "body_chars": 1627,
+      "d7": [
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        0
+      ],
+      "d7_sum": 10,
+      "rubric": [
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rubric_sum": 13,
+      "pub": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "pub_sum": 12,
+      "sh": [
+        1,
+        0,
+        2,
+        2,
+        0,
+        2
+      ],
+      "sh_sum": 7,
+      "total_52": 42,
+      "max_52": 52,
+      "debug": {
+        "motif_hits": 84,
         "filler_n": 3,
-        "sensory_count": 57,
-        "cn_tags": 2,
+        "sensory_count": 59,
+        "cn_tags": 3,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 1
@@ -8583,27 +8583,27 @@
       "title": "不传",
       "chapter": 154,
       "score_field": "13/14",
-      "body_chars": 1539,
+      "body_chars": 1606,
       "d7": [
         2,
         1,
-        2,
+        1,
         2,
         2,
         2,
         1
       ],
-      "d7_sum": 12,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
         0,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 11,
+      "rubric_sum": 12,
       "pub": [
         2,
         2,
@@ -8615,20 +8615,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
-        2,
         0,
+        2,
         1,
-        0
+        1,
+        1
       ],
       "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 63,
+        "motif_hits": 65,
         "filler_n": 1,
-        "sensory_count": 64,
-        "cn_tags": 2,
+        "sensory_count": 66,
+        "cn_tags": 3,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -8695,7 +8695,7 @@
       "title": "同手",
       "chapter": 156,
       "score_field": "14/14",
-      "body_chars": 2927,
+      "body_chars": 2994,
       "d7": [
         2,
         1,
@@ -8710,12 +8710,12 @@
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -8727,20 +8727,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 71,
+        "motif_hits": 73,
         "filler_n": 0,
-        "sensory_count": 101,
-        "cn_tags": 2,
+        "sensory_count": 103,
+        "cn_tags": 3,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 2
@@ -10711,27 +10711,27 @@
       "title": "先到",
       "chapter": 192,
       "score_field": "13/14",
-      "body_chars": 1553,
+      "body_chars": 1620,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
         2,
         2,
         0
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -10743,20 +10743,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
-      "total_52": 41,
+      "sh_sum": 7,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 50,
+        "motif_hits": 52,
         "filler_n": 0,
-        "sensory_count": 56,
-        "cn_tags": 4,
+        "sensory_count": 58,
+        "cn_tags": 5,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 2
@@ -11383,7 +11383,7 @@
       "title": "光幕",
       "chapter": 204,
       "score_field": "13/14",
-      "body_chars": 1883,
+      "body_chars": 1950,
       "d7": [
         2,
         1,
@@ -11415,20 +11415,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 64,
+        "motif_hits": 66,
         "filler_n": 1,
-        "sensory_count": 79,
-        "cn_tags": 3,
+        "sensory_count": 81,
+        "cn_tags": 4,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -11831,7 +11831,7 @@
       "title": "缺口",
       "chapter": 212,
       "score_field": "13/14",
-      "body_chars": 1564,
+      "body_chars": 1631,
       "d7": [
         2,
         1,
@@ -11846,12 +11846,12 @@
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -11863,19 +11863,19 @@
       "pub_sum": 9,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        1
+        2
       ],
-      "sh_sum": 9,
+      "sh_sum": 8,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 63,
+        "motif_hits": 65,
         "filler_n": 2,
-        "sensory_count": 66,
+        "sensory_count": 68,
         "cn_tags": 3,
         "pov_count": 4,
         "summary_words": 0,
@@ -11943,7 +11943,7 @@
       "title": "是他",
       "chapter": 214,
       "score_field": "13/14",
-      "body_chars": 1553,
+      "body_chars": 1620,
       "d7": [
         2,
         1,
@@ -11975,20 +11975,20 @@
       "pub_sum": 9,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        1
+        2
       ],
-      "sh_sum": 8,
-      "total_52": 41,
+      "sh_sum": 7,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 59,
+        "motif_hits": 61,
         "filler_n": 2,
-        "sensory_count": 58,
-        "cn_tags": 2,
+        "sensory_count": 60,
+        "cn_tags": 3,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -12447,7 +12447,7 @@
       "title": "第三遍",
       "chapter": 223,
       "score_field": "|\n13/14",
-      "body_chars": 2110,
+      "body_chars": 2177,
       "d7": [
         2,
         1,
@@ -12479,20 +12479,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 100,
+        "motif_hits": 102,
         "filler_n": 4,
-        "sensory_count": 75,
-        "cn_tags": 3,
+        "sensory_count": 77,
+        "cn_tags": 4,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -13175,7 +13175,7 @@
       "title": "那道痕",
       "chapter": 236,
       "score_field": "|\n13/14",
-      "body_chars": 1619,
+      "body_chars": 1686,
       "d7": [
         2,
         1,
@@ -13207,20 +13207,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 48,
+        "motif_hits": 50,
         "filler_n": 2,
-        "sensory_count": 96,
-        "cn_tags": 3,
+        "sensory_count": 98,
+        "cn_tags": 4,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -13343,27 +13343,27 @@
       "title": "再见一次",
       "chapter": 239,
       "score_field": "|\n13/14",
-      "body_chars": 1797,
+      "body_chars": 1864,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -13375,20 +13375,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         1,
         1,
-        1
+        2
       ],
-      "sh_sum": 8,
-      "total_52": 41,
+      "sh_sum": 7,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 73,
+        "motif_hits": 75,
         "filler_n": 0,
-        "sensory_count": 87,
-        "cn_tags": 1,
+        "sensory_count": 89,
+        "cn_tags": 2,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -13735,7 +13735,7 @@
       "title": "送上门",
       "chapter": 246,
       "score_field": "|\n13/14",
-      "body_chars": 1681,
+      "body_chars": 1748,
       "d7": [
         2,
         1,
@@ -13767,19 +13767,19 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         1,
         0,
-        0
+        1
       ],
-      "sh_sum": 6,
-      "total_52": 41,
+      "sh_sum": 5,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 67,
+        "motif_hits": 69,
         "filler_n": 1,
-        "sensory_count": 80,
+        "sensory_count": 82,
         "cn_tags": 2,
         "pov_count": 1,
         "summary_words": 0,
@@ -14015,17 +14015,17 @@
       "title": "收笔",
       "chapter": 251,
       "score_field": "13/14",
-      "body_chars": 1649,
+      "body_chars": 1716,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
         1,
         2,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
@@ -14047,19 +14047,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        1
+        2
       ],
-      "sh_sum": 8,
+      "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 80,
+        "motif_hits": 82,
         "filler_n": 4,
-        "sensory_count": 63,
+        "sensory_count": 65,
         "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
@@ -14575,13 +14575,13 @@
       "title": "也来了",
       "chapter": 261,
       "score_field": "|\n13/14",
-      "body_chars": 1595,
+      "body_chars": 1662,
       "d7": [
         2,
         1,
+        1,
         2,
-        2,
-        0,
+        1,
         2,
         1
       ],
@@ -14590,12 +14590,12 @@
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -14607,20 +14607,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 49,
+        "motif_hits": 51,
         "filler_n": 0,
-        "sensory_count": 73,
-        "cn_tags": 0,
+        "sensory_count": 75,
+        "cn_tags": 1,
         "pov_count": 5,
         "summary_words": 0,
         "judgment_words": 0
@@ -15359,17 +15359,17 @@
       "title": "回来了",
       "chapter": 275,
       "score_field": "14/14",
-      "body_chars": 1557,
+      "body_chars": 1624,
       "d7": [
         2,
         2,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -15391,20 +15391,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 77,
+        "motif_hits": 79,
         "filler_n": 0,
-        "sensory_count": 63,
-        "cn_tags": 0,
+        "sensory_count": 65,
+        "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -16591,17 +16591,17 @@
       "title": "不记得",
       "chapter": 297,
       "score_field": "13/14",
-      "body_chars": 1588,
+      "body_chars": 1655,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
         2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -16623,19 +16623,19 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 107,
+        "motif_hits": 109,
         "filler_n": 1,
-        "sensory_count": 78,
+        "sensory_count": 80,
         "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
@@ -19783,7 +19783,7 @@
       "title": "以为呢",
       "chapter": 354,
       "score_field": "14/14",
-      "body_chars": 1589,
+      "body_chars": 1656,
       "d7": [
         2,
         1,
@@ -19815,20 +19815,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 52,
+        "motif_hits": 54,
         "filler_n": 0,
-        "sensory_count": 90,
-        "cn_tags": 2,
+        "sensory_count": 92,
+        "cn_tags": 3,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -19839,7 +19839,7 @@
       "title": "留了手",
       "chapter": 355,
       "score_field": "14/14",
-      "body_chars": 1968,
+      "body_chars": 2035,
       "d7": [
         2,
         1,
@@ -19871,20 +19871,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 111,
+        "motif_hits": 113,
         "filler_n": 2,
-        "sensory_count": 77,
-        "cn_tags": 2,
+        "sensory_count": 79,
+        "cn_tags": 3,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -20007,17 +20007,17 @@
       "title": "看见了",
       "chapter": 358,
       "score_field": "13/14",
-      "body_chars": 1557,
+      "body_chars": 1624,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
         2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -20039,20 +20039,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        2
       ],
       "sh_sum": 8,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 81,
+        "motif_hits": 83,
         "filler_n": 3,
-        "sensory_count": 78,
-        "cn_tags": 2,
+        "sensory_count": 80,
+        "cn_tags": 3,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -20175,13 +20175,13 @@
       "title": "换不了的",
       "chapter": 361,
       "score_field": "14/14",
-      "body_chars": 1691,
+      "body_chars": 1758,
       "d7": [
         2,
         1,
-        2,
-        2,
         1,
+        2,
+        2,
         2,
         0
       ],
@@ -20207,20 +20207,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 62,
+        "motif_hits": 64,
         "filler_n": 1,
-        "sensory_count": 66,
-        "cn_tags": 1,
+        "sensory_count": 68,
+        "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 1
@@ -20399,7 +20399,7 @@
       "title": "就知道",
       "chapter": 365,
       "score_field": "13/14",
-      "body_chars": 1554,
+      "body_chars": 1621,
       "d7": [
         2,
         1,
@@ -20431,20 +20431,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 75,
+        "motif_hits": 77,
         "filler_n": 7,
-        "sensory_count": 82,
-        "cn_tags": 2,
+        "sensory_count": 84,
+        "cn_tags": 3,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 1
@@ -20903,17 +20903,17 @@
       "title": "留给你",
       "chapter": 374,
       "score_field": "14/14",
-      "body_chars": 1554,
+      "body_chars": 1621,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
         2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -20935,20 +20935,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 67,
+        "motif_hits": 69,
         "filler_n": 3,
-        "sensory_count": 94,
-        "cn_tags": 2,
+        "sensory_count": 96,
+        "cn_tags": 3,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -20959,27 +20959,27 @@
       "title": "这印记",
       "chapter": 375,
       "score_field": "14/14",
-      "body_chars": 1554,
+      "body_chars": 1621,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         0
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
-        1,
+        2,
         1,
         2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -20991,20 +20991,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 58,
+        "motif_hits": 60,
         "filler_n": 0,
-        "sensory_count": 84,
-        "cn_tags": 1,
+        "sensory_count": 86,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 1
@@ -21071,17 +21071,17 @@
       "title": "也找到",
       "chapter": 377,
       "score_field": "14/14",
-      "body_chars": 1553,
+      "body_chars": 1620,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -21103,20 +21103,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
+      "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 76,
+        "motif_hits": 78,
         "filler_n": 2,
-        "sensory_count": 76,
-        "cn_tags": 1,
+        "sensory_count": 78,
+        "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -21239,17 +21239,17 @@
       "title": "来过了",
       "chapter": 380,
       "score_field": "13/14",
-      "body_chars": 1786,
+      "body_chars": 1853,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
         2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -21271,20 +21271,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 91,
+        "motif_hits": 93,
         "filler_n": 1,
-        "sensory_count": 91,
-        "cn_tags": 2,
+        "sensory_count": 93,
+        "cn_tags": 3,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -23815,27 +23815,27 @@
       "title": "还在的",
       "chapter": 426,
       "score_field": "12/14",
-      "body_chars": 1559,
+      "body_chars": 1626,
       "d7": [
         2,
         2,
-        0,
+        1,
         2,
-        0,
+        1,
         2,
         2
       ],
-      "d7_sum": 10,
+      "d7_sum": 12,
       "rubric": [
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -23847,21 +23847,21 @@
       "pub_sum": 12,
       "sh": [
         1,
+        0,
         2,
         2,
         1,
-        1,
-        0
+        1
       ],
       "sh_sum": 7,
-      "total_52": 41,
+      "total_52": 44,
       "max_52": 52,
       "debug": {
-        "motif_hits": 48,
+        "motif_hits": 50,
         "filler_n": 0,
-        "sensory_count": 87,
-        "cn_tags": 0,
-        "pov_count": 2,
+        "sensory_count": 89,
+        "cn_tags": 1,
+        "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
       }
@@ -24039,17 +24039,17 @@
       "title": "先一步",
       "chapter": 430,
       "score_field": "12/14",
-      "body_chars": 1723,
+      "body_chars": 1790,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         0
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
@@ -24071,20 +24071,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 57,
+        "motif_hits": 59,
         "filler_n": 0,
-        "sensory_count": 121,
-        "cn_tags": 1,
+        "sensory_count": 123,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 1
@@ -25607,7 +25607,7 @@
       "title": "没事",
       "chapter": 458,
       "score_field": "14/14",
-      "body_chars": 1543,
+      "body_chars": 1610,
       "d7": [
         2,
         1,
@@ -25639,20 +25639,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 99,
+        "motif_hits": 101,
         "filler_n": 1,
-        "sensory_count": 65,
-        "cn_tags": 2,
+        "sensory_count": 67,
+        "cn_tags": 3,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -26951,7 +26951,7 @@
       "title": "她想回来",
       "chapter": 482,
       "score_field": "13/14",
-      "body_chars": 1584,
+      "body_chars": 1651,
       "d7": [
         2,
         1,
@@ -26983,20 +26983,20 @@
       "pub_sum": 9,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
-      "total_52": 41,
+      "sh_sum": 7,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 56,
+        "motif_hits": 58,
         "filler_n": 3,
-        "sensory_count": 95,
-        "cn_tags": 2,
+        "sensory_count": 97,
+        "cn_tags": 3,
         "pov_count": 5,
         "summary_words": 0,
         "judgment_words": 0
@@ -27063,17 +27063,17 @@
       "title": "接令",
       "chapter": 484,
       "score_field": "14/14",
-      "body_chars": 2826,
+      "body_chars": 2893,
       "d7": [
         2,
         1,
-        0,
-        2,
         1,
+        2,
+        2,
         2,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -27095,20 +27095,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        2
       ],
       "sh_sum": 8,
-      "total_52": 41,
+      "total_52": 43,
       "max_52": 52,
       "debug": {
-        "motif_hits": 147,
+        "motif_hits": 149,
         "filler_n": 7,
-        "sensory_count": 188,
-        "cn_tags": 1,
+        "sensory_count": 190,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -27119,13 +27119,13 @@
       "title": "来的人",
       "chapter": 485,
       "score_field": "14/14",
-      "body_chars": 3043,
+      "body_chars": 3110,
       "d7": [
         2,
         2,
-        2,
-        2,
         1,
+        2,
+        2,
         2,
         0
       ],
@@ -27151,20 +27151,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 135,
+        "motif_hits": 137,
         "filler_n": 0,
-        "sensory_count": 125,
-        "cn_tags": 1,
+        "sensory_count": 127,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 3
@@ -27175,7 +27175,7 @@
       "title": "苏漪",
       "chapter": 486,
       "score_field": "14/14",
-      "body_chars": 1848,
+      "body_chars": 1915,
       "d7": [
         2,
         1,
@@ -27207,20 +27207,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 71,
+        "motif_hits": 73,
         "filler_n": 1,
-        "sensory_count": 79,
-        "cn_tags": 4,
+        "sensory_count": 81,
+        "cn_tags": 5,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 1
@@ -28239,17 +28239,17 @@
       "title": "分别",
       "chapter": 505,
       "score_field": "12/14",
-      "body_chars": 1616,
+      "body_chars": 1683,
       "d7": [
         2,
         2,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -28271,20 +28271,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
+      "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 62,
+        "motif_hits": 64,
         "filler_n": 0,
-        "sensory_count": 67,
-        "cn_tags": 0,
+        "sensory_count": 69,
+        "cn_tags": 1,
         "pov_count": 4,
         "summary_words": 1,
         "judgment_words": 1
@@ -28855,7 +28855,7 @@
       "title": "矮凳",
       "chapter": 516,
       "score_field": "13/14",
-      "body_chars": 1665,
+      "body_chars": 1732,
       "d7": [
         2,
         2,
@@ -28887,19 +28887,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 63,
+        "motif_hits": 65,
         "filler_n": 0,
-        "sensory_count": 94,
+        "sensory_count": 96,
         "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
@@ -34287,17 +34287,17 @@
       "title": "林叙等",
       "chapter": 535,
       "score_field": "13/14",
-      "body_chars": 1636,
+      "body_chars": 1703,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -34319,20 +34319,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 71,
+        "motif_hits": 73,
         "filler_n": 5,
-        "sensory_count": 67,
-        "cn_tags": 1,
+        "sensory_count": 69,
+        "cn_tags": 2,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -34511,17 +34511,17 @@
       "title": "攥着",
       "chapter": 537,
       "score_field": "12/14",
-      "body_chars": 1589,
+      "body_chars": 1656,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         2
       ],
-      "d7_sum": 11,
+      "d7_sum": 12,
       "rubric": [
         2,
         2,
@@ -34543,20 +34543,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 72,
+        "motif_hits": 74,
         "filler_n": 2,
-        "sensory_count": 63,
-        "cn_tags": 1,
+        "sensory_count": 65,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -35967,7 +35967,7 @@
       "title": "林崇看",
       "chapter": 551,
       "score_field": "13/14",
-      "body_chars": 1559,
+      "body_chars": 1626,
       "d7": [
         2,
         1,
@@ -35999,19 +35999,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 76,
+        "motif_hits": 78,
         "filler_n": 1,
-        "sensory_count": 55,
+        "sensory_count": 57,
         "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
@@ -36079,27 +36079,27 @@
       "title": "南城",
       "chapter": 552,
       "score_field": "13/14",
-      "body_chars": 1568,
+      "body_chars": 1635,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         2
       ],
-      "d7_sum": 12,
+      "d7_sum": 13,
       "rubric": [
         2,
         2,
         1,
-        0,
+        1,
         2,
         2,
         2
       ],
-      "rubric_sum": 11,
+      "rubric_sum": 12,
       "pub": [
         2,
         2,
@@ -36111,20 +36111,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 87,
+        "motif_hits": 89,
         "filler_n": 0,
-        "sensory_count": 53,
-        "cn_tags": 1,
+        "sensory_count": 55,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -36471,13 +36471,13 @@
       "title": "林叙等",
       "chapter": 555,
       "score_field": "13/14",
-      "body_chars": 1601,
+      "body_chars": 1668,
       "d7": [
         2,
         1,
-        2,
-        2,
         1,
+        2,
+        2,
         2,
         1
       ],
@@ -36503,20 +36503,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 92,
+        "motif_hits": 94,
         "filler_n": 1,
-        "sensory_count": 43,
-        "cn_tags": 1,
+        "sensory_count": 45,
+        "cn_tags": 2,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -37703,17 +37703,17 @@
       "title": "灶边雪",
       "chapter": 567,
       "score_field": "13/14",
-      "body_chars": 1697,
+      "body_chars": 1764,
       "d7": [
         2,
         2,
-        0,
+        1,
         2,
         1,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -37735,19 +37735,19 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        1
+        2
       ],
-      "sh_sum": 8,
+      "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 113,
+        "motif_hits": 115,
         "filler_n": 0,
-        "sensory_count": 54,
+        "sensory_count": 56,
         "cn_tags": 1,
         "pov_count": 2,
         "summary_words": 0,
@@ -37759,7 +37759,7 @@
       "title": "那一半边",
       "chapter": 567,
       "score_field": "12/14",
-      "body_chars": 3597,
+      "body_chars": 3664,
       "d7": [
         2,
         1,
@@ -37791,19 +37791,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 190,
+        "motif_hits": 192,
         "filler_n": 1,
-        "sensory_count": 137,
+        "sensory_count": 139,
         "cn_tags": 4,
         "pov_count": 5,
         "summary_words": 0,
@@ -37871,17 +37871,17 @@
       "title": "林彻站",
       "chapter": 568,
       "score_field": "13/14",
-      "body_chars": 1556,
+      "body_chars": 1623,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         0
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -37903,20 +37903,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
+      "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 138,
+        "motif_hits": 140,
         "filler_n": 0,
-        "sensory_count": 55,
-        "cn_tags": 1,
+        "sensory_count": 57,
+        "cn_tags": 2,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 1
@@ -39159,7 +39159,7 @@
       "title": "林叙看",
       "chapter": 580,
       "score_field": "13/14",
-      "body_chars": 1634,
+      "body_chars": 1701,
       "d7": [
         2,
         1,
@@ -39191,19 +39191,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 83,
+        "motif_hits": 85,
         "filler_n": 3,
-        "sensory_count": 43,
+        "sensory_count": 45,
         "cn_tags": 1,
         "pov_count": 4,
         "summary_words": 0,
@@ -40167,17 +40167,17 @@
       "title": "林叙看",
       "chapter": 590,
       "score_field": "13/14",
-      "body_chars": 1600,
+      "body_chars": 1667,
       "d7": [
         2,
         2,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -40199,20 +40199,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 69,
+        "motif_hits": 71,
         "filler_n": 0,
-        "sensory_count": 50,
-        "cn_tags": 0,
+        "sensory_count": 52,
+        "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -41455,17 +41455,17 @@
       "title": "灶边",
       "chapter": 602,
       "score_field": "13/14",
-      "body_chars": 1554,
+      "body_chars": 1621,
       "d7": [
         2,
         2,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -41487,20 +41487,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 129,
+        "motif_hits": 131,
         "filler_n": 0,
-        "sensory_count": 57,
-        "cn_tags": 0,
+        "sensory_count": 59,
+        "cn_tags": 1,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -44087,7 +44087,7 @@
       "title": "阿湄陪着走",
       "chapter": 626,
       "score_field": "13/14",
-      "body_chars": 1564,
+      "body_chars": 1631,
       "d7": [
         2,
         1,
@@ -44102,12 +44102,12 @@
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -44119,19 +44119,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
+      "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 73,
+        "motif_hits": 75,
         "filler_n": 1,
-        "sensory_count": 48,
+        "sensory_count": 50,
         "cn_tags": 1,
         "pov_count": 4,
         "summary_words": 0,
@@ -44255,13 +44255,13 @@
       "title": "余伯收尾",
       "chapter": 628,
       "score_field": "14/14",
-      "body_chars": 1604,
+      "body_chars": 1671,
       "d7": [
         2,
         2,
-        2,
-        2,
         1,
+        2,
+        2,
         2,
         2
       ],
@@ -44287,20 +44287,20 @@
       "pub_sum": 8,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 47,
+        "motif_hits": 49,
         "filler_n": 0,
-        "sensory_count": 63,
-        "cn_tags": 1,
+        "sensory_count": 65,
+        "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -44591,27 +44591,27 @@
       "title": "凌朔立场",
       "chapter": 631,
       "score_field": "13/14",
-      "body_chars": 2138,
+      "body_chars": 2205,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 11,
+      "d7_sum": 12,
       "rubric": [
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -44623,20 +44623,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         1,
         1,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 86,
+        "motif_hits": 88,
         "filler_n": 0,
-        "sensory_count": 182,
-        "cn_tags": 1,
+        "sensory_count": 184,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -45599,17 +45599,17 @@
       "title": "叶观澜离前夜",
       "chapter": 641,
       "score_field": "14/14",
-      "body_chars": 1627,
+      "body_chars": 1694,
       "d7": [
         2,
         1,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
@@ -45631,20 +45631,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 61,
+        "motif_hits": 63,
         "filler_n": 5,
-        "sensory_count": 41,
-        "cn_tags": 0,
+        "sensory_count": 43,
+        "cn_tags": 1,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -45767,17 +45767,17 @@
       "title": "苏挽接阿湄",
       "chapter": 643,
       "score_field": "13/14",
-      "body_chars": 1833,
+      "body_chars": 1900,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -45799,20 +45799,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 110,
+        "motif_hits": 112,
         "filler_n": 3,
-        "sensory_count": 86,
-        "cn_tags": 1,
+        "sensory_count": 88,
+        "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -45991,17 +45991,17 @@
       "title": "巷口一张脸",
       "chapter": 647,
       "score_field": "13/14",
-      "body_chars": 1612,
+      "body_chars": 1679,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -46023,20 +46023,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
+      "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 59,
+        "motif_hits": 61,
         "filler_n": 1,
-        "sensory_count": 60,
-        "cn_tags": 1,
+        "sensory_count": 62,
+        "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -46215,17 +46215,17 @@
       "title": "她没回",
       "chapter": 651,
       "score_field": "14/14",
-      "body_chars": 1554,
+      "body_chars": 1621,
       "d7": [
         2,
         1,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
@@ -46247,20 +46247,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        2
       ],
       "sh_sum": 8,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 66,
+        "motif_hits": 68,
         "filler_n": 6,
-        "sensory_count": 37,
-        "cn_tags": 0,
+        "sensory_count": 39,
+        "cn_tags": 1,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -48903,7 +48903,7 @@
       "title": "苍梧",
       "chapter": 693,
       "score_field": "12/14",
-      "body_chars": 1661,
+      "body_chars": 1728,
       "d7": [
         2,
         1,
@@ -48935,19 +48935,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 71,
+        "motif_hits": 73,
         "filler_n": 1,
-        "sensory_count": 62,
+        "sensory_count": 64,
         "cn_tags": 1,
         "pov_count": 4,
         "summary_words": 0,
@@ -50639,17 +50639,17 @@
       "title": "南道",
       "chapter": 721,
       "score_field": "14/14",
-      "body_chars": 1281,
+      "body_chars": 1348,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         2
       ],
-      "d7_sum": 12,
+      "d7_sum": 13,
       "rubric": [
         2,
         2,
@@ -50657,9 +50657,9 @@
         2,
         2,
         2,
-        2
+        1
       ],
-      "rubric_sum": 13,
+      "rubric_sum": 12,
       "pub": [
         2,
         2,
@@ -50671,20 +50671,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        1,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
       "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 44,
+        "motif_hits": 46,
         "filler_n": 0,
-        "sensory_count": 44,
-        "cn_tags": 1,
+        "sensory_count": 46,
+        "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -51199,17 +51199,17 @@
       "title": "林窈远递",
       "chapter": 730,
       "score_field": "12/14",
-      "body_chars": 1623,
+      "body_chars": 1690,
       "d7": [
         2,
         2,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -51231,20 +51231,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 155,
+        "motif_hits": 157,
         "filler_n": 0,
-        "sensory_count": 66,
-        "cn_tags": 0,
+        "sensory_count": 68,
+        "cn_tags": 1,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -51311,17 +51311,17 @@
       "title": "疏桐不认",
       "chapter": 732,
       "score_field": "14/14",
-      "body_chars": 1555,
+      "body_chars": 1622,
       "d7": [
         2,
         2,
-        0,
+        1,
         2,
         1,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -51329,9 +51329,9 @@
         2,
         2,
         2,
-        2
+        1
       ],
-      "rubric_sum": 13,
+      "rubric_sum": 12,
       "pub": [
         2,
         2,
@@ -51343,19 +51343,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 59,
+        "motif_hits": 61,
         "filler_n": 0,
-        "sensory_count": 46,
+        "sensory_count": 48,
         "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
@@ -54503,13 +54503,13 @@
       "title": "灶边雪",
       "chapter": 787,
       "score_field": "13/14",
-      "body_chars": 1559,
+      "body_chars": 1626,
       "d7": [
         2,
         1,
+        1,
         2,
-        2,
-        0,
+        1,
         2,
         2
       ],
@@ -54535,20 +54535,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 117,
+        "motif_hits": 119,
         "filler_n": 1,
-        "sensory_count": 64,
-        "cn_tags": 0,
+        "sensory_count": 66,
+        "cn_tags": 1,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -54615,17 +54615,17 @@
       "title": "苏挽在",
       "chapter": 789,
       "score_field": "13/14",
-      "body_chars": 1644,
+      "body_chars": 1711,
       "d7": [
         2,
         2,
-        0,
-        2,
         1,
+        2,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 12,
       "rubric": [
         2,
         2,
@@ -54647,20 +54647,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 103,
+        "motif_hits": 105,
         "filler_n": 0,
-        "sensory_count": 60,
-        "cn_tags": 1,
+        "sensory_count": 62,
+        "cn_tags": 2,
         "pov_count": 4,
         "summary_words": 0,
         "judgment_words": 0
@@ -55343,17 +55343,17 @@
       "title": "林叙等",
       "chapter": 800,
       "score_field": "13/14",
-      "body_chars": 1564,
+      "body_chars": 1631,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -55375,20 +55375,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 94,
+        "motif_hits": 96,
         "filler_n": 2,
-        "sensory_count": 54,
-        "cn_tags": 1,
+        "sensory_count": 56,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -55511,17 +55511,17 @@
       "title": "苏挽端糖",
       "chapter": 803,
       "score_field": "13/14",
-      "body_chars": 1648,
+      "body_chars": 1715,
       "d7": [
         2,
         1,
-        0,
-        2,
         1,
+        2,
+        2,
         2,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -55543,20 +55543,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        1
+        2
       ],
-      "sh_sum": 8,
-      "total_52": 41,
+      "sh_sum": 7,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 123,
+        "motif_hits": 125,
         "filler_n": 1,
-        "sensory_count": 62,
-        "cn_tags": 1,
+        "sensory_count": 64,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -55903,17 +55903,17 @@
       "title": "林叙看",
       "chapter": 810,
       "score_field": "13/14",
-      "body_chars": 1565,
+      "body_chars": 1632,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -55921,9 +55921,9 @@
         2,
         2,
         2,
-        2
+        1
       ],
-      "rubric_sum": 13,
+      "rubric_sum": 12,
       "pub": [
         2,
         2,
@@ -55935,20 +55935,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 110,
+        "motif_hits": 112,
         "filler_n": 4,
-        "sensory_count": 59,
-        "cn_tags": 1,
+        "sensory_count": 61,
+        "cn_tags": 2,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -56127,17 +56127,17 @@
       "title": "林彻看林夙",
       "chapter": 814,
       "score_field": "13/14",
-      "body_chars": 1560,
+      "body_chars": 1627,
       "d7": [
         2,
         1,
         1,
         2,
-        0,
+        1,
         2,
         2
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -56159,20 +56159,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 53,
+        "motif_hits": 55,
         "filler_n": 3,
-        "sensory_count": 66,
-        "cn_tags": 0,
+        "sensory_count": 68,
+        "cn_tags": 1,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -56631,27 +56631,27 @@
       "title": "苏挽端糖",
       "chapter": 823,
       "score_field": "13/14",
-      "body_chars": 1676,
+      "body_chars": 1743,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 11,
+      "d7_sum": 12,
       "rubric": [
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -56663,20 +56663,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
-      "total_52": 41,
+      "total_52": 43,
       "max_52": 52,
       "debug": {
-        "motif_hits": 126,
+        "motif_hits": 128,
         "filler_n": 0,
-        "sensory_count": 77,
-        "cn_tags": 1,
+        "sensory_count": 79,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -57079,17 +57079,17 @@
       "title": "林崇看",
       "chapter": 831,
       "score_field": "13/14",
-      "body_chars": 1560,
+      "body_chars": 1627,
       "d7": [
         2,
         1,
         1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
@@ -57111,20 +57111,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 64,
+        "motif_hits": 66,
         "filler_n": 3,
-        "sensory_count": 74,
-        "cn_tags": 0,
+        "sensory_count": 76,
+        "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -57471,13 +57471,13 @@
       "title": "林彻站",
       "chapter": 838,
       "score_field": "12/14",
-      "body_chars": 1762,
+      "body_chars": 1829,
       "d7": [
         2,
         1,
+        1,
         2,
-        2,
-        0,
+        1,
         2,
         1
       ],
@@ -57503,20 +57503,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 101,
+        "motif_hits": 103,
         "filler_n": 1,
-        "sensory_count": 53,
-        "cn_tags": 0,
+        "sensory_count": 55,
+        "cn_tags": 1,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -57919,17 +57919,17 @@
       "title": "林叙等",
       "chapter": 845,
       "score_field": "12/14",
-      "body_chars": 1603,
+      "body_chars": 1670,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 11,
+      "d7_sum": 12,
       "rubric": [
         2,
         2,
@@ -57937,9 +57937,9 @@
         2,
         2,
         2,
-        2
+        1
       ],
-      "rubric_sum": 13,
+      "rubric_sum": 12,
       "pub": [
         2,
         2,
@@ -57951,20 +57951,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 95,
+        "motif_hits": 97,
         "filler_n": 0,
-        "sensory_count": 46,
-        "cn_tags": 1,
+        "sensory_count": 48,
+        "cn_tags": 2,
         "pov_count": 2,
         "summary_words": 0,
         "judgment_words": 0
@@ -59095,7 +59095,7 @@
       "title": "林崇信",
       "chapter": 866,
       "score_field": "13/14",
-      "body_chars": 1610,
+      "body_chars": 1677,
       "d7": [
         2,
         2,
@@ -59127,19 +59127,19 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 122,
+        "motif_hits": 124,
         "filler_n": 0,
-        "sensory_count": 52,
+        "sensory_count": 54,
         "cn_tags": 1,
         "pov_count": 2,
         "summary_words": 0,
@@ -60383,7 +60383,7 @@
       "title": "苏挽在",
       "chapter": 889,
       "score_field": "12/14",
-      "body_chars": 1596,
+      "body_chars": 1663,
       "d7": [
         2,
         1,
@@ -60398,12 +60398,12 @@
         2,
         2,
         1,
-        1,
+        2,
         2,
         2,
         2
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -60415,19 +60415,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 103,
+        "motif_hits": 105,
         "filler_n": 2,
-        "sensory_count": 41,
+        "sensory_count": 43,
         "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
@@ -61055,13 +61055,13 @@
       "title": "林崇看",
       "chapter": 901,
       "score_field": "14/14",
-      "body_chars": 1858,
+      "body_chars": 1925,
       "d7": [
         2,
         1,
-        2,
-        2,
         1,
+        2,
+        2,
         2,
         0
       ],
@@ -61087,20 +61087,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         1,
-        0
+        1
       ],
-      "sh_sum": 8,
-      "total_52": 41,
+      "sh_sum": 7,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 105,
+        "motif_hits": 107,
         "filler_n": 3,
-        "sensory_count": 69,
-        "cn_tags": 1,
+        "sensory_count": 71,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 1
@@ -61503,17 +61503,17 @@
       "title": "苏挽在",
       "chapter": 909,
       "score_field": "12/14",
-      "body_chars": 1640,
+      "body_chars": 1707,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -61535,20 +61535,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 104,
+        "motif_hits": 106,
         "filler_n": 2,
-        "sensory_count": 85,
-        "cn_tags": 1,
+        "sensory_count": 87,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -61615,17 +61615,17 @@
       "title": "林崇看",
       "chapter": 911,
       "score_field": "14/14",
-      "body_chars": 1588,
+      "body_chars": 1655,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
-        0,
+        1,
         2,
         1
       ],
-      "d7_sum": 8,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
@@ -61647,20 +61647,20 @@
       "pub_sum": 12,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 69,
+        "motif_hits": 71,
         "filler_n": 1,
-        "sensory_count": 52,
-        "cn_tags": 0,
+        "sensory_count": 54,
+        "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -61727,17 +61727,17 @@
       "title": "苏挽端糖",
       "chapter": 913,
       "score_field": "12/14",
-      "body_chars": 1723,
+      "body_chars": 1790,
       "d7": [
         2,
         2,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 11,
+      "d7_sum": 12,
       "rubric": [
         2,
         2,
@@ -61759,20 +61759,20 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 107,
+        "motif_hits": 109,
         "filler_n": 0,
-        "sensory_count": 80,
-        "cn_tags": 1,
+        "sensory_count": 82,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
@@ -64863,7 +64863,7 @@
       "title": "苏挽在",
       "chapter": 969,
       "score_field": "12/14",
-      "body_chars": 1549,
+      "body_chars": 1616,
       "d7": [
         2,
         2,
@@ -64895,19 +64895,19 @@
       "pub_sum": 10,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
-      "total_52": 41,
+      "sh_sum": 6,
+      "total_52": 40,
       "max_52": 52,
       "debug": {
-        "motif_hits": 90,
+        "motif_hits": 92,
         "filler_n": 0,
-        "sensory_count": 81,
+        "sensory_count": 83,
         "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
@@ -66207,17 +66207,17 @@
       "title": "苏挽端糖",
       "chapter": 993,
       "score_field": "12/14",
-      "body_chars": 1700,
+      "body_chars": 1767,
       "d7": [
         2,
         1,
-        0,
+        1,
         2,
         2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -66239,19 +66239,19 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        1
       ],
-      "sh_sum": 7,
+      "sh_sum": 6,
       "total_52": 41,
       "max_52": 52,
       "debug": {
-        "motif_hits": 122,
+        "motif_hits": 124,
         "filler_n": 2,
-        "sensory_count": 57,
+        "sensory_count": 59,
         "cn_tags": 3,
         "pov_count": 3,
         "summary_words": 0,
@@ -66543,17 +66543,17 @@
       "title": "真合前夜",
       "chapter": 998,
       "score_field": "12/14",
-      "body_chars": 1570,
+      "body_chars": 1637,
       "d7": [
         2,
         1,
         1,
         2,
-        1,
+        2,
         2,
         1
       ],
-      "d7_sum": 10,
+      "d7_sum": 11,
       "rubric": [
         2,
         2,
@@ -66575,20 +66575,20 @@
       "pub_sum": 11,
       "sh": [
         1,
-        2,
+        0,
         2,
         2,
         0,
-        0
+        2
       ],
       "sh_sum": 7,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
-        "motif_hits": 58,
+        "motif_hits": 60,
         "filler_n": 0,
-        "sensory_count": 57,
-        "cn_tags": 1,
+        "sensory_count": 59,
+        "cn_tags": 2,
         "pov_count": 3,
         "summary_words": 0,
         "judgment_words": 0
