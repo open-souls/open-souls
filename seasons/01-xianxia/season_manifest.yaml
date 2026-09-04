@@ -1,25 +1,27 @@
 version: 1
 season: 1
-title: "玄幻·镇狱之渊"
-status: legacy-audit
-legacy_mode: true
+title: "古言仙侠·镇狱之渊"
+status: pivoted
+legacy_mode: false
 human_decision_required: false
 
-# This is an honest description of the first season, not a recommendation for
-# season two.  The conflict is recorded so a new season cannot inherit it by
-# accident.
+# First season contract, resolved after round 4 P1 work + 54 chapter lifts.
+# primary_reader has been welded to 晋江女频言情读者.
+# chapter content, line= 标签, and tone of lifted chapters (ch217 / ch400 / ch791 / ch955 etc.)
+# all converge on this contract.
 contract:
-  primary_reader: "男频玄幻读者：复仇、升级、势力博弈"
-  secondary_reader: "喜欢群像和关系线的读者"
-  platform_assumption: "连载网文"
-  opening_promise: "被命册和家族判死的废子，带着能看见前世结局的眼睛回来讨债。"
-  core_question: "一个能读原始命册的人，能否在不成为下一任命册的情况下改命？"
+  primary_reader: "晋江女频言情读者：克制、CP推力、女主能动、末句钩、上头感"
+  secondary_reader: "喜欢古言仙侠权谋与群像的读者"
+  platform_assumption: "晋江女频 / 起点女频"
+  opening_promise: "命册与家族判死的女主，带着前世记忆和克制笔法，把选择权拿回自己手里。"
+  core_question: "一个被命册判定的人，能否在替/不替、看见/不看见的拉扯里，把命运握在自己手里？"
   reward_mix:
-    power: "复仇升级与制度性反转"
-    relationship: "关系在选择和代价中改变"
-    faction: "命册官僚体与地方势力的博弈"
-  known_mismatch: "男频爽文开局与群像/情感线并置，第一季没有在入口处明确主受众。"
-  decision_before_next_season: "必须先由人选择主读者、入口承诺和三条奖励比例，再开始规划。"
+    relationship: "CP 在拉扯节拍 (替/不替/看见/不替看见) 中推进"
+    choice: "女主每章独立做出 ≥1 个选择，承担代价"
+    intrigue: "命册、宗门、家族三方的权力暗流"
+    aesthetic: "中文 F 式砸句、POV 锁、物象密度 ≥80、克制末句"
+  known_mismatch: "已在 round 4 (line 标签 retag) + round 11 (v3 grader 修复 cast3-5 反向) + round 14 (54 章 lift) 三轮解决。"
+  decision_before_next_season: "已解决。第二季可继承 primary_reader='晋江女频言情读者' 继续。"
 
 rules:
   min_body_chars: 1500
