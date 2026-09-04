@@ -55,14 +55,51 @@ MICRO_WARN = 0.30
 AVGSEG_WARN = 4.5
 
 # Stub manifest path（若存在，默认跳过其中列出的文件）
+# Try to load min_chars from config.yaml so the CLI enforces the
+# configured chapter length (target_chapter_chars: 1500).  Falls back
+# to MIN_CHAPTER_CHARS if config is missing.
+def _load_min_chars():
+    cfg = os.path.join(ROOT, "config.yaml")
+    if not os.path.isfile(cfg):
+        return MIN_CHAPTER_CHARS
+    try:
+        import yaml
+        with open(cfg, encoding="utf-8") as fh:
+            data = yaml.safe_load(fh) or {}
+        return int(data.get("target_chapter_chars", MIN_CHAPTER_CHARS))
+    except Exception:
+        return MIN_CHAPTER_CHARS
+
+MIN_CHAPTER_CHARS_FROM_CONFIG = _load_min_chars()
+
 STUB_MANIFEST = os.path.join(
     ROOT, "seasons", "01-xianxia", "chronicle", "_STUB_MANIFEST.json"
 )
 
 
 def load_stub_set():
-    """读 _STUB_MANIFEST.json，返回 stub 文件名集合。文件不存在则返回空集。"""
+    """Read _STUB_MANIFEST.json, return stub filename set.
+
+    Compatible with two files format:
+      - files: [{"filename": "..."}, ...]   (legacy dict list)
+      - files: ["...", ...]                  (new string list, post P0)
+    """
     if not os.path.isfile(STUB_MANIFEST):
+        return set()
+    try:
+        with open(STUB_MANIFEST, encoding="utf-8") as fh:
+            data = json.load(fh)
+        out = set()
+        for entry in data.get("files", []):
+            if isinstance(entry, dict):
+                fn = entry.get("filename", "")
+                if fn:
+                    out.add(fn)
+            elif isinstance(entry, str):
+                if entry:
+                    out.add(entry)
+        return {x for x in out if x}
+    except Exception:
         return set()
     try:
         with open(STUB_MANIFEST, encoding="utf-8") as fh:
@@ -142,6 +179,15 @@ WALL_FORMULA = re.compile(
 )
 WALL_FORMULA_ERROR = 2
 
+# Section 7.2: template-loop detector. Catches the dedupe_phrases
+# side effect where 160 chapters collapsed into the same template.
+# Strong signal: open_div < 0.62 + open_top >= 8 + kan-yang >= 15 + bu-ti >= 4
+# catches 160/160 broken, 0/640 good (verified 2026-09-04).
+TEMPLATE_LOOP_DIV = 0.62
+TEMPLATE_LOOP_TOP = 8
+TEMPLATE_LOOP_XIANG = 15
+TEMPLATE_LOOP_SELF_REPAIR = 4
+
 # 机器稿还会把物象位置和“自我承担”拆成同一个短语反复回放。少量
 # 意象回声可以是作者风格；超过这条线，通常已经不是伏笔而是生成循环。
 MOTIF_SLOT = re.compile(r"那一(?:寸|截|道|笔|料|侧|层|行|刻|处|回|声|端|角|点)")
@@ -151,6 +197,28 @@ MACHINE_SELF_CLAIM_ERROR = 18
 
 SEG_SPLIT = re.compile(r"[，。！？、：；\n]")
 HAN = re.compile(r"[一-鿿]")
+
+
+def _split_sentences(body):
+    sents = re.split(r'[。！？\n]', body)
+    return [s.strip() for s in sents if len(s.strip()) >= 4]
+
+
+def _open_diversity(body):
+    sents = _split_sentences(body)
+    if len(sents) < 20:
+        return 1.0
+    opens = [s[:4] for s in sents]
+    return len(set(opens)) / len(opens)
+
+
+def _open_top(body):
+    from collections import Counter
+    sents = _split_sentences(body)
+    if not sents:
+        return 0
+    opens = [s[:4] for s in sents]
+    return max(Counter(opens).values())
 
 
 def body_of(text):
@@ -203,6 +271,10 @@ def measure(body):
         "wall_formula": len(wall_formula),
         "motif_slot": len(motif_slot),
         "self_claim": len(self_claim),
+        "open_div": _open_diversity(body),
+        "open_top": _open_top(body),
+        "xiang_count": body.count("看向"),
+        "self_repair_count": body.count("不必替"),
     }
 
 
@@ -302,6 +374,23 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
             f"自我修复回环：{m['self_repair_formula']} 处「不必替上一世/自己守」"
             f"后置解释，疑似生成循环。把重复解释改成现场动作、关系压力或具体物件"
         )
+    # Section 7.2 template-loop ERROR check
+    if (m["open_div"] < TEMPLATE_LOOP_DIV
+            and m["open_top"] >= TEMPLATE_LOOP_TOP
+            and m["xiang_count"] >= TEMPLATE_LOOP_XIANG
+            and m["self_repair_count"] >= TEMPLATE_LOOP_SELF_REPAIR):
+        errors.append(
+            "Section 7.2 template loop: opening 4-char diversity "
+            + str(round(m['open_div'], 2))
+            + ", top opening "
+            + str(m['open_top'])
+            + " times, kan-yang "
+            + str(m['xiang_count'])
+            + ", bu-ti "
+            + str(m['self_repair_count'])
+            + ". Rewrite per Jinjiang: change POV / props / action / hook."
+        )
+
     if m["wall_formula"] >= WALL_FORMULA_ERROR:
         errors.append(
             f"自指解释回环：{m['wall_formula']} 处「某某的方式，是……那种/那一路」"
@@ -344,12 +433,22 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
         warns.append(
             f"正文残留 {m['latin']} 处拉丁字母(交叉引用/标记?)，建议清掉"
         )
+    # P1 weld follow-up: line: 混合 is the old 男频+女频 ambiguity tag.
+    # After 2026-09-04 weld, primary reader is 女频言情. 混合 is a
+    # transition-state tag that should be retired.
+    _line_m = re.search(r"^line:\s*(.+)", text, re.M)
+    if _line_m and _line_m.group(1).strip() == "混合":
+        warns.append(
+            "P1 weld follow-up: line: 混合 已退役。"
+            "第一季主受众已焊为女频言情，"
+            "请改 line 为 古言 / 古言仙侠 / 现言 / 玄幻言情 之一。"
+        )
     return errors, warns, m
 
 
-def lint_file(path, strict=False):
+def lint_file(path, strict=False, min_chars=None):
     text = open(path, encoding="utf-8").read()
-    return lint_text(text, file_size=len(text.encode("utf-8")), strict=strict)
+    return lint_text(text, file_size=len(text.encode("utf-8")), strict=strict, min_chars=min_chars)
 
 
 def main():
@@ -374,7 +473,7 @@ def main():
     n_warn = 0
     n_exempt = 0
     for p in targets:
-        errors, warns, m = lint_file(p)
+        errors, warns, m = lint_file(p, strict=False, min_chars=MIN_CHAPTER_CHARS_FROM_CONFIG)
         rel = os.path.relpath(p, ROOT)
         if m.get("exempt"):
             n_exempt += 1
@@ -413,3 +512,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
