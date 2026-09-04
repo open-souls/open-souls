@@ -129,3 +129,78 @@
 - `5f5825e1` round 11: v3 grader (fixed cast3-5 bug + 上瘾 dimensions)
 - 下一批 lift 完成后 commit
 
+
+
+---
+
+## 六、P4 实操 lift 累计（3 章）
+
+### 6.1 已 lift 章节表
+
+| 章 | 原 chars | 现 chars | 原 v3 总分 | 现 v3 总分 | 原 tier | 现 tier | 升幅 |
+|---|---|---|---|---|---|---|---|
+| ch791-林崇看 | 375 | 1679 | 31 | 38 | C | A | +7 |
+| ch835-林叙等 | 374 | 1603 | 30 | 37 | C | A | +7 |
+| ch855-林叙等 | 384 | 1677 | 31 | 38 | C | A | +7 |
+
+**3/3 全部从 C tier 升到 A tier**。每个 lift 平均 +7 分（v3 满分 52）。
+
+### 6.2 升幅原因分析
+
+- body_chars 全部 >=1600
+- 物象密度 76-94 (v2 模板章节物象只有 6-10)
+- 感官词 57-60 (v2 模板章节 1-2)
+- POV 锁 + F 式对话 + 克制末句 (ch217 7-pattern 全部到位)
+
+### 6.3 可复制性验证
+
+3 个章节用同一个 7-pattern 模板:
+1. 开篇 POV 锁 + 物象锚点
+2. 物象密度 8+ (这里做到 76-94)
+3. 潜台词 三层 (重复堆压力/行动代心理/物象代判断)
+4. F 式对话 >=3 处 (嗯/在/敢/站了多久是我的事)
+5. POV 锁 (只见主角判断)
+6. 克制 = 无总结 (末句 没蘸墨/让他自己带回)
+7. 关系推力 (ch791: 替他描了三十年，今天不描了 / ch835: 站了多久是我的事，替不替她等是另一件事)
+
+每个 lift 都遵循这 7 条，且都达成 A tier。
+
+---
+
+## 七、剩余 stub 章节 (v3 C tier = 54 章)
+
+### 7.1 剩余 stub 分布
+
+按 v3 grader, C tier = 54 章，其中 **stub (<500 chars) 30 章**, thin chapter 24 章。
+
+Stub 集中分布:
+- ch835/855/875/895/915/935/955/975/995 = 林叙等 template (剩 7 章)
+- ch791/871/901/921/941/961/981 = 林崇看 template (剩 6 章)
+- 其他 (14 章)
+
+### 7.2 预估工时
+
+- 每个 stub -> A chapter 需要 ~1700 chars 原创内容
+- 每个章节 ~10 分钟
+- 30 stubs × 10 分钟 = 5 小时集中工时
+
+### 7.3 待用户决策
+
+- 继续 lift 30 stubs (5 小时)?
+- 删除部分 stub + lift 其余 (保留 chapter 编号连贯)?
+- 保留 stub manifest 状态，不动 1191 章框架?
+
+---
+
+## 八、本轮产出 (更新)
+
+### 已 commit
+- `5f5825e1` round 11: v3 grader (fixed cast3-5 bug + 上瘾 dimensions)
+- `7fbc2a8d` P4 lift ch791-林崇看
+- `d217d775` P4 lift ch835-林叙等
+- `f0108e63` P4 lift ch855-林叙等
+
+### 文件
+- `prompts/.notes/_grade_chapters_v3.py` — v3 grader
+- `prompts/.notes/2026-09-04-quality-grades-v3.json` — 1192 章评分
+- `prompts/.notes/2026-09-04-jinjiang-round11-note.md` — 本文档
