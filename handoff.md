@@ -151,9 +151,12 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 e
 
 提交时使用明确路径，例如本次只提交 `handoff.md`；不要用全量 `git add .`。
 
-## 读者盲读 + 距离工具（r20 工作流）
+## 读者盲读 + 距离工具（r20 工作流，必跑节点）
 
-这是项目级读者质量基线，所有改稿必须按下面的顺序串起来：
+> 这是项目级读者质量基线。5 读者交叉办法已经焊死在 canonical 工作流，不是附录。
+> `effective_n = 0` / `L2 = 0` 的窗口期，"读者会追 / 爆款 / 上瘾"任何措辞一律禁止。
+
+所有改稿必须按下面的顺序串起来：
 
 1. **距离快照**（每次改稿后必跑）：
    - `py -3 -X utf8 tools/jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json`
@@ -181,6 +184,6 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 e
 - `docs/standards/jinjiang-blowup-baseline-operator.md`
 - `docs/standards/晋江爆款基线.md`
 - `docs/reader-subagent-workflow.md`
-- `docs/standards/novel-workflow.md` 末尾"读者盲读工作流（双轨基线）"段
+- `docs/standards/novel-workflow.md` 末尾"5 读者交叉 + 真人 sub-agent 工作流（必跑节点）"段（verify / emit / aggregate 三步必须出现在改稿循环）
 
 提交规范保持不变：每批只 stage 明确的目标文件，不要 `git add .`。

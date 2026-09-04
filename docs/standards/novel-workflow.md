@@ -107,14 +107,74 @@ or advance `plot_state`.
 mock 只证明门禁和状态写入顺序，不证明文学质量。真正的章节仍需要独立文笔、连续性、
 人物能动性和安全审稿。
 
-## 附 · 读者盲读工作流（双轨基线）
 
-写作循环必须挂上读者盲读工作流：先跑盲读→驱动改稿→再跑盲读→聚合。
+## 附 · 5 读者交叉 + 真人 sub-agent 工作流（必跑节点）
 
-- 工作流：docs/reader-subagent-workflow.md（含 5 份 L1 + ≥1 份 L2）。
-- 工程基线：docs/standards/晋江爆款基线.md（E1–E5）。
-- 真人基线：docs/standards/晋江爆款基线.md（R1–R5）。
-- 跑法：py -3 -X utf8 tools/reader_panel_runner.py {regenerate|check|aggregate|emit-prompt <1-5>}。
+这一节不是附录，是 canonical 工作流的固定节点。任何改稿循环在动笔前、动笔后都要按
+下面序列跑完，缺一不可。背景解释放在 `docs/reader-subagent-workflow.md`，工程实现细节
+放在 `docs/standards/jinjiang-blowup-baseline-operator.md` §5/§8/§9，
+这里只负责把"必跑"焊死在主流程。
 
-工程分不替代真人分；真人分不替代工程分；任一低于 7.0 禁止聚合判断。
+### 为什么是 5 份 L1 + ≥1 份 L2，不是一份 L1 自己读
 
+- 模型代理不等于真人读者。一份 L1 没有任何"多名读者共同"的意义。
+- 5 份 L1 的价值不在于"平均意见"，在于交叉协议：每份 persona 必须挂不同的
+  keep_if / drop_if / must_disagree_with，必须被分配到不同的 drop_chapter、
+  love_relation、next_chapter_focus，否则就是复读嫌疑。
+- L2 真人 sub-agent / 真人读者至少 1 份是升级判定的硬门槛。L2 = 0 时任何"读者会追 /
+  爆款 / 上瘾"判断一律禁止，这是工程层硬约束，不是软建议。
+
+### 改稿前必跑（动笔前）
+
+1. 锁距离快照
+   `py -3 -X utf8 tools/jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json`
+   `reports/jinjiang-r20/distance-summary.md` 是本工作树距离晋江爆款的诚实答案。
+2. 锁 5 份 L1 交叉协议
+   `py -3 -X utf8 tools/reader_subagent_driver.py verify`
+   任一轴（drop_chapter / love_relation / next_chapter_focus）退化就视为复读嫌疑，
+   echo_panel 翻 True。verify 只校验"形式上的差异化"，真正的差异化来自下一节 emit。
+3. 生成 5 份 persona prompt + 1 份 L2 真人 sub-agent prompt
+   `py -3 -X utf8 tools/reader_subagent_driver.py emit`
+   每份 prompt 内嵌唯一的 isolation.persona_seed、独立的 rotation，
+   落到 `reports/jinjiang-r20/reader-prompt-{1..5}.txt` 与 `reports/jinjiang-r20/reader-prompt-real.txt`。
+4. 跑盲读聚合 baseline
+   `py -3 -X utf8 tools/reader_panel_runner.py check`
+   `py -3 -X utf8 tools/reader_panel_runner.py aggregate`
+   把 baseline 的 effective_n / diversity_score / echo_panel 写入
+   `reports/jinjiang-r20/reader-blindtest-results.md` 的"轮次对比"段。
+
+### 改稿后必跑（动笔后）
+
+1. 重跑距离快照，对比 bottom-list 与 gate 计数。
+2. 复跑 verify + emit（同 pack_hash 下不需要 --new-seed；如果刷新了盲读包，必须 --new-seed 并把
+   旧 `reports/jinjiang-r20/blindtest_packs/*.md` 归档到 `reports/jinjiang-r20/panel_<date>/`）。
+3. 复跑 check + aggregate，把 effective_n / diversity_score / 升级项 diff 写入
+   `reports/jinjiang-r20/reader-blindtest-results.md` 的"轮次对比"段。
+4. `tools/reader_panel_runner.py check` 会自动把缺 modern provenance 的"真人"文件名文件降级
+   为 L1 并打印原因。真人 sub-agent 回填的 JSON 必须带齐 schema_version=2 / model_id /
+   reading_log / pack_hash / isolation 双证据，缺一项就当 L1。
+
+### 真人 sub-agent / 真人读者的安排
+
+- 真人 sub-agent 通过 `agent-relay delegate --backend claude-task --task <prompt-file>`
+  跑独立 fork 会话，独立 cwd 启动，JSON 里 self-attest isolation.no_chronicle = true、
+  isolation.no_frontmatter = true，source 字段以"真人 sub-agent"开头。
+- 当真人 sub-agent 大于等于 3 份时，结构任务升级规则切换为"真人 sub-agent 不少于 3 人同点，才升级"。
+- 大于等于 1 份真人读者 + 大于等于 2 份真人 sub-agent 才视为 L2 完整。
+- L2 真实样本 = 0 时禁止使用"读者确认 / 读者会追 / 上瘾 / 爆款"判断。
+
+### 与改稿循环的硬耦合（不可省略）
+
+- 改稿前没跑盲读 → 不准下笔。
+- 改稿后没跑盲读复测 → 不准 commit。
+- 一次大于等于 3 章改稿后必须跑一次 aggregate，把 effective_n / diversity_score / 升级项 diff
+  写入"轮次对比"段。
+- 跨章节大于等于 30 章累计改稿后，必须把 persona 池与盲读包范围（开篇/中段 A/中段 B/最新）
+  一起刷新，旧 pack 归档到 `reports/jinjiang-r20/panel_<date>/`。
+
+### 当前会话的现实（截至 2026-09-04）
+
+- effective_n = 0：所有"真人"文件名文件因缺少 modern provenance 被降级为 L1。
+- echo_panel = True：5 份 L1 flag Jaccard 仅 0.167，复读嫌疑高。
+- 在 effective_n 大于等于 3 + diversity_score 大于等于 0.5 + L2 大于等于 1 三项同时满足之前，
+  本节描述的工作流只能跑 verify / emit / aggregate 骨架，不能跑出"读者会追"以外的升级证据。

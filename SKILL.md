@@ -20,16 +20,25 @@ description: >
 - **追一个角色的线**：`souls/角色名/dossier.md`；总名册 `CAST.md`。
 - **调写手手感**：改 `writer/playbook.md`(桥段库)、`writer/rubric.md`(上线评分)、`config.yaml`(篇幅/节奏/rating)。
 
-## 距离工具 + 读者盲读（r20 双轨基线，磨斧头）
+## 5 读者交叉 + 距离工具（r20 双轨基线，必跑节点）
 
-改稿必须按下面顺序串起来，禁止跳步：
+5 读者交叉办法已经焊死在 canonical 工作流。任何改稿循环必须按下面顺序串起来，禁止跳步：
 
 ```text
-改稿 → engine/prose_lint.py → tools/review_batch.py --strict-editorial
-     → tools/jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json
-     → tools/reader_subagent_driver.py verify
-     → tools/reader_panel_runner.py check
-     → tools/reader_panel_runner.py aggregate
+[改稿前必跑]
+  跑盲读包     py -3 -X utf8 tools\reader_blindtest_pack.py
+  交叉协议锁   py -3 -X utf8 tools\reader_subagent_driver.py verify
+  生成 5+1 prompt   py -3 -X utf8 tools\reader_subagent_driver.py emit
+  聚合 baseline    py -3 -X utf8 tools\reader_panel_runner.py check
+                   py -3 -X utf8 tools\reader_panel_runner.py aggregate
+  ↓
+[动笔]
+  改稿 + tools/review_batch.py --strict-editorial + engine/prose_lint.py
+  ↓
+[改稿后必跑]
+  距离快照     py -3 -X utf8 tools\jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json
+  复跑 verify + emit（同 pack_hash 不需要 --new-seed；刷新包必须 --new-seed 并归档旧 pack）
+  复跑 check + aggregate
 ```
 
 - 距离快照：`reports/jinjiang-r20/distance-summary.md` 是当前工作树距离晋江爆款的诚实答案。
@@ -38,17 +47,22 @@ description: >
   1 份 L2 真人 sub-agent prompt；每个 persona 内嵌不同的 `isolation.persona_seed`、
   `drop_chapter`、`drop_pack`、`love_relation`、`next_chapter_focus`。`verify` 子命令会
   锁定每条轴 >= 4 个不同值；任一轴退化就视为复读嫌疑，echo_panel 翻 True。
+- 真人 sub-agent 通过 `agent-relay delegate --backend claude-task --task <prompt-file>`
+  跑独立 fork 会话，独立 cwd 启动。回填 JSON 必须带齐 schema_version=2、model_id、
+  reading_log、pack_hash、isolation 双证据，缺一项 `check` 自动降级为 L1。
 - 真人 sub-agent / 真人读者回填 `reports/jinjiang-r20/reader-N.json` 之后，必须 `check + aggregate`。
 - 硬约束（与 `docs/standards/晋江爆款基线.md` 一致）：
   - 工程分 < 7.0 → 不进盲读池。
   - 真人分 < 7.0 → 不进发布候选。
   - `L2 = 0` → 任何爆款 / 上瘾 / 读者会追判断禁止。
   - `effective_n < 3` 或 `diversity_score < 0.5` → 不升级。
+  - 改稿前没跑盲读 → 不准下笔。改稿后没跑盲读复测 → 不准 commit。
 
 详见：
-- `docs/standards/jinjiang-blowup-baseline-operator.md`
-- `docs/standards/晋江爆款基线.md`
-- `docs/reader-subagent-workflow.md`
+- `docs/standards/jinjiang-blowup-baseline-operator.md`（§5/§8/§9 工程实现）
+- `docs/standards/晋江爆款基线.md`（E1–E5 + R1–R5 阈值）
+- `docs/reader-subagent-workflow.md`（persona 池 + 隔离协议）
+- `docs/standards/novel-workflow.md` 末尾"5 读者交叉 + 真人 sub-agent 工作流（必跑节点）"段（这是 canonical 主流程的固定节点，不是附录）
 - `handoff.md` 末尾"读者盲读 + 距离工具（r20 工作流）"段。
 
 ## 工序（engine/writer.py）
