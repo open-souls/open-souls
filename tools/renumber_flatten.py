@@ -17,6 +17,10 @@ DRY = "--apply" not in sys.argv
 
 _D = "零一二三四五六七八九"
 def cn(n):
+    if n >= 1000:
+        t, o = divmod(n, 1000)
+        prefix = cn(t) + "千"
+        return prefix + (cn(o) if o else "")
     if n < 10: return _D[n]
     if n < 20: return "十" + (_D[n % 10] if n % 10 else "")
     if n < 100:
@@ -47,7 +51,7 @@ def collect():
     items = []  # dict: path, dir, cur(int main)/None, anchor, code, fm, body, raw
     for d, src in (("chron", CHRON), ("inter", INTER)):
         for p in glob.glob(os.path.join(src, "*.md")):
-            if os.path.basename(p) == "INDEX.md": continue
+            if os.path.basename(p) in {"INDEX.md", "test_write.md"}: continue
             raw = open(p, encoding="utf-8").read()
             fmtext, body, _ = fm_block(raw)
             if fmtext is None: continue
