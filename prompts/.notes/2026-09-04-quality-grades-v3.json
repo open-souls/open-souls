@@ -54727,55 +54727,55 @@
       "title": "林崇看",
       "chapter": 791,
       "score_field": "14/14",
-      "body_chars": 375,
+      "body_chars": 1679,
       "d7": [
-        1,
         2,
         1,
         1,
-        0,
         2,
-        1
+        2,
+        2,
+        0
       ],
-      "d7_sum": 8,
+      "d7_sum": 10,
       "rubric": [
         2,
         2,
         0,
-        1,
         2,
-        1,
+        2,
+        2,
         2
       ],
-      "rubric_sum": 10,
+      "rubric_sum": 12,
       "pub": [
         2,
         2,
         2,
         2,
-        1,
+        0,
         2
       ],
-      "pub_sum": 11,
+      "pub_sum": 10,
       "sh": [
-        1,
         0,
-        0,
-        1,
+        2,
+        2,
+        2,
         0,
         0
       ],
-      "sh_sum": 2,
-      "total_52": 31,
+      "sh_sum": 6,
+      "total_52": 38,
       "max_52": 52,
       "debug": {
-        "motif_hits": 16,
-        "filler_n": 0,
-        "sensory_count": 11,
-        "cn_tags": 0,
-        "pov_count": 2,
+        "motif_hits": 94,
+        "filler_n": 4,
+        "sensory_count": 57,
+        "cn_tags": 2,
+        "pov_count": 3,
         "summary_words": 0,
-        "judgment_words": 0
+        "judgment_words": 1
       }
     },
     {
