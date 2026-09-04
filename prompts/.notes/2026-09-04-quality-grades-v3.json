@@ -11271,21 +11271,21 @@
       "title": "称人",
       "chapter": 202,
       "score_field": "13/14",
-      "body_chars": 2266,
+      "body_chars": 2288,
       "d7": [
         2,
-        1,
+        2,
         1,
         2,
         2,
         0,
         1
       ],
-      "d7_sum": 9,
+      "d7_sum": 10,
       "rubric": [
-        2,
-        2,
         1,
+        2,
+        2,
         2,
         2,
         2,
@@ -11310,7 +11310,7 @@
         2
       ],
       "sh_sum": 11,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
         "motif_hits": 105,
@@ -53943,7 +53943,7 @@
       "title": "见",
       "chapter": 777,
       "score_field": "13/14",
-      "body_chars": 1940,
+      "body_chars": 1956,
       "d7": [
         2,
         1,
@@ -53957,13 +53957,13 @@
       "rubric": [
         2,
         2,
-        1,
+        2,
         2,
         2,
         2,
         1
       ],
-      "rubric_sum": 12,
+      "rubric_sum": 13,
       "pub": [
         2,
         2,
@@ -53982,7 +53982,7 @@
         2
       ],
       "sh_sum": 11,
-      "total_52": 41,
+      "total_52": 42,
       "max_52": 52,
       "debug": {
         "motif_hits": 98,
