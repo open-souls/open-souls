@@ -60719,27 +60719,27 @@
       "title": "林叙等",
       "chapter": 895,
       "score_field": "14/14",
-      "body_chars": 378,
+      "body_chars": 2411,
       "d7": [
-        1,
         2,
         1,
         1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "d7_sum": 9,
+      "rubric": [
+        1,
+        2,
         0,
+        2,
+        2,
         2,
         1
       ],
-      "d7_sum": 8,
-      "rubric": [
-        2,
-        2,
-        0,
-        2,
-        2,
-        1,
-        2
-      ],
-      "rubric_sum": 11,
+      "rubric_sum": 10,
       "pub": [
         2,
         2,
@@ -60751,23 +60751,23 @@
       "pub_sum": 11,
       "sh": [
         0,
-        0,
-        0,
+        2,
         1,
+        2,
         0,
         0
       ],
-      "sh_sum": 1,
-      "total_52": 31,
+      "sh_sum": 5,
+      "total_52": 35,
       "max_52": 52,
       "debug": {
-        "motif_hits": 16,
+        "motif_hits": 178,
         "filler_n": 0,
-        "sensory_count": 11,
-        "cn_tags": 0,
+        "sensory_count": 82,
+        "cn_tags": 1,
         "pov_count": 3,
         "summary_words": 0,
-        "judgment_words": 0
+        "judgment_words": 1
       }
     },
     {
