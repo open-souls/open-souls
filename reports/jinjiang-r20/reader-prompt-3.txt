@@ -1,0 +1,8 @@
+请以「晋江现言读者跨题材测试」视角独立阅读以下 4 个盲读包：
+  - reports/jinjiang-r20/blindtest_packs/open.md
+  - reports/jinjiang-r20/blindtest_packs/mid_a.md
+  - reports/jinjiang-r20/blindtest_packs/mid_b.md
+  - reports/jinjiang-r20/blindtest_packs/latest.md
+禁止阅读 chronicle 原档、frontmatter、review、score 或 grader 输出。
+请以结构化 JSON 返回，字段：id / label / perspective / drop / love_relation / next_chapter_focus / stay_to_50 / stay_reason / pattern_flags（必须含 info_not_action / smart_drop / passive_chain 三键）/ source。
+source 字段必须写明「真人 sub-agent（独立 fork 模型会话）」。

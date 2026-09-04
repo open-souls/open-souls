@@ -106,3 +106,15 @@ or advance `plot_state`.
 
 mock 只证明门禁和状态写入顺序，不证明文学质量。真正的章节仍需要独立文笔、连续性、
 人物能动性和安全审稿。
+
+## 附 · 读者盲读工作流（双轨基线）
+
+写作循环必须挂上读者盲读工作流：先跑盲读→驱动改稿→再跑盲读→聚合。
+
+- 工作流：docs/reader-subagent-workflow.md（含 5 份 L1 + ≥1 份 L2）。
+- 工程基线：docs/standards/晋江爆款基线.md（E1–E5）。
+- 真人基线：docs/standards/晋江爆款基线.md（R1–R5）。
+- 跑法：py -3 -X utf8 tools/reader_panel_runner.py {regenerate|check|aggregate|emit-prompt <1-5>}。
+
+工程分不替代真人分；真人分不替代工程分；任一低于 7.0 禁止聚合判断。
+
