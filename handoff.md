@@ -150,3 +150,37 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 e
 - `seasons/01-xianxia/chronicle/ch789-苏挽在.md.bak`。
 
 提交时使用明确路径，例如本次只提交 `handoff.md`；不要用全量 `git add .`。
+
+## 读者盲读 + 距离工具（r20 工作流）
+
+这是项目级读者质量基线，所有改稿必须按下面的顺序串起来：
+
+1. **距离快照**（每次改稿后必跑）：
+   - `py -3 -X utf8 tools/jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json`
+   - 同步查看 `reports/jinjiang-r20/distance-summary.md`。这是当前工作树距离晋江爆款的诚实答案；
+     在 `effective_n = 0` / `L2 = 0` 时，任何"接近爆款""读者会追""上瘾"类判断一律禁止。
+2. **盲读包 + 五读者交叉协议**：
+   - `py -3 -X utf8 tools/reader_panel_runner.py regenerate` 生成 4 包。
+   - `py -3 -X utf8 tools/reader_subagent_driver.py verify` 检查交叉协议 5 份 L1 的 drop_chapter / love_relation / next_chapter_focus 是否各自 >= 4 个不同值。
+   - `py -3 -X utf8 tools/reader_subagent_driver.py emit` 生成 5 份 persona prompt + 1 份 L2 真人 sub-agent prompt，每个 persona prompt 内嵌 isolation.persona_seed 和确定性 rotation。
+   - 真人 sub-agent / 真人读者回填的 JSON 落 `reports/jinjiang-r20/reader-N.json` 后，再跑：
+     - `py -3 -X utf8 tools/reader_panel_runner.py check`
+     - `py -3 -X utf8 tools/reader_panel_runner.py aggregate`
+3. **每批改稿必跑的门**（顺序固定，不允许跳过）：
+   - `py -3 -X utf8 engine/prose_lint.py <目标章>`
+   - `py -3 -X utf8 tools/review_batch.py --strict-editorial --file <目标章>`
+   - 复跑第 1 步的距离工具，对比 bottom-list 与 gate 计数。
+   - 复跑第 2 步的盲读聚合，把 effective_n / diversity_score / 升级项 diff 写入 `reports/jinjiang-r20/reader-blindtest-results.md` 的轮次对比段。
+4. **不可越线的硬约束**（与 `docs/standards/晋江爆款基线.md` 一致）：
+   - 工程分不替代真人分；真人分不替代工程分；任一低于 7.0 禁止聚合判断。
+   - `L2 = 0` 时，禁止在 README / 报告 / 群里使用"读者会追 / 爆款 / 上瘾"。
+   - L1 unanimous 在 `echo_panel = True` 时不构成多人共识。
+   - `engine/prose_lint.py` 是地板，通过不等于合格；`tools/chapter_by_chapter_audit.py` 是初筛；`tools/jinjiang_rubric.py` 是工程 5 维；`tools/reader_panel_runner.py` 是真人 5 维；四道门按序串行。
+
+具体执行命令、协议细节和失败模式见：
+- `docs/standards/jinjiang-blowup-baseline-operator.md`
+- `docs/standards/晋江爆款基线.md`
+- `docs/reader-subagent-workflow.md`
+- `docs/standards/novel-workflow.md` 末尾"读者盲读工作流（双轨基线）"段
+
+提交规范保持不变：每批只 stage 明确的目标文件，不要 `git add .`。

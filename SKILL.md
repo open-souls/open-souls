@@ -20,6 +20,37 @@ description: >
 - **追一个角色的线**：`souls/角色名/dossier.md`；总名册 `CAST.md`。
 - **调写手手感**：改 `writer/playbook.md`(桥段库)、`writer/rubric.md`(上线评分)、`config.yaml`(篇幅/节奏/rating)。
 
+## 距离工具 + 读者盲读（r20 双轨基线，磨斧头）
+
+改稿必须按下面顺序串起来，禁止跳步：
+
+```text
+改稿 → engine/prose_lint.py → tools/review_batch.py --strict-editorial
+     → tools/jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json
+     → tools/reader_subagent_driver.py verify
+     → tools/reader_panel_runner.py check
+     → tools/reader_panel_runner.py aggregate
+```
+
+- 距离快照：`reports/jinjiang-r20/distance-summary.md` 是当前工作树距离晋江爆款的诚实答案。
+  在 `effective_n = 0` 或 `L2 = 0` 的窗口期，禁止使用任何"读者会追 / 爆款 / 上瘾"类措辞。
+- 五读者交叉协议：`tools/reader_subagent_driver.py emit` 一次性出 5 份 persona prompt +
+  1 份 L2 真人 sub-agent prompt；每个 persona 内嵌不同的 `isolation.persona_seed`、
+  `drop_chapter`、`drop_pack`、`love_relation`、`next_chapter_focus`。`verify` 子命令会
+  锁定每条轴 >= 4 个不同值；任一轴退化就视为复读嫌疑，echo_panel 翻 True。
+- 真人 sub-agent / 真人读者回填 `reports/jinjiang-r20/reader-N.json` 之后，必须 `check + aggregate`。
+- 硬约束（与 `docs/standards/晋江爆款基线.md` 一致）：
+  - 工程分 < 7.0 → 不进盲读池。
+  - 真人分 < 7.0 → 不进发布候选。
+  - `L2 = 0` → 任何爆款 / 上瘾 / 读者会追判断禁止。
+  - `effective_n < 3` 或 `diversity_score < 0.5` → 不升级。
+
+详见：
+- `docs/standards/jinjiang-blowup-baseline-operator.md`
+- `docs/standards/晋江爆款基线.md`
+- `docs/reader-subagent-workflow.md`
+- `handoff.md` 末尾"读者盲读 + 距离工具（r20 工作流）"段。
+
 ## 工序（engine/writer.py）
 策划(定钩子/反差/桥段) → 写手(好模型写正文) → 审校(打分+安全审查，不过线重写一次才上线)。
 硬线：露骨性行为 / 自我伤害 / 未成年——永久卡死，与 rating 无关。
