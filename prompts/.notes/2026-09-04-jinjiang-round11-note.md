@@ -204,3 +204,75 @@ Stub 集中分布:
 - `prompts/.notes/_grade_chapters_v3.py` — v3 grader
 - `prompts/.notes/2026-09-04-quality-grades-v3.json` — 1192 章评分
 - `prompts/.notes/2026-09-04-jinjiang-round11-note.md` — 本文档
+
+---
+
+## 九、P4 lift 第 5 章 (ch875) — 更新累计
+
+### 9.1 5 章 lift 累计
+
+| 章 | 原 chars | 现 chars | v3 总分 | tier 升 | commit |
+|---|---|---|---|---|---|
+| ch791-林崇看 | 375 | 1679 | 31 → 38 | C → A | 7fbc2a8d |
+| ch835-林叙等 | 374 | 1603 | 30 → 37 | C → A | d217d775 |
+| ch855-林叙等 | 384 | 1677 | 31 → 38 | C → A | f0108e63 |
+| ch901-林崇看 | 368 | 1815 | 30 → 39 | C → A | 727815c2 |
+| ch875-林叙等 | 368 | 1803 | 30 → 37 | C → A | d910c988 |
+
+**5/5 全部 C → A，平均 +7 分 /52 / +24%**。
+
+### 9.2 C tier 进度
+
+- v3 初评 C tier = 54 章（30 stub + 24 thin）
+- 已 lift 5 章 = 剩 49 章
+- 每章平均需要 ~10 分钟 lift + 验证
+
+### 9.3 模板分类与剩余 stub
+
+林叙等 template (ch835/855/875/895/915/935/955/975/995): 已 lift 3, 剩 6
+林崇看 template (ch791/871/901/921/941/961/981): 已 lift 2, 剩 5
+
+剩 ~11 章相同模板可在 2 小时内 lift 完
+剩 ~13 章其他模板（灶边/苏挽在/林彻站/林窈跟 等）需新增构思
+剩 ~24 章 thin chapter（1500-2500 chars 但内容单薄）需结构性改写
+
+### 9.4 总工时预估
+
+- 同模板 lift 11 章：~110 分钟
+- 其他模板 13 章：~150 分钟
+- thin chapter 24 章：~360 分钟
+- 合计 ~620 分钟 = 10.3 小时
+
+### 9.5 风险
+
+- 同模板多次 lift 后，可能让读者感觉重复 — 需在文本上做差异化
+- thin chapter 改写需要保留作者风格 — 不能用 AI 通用句式
+- 作者声音保护 > 30-分 模板套用
+
+---
+
+## 十、本轮最终产出
+
+### Commits
+1. `0202affe` round 10: assessment
+2. `5f5825e1` round 11: v3 grader
+3. `7fbc2a8d` P4 lift ch791
+4. `d217d775` P4 lift ch835
+5. `f0108e63` P4 lift ch855
+6. `46d01acd` round 11 note update
+7. `727815c2` P4 lift ch901
+8. `d910c988` P4 lift ch875
+
+### 累计效果
+
+- **机器面板**：lint 1 ERROR (ch721) / 3 WARN（保持）
+- **pytest**：57 passed（保持）
+- **v3 grader C tier**：54 → 49 章（lift 5 章减少 5）
+- **v3 grader A tier**：577 → 580 章（lift 5 章进入 A）
+- **Lifted 章节**：375 → 1679/1603/1677/1815/1803 chars 平均 +1300 chars/章
+
+### 下一轮候选 (按优先级)
+
+1. **继续 lift 同模板 11 章**：~110 分钟
+2. **新增 v3 grader 上瘾阈值调整**（让 d7.7 克制检测更准）
+3. **真读者试读 5-10 章 A+ 候选**（ch217/ch204/ch510/ch849/ch851 + 5 章 lifted）
