@@ -27,8 +27,11 @@ def split_front_matter(text: str):
     cur_key = None
     cur_buf = []
     for line in head.splitlines():
-        if line.startswith("  ") and cur_key:
-            cur_buf.append(line[2:])
+        # Accept either 1+ or 2+ space indent for continuation
+        if (line.startswith("  ") or line.startswith(" ")) and cur_key and line != cur_key + ":":
+            # strip the leading whitespace (1 or 2 chars)
+            stripped = line.lstrip(" ")
+            cur_buf.append(stripped)
             continue
         if cur_key:
             out[cur_key] = "\n".join(cur_buf).strip()

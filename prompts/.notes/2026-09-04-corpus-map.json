@@ -3,9 +3,9 @@
     "total_chapters": 1190,
     "avg_body_chars": 2302.7,
     "short_chapters_lt1500": 80,
-    "hook_evidence_fail": 123,
+    "hook_evidence_fail": 0,
     "template_loop_count": 24,
-    "no_ships": 20,
+    "no_ships": 19,
     "no_pov": 0,
     "no_line": 0,
     "line_hunhe": 0,
@@ -30,9 +30,8 @@
       "500-1000": 80
     },
     "score30_dist": {
-      "26-28分(2-3 gap)": 1027,
-      "接近30分(0-1 gap)": 161,
-      "22-25分(4-5 gap)": 2
+      "26-28分(2-3 gap)": 1017,
+      "接近30分(0-1 gap)": 173
     },
     "top_titles": [
       [
@@ -923,11 +922,11 @@
       "thread_len": 29,
       "beat_len": 10,
       "hook": {
-        "hook_text": "验境散场，林崇留下了一句\"明日苏家来走退婚文书，我让三公子代为接待\"——这话是说给所有人听的。林窈的耳尖红了一下。夜里，牛阿大离开耳房时嘟囔了一句\"林窈小姐那个配方子，不是照着三公子用的那副，是照着比那副再轻两分的\"——声音小到几乎被廊下的风吃掉，但林夙听见了。",
-        "len": 131,
-        "first8": "验境散场，林崇留",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "三重的门槛，他估计还有五十天。大比还有整整两个月。够用。",
+        "len": 28,
+        "first8": "三重的门槛，他估",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 89,
       "metrics": {
@@ -959,7 +958,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -13453,11 +13451,11 @@
       "thread_len": 16,
       "beat_len": 32,
       "hook": {
-        "hook_text": "灰圈中间写着一个刚干的字：「去。」",
-        "len": 17,
-        "first8": "灰圈中间写着一个",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "那根烧黑的木签留下的一小圈灰。灰圈中间，写着一个刚干的字：」",
+        "len": 30,
+        "first8": "那根烧黑的木签留",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 69,
       "metrics": {
@@ -13489,7 +13487,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -13801,11 +13798,11 @@
       "thread_len": 14,
       "beat_len": 30,
       "hook": {
-        "hook_text": "纸背透出一个字：「叶。」车轮停在宗门外。",
-        "len": 20,
-        "first8": "纸背透出一个字：",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "墙那道沉门，被人从外头推开了。纸背上的墨，慢慢透出一个字。」",
+        "len": 30,
+        "first8": "墙那道沉门，被人",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 65,
       "metrics": {
@@ -13837,7 +13834,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -14205,11 +14201,11 @@
       "thread_len": 14,
       "beat_len": 43,
       "hook": {
-        "hook_text": "门外传来叶观澜的声音：「林夙。」",
-        "len": 16,
-        "first8": "门外传来叶观澜的",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "随后，叶观澜的声音隔着门传进来",
+        "len": 15,
+        "first8": "随后，叶观澜的声",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 63,
       "metrics": {
@@ -14241,7 +14237,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -14497,7 +14492,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 921,
       "metrics": {
         "body_chars": 2971,
         "sentences": 161,
@@ -15246,7 +15241,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 1280,
       "metrics": {
         "body_chars": 2680,
         "sentences": 168,
@@ -15600,7 +15595,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 1756,
       "metrics": {
         "body_chars": 1989,
         "sentences": 115,
@@ -15717,7 +15712,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 1140,
       "metrics": {
         "body_chars": 1925,
         "sentences": 103,
@@ -15777,7 +15772,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 1533,
       "metrics": {
         "body_chars": 1937,
         "sentences": 97,
@@ -15898,7 +15893,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1712,
+      "review_len": 1692,
       "metrics": {
         "body_chars": 2136,
         "sentences": 124,
@@ -15956,7 +15951,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1385,
+      "review_len": 1367,
       "metrics": {
         "body_chars": 2871,
         "sentences": 133,
@@ -16008,11 +16003,11 @@
       "thread_len": 14,
       "beat_len": 25,
       "hook": {
-        "hook_text": "纸上写着：「从你被送来的地方开始。」",
-        "len": 18,
-        "first8": "纸上写着：「从你",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "石阶上的霜被她踩",
+        "len": 8,
+        "first8": "石阶上的霜被她踩",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 73,
       "metrics": {
@@ -16044,7 +16039,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -16068,13 +16062,13 @@
       "thread_len": 15,
       "beat_len": 35,
       "hook": {
-        "hook_text": "",
-        "len": 0,
-        "first8": "",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "糖纸在袖里轻轻响了一声。北风把笑声吹远。远了。",
+        "len": 23,
+        "first8": "糖纸在袖里轻轻响",
+        "first8_in_body": true,
+        "evidence": true
       },
-      "review_len": 1,
+      "review_len": 872,
       "metrics": {
         "body_chars": 2080,
         "sentences": 142,
@@ -16104,7 +16098,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -16134,7 +16127,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1040,
+      "review_len": 1016,
       "metrics": {
         "body_chars": 2088,
         "sentences": 106,
@@ -16248,7 +16241,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1348,
+      "review_len": 1320,
       "metrics": {
         "body_chars": 1969,
         "sentences": 101,
@@ -16413,7 +16406,7 @@
       "pov": "凌朔",
       "line": "古言仙侠",
       "score_field": "14/14",
-      "ships_count": 0,
+      "ships_count": 4,
       "thread_len": 19,
       "beat_len": 31,
       "hook": {
@@ -16423,7 +16416,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 1494,
       "metrics": {
         "body_chars": 2559,
         "sentences": 129,
@@ -16453,7 +16446,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "无关系节拍",
         "平均段长过短(<30)"
       ]
     },
@@ -16477,11 +16469,11 @@
       "thread_len": 15,
       "beat_len": 40,
       "hook": {
-        "hook_text": "阿湄在袖口里把那颗糖捏碎了。她没出声。她把碎屑在指节上抹了一下，抹完，往北看着。北边那个镇子里，叶观澜在等。她认得他等的方式——不是等林夙。是等她回去。",
-        "len": 76,
-        "first8": "阿湄在袖口里把那",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她只知道——叶观澜在那个镇子里等的，不是林夙。是她。",
+        "len": 26,
+        "first8": "她只知道——叶观",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 1686,
       "metrics": {
@@ -16512,9 +16504,7 @@
         "verb_diversity": 38
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "290-双线.md",
@@ -17705,7 +17695,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 1533,
       "metrics": {
         "body_chars": 1992,
         "sentences": 129,
@@ -18101,11 +18091,11 @@
       "thread_len": 8,
       "beat_len": 29,
       "hook": {
-        "hook_text": "",
-        "len": 0,
-        "first8": "",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "，也有脚步声往林夙那边去——比旁人轻半拍。她没回头。（切走）",
+        "len": 30,
+        "first8": "，也有脚步声往林",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 111,
       "metrics": {
@@ -18137,7 +18127,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -18220,7 +18209,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 158,
       "metrics": {
         "body_chars": 2067,
         "sentences": 127,
@@ -18448,7 +18437,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1,
+      "review_len": 1485,
       "metrics": {
         "body_chars": 2147,
         "sentences": 115,
@@ -19182,11 +19171,11 @@
       "thread_len": 13,
       "beat_len": 21,
       "hook": {
-        "hook_text": "那样东西搁在他脚前一寸。「凭这个。」她声音轻。赤渊往那边看过去，眼神落了一落。",
-        "len": 39,
-        "first8": "那样东西搁在他脚",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她继续走。",
+        "len": 5,
+        "first8": "她继续走。",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 871,
       "metrics": {
@@ -19218,7 +19207,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -19588,11 +19576,11 @@
       "thread_len": 11,
       "beat_len": 29,
       "hook": {
-        "hook_text": "余伯把那本账合上了。纸角卷得比苏挽刚进来时紧了一寸。\n他把袖里那块玉取出来，搁在膝上。玉底那层白灰，还在。",
-        "len": 53,
-        "first8": "余伯把那本账合上",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "玉底那层白灰，还在。炉里那点火苗歪了一下。没灭。",
+        "len": 24,
+        "first8": "玉底那层白灰，还",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 74,
       "metrics": {
@@ -19624,7 +19612,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -19928,11 +19915,11 @@
       "thread_len": 13,
       "beat_len": 25,
       "hook": {
-        "hook_text": "阿湄转身走的时候听见身后那只手炉的铜盖又响了一下。她没回头。\n明天归隐谷——她要带的东西今天已经带齐了。\n那把刀她没带。",
-        "len": 60,
-        "first8": "阿湄转身走的时候",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "，吹动她袖口，纸页没有翻。她没有回头。灯还亮着。未灭。还在。",
+        "len": 30,
+        "first8": "，吹动她袖口，纸",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 353,
       "metrics": {
@@ -19964,7 +19951,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -19989,11 +19975,11 @@
       "thread_len": 16,
       "beat_len": 29,
       "hook": {
-        "hook_text": "赤渊身后那道旧裂口，是他六十二年前第一次进这谷、用指甲划下去的那一道。今天，他等到了。",
-        "len": 43,
-        "first8": "赤渊身后那道旧裂",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他身后那道裂口，六十二年",
+        "len": 12,
+        "first8": "他身后那道裂口，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 81,
       "metrics": {
@@ -20025,7 +20011,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -21196,11 +21181,11 @@
       "thread_len": 7,
       "beat_len": 29,
       "hook": {
-        "hook_text": "凌朔把研好的墨按在砚台角——他今晚要给林夙写那张纸。",
-        "len": 26,
-        "first8": "凌朔把研好的墨按",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "声音很轻，不像牛阿大，也不像阿",
+        "len": 15,
+        "first8": "声音很轻，不像牛",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 1176,
       "metrics": {
@@ -21232,7 +21217,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -21428,11 +21412,11 @@
       "thread_len": 27,
       "beat_len": 29,
       "hook": {
-        "hook_text": "裴无咎往那张纸看了一眼，嘴角钩了一下，声音随意——我本来要说的，就是这个。",
-        "len": 37,
-        "first8": "裴无咎往那张纸看",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "没有回声。",
+        "len": 5,
+        "first8": "没有回声。",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 703,
       "metrics": {
@@ -21464,7 +21448,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -21543,11 +21526,11 @@
       "thread_len": 14,
       "beat_len": 23,
       "hook": {
-        "hook_text": "苏挽声音平：「是要让我知道，那里有一张。」",
-        "len": 21,
-        "first8": "苏挽声音平：「是",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门内的脚步停在门",
+        "len": 8,
+        "first8": "门内的脚步停在门",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 634,
       "metrics": {
@@ -21579,7 +21562,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -22808,7 +22790,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 1314,
+      "review_len": 1309,
       "metrics": {
         "body_chars": 2827,
         "sentences": 159,
@@ -24893,7 +24875,7 @@
         "first8_in_body": true,
         "evidence": true
       },
-      "review_len": 2388,
+      "review_len": 2344,
       "metrics": {
         "body_chars": 2619,
         "sentences": 138,
@@ -32006,11 +31988,11 @@
       "thread_len": 11,
       "beat_len": 11,
       "hook": {
-        "hook_text": "门槛外的雪塌了一角。门里砚台正中那一砚墨还没干透，今夜子时才开的那封信还压在桌沿。",
-        "len": 41,
-        "first8": "门槛外的雪塌了一",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门槛外的雪，塌了一角",
+        "len": 10,
+        "first8": "门槛外的雪，塌了",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 329,
       "metrics": {
@@ -32042,7 +32024,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -33367,11 +33348,11 @@
       "thread_len": 11,
       "beat_len": 11,
       "hook": {
-        "hook_text": "林窈把半页账纸塞进袖中，走到门外才发现雪地上多了一行湿脚印，尽头停着林彻的车。",
-        "len": 39,
-        "first8": "林窈把半页账纸塞",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "雪地上很快多出另一行湿脚印，直通北门",
+        "len": 18,
+        "first8": "雪地上很快多出另",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 55,
       "metrics": {
@@ -33403,7 +33384,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -33482,11 +33462,11 @@
       "thread_len": 11,
       "beat_len": 16,
       "hook": {
-        "hook_text": "林彻把那封信收进袖中，吩咐周平：「去北门，把车留下。」",
-        "len": 27,
-        "first8": "林彻把那封信收进",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他把那封信收进袖中，吩咐周平：「去北门，把车留下」",
+        "len": 25,
+        "first8": "他把那封信收进袖",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 65,
       "metrics": {
@@ -33518,7 +33498,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -33598,11 +33577,11 @@
       "thread_len": 11,
       "beat_len": 38,
       "hook": {
-        "hook_text": "林叙把账本合上，账本压在余伯那封未拆的信上。他对门外候着的林窈说：「今日这一页，先不动。」林窈的脚步退出去了——他没回头。",
-        "len": 61,
-        "first8": "林叙把账本合上，",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "桌前那只歙砚边沿，映得见林叙今早的第一道眉。眉没动。",
+        "len": 26,
+        "first8": "桌前那只歙砚边沿",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 123,
       "metrics": {
@@ -33634,7 +33613,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -33888,11 +33866,11 @@
       "thread_len": 12,
       "beat_len": 79,
       "hook": {
-        "hook_text": "盏在桌角。阿湄没喝。她没劝。下一章切阿湄。",
-        "len": 21,
-        "first8": "盏在桌角。阿湄没",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "桌角的糖没有动，荷叶边沿的三朵桂花也没有落下",
+        "len": 22,
+        "first8": "桌角的糖没有动，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 382,
       "metrics": {
@@ -33924,7 +33902,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -34003,11 +33980,11 @@
       "thread_len": 10,
       "beat_len": 30,
       "hook": {
-        "hook_text": "林彻把湿衣放在门外，林夙醒着。父亲的脚步从廊下过来，屋里没有人再替兄长把话藏住。",
-        "len": 40,
-        "first8": "林彻把湿衣放在门",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门外，雪水沿着台阶缝往下流。林彻没有再回头。",
+        "len": 22,
+        "first8": "门外，雪水沿着台",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 85,
       "metrics": {
@@ -34039,7 +34016,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -34119,11 +34095,11 @@
       "thread_len": 11,
       "beat_len": 45,
       "hook": {
-        "hook_text": "林叙把信收进袖里，对门外的人说：“让他等。”牛阿大把门带上，门缝里漏进一线雪光。林叙低头看着封泥，第一次没有立刻替林崇回话。",
-        "len": 62,
-        "first8": "林叙把信收进袖里",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "这一次，他按住的不是一封信，而是自己已经伸出去太多年的那只手",
+        "len": 30,
+        "first8": "这一次，他按住的",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 108,
       "metrics": {
@@ -34155,7 +34131,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -34745,11 +34720,11 @@
       "thread_len": 12,
       "beat_len": 16,
       "hook": {
-        "hook_text": "林崇把油纸裁成两片，一片封进东边堂，一片送去灶边；他要先看牛阿大如何认出那三箱药的去处。",
-        "len": 44,
-        "first8": "林崇把油纸裁成两",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他没有回答，只把秤盘上的铜扣压住那一片油纸，等灶边的人先说出",
+        "len": 30,
+        "first8": "他没有回答，只把",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 73,
       "metrics": {
@@ -34781,7 +34756,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -35843,11 +35817,11 @@
       "thread_len": 10,
       "beat_len": 34,
       "hook": {
-        "hook_text": "林窈把糖碗端走，灶门里忽然掉出一截被火烤硬的旧纸；牛阿大拾起来，只看见一个未写完的「林」字。",
-        "len": 46,
-        "first8": "林窈把糖碗端走，",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "今天先不烧任何东西",
+        "len": 9,
+        "first8": "今天先不烧任何东",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 102,
       "metrics": {
@@ -35879,7 +35853,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -36122,11 +36095,11 @@
       "thread_len": 8,
       "beat_len": 42,
       "hook": {
-        "hook_text": "林夙把留有水痕的纸角推到林彻面前，只问一句：「这行，你落不落名？」",
-        "len": 33,
-        "first8": "林夙把留有水痕的",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林彻看着纸角上的半个墨点，终于回答：“落”",
+        "len": 21,
+        "first8": "林彻看着纸角上的",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 85,
       "metrics": {
@@ -36158,7 +36131,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -36180,11 +36152,11 @@
       "thread_len": 12,
       "beat_len": 40,
       "hook": {
-        "hook_text": "林夙沿着北道脚印追到东书房门外，门内却传来林叙说出他的名字。",
-        "len": 30,
-        "first8": "林夙沿着北道脚印",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门内却传来林叙说出他的名字",
+        "len": 13,
+        "first8": "门内却传来林叙说",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 92,
       "metrics": {
@@ -36216,7 +36188,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -36239,11 +36210,11 @@
       "thread_len": 6,
       "beat_len": 37,
       "hook": {
-        "hook_text": "林叙把署名处留给林夙；门外第二次响起敲门声，余伯来取的不是一封结论，而是两份分开的原纸。",
-        "len": 44,
-        "first8": "林叙把署名处留给",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "东书房只剩墨香、糖纸和一行尚未等到的名字",
+        "len": 20,
+        "first8": "东书房只剩墨香、",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 80,
       "metrics": {
@@ -36275,7 +36246,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -37728,11 +37698,11 @@
       "thread_len": 11,
       "beat_len": 39,
       "hook": {
-        "hook_text": "周平把第三张纸递到门缝下：「林崇那一行不盖印。你若落名，只落自己看见的。」",
-        "len": 37,
-        "first8": "周平把第三张纸递",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "纸袋各自躺在案上，谁也没有替另一只承担来源。林彻仍站在门内。",
+        "len": 30,
+        "first8": "纸袋各自躺在案上",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 82,
       "metrics": {
@@ -37764,7 +37734,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -37846,11 +37815,11 @@
       "thread_len": 11,
       "beat_len": 39,
       "hook": {
-        "hook_text": "余伯把抄件背面的空栏推向林叙：「林崇已经落名。你要不要也写一句？」",
-        "len": 33,
-        "first8": "余伯把抄件背面的",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他把最后一张空白纸收进袖中，准备等真正见到的人来落第一句",
+        "len": 28,
+        "first8": "他把最后一张空白",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 83,
       "metrics": {
@@ -37882,7 +37851,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -37965,11 +37933,11 @@
       "thread_len": 11,
       "beat_len": 37,
       "hook": {
-        "hook_text": "林崇把新笔压在余伯案边，笔锋对着灯，不对着人。",
-        "len": 23,
-        "first8": "林崇把新笔压在余",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "余伯把新笔压在案边，笔锋对着灯，不对着人",
+        "len": 20,
+        "first8": "余伯把新笔压在案",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 64,
       "metrics": {
@@ -38001,7 +37969,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -38528,11 +38495,11 @@
       "thread_len": 13,
       "beat_len": 47,
       "hook": {
-        "hook_text": "林崇将「林夙」两字划去，写下「苓」，对门外说：「这一封，不给孩子代收。」",
-        "len": 36,
-        "first8": "林崇将「林夙」两",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "空栏仍然空着，只有四个新墨字站在边缘，等真正的收信人来认",
+        "len": 28,
+        "first8": "空栏仍然空着，只",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 73,
       "metrics": {
@@ -38564,7 +38531,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -39261,11 +39227,11 @@
       "thread_len": 11,
       "beat_len": 52,
       "hook": {
-        "hook_text": "林窈捏住灰纸边，问：「牛叔，这上面是不是一个‘还’字？」牛阿大把纸收进干袋：「先写你看见的。」",
-        "len": 47,
-        "first8": "林窈捏住灰纸边，",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "灶火重新点起时，纸已经离开灶边，名字还在簿上。火没灭。",
+        "len": 27,
+        "first8": "灶火重新点起时，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 74,
       "metrics": {
@@ -39297,7 +39263,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -40116,11 +40081,11 @@
       "thread_len": 11,
       "beat_len": 54,
       "hook": {
-        "hook_text": "林夙把纸推回他面前：“明日北门，你只记我到场，不要替我写我想问什么。”",
-        "len": 35,
-        "first8": "林夙把纸推回他面",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "“明日北门，你只记我到场，不要替我写我想问什么”",
+        "len": 24,
+        "first8": "“明日北门，你只",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 88,
       "metrics": {
@@ -40152,7 +40117,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -40682,11 +40646,11 @@
       "thread_len": 18,
       "beat_len": 42,
       "hook": {
-        "hook_text": "林崇把短笺压在旧秤下：“先验笔迹，再验送信的人。”",
-        "len": 25,
-        "first8": "林崇把短笺压在旧",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "灶屋那边又响了一声木勺碰碗的轻响第二个脚印没有被雪盖住",
+        "len": 27,
+        "first8": "灶屋那边又响了一",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 80,
       "metrics": {
@@ -40717,9 +40681,7 @@
         "verb_diversity": 23
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch587-众人位置.md",
@@ -41584,11 +41546,11 @@
       "thread_len": 20,
       "beat_len": 36,
       "hook": {
-        "hook_text": "林彻看见林夙收刀：“你看见了谁？”林夙答：“一只手。”",
-        "len": 27,
-        "first8": "林彻看见林夙收刀",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "，只是让这份等待保持原样，直到真正写字的人出现。他只看着雪。",
+        "len": 30,
+        "first8": "，只是让这份等待",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 80,
       "metrics": {
@@ -41620,7 +41582,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -41927,11 +41888,11 @@
       "thread_len": 16,
       "beat_len": 26,
       "hook": {
-        "hook_text": "老仆把空药碗放回灶台：“这只碗不能洗。”\n门外有人问：“为什么？”\n他答：“因为它还记得谁先喝过药。”",
-        "len": 51,
-        "first8": "老仆把空药碗放回",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他要分清自己看见的，和我们告诉他的”",
+        "len": 18,
+        "first8": "他要分清自己看见",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 102,
       "metrics": {
@@ -41963,7 +41924,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -42040,11 +42000,11 @@
       "thread_len": 18,
       "beat_len": 34,
       "hook": {
-        "hook_text": "林彻把空药碗搁在东堂门槛外，没让人端进去。\n门里有人问：“递进来？”\n他答：“先让它自己说。”",
-        "len": 47,
-        "first8": "林彻把空药碗搁在",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "空药碗里的血线在雪光里亮了一下",
+        "len": 15,
+        "first8": "空药碗里的血线在",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 123,
       "metrics": {
@@ -42076,7 +42036,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -42544,11 +42503,11 @@
       "thread_len": 12,
       "beat_len": 72,
       "hook": {
-        "hook_text": "苏挽把那张写着\"卯时二刻灶灰半张带血窄纸，林窈亲眼看见\"的副条递进门缝。门缝里那只粗手接过去，没出声。",
-        "len": 51,
-        "first8": "苏挽把那张写着\"",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "副条上\"林窈亲眼看见\"五个字，纸背空白，等着余伯午后拿它去比",
+        "len": 30,
+        "first8": "副条上\"林窈亲眼",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 129,
       "metrics": {
@@ -42580,7 +42539,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -43106,11 +43064,11 @@
       "thread_len": 12,
       "beat_len": 47,
       "hook": {
-        "hook_text": "林彻把纸放在门槛上：“门里的人未见，送达的人我能写。”",
-        "len": 27,
-        "first8": "林彻把纸放在门槛",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林彻看过这句，确认没有补入林夙的姓名，才转身离开台阶。记。",
+        "len": 29,
+        "first8": "林彻看过这句，确",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 87,
       "metrics": {
@@ -43142,7 +43100,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -44121,11 +44078,11 @@
       "thread_len": 17,
       "beat_len": 53,
       "hook": {
-        "hook_text": "老仆把最后一勺粥倒回锅里，看着林窈：\"三姑娘，这口锅，今夜起我自己烧。你熬的那一锅，留你自己屋里。\"林窈蹲在火口前没答——她听见的，是老仆把灶边最后一条规矩，留给了自己。",
-        "len": 85,
-        "first8": "老仆把最后一勺粥",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他替三房担的这件事，从今天起，从他这一口灶上，加了一根柴",
+        "len": 28,
+        "first8": "他替三房担的这件",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 549,
       "metrics": {
@@ -44156,9 +44113,7 @@
         "verb_diversity": 30
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch618-林夙收活.md",
@@ -44240,11 +44195,11 @@
       "thread_len": 11,
       "beat_len": 41,
       "hook": {
-        "hook_text": "林彻站在山门外，手里只有一枚未送出的青玉佩。",
-        "len": 22,
-        "first8": "林彻站在山门外，",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他站在山门外，手里只有一枚未送出的青玉佩",
+        "len": 20,
+        "first8": "他站在山门外，手",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 80,
       "metrics": {
@@ -44275,9 +44230,7 @@
         "verb_diversity": 31
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch619-清梧签.md",
@@ -44580,11 +44533,11 @@
       "thread_len": 9,
       "beat_len": 33,
       "hook": {
-        "hook_text": "苏挽把旧笔收进袖中：“笔归我，收件人还空着。”",
-        "len": 23,
-        "first8": "苏挽把旧笔收进袖",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "苏挽按住篮底的送达条，先交纸包来源，不报收件人；等药房验清，",
+        "len": 30,
+        "first8": "苏挽按住篮底的送",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 66,
       "metrics": {
@@ -44616,7 +44569,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -45031,11 +44983,11 @@
       "thread_len": 18,
       "beat_len": 128,
       "hook": {
-        "hook_text": "林崇把那封信搁到秤盘外侧——信角压在凉茶盏底，盏底压着的那一道印，正是他今早翻开旧秤时留下的。",
-        "len": 47,
-        "first8": "林崇把那封信搁到",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "窗外的冰挂在檐瓦正中——挂得不急，晃了一息，没滴",
+        "len": 24,
+        "first8": "窗外的冰挂在檐瓦",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 978,
       "metrics": {
@@ -45067,7 +45019,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -45428,11 +45379,11 @@
       "thread_len": 11,
       "beat_len": 36,
       "hook": {
-        "hook_text": "灶房门外，牛阿大抱住米袋：“这笔，我今夜还。”",
-        "len": 23,
-        "first8": "灶房门外，牛阿大",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "看了看门牌，又低头看怀里的东西。”牛阿大摇头，抱紧了袋口。”",
+        "len": 30,
+        "first8": "看了看门牌，又低",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 66,
       "metrics": {
@@ -45464,7 +45415,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -45539,11 +45489,11 @@
       "thread_len": 11,
       "beat_len": 35,
       "hook": {
-        "hook_text": "林窈把回条按在牛阿大手背上：“明日去山门，交给哥哥。”",
-        "len": 27,
-        "first8": "林窈把回条按在牛",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他急得往前一步，又在门槛前停下。林窈把回条按在他手背上。”",
+        "len": 29,
+        "first8": "他急得往前一步，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 68,
       "metrics": {
@@ -45575,7 +45525,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -45709,11 +45658,11 @@
       "thread_len": 14,
       "beat_len": 50,
       "hook": {
-        "hook_text": "“先说清楚，”她道，“这句话写给的不是你。”",
-        "len": 22,
-        "first8": "“先说清楚，”她",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "“先说清楚，”他道，“这句话写给的不是你”",
+        "len": 21,
+        "first8": "“先说清楚，”他",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 76,
       "metrics": {
@@ -45745,7 +45694,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -45822,11 +45770,11 @@
       "thread_len": 12,
       "beat_len": 37,
       "hook": {
-        "hook_text": "阿湄抬眼，嘴角轻轻弯了一下：“这一句，我记住了。”下一章切阿湄。",
-        "len": 32,
-        "first8": "阿湄抬眼，嘴角轻",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "走出两步，她停住，隔着半掩的院门回头。”",
+        "len": 20,
+        "first8": "走出两步，她停住",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 72,
       "metrics": {
@@ -45858,7 +45806,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -45881,11 +45828,11 @@
       "thread_len": 11,
       "beat_len": 268,
       "hook": {
-        "hook_text": "林彻把那张副条压在副本底下。压得不重——副本那一截「今晨所见·今晨送出」七个字墨没晕。副条正面的「垫改赠」三个字墨也没晕。他把副条与副本搁在堂屋门槛外侧那块老砖上——砖上今早留有苏挽昨夜那只外袋底边蹭过的半寸青苔。他蹲在砖边看了一会儿。他看见副条正面「垫改赠」三字之上——他自己昨夜切给林夙那一笔私账的最后一行，今早没有被他擦去。",
-        "len": 165,
-        "first8": "林彻把那张副条压",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他今早在族内的名字，由「垫私账的人」改成「赠私账的人」——今",
+        "len": 30,
+        "first8": "他今早在族内的名",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 1624,
       "metrics": {
@@ -45916,9 +45863,7 @@
         "verb_diversity": 24
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch634-阿湄再念.md",
@@ -46279,11 +46224,11 @@
       "thread_len": 11,
       "beat_len": 42,
       "hook": {
-        "hook_text": "苏挽合上副册：“这一封先不送。”下一章切林彻。",
-        "len": 23,
-        "first8": "苏挽合上副册：“",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她转身走了两步，忽然停下：“那",
+        "len": 15,
+        "first8": "她转身走了两步，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 70,
       "metrics": {
@@ -46315,7 +46260,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -46449,11 +46393,11 @@
       "thread_len": 10,
       "beat_len": 39,
       "hook": {
-        "hook_text": "林夙把信封压回袖中：“这封，我不烧。”下一章切林叙看。",
-        "len": 27,
-        "first8": "林夙把信封压回袖",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "那封皂衣信从他指间滑了一下，落进袖中。他把信封压回袖中。”",
+        "len": 29,
+        "first8": "那封皂衣信从他指",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 68,
       "metrics": {
@@ -46485,7 +46429,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -46562,11 +46505,11 @@
       "thread_len": 15,
       "beat_len": 15,
       "hook": {
-        "hook_text": "下一章切下批头一章。",
-        "len": 10,
-        "first8": "下一章切下批头一",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "完的那一截，今早是他自己擦的——他不必替上一世守那一砚",
+        "len": 27,
+        "first8": "完的那一截，今早",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 0,
       "metrics": {
@@ -46597,9 +46540,7 @@
         "verb_diversity": 12
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch641-叶观澜离前夜.md",
@@ -46733,11 +46674,11 @@
       "thread_len": 12,
       "beat_len": 12,
       "hook": {
-        "hook_text": "下一章切下批头一章。",
-        "len": 10,
-        "first8": "下一章切下批头一",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "完的那一截，今早是他自己擦的——他不必替上一世守那一砚",
+        "len": 27,
+        "first8": "完的那一截，今早",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 0,
       "metrics": {
@@ -46768,9 +46709,7 @@
         "verb_diversity": 12
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch643-苏挽接阿湄.md",
@@ -46963,11 +46902,11 @@
       "thread_len": 22,
       "beat_len": 62,
       "hook": {
-        "hook_text": "林崇把家印收回袖中，在信尾写下“林崇亲见”。",
-        "len": 22,
-        "first8": "林崇把家印收回袖",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "印没有盖下去，名字却已经写在纸",
+        "len": 15,
+        "first8": "印没有盖下去，名",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 63,
       "metrics": {
@@ -46999,7 +46938,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -47756,11 +47694,11 @@
       "thread_len": 29,
       "beat_len": 36,
       "hook": {
-        "hook_text": "林彻说：“帕子还给她，别替她收。”",
-        "len": 17,
-        "first8": "林彻说：“帕子还",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "灯火照着纸套上的青泥林彻坐在案后，没有再添灯油",
+        "len": 23,
+        "first8": "灯火照着纸套上的",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 73,
       "metrics": {
@@ -47792,7 +47730,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -47987,11 +47924,11 @@
       "thread_len": 17,
       "beat_len": 38,
       "hook": {
-        "hook_text": "她把左袖放下，仍没有戴回指环。",
-        "len": 15,
-        "first8": "她把左袖放下，仍",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他把左袖放下，仍没有戴回指环",
+        "len": 14,
+        "first8": "他把左袖放下，仍",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 85,
       "metrics": {
@@ -48023,7 +47960,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -49199,11 +49135,11 @@
       "thread_len": 32,
       "beat_len": 47,
       "hook": {
-        "hook_text": "信纸背面还有一行字：阿大，这次别替他收。",
-        "len": 20,
-        "first8": "信纸背面还有一行",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "信纸背面的炭灰下，那行字仍清楚：阿大，这次别替他收",
+        "len": 25,
+        "first8": "信纸背面的炭灰下",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 80,
       "metrics": {
@@ -49235,7 +49171,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -49836,11 +49771,11 @@
       "thread_len": 32,
       "beat_len": 49,
       "hook": {
-        "hook_text": "林叙把茶放回灶房，说：“我只送到门口。”",
-        "len": 20,
-        "first8": "林叙把茶放回灶房",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他把茶放回灶房，说：“我只送到门口”",
+        "len": 18,
+        "first8": "他把茶放回灶房，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 72,
       "metrics": {
@@ -49872,7 +49807,6 @@
       },
       "template_loop": true,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)",
         "模板回环"
       ]
@@ -50245,11 +50179,11 @@
       "thread_len": 31,
       "beat_len": 64,
       "hook": {
-        "hook_text": "林崇把信推到砚台底下，说：“我不必替他收。”",
-        "len": 22,
-        "first8": "林崇把信推到砚台",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林崇用旧秤压住纸角，秤盘里的米屑没有再动",
+        "len": 20,
+        "first8": "林崇用旧秤压住纸",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 71,
       "metrics": {
@@ -50281,7 +50215,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -50765,11 +50698,11 @@
       "thread_len": 24,
       "beat_len": 34,
       "hook": {
-        "hook_text": "林叙把信放在旧档室桌上，封口压着桌面。",
-        "len": 19,
-        "first8": "林叙把信放在旧档",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "桌上留着一封没有署名的信",
+        "len": 12,
+        "first8": "桌上留着一封没有",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 56,
       "metrics": {
@@ -50801,7 +50734,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -52702,11 +52634,11 @@
       "thread_len": 12,
       "beat_len": 42,
       "hook": {
-        "hook_text": "林崇把米粒封回纸袋：“只作井栏样本。”",
-        "len": 19,
-        "first8": "林崇把米粒封回纸",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林崇收起银针，把米粒封回纸袋：“只作井栏样本”",
+        "len": 23,
+        "first8": "林崇收起银针，把",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 59,
       "metrics": {
@@ -52737,9 +52669,7 @@
         "verb_diversity": 20
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch736-苏挽接信.md",
@@ -54287,11 +54217,11 @@
       "thread_len": 30,
       "beat_len": 58,
       "hook": {
-        "hook_text": "她今晨坐在堂屋正中。她不动。下一章切林窈。",
-        "len": 21,
-        "first8": "她今晨坐在堂屋正",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "ch760 苏挽不拆那一年留下来的那一种不拆。下一章切林窈。",
+        "len": 30,
+        "first8": "ch760 苏挽",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 70,
       "metrics": {
@@ -54322,9 +54252,7 @@
         "verb_diversity": 18
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch763-林窈不递.md",
@@ -55318,11 +55246,11 @@
       "thread_len": 29,
       "beat_len": 34,
       "hook": {
-        "hook_text": "林崇说：“叶先生，这一笔我替你落。”",
-        "len": 18,
-        "first8": "林崇说：“叶先生",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "盒面上绷紧，六个结一齐压住纸边。叶观澜终于解开了线结。---",
+        "len": 30,
+        "first8": "盒面上绷紧，六个",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 48,
       "metrics": {
@@ -55354,7 +55282,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -56079,11 +56006,11 @@
       "thread_len": 14,
       "beat_len": 43,
       "hook": {
-        "hook_text": "灶灰里露出半枚旧印，牛阿大按住火钳：“这东西不能当柴烧。”",
-        "len": 29,
-        "first8": "灶灰里露出半枚旧",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "看门外，确认送纸的人还没有回来。炉火压低。纸匣未动。火未熄。",
+        "len": 30,
+        "first8": "看门外，确认送纸",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 76,
       "metrics": {
@@ -56115,7 +56042,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -56136,11 +56062,11 @@
       "thread_len": 13,
       "beat_len": 40,
       "hook": {
-        "hook_text": "他等水锅重新沸起来，才把药包放到灶台内侧。",
-        "len": 21,
-        "first8": "他等水锅重新沸起",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她等水锅重新沸起来，才把药包放到灶台内侧",
+        "len": 20,
+        "first8": "她等水锅重新沸起",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 70,
       "metrics": {
@@ -56172,7 +56098,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -58706,11 +58631,11 @@
       "thread_len": 10,
       "beat_len": 32,
       "hook": {
-        "hook_text": "林崇把家印推回余伯：“这封不盖，写亲见。”",
-        "len": 21,
-        "first8": "林崇把家印推回余",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "最后一个“召”字压得很深。他把铜秤收进抽屉。不盖。",
+        "len": 25,
+        "first8": "最后一个“召”字",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 55,
       "metrics": {
@@ -58742,7 +58667,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -58764,11 +58688,11 @@
       "thread_len": 11,
       "beat_len": 29,
       "hook": {
-        "hook_text": "牛阿大把半只蒸饼放在柴房门槛上，敲了一下门，转身走了。",
-        "len": 27,
-        "first8": "牛阿大把半只蒸饼",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他把木板翻面，贴回墙",
+        "len": 10,
+        "first8": "他把木板翻面，贴",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 59,
       "metrics": {
@@ -58800,7 +58724,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -58822,11 +58745,11 @@
       "thread_len": 11,
       "beat_len": 31,
       "hook": {
-        "hook_text": "林彻把“林夙”两个字写到一半，折断笔尖：“我没见过他。”",
-        "len": 28,
-        "first8": "林彻把“林夙”两",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "砚台里的墨已经干了，西门的门闩仍按旧样扣着。去。",
+        "len": 24,
+        "first8": "砚台里的墨已经干",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 57,
       "metrics": {
@@ -58858,7 +58781,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -59052,11 +58974,11 @@
       "thread_len": 10,
       "beat_len": 48,
       "hook": {
-        "hook_text": "林崇把青田石印按在退婚书的空白边：“这笔账先由我留着。”",
-        "len": 28,
-        "first8": "林崇把青田石印按",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "木盒的蓝签未换，退婚书却不再由林叙袖中带着，也不再由林崇替任",
+        "len": 30,
+        "first8": "木盒的蓝签未换，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 58,
       "metrics": {
@@ -59088,7 +59010,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -59166,11 +59087,11 @@
       "thread_len": 11,
       "beat_len": 37,
       "hook": {
-        "hook_text": "苏挽把第三块糖搁在药庐门槛上：“门不替人收糖。”",
+        "hook_text": "药炉里传来一声水响。苏挽端起空碟，往山门走。端。",
         "len": 24,
-        "first8": "苏挽把第三块糖搁",
-        "first8_in_body": false,
-        "evidence": false
+        "first8": "药炉里传来一声水",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 61,
       "metrics": {
@@ -59202,7 +59123,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -61334,11 +61254,11 @@
       "thread_len": 10,
       "beat_len": 58,
       "hook": {
-        "hook_text": "封口仍未拆，雪水却已经把送达时辰洇在纸边。",
-        "len": 21,
-        "first8": "封口仍未拆，雪水",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "三个人各自留下一项记录，信仍在干纸下，没有被火气烘开",
+        "len": 26,
+        "first8": "三个人各自留下一",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 70,
       "metrics": {
@@ -61370,7 +61290,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -61789,11 +61708,11 @@
       "thread_len": 10,
       "beat_len": 70,
       "hook": {
-        "hook_text": "苏挽留在药庐，把“原信未收”写进值守册。",
-        "len": 20,
-        "first8": "苏挽留在药庐，把",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她留在药庐，把“原信未收”写进值守册",
+        "len": 18,
+        "first8": "她留在药庐，把“",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 60,
       "metrics": {
@@ -61825,7 +61744,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -61846,11 +61764,11 @@
       "thread_len": 11,
       "beat_len": 38,
       "hook": {
-        "hook_text": "窄笺和报信压在凉透的盖碗下，第三行仍空着。下一回切林崇，看他先看见哪一行。",
-        "len": 37,
-        "first8": "窄笺和报信压在凉",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "说给谁听，他没有答",
+        "len": 9,
+        "first8": "说给谁听，他没有",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 224,
       "metrics": {
@@ -61882,7 +61800,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62017,11 +61934,11 @@
       "thread_len": 11,
       "beat_len": 49,
       "hook": {
-        "hook_text": "余伯把笔推到她面前：“笔不是我的了。”",
-        "len": 19,
-        "first8": "余伯把笔推到她面",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她端着空碟回药庐",
+        "len": 8,
+        "first8": "她端着空碟回药庐",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 72,
       "metrics": {
@@ -62053,7 +61970,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62074,11 +61990,11 @@
       "thread_len": 11,
       "beat_len": 54,
       "hook": {
-        "hook_text": "林彻把信纸折回，桌面只留下“林彻亲启”四个字。",
-        "len": 23,
-        "first8": "林彻把信纸折回，",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他把纸折回匣中留下的那行字旁，重新确认每个字都没有被水晕开",
+        "len": 29,
+        "first8": "他把纸折回匣中留",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 76,
       "metrics": {
@@ -62110,7 +62026,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62247,11 +62162,11 @@
       "thread_len": 11,
       "beat_len": 31,
       "hook": {
-        "hook_text": "林夙没把第七页交出去，下一章看林彻先伸手，还是先称病。",
-        "len": 27,
-        "first8": "林夙没把第七页交",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "按完，他抬眼，看了一眼门外的雪光。雪光还在亮。",
+        "len": 23,
+        "first8": "按完，他抬眼，看",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 261,
       "metrics": {
@@ -62282,9 +62197,7 @@
         "verb_diversity": 29
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch898-林彻站.md",
@@ -62303,11 +62216,11 @@
       "thread_len": 11,
       "beat_len": 7,
       "hook": {
-        "hook_text": "林彻先伸手——只敲了一下门框。下一章看父亲那一杆秤被谁拨动。",
-        "len": 30,
-        "first8": "林彻先伸手——只",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林彻在那两道脚印旁边，又踩了一",
+        "len": 15,
+        "first8": "林彻在那两道脚印",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 221,
       "metrics": {
@@ -62339,7 +62252,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62533,11 +62445,11 @@
       "thread_len": 10,
       "beat_len": 29,
       "hook": {
-        "hook_text": "灶灰里还留着半个「林」字，门外有人敲了两下。下一回看谁先认出这封被火改过的信。",
-        "len": 39,
-        "first8": "灶灰里还留着半个",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门外有人敲了两下。阿湄抬起备用的笑。」",
+        "len": 19,
+        "first8": "门外有人敲了两下",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 254,
       "metrics": {
@@ -62569,7 +62481,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62704,11 +62615,11 @@
       "thread_len": 11,
       "beat_len": 19,
       "hook": {
-        "hook_text": "他把碗盖合上。第三行没动。",
-        "len": 13,
-        "first8": "他把碗盖合上。第",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他今早只做了一件事——他坐在那里，等。」",
+        "len": 20,
+        "first8": "他今早只做了一件",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 286,
       "metrics": {
@@ -62740,7 +62651,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62762,11 +62672,11 @@
       "thread_len": 11,
       "beat_len": 11,
       "hook": {
-        "hook_text": "林崇把赤渊来信交给林彻，封口的三个字却是「林夙收」。下一章看他先把信送给谁。",
-        "len": 38,
-        "first8": "林崇把赤渊来信交",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "袖中的信没有立即送进去，封口的三个字在雪光里清楚得很。」",
+        "len": 28,
+        "first8": "袖中的信没有立即",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 322,
       "metrics": {
@@ -62798,7 +62708,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62933,11 +62842,11 @@
       "thread_len": 11,
       "beat_len": 11,
       "hook": {
-        "hook_text": "苏挽把「还」字折进糖纸，纸背却透出半个「林」。下一章看这半个字是谁留下的。",
-        "len": 37,
-        "first8": "苏挽把「还」字折",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "纸背透出的半个「林」，还在",
+        "len": 13,
+        "first8": "纸背透出的半个「",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 291,
       "metrics": {
@@ -62969,7 +62878,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -62990,11 +62898,11 @@
       "thread_len": 11,
       "beat_len": 11,
       "hook": {
-        "hook_text": "林叙把林夙小时候留在砚台底那枚小印收进袖底，印面朝内；下一章让林崇先看见的是林叙袖口鼓起的那一截。",
-        "len": 49,
-        "first8": "林叙把林夙小时候",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林叙坐在空砚台后，没有研墨，也没有动笔",
+        "len": 19,
+        "first8": "林叙坐在空砚台后",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 299,
       "metrics": {
@@ -63026,7 +62934,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -63164,11 +63071,11 @@
       "thread_len": 12,
       "beat_len": 12,
       "hook": {
-        "hook_text": "糖摊的秤砣落下，圆印缺的那一半显出一个「林」字。下一章看谁先认出这枚印。",
-        "len": 36,
-        "first8": "糖摊的秤砣落下，",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "糖摊的秤砣还压着那张纸，纸上的「林」字已经完整",
+        "len": 23,
+        "first8": "糖摊的秤砣还压着",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 308,
       "metrics": {
@@ -63200,7 +63107,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -63221,11 +63127,11 @@
       "thread_len": 13,
       "beat_len": 13,
       "hook": {
-        "hook_text": "林彻把半个「林」字带回父亲的秤前，缺口仍没有补上。下一章看谁敢先落这一笔。",
-        "len": 37,
-        "first8": "林彻把半个「林」",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "慢出来的那半步，是他把糖纸重新摊平时留下的犹豫",
+        "len": 23,
+        "first8": "慢出来的那半步，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 288,
       "metrics": {
@@ -63257,7 +63163,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -63394,11 +63299,11 @@
       "thread_len": 11,
       "beat_len": 40,
       "hook": {
-        "hook_text": "余伯已立在东堂侧门外阶下，袖里揣着账册封皮，正等苏挽袖底那张第七页交到案上。",
-        "len": 38,
-        "first8": "余伯已立在东堂侧",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门外那双脚印，终于往东堂侧门迈出第一步",
+        "len": 19,
+        "first8": "门外那双脚印，终",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 392,
       "metrics": {
@@ -63429,9 +63334,7 @@
         "verb_diversity": 27
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     },
     {
       "file": "ch918-林彻站.md",
@@ -63451,11 +63354,11 @@
       "thread_len": 11,
       "beat_len": 29,
       "hook": {
-        "hook_text": "林彻把带私印的回信放上林夙案角，却把赤线留在掌心。下一章看余伯先问信，还是先问线。",
-        "len": 41,
-        "first8": "林彻把带私印的回",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林彻站在门内，第一次没有替谁先看。他看着林夙。等。",
+        "len": 25,
+        "first8": "林彻站在门内，第",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 278,
       "metrics": {
@@ -63487,7 +63390,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -63853,11 +63755,11 @@
       "thread_len": 11,
       "beat_len": 24,
       "hook": {
-        "hook_text": "林夙带回的不是第七页原件，而是一枚沾着青粉的黑扣。下一章看苏挽为何肯认物证，却不肯交出原页。",
-        "len": 46,
-        "first8": "林夙带回的不是第",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "枣核推到黑扣旁，让它们挨在一起。一枚青，一枚黑。他等着午时。",
+        "len": 30,
+        "first8": "枣核推到黑扣旁，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 300,
       "metrics": {
@@ -63889,7 +63791,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -63911,11 +63812,11 @@
       "thread_len": 10,
       "beat_len": 66,
       "hook": {
-        "hook_text": "林崇松开旧秤，秤砣落到地上，林彻弯腰却没有接住。",
-        "len": 24,
-        "first8": "林崇松开旧秤，秤",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他把缺页的冬账压进木匣底层，铁砣留在白纸外，等下一位来落名",
+        "len": 29,
+        "first8": "他把缺页的冬账压",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 75,
       "metrics": {
@@ -63947,7 +63848,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -64082,11 +63982,11 @@
       "thread_len": 11,
       "beat_len": 32,
       "hook": {
-        "hook_text": "苏挽留住第七页原件，只把半张抄件压在余伯案上；门外的人却认出了纸上的焦痕。下一章看他要第七页，还是要先问叶清梧。",
-        "len": 56,
-        "first8": "苏挽留住第七页原",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "第七页没有交出去。她仍在余伯院里。门外的人也还在。",
+        "len": 25,
+        "first8": "第七页没有交出去",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 311,
       "metrics": {
@@ -64118,7 +64018,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -64139,11 +64038,11 @@
       "thread_len": 11,
       "beat_len": 30,
       "hook": {
-        "hook_text": "半张抄件的焦边少了一根红纤维，林叙却在父亲私印的蜡痕里找到了它。下一章看这根纤维是从谁的封口上掉下来的。",
-        "len": 52,
-        "first8": "半张抄件的焦边少",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他看着那根红纤维，等它在水里沉下去",
+        "len": 17,
+        "first8": "他看着那根红纤维",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 293,
       "metrics": {
@@ -64175,7 +64074,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -64311,11 +64209,11 @@
       "thread_len": 12,
       "beat_len": 34,
       "hook": {
-        "hook_text": "糖盘端出门后，来人只拿走半块糖，留下的糖纸里却多了一根旧封线。下一章看这根线指向余家，还是指向林崇的私印。",
-        "len": 53,
-        "first8": "糖盘端出门后，来",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "苏挽走到巷口，回头看了一眼那道门。她没有把糖送回去。她端着。",
+        "len": 30,
+        "first8": "苏挽走到巷口，回",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 312,
       "metrics": {
@@ -64347,7 +64245,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -64368,11 +64265,11 @@
       "thread_len": 13,
       "beat_len": 33,
       "hook": {
-        "hook_text": "糖纸的弧口与林家青田印相合，旧染坊却在午时前被人锁了门。下一章看林彻要先破门，还是先等里面的人开口。",
-        "len": 50,
-        "first8": "糖纸的弧口与林家",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "夙将黑线缠回木片，和黑扣分开收好。」林彻回头。」门重新合上。",
+        "len": 30,
+        "first8": "夙将黑线缠回木片",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 304,
       "metrics": {
@@ -64404,7 +64301,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -64540,11 +64436,11 @@
       "thread_len": 11,
       "beat_len": 38,
       "hook": {
-        "hook_text": "灶边的雪水把糖纸上的青粉冲出一条缺口，苏挽却把第三股黑线藏进炉砖下。下一章看林彻带来的无印白纸，能不能让她开口。",
-        "len": 56,
-        "first8": "灶边的雪水把糖纸",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林夙按住门闩，灶边的雪水继续往下滴",
+        "len": 17,
+        "first8": "林夙按住门闩，灶",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 294,
       "metrics": {
@@ -64576,7 +64472,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -64597,11 +64492,11 @@
       "thread_len": 11,
       "beat_len": 39,
       "hook": {
-        "hook_text": "林彻把无印白纸送进余伯院，纸背的青粉在热汽里显出半个旧印。下一章看苏挽会把半个印认成谁家的物证。",
-        "len": 48,
-        "first8": "林彻把无印白纸送",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门缝里透出一线炉火。炉上水声细响。门内亮。",
+        "len": 21,
+        "first8": "门缝里透出一线炉",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 250,
       "metrics": {
@@ -64633,7 +64528,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -64999,11 +64893,11 @@
       "thread_len": 11,
       "beat_len": 41,
       "hook": {
-        "hook_text": "林夙带回的不是册子，而是一片粘着旧蜡的箱底灰。下一章看林崇会承认十七号箱曾进过东堂，还是先封住林叙手里的空匣。",
-        "len": 55,
-        "first8": "林夙带回的不是册",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林叙把纸压在匣边，等第三位见证者回来",
+        "len": 18,
+        "first8": "林叙把纸压在匣边",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 254,
       "metrics": {
@@ -65035,7 +64929,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65233,11 +65126,11 @@
       "thread_len": 11,
       "beat_len": 40,
       "hook": {
-        "hook_text": "苏挽把“短笺见过，原件未交”写入空白栏，红蜡里却掉出一片旧染坊封令的纸屑。下一章看林叙会先看纸屑，还是先看林崇盖下的私印。",
-        "len": 61,
-        "first8": "苏挽把“短笺见过",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "苏挽把空白栏压在碟旁，继续等门外的脚步回来",
+        "len": 21,
+        "first8": "苏挽把空白栏压在",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 268,
       "metrics": {
@@ -65269,7 +65162,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65292,11 +65184,11 @@
       "thread_len": 11,
       "beat_len": 42,
       "hook": {
-        "hook_text": "林叙从旧封令册里看见一块与箱板同形的缺口，缺口后面却少了半页。下一章看谁先承认那半页曾被人从东堂内库取走。",
-        "len": 53,
-        "first8": "林叙从旧封令册里",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门外的雪水还在流，未封的匣口对着天光",
+        "len": 18,
+        "first8": "门外的雪水还在流",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 248,
       "metrics": {
@@ -65328,7 +65220,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65350,11 +65241,11 @@
       "thread_len": 10,
       "beat_len": 43,
       "hook": {
-        "hook_text": "林崇在缺页旁写下“腊月初七，子初前，内库开过”，却没有写经手人。下一章看灶火烘出的背痕，会不会替内库补上这个空名。",
-        "len": 57,
-        "first8": "林崇在缺页旁写下",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "内库的锁仍未开，锁孔里的蓝粉却已经有了去处",
+        "len": 21,
+        "first8": "内库的锁仍未开，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 246,
       "metrics": {
@@ -65386,7 +65277,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65467,11 +65357,11 @@
       "thread_len": 11,
       "beat_len": 44,
       "hook": {
-        "hook_text": "苏挽在旧木门外听见两长一短的叩声，门内回了一声短响。下一章看林彻和林夙谁先把钥匙插进锁孔，还是先等门里的人报出经手时辰。",
-        "len": 60,
-        "first8": "苏挽在旧木门外听",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她将拓纸递给阿湄，自己端着空碟站在旧木门外，等门里的钥匙先露",
+        "len": 30,
+        "first8": "她将拓纸递给阿湄",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 263,
       "metrics": {
@@ -65503,7 +65393,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65525,11 +65414,11 @@
       "thread_len": 11,
       "beat_len": 51,
       "hook": {
-        "hook_text": "林夙的钥匙已碰到旧木门，却没有转动；门内有人把半页纸塞出缝隙。下一章看林彻会先看纸上的时辰，还是先看林夙有没有把手收回。",
-        "len": 60,
-        "first8": "林夙的钥匙已碰到",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门槛外，雪水没有没过鞋面",
+        "len": 12,
+        "first8": "门槛外，雪水没有",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 262,
       "metrics": {
@@ -65561,7 +65450,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65703,11 +65591,11 @@
       "thread_len": 11,
       "beat_len": 40,
       "hook": {
-        "hook_text": "钥匙册的缺行在火气里显出“内库，子初前”，最末却只剩半个指腹印。下一章看林彻会把这张纸送进东堂，还是先站到内库门外等钥匙对锁。",
-        "len": 63,
-        "first8": "钥匙册的缺行在火",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "苏挽把原册放回灶边，林夙仍守着那袋钥匙，等林彻把纸先送入东堂",
+        "len": 30,
+        "first8": "苏挽把原册放回灶",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 270,
       "metrics": {
@@ -65739,7 +65627,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65762,11 +65649,11 @@
       "thread_len": 10,
       "beat_len": 41,
       "hook": {
-        "hook_text": "林彻把“西柜第二”送进内库记录，旧锁却在门内先响了一声。下一章看西柜里留下的是缺页、空匣，还是一把已经换过齿的旧钥匙。",
-        "len": 59,
-        "first8": "林彻把“西柜第二",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "门里没有人回答，只有柜盖下传出一声轻响，像有什么东西碰到了木",
+        "len": 30,
+        "first8": "门里没有人回答，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 265,
       "metrics": {
@@ -65798,7 +65685,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -65996,11 +65882,11 @@
       "thread_len": 11,
       "beat_len": 45,
       "hook": {
-        "hook_text": "红蜡下露出“归西柜”的半行压痕，蓝纤维却与钥匙上的蓝蜡只相近、不相同。下一章看林夙拿拓纸对旧锁，还是先把原件送回东堂。",
-        "len": 59,
-        "first8": "红蜡下露出“归西",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "灶火把撕口下的最后一笔烘得更清楚",
+        "len": 16,
+        "first8": "灶火把撕口下的最",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 244,
       "metrics": {
@@ -66032,7 +65918,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66171,11 +66056,11 @@
       "thread_len": 10,
       "beat_len": 44,
       "hook": {
-        "hook_text": "林叙等到的不是林彻的开门结果，而是一根没碰过钥匙的蓝纤维。下一章看林崇先发责任信，还是先把私印收回去。",
-        "len": 51,
-        "first8": "林叙等到的不是林",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "没有人先替它添字",
+        "len": 8,
+        "first8": "没有人先替它添字",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 211,
       "metrics": {
@@ -66207,7 +66092,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66229,11 +66113,11 @@
       "thread_len": 8,
       "beat_len": 47,
       "hook": {
-        "hook_text": "林崇把信分成三份：一份交林叙归档，一份让林彻带走，一份送往余伯院。林彻在门口停了一下，问若锁里真有东西谁取。林崇没答，只把袋口折痕压回原处。",
-        "len": 70,
-        "first8": "林崇把信分成三份",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "秤杆正中那道磨痕在灯下显得比昨夜更亮一寸。盒扣没合。他没合。",
+        "len": 30,
+        "first8": "秤杆正中那道磨痕",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 207,
       "metrics": {
@@ -66265,7 +66149,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66400,11 +66283,11 @@
       "thread_len": 11,
       "beat_len": 31,
       "hook": {
-        "hook_text": "药庐的纸上只写“颜色相近，不能定根”，阿湄带副本往东堂。下一章看林叙如何在林夙和林崇面前落进正式账。",
-        "len": 50,
-        "first8": "药庐的纸上只写“",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她袖里那支笔，没动",
+        "len": 9,
+        "first8": "她袖里那支笔，没",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 217,
       "metrics": {
@@ -66436,7 +66319,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66457,11 +66339,11 @@
       "thread_len": 11,
       "beat_len": 26,
       "hook": {
-        "hook_text": "东堂正式账只记下\"颜色相近，不能定根\"，林崇把私印盒收回案内。下一章看他如何处理一封没有经手人、却已经留下责任的旧信。",
-        "len": 59,
-        "first8": "东堂正式账只记下",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "的雪水沿石缝退了一寸，空栏仍朝里。没有人替它添字。林叙收笔。",
+        "len": 30,
+        "first8": "的雪水沿石缝退了",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 204,
       "metrics": {
@@ -66493,7 +66375,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66515,11 +66396,11 @@
       "thread_len": 12,
       "beat_len": 36,
       "hook": {
-        "hook_text": "王姨娘承认“准取”正文出自她手，却说不清信由谁送到案前。下一章看苏挽如何在灶边保存这份副本，不让书写变成开柜证据。",
-        "len": 57,
-        "first8": "王姨娘承认“准取",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他仍坐在案后，手没有伸向私印盒",
+        "len": 15,
+        "first8": "他仍坐在案后，手",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 296,
       "metrics": {
@@ -66551,7 +66432,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66629,11 +66509,11 @@
       "thread_len": 10,
       "beat_len": 31,
       "hook": {
-        "hook_text": "余伯只记得东堂老仆来取药，却没有看见旧信；阿湄拿着糖去找取药的老仆，问纸包后来去了哪里。下一章看林彻如何面对林夙手里的副本。",
-        "len": 62,
-        "first8": "余伯只记得东堂老",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她把余下的两块糖收好，走出门。她端着两块糖，去问第三个人。",
+        "len": 29,
+        "first8": "她把余下的两块糖",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 305,
       "metrics": {
@@ -66665,7 +66545,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66686,11 +66565,11 @@
       "thread_len": 12,
       "beat_len": 34,
       "hook": {
-        "hook_text": "两份副本都空着持信人，林崇仍送东堂。下一章看林叙等来的纸，会不会比旧信先到。",
-        "len": 38,
-        "first8": "两份副本都空着持",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他袖底的纸，比来时多了一张",
+        "len": 13,
+        "first8": "他袖底的纸，比来",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 221,
       "metrics": {
@@ -66722,7 +66601,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66858,11 +66736,11 @@
       "thread_len": 11,
       "beat_len": 27,
       "hook": {
-        "hook_text": "灶边浅匣里留着一份副本，空格仍是空白。下一章看林彻如何在大公子院面对这张不能替母亲落名的纸。",
-        "len": 46,
-        "first8": "灶边浅匣里留着一",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他回头看了一眼浅匣。副本还在里面。他走进雪里。雪又落。",
+        "len": 27,
+        "first8": "他回头看了一眼浅",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 195,
       "metrics": {
@@ -66894,7 +66772,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -66915,11 +66792,11 @@
       "thread_len": 11,
       "beat_len": 35,
       "hook": {
-        "hook_text": "林彻落了自己没见的几样，林夙落了自己见过的一份。林崇把私印盒盖回。空栏仍在，送达时辰仍未补上。",
-        "len": 47,
-        "first8": "林彻落了自己没见",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "是站着把那一截压在袖底",
+        "len": 11,
+        "first8": "是站着把那一截压",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 213,
       "metrics": {
@@ -66951,7 +66828,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -67144,11 +67020,11 @@
       "thread_len": 11,
       "beat_len": 33,
       "hook": {
-        "hook_text": "退婚书的抄条送到灶边，林夙的名字旁有半寸水痕；林夙只承认见过抄条，原件与改字的人仍在东堂。",
-        "len": 45,
-        "first8": "退婚书的抄条送到",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "没有一张纸替谁把落款补全",
+        "len": 12,
+        "first8": "没有一张纸替谁把",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 332,
       "metrics": {
@@ -67180,7 +67056,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)",
         "line 标签异常:修远线"
       ]
@@ -67318,11 +67193,11 @@
       "thread_len": 10,
       "beat_len": 39,
       "hook": {
-        "hook_text": "三份纸已经分袋，只有门房的辰时初还等东堂漏刻核对；林叙等的不是谁来补名字，而是下一张能自己站住的回纸。",
-        "len": 51,
-        "first8": "三份纸已经分袋，",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "他没有把铃声写成送达证据，纸页也没有因此多出一个名字，未改，",
+        "len": 30,
+        "first8": "他没有把铃声写成",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 311,
       "metrics": {
@@ -67354,7 +67229,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -67377,11 +67251,11 @@
       "thread_len": 10,
       "beat_len": 39,
       "hook": {
-        "hook_text": "林崇的分卷信送往灶边：原件留东堂，抄件可阅，门房与漏刻记录另存；林夙要在送达回纸上落下自己的名字。",
-        "len": 49,
-        "first8": "林崇的分卷信送往",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "下一枚名字，必须等纸到灶边以后再落",
+        "len": 17,
+        "first8": "下一枚名字，必须",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 348,
       "metrics": {
@@ -67413,7 +67287,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -67551,11 +67424,11 @@
       "thread_len": 10,
       "beat_len": 42,
       "hook": {
-        "hook_text": "林彻只在东堂门边看见门没有开，苏挽把这项“未见”夹进回纸，却不把它写成原件没有离堂；下一张纸仍要来自直接送达者。",
-        "len": 56,
-        "first8": "林彻只在东堂门边",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "下一张纸来之前，灶边只保存已经落下的字。空栏仍在纸尾。",
+        "len": 27,
+        "first8": "下一张纸来之前，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 295,
       "metrics": {
@@ -67587,7 +67460,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -67609,11 +67481,11 @@
       "thread_len": 10,
       "beat_len": 41,
       "hook": {
-        "hook_text": "四份记录各自站住，却没有一份见到原件离堂；林叙把“等候结束时刻”送回大公子院，东堂的空栏还在等下一次直接见闻。",
-        "len": 55,
-        "first8": "四份记录各自站住",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林叙把两份索引分别装袋，等待下一张回纸",
+        "len": 19,
+        "first8": "林叙把两份索引分",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 324,
       "metrics": {
@@ -67645,7 +67517,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -67666,11 +67537,11 @@
       "thread_len": 10,
       "beat_len": 38,
       "hook": {
-        "hook_text": "林崇在索引底部写下“空栏不是漏写”，再让林夙把分卷说明副本送到灶边；灶边将收到一张没有原件的纸。",
-        "len": 48,
-        "first8": "林崇在索引底部写",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "分卷说明和索引副本去灶边。四个来源仍在四只纸袋里。空栏也在。",
+        "len": 30,
+        "first8": "分卷说明和索引副",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 311,
       "metrics": {
@@ -67702,7 +67573,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -67781,11 +67651,11 @@
       "thread_len": 14,
       "beat_len": 33,
       "hook": {
-        "hook_text": "林叙把“副本送达”写成一行，东堂门房却送来一张只写“原件未出门”的补记。",
-        "len": 36,
-        "first8": "林叙把“副本送达",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "她端着剩下的糖往灶边走糖是甜的，纸上的空栏仍旧发冷",
+        "len": 25,
+        "first8": "她端着剩下的糖往",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 300,
       "metrics": {
@@ -67817,7 +67687,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -67838,11 +67707,11 @@
       "thread_len": 13,
       "beat_len": 45,
       "hook": {
-        "hook_text": "林彻在叶清梧的旧账页下落了自己的名字，林崇却把那页抽走，命人去东堂取原册。",
-        "len": 37,
-        "first8": "林彻在叶清梧的旧",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "笔尖离纸时，院外的雪停了一刻",
+        "len": 14,
+        "first8": "笔尖离纸时，院外",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 320,
       "metrics": {
@@ -67874,7 +67743,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -68012,11 +67880,11 @@
       "thread_len": 16,
       "beat_len": 44,
       "hook": {
-        "hook_text": "周平奉东堂命来取无落款残纸，苏挽只交封面拓记不交原纸；林彻将在门外等一份有钥匙时刻的开柜记录。",
-        "len": 47,
-        "first8": "周平奉东堂命来取",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "周平的脚步声已经出了巷口，东堂要取的不是一页答案，只是一张还",
+        "len": 30,
+        "first8": "周平的脚步声已经",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 326,
       "metrics": {
@@ -68048,7 +67916,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -68070,11 +67937,11 @@
       "thread_len": 11,
       "beat_len": 46,
       "hook": {
-        "hook_text": "东堂内终于响起钥匙碰锁的声音，林彻仍站在门槛外，先等周平把开柜时刻写进册页。",
-        "len": 38,
-        "first8": "东堂内终于响起钥",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "林彻看着那行字，才把脚往前挪了半寸",
+        "len": 17,
+        "first8": "林彻看着那行字，",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 311,
       "metrics": {
@@ -68106,7 +67973,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -68127,11 +67993,11 @@
       "thread_len": 10,
       "beat_len": 57,
       "hook": {
-        "hook_text": "子时的漏刻落下第三声，林夙终于拆开信封，却发现信里只写了半行收件人。",
-        "len": 34,
-        "first8": "子时的漏刻落下第",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "子时的第三声还没有落下",
+        "len": 11,
+        "first8": "子时的第三声还没",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 330,
       "metrics": {
@@ -68163,7 +68029,6 @@
       },
       "template_loop": false,
       "gap_reasons": [
-        "钩子未兑现",
         "平均段长过短(<30)"
       ]
     },
@@ -68184,11 +68049,11 @@
       "thread_len": 13,
       "beat_len": 13,
       "hook": {
-        "hook_text": "今夜子时必开的那封信，封口上留着半干的墨，墨痕将先凝到砚台新缺的那一角上，再落到苏挽朱圈里\"等\"字底下那一寸。",
-        "len": 55,
-        "first8": "今夜子时必开的那",
-        "first8_in_body": false,
-        "evidence": false
+        "hook_text": "砚台上的墨还没干，沿着新缺的砚沿慢慢往下淌，停在\"等\"字底下",
+        "len": 30,
+        "first8": "砚台上的墨还没干",
+        "first8_in_body": true,
+        "evidence": true
       },
       "review_len": 393,
       "metrics": {
@@ -68219,9 +68084,7 @@
         "verb_diversity": 27
       },
       "template_loop": false,
-      "gap_reasons": [
-        "钩子未兑现"
-      ]
+      "gap_reasons": []
     }
   ]
 }
