@@ -58871,10 +58871,10 @@
       "title": "灶边",
       "chapter": 862,
       "score_field": "14/14",
-      "body_chars": 417,
+      "body_chars": 2949,
       "d7": [
-        1,
         2,
+        1,
         2,
         2,
         0,
@@ -58883,43 +58883,43 @@
       ],
       "d7_sum": 10,
       "rubric": [
-        2,
         1,
+        2,
         0,
         2,
         2,
         2,
-        1
+        2
       ],
-      "rubric_sum": 10,
+      "rubric_sum": 11,
       "pub": [
-        1,
         2,
-        1,
+        2,
+        2,
         2,
         0,
         2
       ],
-      "pub_sum": 8,
+      "pub_sum": 10,
       "sh": [
-        0,
         1,
-        0,
         1,
+        1,
+        2,
         0,
         0
       ],
-      "sh_sum": 2,
-      "total_52": 30,
+      "sh_sum": 5,
+      "total_52": 36,
       "max_52": 52,
       "debug": {
-        "motif_hits": 15,
-        "filler_n": 0,
-        "sensory_count": 25,
+        "motif_hits": 97,
+        "filler_n": 1,
+        "sensory_count": 83,
         "cn_tags": 0,
-        "pov_count": 1,
+        "pov_count": 2,
         "summary_words": 0,
-        "judgment_words": 0
+        "judgment_words": 1
       }
     },
     {
