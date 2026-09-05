@@ -48,13 +48,13 @@ TAIL_WINDOW = 6
 
 # E6 章末钩子类型枚举（batch 14 焊入）。每个枚举都给一个或多个特征词；
 # 分类顺序固定,先匹配先赢;不可判 fallback。
-HOOK_REVERSAL = re.compile(r"原来|不料|谁知|岂料|竟|然而|却[是为]?" r"|没想到|反转|翻供|认错")
+HOOK_REVERSAL = re.compile(r"原来|不料|谁知|岂料|竟|然而|却[是为]?" r"|没想到|反转|翻供|认错|看错|看漏")
 HOOK_CHOICE = re.compile(r"两条路|二择|二选|要不要|留.{0,4}还是|去.{0,4}还是|留.{0,4}或去")
 HOOK_BURST = re.compile(r"一刀|一剑|一掌|一拳|拔刀|拔剑|一刀落|一刀下|血溅|血落|血从|摔了|砸了|碎了|断了|爆了|炸了|炸开|撕了|撕开|劈了|撞开")
 HOOK_UNFINISHED = re.compile(r"等.{0,4}(?:他|她|它|谁)" r"|再.{0,3}不来|还没.{0,3}|还没来|还没回|等一根|等一柄|等一句|等一个|还差|尚未")
 HOOK_QUESTION = re.compile(r"[^。！？\n]{2,80}[\uff1f\?]$", re.M)
 HOOK_CREEPY = re.compile(r"那.{0,3}(?:不?动|不?响|没?有)|没有.{0,3}(?:回|答|应|声|响)|不.{0,3}(?:回答|应答)|不回|不答|不应|不答话|不作声|不接话|装.{0,3}死|装.{0,3}没听见|装.{0,3}不在")
-HOOK_RELATION = re.compile(r"手|指|肩|发|眼|泪|笑|沉默|没.{0,3}接|没.{0,3}应|没.{0,3}答|没.{0,3}看|没.{0,3}说话|没.{0,3}问|没.{0,3}动|没.{0,3}回|没.{0,3}递|没.{0,3}挡|没.{0,3}替")
+HOOK_RELATION = re.compile(r"手|指|肩|发|眼|泪|笑|袖|腕|沉默|没.{0,3}接|没.{0,3}应|没.{0,3}答|没.{0,3}看|没.{0,3}说话|没.{0,3}问|没.{0,3}动|没.{0,3}回|没.{0,3}递|没.{0,3}挡|没.{0,3}替")
 HOOK_VAGUE = re.compile(r"夜.{0,3}(?:很|深|长)|风.{0,3}(?:很|起)|屋里.{0,3}(?:很|空|暗)|月.{0,3}(?:很|淡)|心里.{0,3}(?:很|咯)|不知.{0,3}(?:为|怎)")
 HOOK_ENUM = (
     ("reversal", HOOK_REVERSAL),
@@ -67,15 +67,27 @@ HOOK_ENUM = (
     ("vague", HOOK_VAGUE),
 )
 
-# E5 POV 主动发起方识别:POV 名字在中段选择动词主语位置出现占比
-POV_AGENCY_VERB = re.compile(r"(?:^|[。！？\n])" r"([^。！？\n]{1,30}?)" r"(?:决定|改为|改成|主动|亲自|签下|不签|不再|拒绝|逼得|先封|按下旧印|设定|先写下|把.{0,8}推到|说是我让你)")
+# E5 POV 主动发起方识别:先找带有主动动作的句段,再判断动作前的主语。
+POV_AGENCY_VERB = re.compile(
+    r"(?:决定|改为|改成|主动|亲自|签下|不签|不再|拒绝|逼得|先封|按下旧印|设定|先写下|"
+    r"把.{0,12}(?:推到|放回|压住|收好|接过)|"
+    r"取过(?:来|去)?|拿起|拿来|接过(?:来)?|递出|收回|拆开|打开|关上|挡住|写下|烧掉|转身|"
+    r"停下|停住|走出|走向|抓住|握住|按住|推开|扶住|站起来|站起|起身|坐下|"
+    r"让|叫|吩咐|问|留下?|记进|盖好|放回|接住|回头|低头|抬眼|伸手|吹灭)"
+)
 
 POV_NAME_TO_CHAR = {
     "苏挽": "苏挽", "林夙": "林夙", "阿湄": "阿湄",
     "林崇": "林崇", "林彻": "林彻", "林窈": "林窈",
     "林叙": "林叙", "叶观澜": "叶观澜", "余伯": "余伯",
     "凌朔": "凌朔", "裴无咎": "裴无咎", "牛阿大": "牛阿大",
+    "苏漪": "苏漪", "云栀": "云栀", "叶清梧": "叶清梧",
+    "姜玉衡": "姜玉衡", "宋观山": "宋观山", "糖铺老人": "糖铺老人",
+    "老仆": "老仆", "钱执事": "钱执事",
+    "赤渊": "赤渊", "沈疏桐": "沈疏桐", "林崇(鬼)": "林崇",
 }
+
+POV_FEMALE_NAMES = {"苏挽", "苏漪", "林窈", "云栀", "沈疏桐", "叶清梧", "阿湄"}
 NAMED = ("苏挽", "林夙", "阿湄", "林崇", "林彻", "林窈", "林叙", "叶观澜", "余伯", "凌朔", "裴无咎", "牛阿大")
 
 PUBLISH_FLOOR = 7.0
@@ -173,21 +185,38 @@ def e_score(body, audit_row, pov_name=""):
 def _pov_initiator_score(body, pov_name):
     """Return (pov_name, ratio, sample) tuple.
 
-    ratio = occurrences where POV character appears in the clause preceding
-    a mid-turn verb / total mid-turn verb clauses. If POV character is not
-    in POV_NAME_TO_CHAR, return (pov_name, None, "").
+    ratio = occurrences where POV character is the apparent actor before an
+    agency verb / total agency-verb clauses. Pronouns matching the POV
+    character's grammatical gender are accepted when no other named actor
+    appears in the clause. Composite POV values remain unscored.
 
     S2 工程启发式:不假装这是「晋江标准」,只是机器代理「POV 主动发起」信号。
     """
-    if not pov_name or pov_name not in POV_NAME_TO_CHAR:
+    if not pov_name or "/" in pov_name:
         return pov_name, None, ""
-    char = POV_NAME_TO_CHAR[pov_name]
-    clauses = POV_AGENCY_VERB.findall(body)
-    if not clauses:
+    char = POV_NAME_TO_CHAR.get(pov_name, pov_name)
+    pronoun = "她" if pov_name in POV_FEMALE_NAMES else "他"
+    paragraphs = [part.strip() for part in body.split("\n\n") if part.strip() and not part.strip().startswith("#")]
+    if len(paragraphs) < 3:
         return pov_name, 0.0, ""
-    hits = sum(1 for clause in clauses if char in clause)
-    ratio = round(hits / len(clauses), 2)
-    sample = next((c.strip() for c in clauses if char in c), "")[:40]
+    middle = "\n\n".join(paragraphs[1:-1])
+    clauses = [clause.strip() for clause in re.split(r"[。！？；\n]+", middle) if clause.strip()]
+    candidates = []
+    for clause in clauses:
+        verb_match = POV_AGENCY_VERB.search(clause)
+        if not verb_match:
+            continue
+        prefix = clause[:verb_match.start()].strip("「」『』“”\" ，、:：")
+        other_named = any(name in prefix for name in NAMED if name != char)
+        explicit_pov = char in prefix
+        pronoun_pov = bool(re.search(rf"(?:^|[，、 ]){pronoun}(?:的|把|将|让|向|在|从|便|却|又|还|先|也)?", prefix))
+        implicit_pov = not prefix and not other_named
+        candidates.append((clause, explicit_pov or pronoun_pov or implicit_pov))
+    if len(candidates) < 2:
+        return pov_name, 0.0, ""
+    hits = sum(1 for _, is_pov in candidates if is_pov)
+    ratio = round(hits / len(candidates), 2)
+    sample = next((clause for clause, is_pov in candidates if is_pov), "")[:40]
     return pov_name, ratio, sample
 
 

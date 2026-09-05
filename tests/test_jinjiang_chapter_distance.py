@@ -52,8 +52,9 @@ def _body_with(action_count, has_resistance, decision_count, named, hook_signal)
 
 def test_e_score_exposes_hook_type_and_pov_initiator(module_loaded):
     body = (
-        "林夙看见林彻。林夙决定亲自去问。\n\n"
+        "林夙看见林彻。\n\n"
         "林夙签下那卷旧账。\n\n"
+        "林夙把旧账收好，转身离开。\n\n"
         "林彻把旧账递来，林夙没有接。\n\n"
         "她没有回答。"
     )
@@ -71,6 +72,11 @@ def test_hook_type_recognizes_concrete_question_inside_chinese_quotes(module_loa
     scores = module_loaded.e_score(body, {"hook_signal": True})
     assert scores["E6_hook_label"] == "question"
     assert scores["E6_hook_type"] == 8
+
+
+def test_hook_type_recognizes_identity_reversal_and_relation_object(module_loaded):
+    assert module_loaded._hook_type("他可能看错了一次。") == "reversal"
+    assert module_loaded._hook_type("她把袖口往下压了一寸。") == "relation"
 
 
 def test_e_score_does_not_mix_diagnostic_pov_ratio_into_engineering_min(module_loaded):
@@ -96,6 +102,41 @@ def test_e_score_recognizes_concrete_agency_without_magic_keywords(module_loaded
     scores = module_loaded.e_score(body, {"hook_signal": True})
     assert scores["E4_agency"] >= 7
     assert scores["E5_relationship_cost"] >= 6
+
+
+def test_pov_initiator_handles_pronoun_and_concrete_actions(module_loaded):
+    body = "\n\n".join([
+        "院门在风里合上。",
+        "他站起来，把陶罐拿过来。",
+        "他让老仆去把人叫回来。",
+        "油灯在桌上晃了一下。",
+    ])
+
+    name, ratio, sample = module_loaded._pov_initiator_score(body, "林夙")
+
+    assert name == "林夙"
+    assert ratio == 1.0
+    assert "站起来" in sample
+
+
+def test_pov_initiator_requires_two_middle_turns(module_loaded):
+    body = "他推门进去。\n\n他让老仆去叫人。\n\n屋里没有人回答。"
+
+    _, ratio, sample = module_loaded._pov_initiator_score(body, "林夙")
+
+    assert ratio == 0.0
+    assert sample == ""
+
+
+def test_pov_initiator_does_not_credit_named_other_actor(module_loaded):
+    body = "\n\n".join([
+        "林彻让周平去查那三件事。",
+        "周平把纸收好，转身出门。",
+    ])
+
+    _, ratio, _ = module_loaded._pov_initiator_score(body, "林夙")
+
+    assert ratio == 0.0
 
 
 def test_e_score_deterministic(module_loaded):

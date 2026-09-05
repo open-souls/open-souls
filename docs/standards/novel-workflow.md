@@ -325,7 +325,9 @@ mock 只证明门禁和状态写入顺序，不证明文学质量。真正的章
    `docs/standards/文笔范文标准.md` 第 三.3 节（炸钩 / 反转钩 / 抉择钩 / 未竟钩 /
    细思极恐钩 / 关系钩 / 泛化情绪 / 不可判）。
 2. **POV 主动发起方识别** 落到 `tools/jinjiang_chapter_distance.py` E5 子项
-   `e5_pov_initiator`：POV 角色本句是否动作主语占 >= 50% 中段选择动词。不达标则 E5 降一档（4 分）。
+   `e5_pov_initiator`：只扫描标题后的章中段，动作句段至少 2 个才计分；POV 角色作发起方占比
+   >= 50% 才视为主动。代词需与 POV 性别一致，显式其他角色不归因给 POV。样本不足或占比低于阈值，
+   E5 降一档（4 分）。这是 S2 工程代理，不是读者分。
 3. **禁区 9 女主被动** 落到 `engine/prose_lint.py` WARN + `晋江爆款基线.md` 第 3 节：
    单章 POV 是女主时，被动语态 / 被替 / 被让位累计 >= 3 次 -> WARN。
 4. **JJ-LINT-01-05** 落到 `engine/prose_lint.py` + `tools/review_batch.py --strict-editorial` + 钉死回归测试。
