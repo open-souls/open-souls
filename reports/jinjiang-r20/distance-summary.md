@@ -9,19 +9,19 @@
 
 ## 1. One-line answer
 
-After the frontmatter-strip fix, **1 chapters** clear the engineering 8.5 blowup line and **193 (16.9%)** sit in the 7-8.49 publish-eligible band.
+After the frontmatter-strip fix, **1 chapters** clear the engineering 8.5 blowup line and **196 (17.1%)** sit in the 7-8.49 publish-eligible band.
 
 ## 2. Engineering score distribution (E_min = min(E1..E5))
 
 | bucket | chapters | share | meaning |
 |---|---:|---:|---|
-| <5 | 525 | 45.9% | clearly needs rewrite (structural) |
+| <5 | 522 | 45.6% | clearly needs rewrite (structural) |
 | 5-6.99 | 426 | 37.2% | needs choice or action |
-| 7-7.99 | 151 | 13.2% | near entry, fix one dim |
-| 8-8.49 | 42 | 3.7% | publish-ready single-chapter |
+| 7-7.99 | 152 | 13.3% | near entry, fix one dim |
+| 8-8.49 | 44 | 3.8% | publish-ready single-chapter |
 | >=8.5 | 1 | 0.1% | blowup-engineered single-chapter |
 
-Average E_min: **5.10/10**. This is the engineering floor; do not cite it as 接近爆款.
+Average E_min: **5.11/10**. This is the engineering floor; do not cite it as 接近爆款.
 
 ## 3. Per-dimension fail counts (E_dim < 7.0)
 
@@ -29,7 +29,7 @@ Average E_min: **5.10/10**. This is the engineering floor; do not cite it as 接
 |---|---:|---|
 | E1 opening conflict | 14 | opens on scenery or character relations, no action or resistance |
 | E2 mid-turn choice | 492 | POV never makes a real mid-chapter choice, just records or passes through |
-| E3 ending hook | 100 | ends on mood or generalization, leaves no specific next-chapter question |
+| E3 ending hook | 97 | ends on mood or generalization, leaves no specific next-chapter question |
 | E4 POV agency | 888 | agency-verb density is too low, POV feels like an observer |
 | E5 relationship cost | 689 | named characters are present but no relationship moves |
 
@@ -42,7 +42,7 @@ Average E_min: **5.10/10**. This is the engineering floor; do not cite it as 接
 
 | gate | engineering pass count | real pass count with R-track | gap |
 |---|---:|---:|---|
-| publish (min>=7.0) | 194 | 0 | reader evidence missing |
+| publish (min>=7.0) | 197 | 0 | reader evidence missing |
 | blowup chapter (min>=8.5) | 1 | 0 | same |
 | addictive (5 consecutive chapters >=8.5 AND R>=7.5) | n/a | 0 | same |
 
