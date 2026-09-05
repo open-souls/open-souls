@@ -4,61 +4,45 @@
 方法：5 份模型代理盲读（L1）+ 真人 sub-agent / 真人读者 ≥1 份（L2）；只读盲读包正文。
 边界：本结果不等同于真人读者反馈；L1 < 5 份或 L2 < 1 份时禁止聚合判断。
 
-agent_n = 7  # batch 14 新增 sub-agent reader A Demo （读者端 sub-agent 模拟 + 研究端 sub-agent 审查，仅参考，不计 effective_n）
+agent_n = 0 （读者端 sub-agent 模拟 + 研究端 sub-agent 审查，仅参考，不计 effective_n）
 human_reader_n = 0 （真人读者 / 真人 sub-agent 有效 JSON 数，升级 effective_n 的真凭据）
 platform_signal_n = 0 （晋江站内收藏 / 营养液 / 霸王票接入数；本季未接入）
 
 effective_n = 0 (L2-real=0 + L2-reader=0 + L1-effective=0)
-diversity_score = 0.167 (flag) / 1.0 (drop) / 1.0 (reason)
-echo_panel = True ， L1 复读嫌疑高时 L1 不计入 effective_n
+diversity_score = 1.0 (flag) / 1.0 (drop) / 1.0 (reason)
+echo_panel = False ， L1 复读嫌疑高时 L1 不计入 effective_n
 provenance = schema_version=2 / model_id / reading_log / pack_hash are required for new records
+
+## pack_hash drift 警告（stale，不计入 effective_n）
+- reader-1-真人.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
+- reader-1.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
+- reader-2.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
+- reader-3.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
+- reader-4.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
+- reader-5.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
+
+盲读包文本已变，旧 reader JSON 的 pack_hash 与当前不一致；
+必须重新生成 reader JSON 才能恢复 L1 / L2 计数。
 
 current pack_hash = 892df4c69d659635
 
-### 真人文件名被降级为 L1（必须先修 isolation 才能进 L2）
-- reader-1-真人.json: L2-real source missing modern provenance: reader-1-真人.json
-
 L2 = 0。真人证据缺失；任何「读者会追 / 爆款」判断禁止。
 
-## 1. 模型代理（L1）热点
-### 弃读热点
-- mid_a 506：1 人
-- mid_a 504：1 人
-- mid_a 505：1 人
-- mid_b 682：1 人
-- mid_a 502：1 人
-- open 4：1 人
-
-### 关系追问热点
-- 林彻×林夙：1 人
-- 林夙×苏挽：1 人
-- 林夙×阿湄：1 人
-- 苏挽×林窈：1 人
-- 林崇×林夙：1 人
-- 阿湄×苏挽：1 人
-
-### 50 章留存
-- 愿意：1 / 6
-
-### 三类问题命中
-- info_not_action：6 人
-- smart_drop：0 人
-- passive_chain：5 人
-
-## 2. 升级与下一轮改稿顺序（按 effective_n 阈值）
-- info_not_action：L1 命中 6 人；L2 命中 0 人（L1 复读嫌疑高，仅作方向记录，不升级）
-- smart_drop：L1 命中 0 人；L2 命中 0 人（L1 复读嫌疑高，仅作方向记录，不升级）
-- passive_chain：L1 命中 5 人；L2 命中 0 人（L1 复读嫌疑高，仅作方向记录，不升级）
-- 中段包 50 章留存意愿不达标，结构任务。
-
-下一轮建议顺序：
-1. 处理升级项。
-2. 处理关系追问热点。
-3. 处理弃读热点章节。
-4. 再次生成盲读包 + 重新校验 isolation / diversity，确认未恶化的方向。
+## 1. 模型代理（L1）数据不足
+L1 < 5 份，禁止聚合。
 
 ## 4. 盲读包指纹（892df4c69d659635）
 复测必须沿用同一指纹；想刷新读者记忆时用 `regenerate --new-seed`。
 
+注意：本轮有 pack_hash drift 条目（见顶部警告），旧 reader JSON 已不计入 effective_n。
+
 ## 5. 词表拦截清单 (per 5-reader-cross-workflow.md §9.5)
 - 0 命中（本季 effective_n = 0，语言门禁尚未触发）
+
+## 3. sub-agent 兜底路径 demo run (batch 14)
+
+- sub-agent 模拟报告: 5 份（A Demo + B persona2 + C persona3 + D persona4 + E persona5）
+  落 `reports/jinjiang-r20/sub-agent-reads/`，不升级 effective_n。
+- 同点统计：ch510 = 4 / 5 persona drop 候选 → 触发方向层升级（per 5-reader-cross-workflow §4）。
+- L2 真证据 = 0 (effective_n = 0); 任何「读者会追 / 爆款 / 上瘾」措辞仍被禁词清单拦截。
+- cross-pollination 详细：`reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md`。

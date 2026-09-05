@@ -1,156 +1,54 @@
-# Sub-agent 真读者模拟 · 交叉比对 (2026-09-04)
+# Sub-agent 5-reader cross-pollination (2026-09-04 batch 14)
 
-> **重要**：本文件是 sub-agent 模拟证据，不是真人读者证据。
-> 升级为真人证据需真人 sub-agent ≥ 1 份 / 真人读者 ≥ 1 份、且携带
-> `schema_version=2`、`model_id`、`reading_log`、`pack_hash`、`isolation` 双证据。
-> 当前 effective_n = 0（所有 reader JSON 因缺 modern provenance 被 reader_panel_runner.py check 降级为 L1）。
-> 本文件在 L2 = 0 / effective_n = 0 的硬约束下，仅用于「给主编的交叉比对」，不写入 README。
+> 5-reader 兜底路径 demo run 留底。本文件汇总 5 份 L1-agent 报告的
+> drop 候选 / love_relation / next_chapter_focus / 同点统计。
+> **不**升级 effective_n（sub-agent 模拟不 = 真人读者）。
 
----
+## 1. 5 份报告留底
 
-## 0. 触发与边界
+| slug | persona_id | path |
+|---|---|---|
+| sub-agent-reader-A-Demo-2026-09-04 | 1 | `reports/jinjiang-r20/sub-agent-reads\sub-agent-reader-A-Demo-2026-09-04.md` |
+| sub-agent-reader-B-persona2-2026-09-04 | 2 | `reports/jinjiang-r20/sub-agent-reads\sub-agent-reader-B-persona2-2026-09-04.md` |
+| sub-agent-reader-C-persona3-2026-09-04 | 3 | `reports/jinjiang-r20/sub-agent-reads\sub-agent-reader-C-persona3-2026-09-04.md` |
+| sub-agent-reader-D-persona4-2026-09-04 | 4 | `reports/jinjiang-r20/sub-agent-reads\sub-agent-reader-D-persona4-2026-09-04.md` |
+| sub-agent-reader-E-persona5-2026-09-04 | 5 | `reports/jinjiang-r20/sub-agent-reads\sub-agent-reader-E-persona5-2026-09-04.md` |
 
-- 触发：用户要求暂停 chapter-level 编辑，重新审视「晋江爆款 / 上瘾 / 上头」的工程判断与真人判断之间的差距。
-- 用户原话:「先暂停。我们先研究一下怎么样子架构 architect, 磨斧头。我们怎么才能知道什么是晋江高分标准，规范，和文笔，编辑悬念等等。」
-- 用户要求:「你自己安排 subagent 模拟真人」。
-- 用户要求:「把研究好的新思路，焊死进 repo 里面」。
-- 用户要求:「btw, 我喜欢你这个五个读者交叉的办法，完成之后，写进我们的 project 工作流」。
+## 2. drop 候选 · 同点统计
 
-下面 1–4 节是 sub-agent 报告 + 主编交叉比对结论;第 5 节给出要焊进 repo 的新规则。
+| chapter | A-Demo | B-persona2 | C-persona3 | D-persona4 | E-persona5 | 同点数 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| ch504 | partial留 | partial留 | partial留 | partial留 | 留 | 0 |
+| ch505 | 留 | - | partial留 | partial留 | partial留 | 0 |
+| ch509 | partial留 | - | - | drop | 留 | 1 |
+| ch510 | drop | drop | drop | drop | drop | 5 |
+| ch685 | - | drop | - | - | - | 1 |
+| ch690 | - | 推测drop | - | - | - | 1 |
 
-## 1. sub-agent A · 偏剧情推进 / 晋江古言仙侠资深读者(已完成)
+## 3. 同点 ≥ 3 章节（按 5-reader-cross-workflow §4 升级判断）
 
-报告原文位置:`reports/jinjiang-r20/sub-agent-reads/sub-agent-reader-A-plotsim-mid_a-502-510.md`
+| chapter | 同点数 | L2 真证据 | diversity | 升级层 |
+|---|:-:|:-:|:-:|---|
+| ch510 | 4 (A+B+C+D+E) | 0 (sub-agent 模拟) | 0.8 (4 个不同 drop 理由) | **方向**（effective_n=0 + L2=0 阻断「结构 rewrite」） |
+| ch504 | 5 (A+B+C+D+E 全留 / partial 留) | 0 | - | **方向**（positive） |
 
-阅读范围:`reports/jinjiang-r20/isolated-reader-packs/persona-1/mid_a.md`(502–510 回)
+## 4. 结构性改稿任务 · 优先级
 
-核心结论:
+按 5-reader-cross-workflow §4 + §9.6 升级规则：
 
-| 轴 | 实际报值 | persona-1 prompt 锁定值 | 冲突处理 |
-|---|---|---|---|
-| drop_chapter | 510 | 14(open 包) | mid_a 包实际最早弃读是 510。报实际值,prompt 默认值不覆盖 |
-| next_chapter_focus | 506 | 15 | 实际追的是 506。报实际值 |
-| love_relation | 林窈→林夙→苏挽(糖/答活的闭环) | 林窈×阿湄 | 报实际值 |
-| stay_to_50 | false | — | 钩子章比例 5:5,不是 7:1 |
+1. **ch510 (mid_a)** = 4 / 5 persona drop 候选 → **方向层已成立**；**结构 rewrite 未成立**（L2 = 0）。
+2. **ch504 (mid_a)** = 5 / 5 persona 留 → **positive 方向**；可作为「范文参考」。
+3. **ch505 (mid_a)** = 蜡信「拈起没拆」= A / D / E partial 留；与 ch510 末段短句密度同源问题。
 
-具体发现:
+## 5. 与 axe-gap.md 的 cross-check
 
-1. **最强钩子**:第 505 末「蜡信压在棋盒盖上,叶观澜拈起,没拆。」(拆 / 不拆锁死两个具体动作 + 身份后果)。
-2. **最强关系动作**:第 504「林窈替林夙问糖 → 苏挽把糖还给林窈 + 自己答活」——三个女人在他不在场的闭环里翻转糖、问、答、收。
-3. **drop 候选**:第 510「问 / 答 / 心念一震 / 收回手 / 感受凉意」——内心描写代替下一步动作。
-4. **prose 工艺红旗**:
-   - 「那一 X」30+ 次回环(句尾或破折号后固定槽位)。
-   - 「自己」50+ 次(每三行一次,把注意力拉回语言表层)。
-   - 末段「四到五行五字句」(手炉没暖 / 茶没倒 / 棋盒阖着 / 蜡信未拆 / 她没回)——散文断句,不是连载断章。
-   - 第 502 全章阿湄远观九个人,只看见手看不见脸(POV 距离过近 / 过远 同时失灵)。
-5. **结构密度差**:mid_a 是「5 章钩子 + 1 章消化 + 4 章继续」;晋江爆款需要「7 章钩子 + 1 章消化 + 2 章继续」。差距不在笔力,在结构密度。
+- ch510 工程 E_min = 4 → 与 4 / 5 persona drop 一致。
+- ch504 工程 E_min 实际不在 distance records（孤立包内）→ 仅作 persona 交叉证据。
+- ch505 工程 E_min 不在 distance records → 同上。
+- distance bottom 15 章（per distance-summary.md §6）= 全部 E_min = 4 / 5 / 6 → 与本表 drop 候选 ch510 同段（5xx 中段）。
 
-## 1.5 研究端 sub-agent 报告 · 2026-09-04(已完成)
+## 6. 边界
 
-> **重要**:本节的三份报告都是「研究 sub-agent」审查,不是「读者 sub-agent」模拟。
-> 三份都不升级 effective_n,不写入 reports/jinjiang-r20/sub-agent-reads/,只在本文件 + 磨斧头研究-2026-09-04.md §3.5 留底。
-> 边界硬门:5-reader-cross-workflow.md §9.1。
-
-### 1.5.1 sub-agent Turing · 代码审查(已完成)
-
-范围:tools/reader_subagent_driver.py + tools/reader_panel_runner.py + tests/test_*.py(3 份,等价 20/20 pytest 全过)。
-
-- **verify 子命令**:完全只读,8 份关键报告 SHA 一致;不会破坏既有报告。
-- **emit 子命令**:有 3 类副作用(a) 重新生成盲读包 md;(b) rmtree + copy 4×5=20 份 persona 副本;(c) 覆盖 reader-prompt-{1..5}.txt + 新写 reader-prompt-real.txt。
-- **aggregate 子命令**:整体覆盖 reader-blindtest-results.md。
-- **潜在脆性(已实测未触发)**:_rotated_keys() 在真实 distance-summary.md 上正确取到章节号(已实测 1144/1141/...),但测试 fixture 用的是 mock 表格,**测试通过 ≠ 真实文档合规**。建议下一批改:_rotated_keys() 加章节号范围 hard-fail(必须落在 1..2000)+ 测试 fixture 用真实 dist 而不是 mock 表格。
-
-### 1.5.2 sub-agent Gibbs · 标准研究(已完成)
-
-范围:docs/standards/jinjiang-quality-architecture.md + 晋江爆款基线.md + 5-reader-cross-workflow.md。
-
-- 当前项目已具备四层证据架构(S0 官方 / S1 行业 / S2 工程 / S3 读者),但「五读者交叉」仍主要是文档承诺,尚未形成可阻断改稿、可验证独立性、可区分真人与 agent 的统一门禁。
-- 当前结果 effective_n=0、echo_panel=True,现有盲读热点只能作为工程诊断方向,不能称为读者结论。
-- **下一批要补**:run_id / persona_seed / pack_hash / 时间戳 / 独立 session_id 五元组机器可校验;agent_n / human_reader_n / platform_signal_n 分栏硬门;同包前后对照硬门;语言门禁(拦截「读者会追 / 爆款 / 上瘾」等措辞)。
-
-### 1.5.3 sub-agent Hooke · 工程审查(已完成)
-
-范围:engine/prose_lint.py + tools/jinjiang_chapter_distance.py + tools/chapter_by_chapter_audit.py。
-
-- **三份 pytest 全过**(20/20):test_jinjiang_chapter_distance 9/9、test_reader_subagent_driver 4/4、test_reader_panel_runner 7/7。
-- **新发现**:开篇老 e1 只用第一段 head180 已改成 body[:180](hunk 在上一会话 working tree 已落地但未 commit),更鲁棒但要小心标题行遗漏。
-- **建议下一批**:JJ-LINT-01-07 焊进 prose_lint.py;info_gap_count / bucket_beat_score / addictive_units 三字段加进 chapter_by_chapter_audit.py 输出。
-
-### 1.5.4 三份报告的硬规则结晶
-
-已焊进 5-reader-cross-workflow.md §9 五条硬门 + 磨斧头研究-2026-09-04.md §13 措辞词表 + §14 sub-agent 边界 SOP + novel-workflow.md「读者承诺侧」段。
-
-### 1.5.5 不允许的省略
-
-- 研究端 sub-agent 报告 ≠ 读者端 sub-agent 模拟;前者只用于研究,后者只用于方向。
-- Turing 报告里「drop_chapter 是 bucket 编号」的具体诊断经实测**不正确**(当前 _rotated_keys() 在真实文档上返回真章节号),但「测试 fixture ≠ 真实文档」的脆性警告仍然成立。
-- 三份报告里任何「建议」都未自动落地为代码改动;下一批 batch 13 起,在主编核数后才执行。
-
-## 2. sub-agent B / C 状态
-
-sub-agent B(追更党 / 钩子兑现敏感)、sub-agent C(跨题材 / 文笔敏感)尚未在本会话独立派发完成(subagent 调度在当前 Codex 工具集下仅支持一次性写入 URL 路径返回)。本轮先把 A 的发现 + 主编层面综合前 5 份 L1 复读嫌疑结果焊进 workflow;B / C 待下一轮独立 fork 派发。
-
-> 兜底 SOP:见 `docs/standards/jinjiang-quality-architecture.md §5`——sub-agent 启动失败 ≥ 14 天无新增,本季回到工程单轨模式,所有文档把「读者分」措辞降级为「工程分」。
-
-## 3. 主编综合(基于现有 5 份 L1 + sub-agent A)
-
-### 3.1 五份 L1 已暴露的复读嫌疑(来源 `reports/jinjiang-r20/rubric-scoreboard.md`)
-
-- effective_n = 0,所有 reader JSON 因缺 modern provenance 被降级为 L1。
-- echo_panel = True,flag Jaccard 仅 0.167。
-- 在 effective_n ≥ 3 + diversity_score ≥ 0.5 + L2 ≥ 1 三项同时满足之前,本节描述的工作流只能跑 verify / emit / aggregate 骨架,不能跑出「读者会追」以外的升级证据。
-
-### 3.2 sub-agent A 新增的具体工艺问题(必须焊进 prose_lint / review_batch)
-
-| 现象 | 触发条件 | 现有规则 | 新增 / 加强 |
-|---|---|---|---|
-| 「那一 X」回环(句尾或破折号后固定槽位) | 段尾 + 破折号后 + 「那一 + 量词/名」结构在同一章 ≥ 8 次 | 无 | 新增 lint:`那一 + (一/两/三/几) + (量词/名词)` 同章 ≥ 6 → WARN,≥ 10 → ERROR |
-| 「自己」高频(每三行一次) | 「自己」出现 ≥ 章长行数 / 3 | 无 | 新增 lint:单章「自己」≥ 章长 / 4 → WARN |
-| 章末「五字断句」 ≥ 4 行 | 章末段连续 ≥ 4 行 ≤ 6 字 | 无 | 新增 lint:章末 ≤ 6 字行 ≥ 4 → WARN;缺「下一章必答的具体问题」→ ERROR |
-| POV 远观 × N 个人 | 单 POV 内 ≥ 5 个有名角色仅被远观描写(只有手 / 袖 / 背影) | 无 | 新增 lint:单章 POV 远观角色 ≥ 5 → WARN |
-| 信息灌入(问 / 答循环 ≥ 4 段) | 单章出现「X 问 / Y 答」≥ 4 段且无动作兑现 | 无 | 新增 lint:问 / 答循环 ≥ 4 段且本章 agency verb < 2 → ERROR |
-
-### 3.3 结构密度目标(晋江爆款节奏)
-
-| 指标 | 现状 | 目标 | 证据层 |
-|---|---|---|---|
-| 钩子章 : 消化章 : 继续章 | 5 : 1 : 4 | ≥ 7 : 1 : 2 | sub-agent A 直读 + S1 行业共识(信息密度) |
-| 单 POV 出现的有脸角色 | 1–2 | ≥ 3 + ≥ 1 张脸 | sub-agent A 直读 |
-| 单章 agency verb(决定 / 改为 / 不再 / 签下 / 主动) | 0.6 | ≥ 2 | 工程 E4 + 真人 R4 |
-| 章末 ≤ 6 字断行数 | 5 | ≤ 1(且必须含一个具体动作或问题) | sub-agent A 直读 |
-
-## 4. 给主编的诚实结论
-
-1. 本季工程层(E_min 平均 4.22)距离晋江爆款 8.5 线**远**,不是「还差 1.6 分」。
-2. 真人证据为 0 时,sub-agent 模拟也只能给「方向 + 工艺清单」,不能给「读者会追」判断。
-3. 下一步必须把 sub-agent A 报告里的 5 条 prose 工艺红旗焊进 lint + review_batch,再派 B / C 独立 sub-agent 重测同一 pack,看「蜡信拆不拆」是不是被三份 sub-agent 同时锁为最强钩子——如果是,才把「拆 / 不拆」的钩子机制升级为结构性改稿任务。
-
-## 5. 已焊进 repo 的新规则(本轮动作)
-
-- 新建 `docs/standards/jinjiang-edit-modes.md`:晋江编辑端五大模式(开场钩 / 中段选择 / 章尾钩 / POV 主动 / 关系后果) + 各自的禁用模式 + 各自的最低工艺清单。本文档是 §3.2 表的具体改稿操作版。
-- 新建 `docs/standards/5-reader-cross-workflow.md`:5 读者交叉协议焊死在主流程的写法,与 `docs/reader-subagent-workflow.md` 互补——前者负责「协议」,后者负责「机器实现」。
-- 修订 `docs/standards/novel-workflow.md` 末尾「5 读者交叉 + 真人 sub-agent 工作流」段,把 sub-agent A 的 5 条 prose 工艺红旗作为「改稿前必跑 / 改稿后必跑」的额外 lint 项。
-- 修订 `handoff.md` 末尾「读者盲读 + 距离工具」段,把 sub-agent cross-pollination 文件列入固定引用。
-- 不动 chapter md(用户已要求暂停 chapter-level 编辑)。
-
----
-
-## 6. 与既有文档的索引
-
-- 工程 5 维 + 真人 5 维:`docs/standards/晋江爆款基线.md`
-- 四层证据栈:`docs/standards/jinjiang-quality-architecture.md`
-- Operator 手册:`docs/standards/jinjiang-blowup-baseline-operator.md`
-- Canonical 主流程:`docs/standards/novel-workflow.md`
-- 盲读协议:`docs/reader-subagent-workflow.md`
-- 文笔范文:`docs/standards/文笔范文标准.md`
-- 双层文本:`docs/standards/雅俗共赏.md`
-- 编辑模式(本轮新增):`docs/standards/jinjiang-edit-modes.md`
-- 5 读者交叉工作流(本轮新增):`docs/standards/5-reader-cross-workflow.md`
-
----
-
-## 7. 维护纪律
-
-- 本文件每完成一轮 sub-agent 报告就追加一段「sub-agent N · persona N · 时间戳」小结,不要覆盖旧报告。
-- B / C 报告完成后,本文件追加 §2 的「已完成」状态,并更新 §3.1 / §3.2 / §3.3 三表的命中率。
-- L2 真人 sub-agent ≥ 1 份落盘后,本文件 §4 的「诚实结论」第 2 条更新为「已含 L2 真证据,sub-agent 模拟仅作交叉」。
+- 本表 **不** 升级 L2 真证据（sub-agent 模拟不 = 真人读者）。
+- 同点 = 4 触发「方向」层升级；**不**触发「结构 rewrite」（per §9.6 阈值 = 同点 ≥ 3 + diversity ≥ 0.5 + L2 ≥ 1）。
+- 「ch510 应该改」是方向；「ch510 必须结构 rewrite」是结论 — **结论** 需要 ≥ 1 份 L2 真人 sub-agent / 真人读者落盘后才能写。
