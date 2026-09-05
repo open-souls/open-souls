@@ -15,8 +15,8 @@ After the frontmatter-strip fix, **11 chapters** clear the engineering 8.5 blowu
 
 | bucket | chapters | share | meaning |
 |---|---:|---:|---|
-| <5 | 192 | 15.6% | clearly needs rewrite (structural) |
-| 5-6.99 | 440 | 35.9% | needs choice or action |
+| <5 | 191 | 15.6% | clearly needs rewrite (structural) |
+| 5-6.99 | 441 | 35.9% | needs choice or action |
 | 7-7.99 | 469 | 38.2% | near entry, fix one dim |
 | 8-8.49 | 115 | 9.4% | publish-ready single-chapter |
 | >=8.5 | 11 | 0.9% | blowup-engineered single-chapter |
@@ -28,7 +28,7 @@ Average E_min: **6.18/10**. This is the engineering floor; do not cite it as 接
 | dim | failing chapters | meaning |
 |---|---:|---|
 | E1 opening conflict | 0 | opens on scenery or character relations, no action or resistance |
-| E2 mid-turn choice | 114 | POV never makes a real mid-chapter choice, just records or passes through |
+| E2 mid-turn choice | 113 | POV never makes a real mid-chapter choice, just records or passes through |
 | E3 ending hook | 98 | ends on mood or generalization, leaves no specific next-chapter question |
 | E4 POV agency | 415 | agency-verb density is too low, POV feels like an observer |
 | E5 relationship cost | 377 | named characters are present but no relationship moves |

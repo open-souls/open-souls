@@ -209,12 +209,12 @@
       "pov": "林彻",
       "engineering": {
         "E1_open_conflict": 7,
-        "E2_mid_turn": 6,
+        "E2_mid_turn": 10,
         "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 4
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -222,7 +222,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
