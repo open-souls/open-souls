@@ -8,7 +8,7 @@
     ],
     "issue_counts": {
       "填充描写": 26,
-      "章尾弱": 95,
+      "章尾弱": 94,
       "句子重复": 89,
       "开句同构": 1
     },
@@ -20089,20 +20089,18 @@
       "chapter": 1024,
       "file": "seasons\\01-xianxia\\chronicle\\1024-林崇信.md",
       "title": "林崇信",
-      "chars": 1526,
-      "paragraphs": 100,
+      "chars": 1531,
+      "paragraphs": 97,
       "sentences": 135,
       "dialogue_marks": 71,
       "action_verbs": 113,
-      "ending": "不盖。",
-      "hook_signal": false,
+      "ending": "案下的纸写着：林夙仍在药庐，未亲见，不发召。最后一个“召”字压得很深。林崇把铜秤收进抽屉，按住信筒。不盖。",
+      "hook_signal": true,
       "editorial_hits": [],
       "formula_hits": [],
       "filler_hits": [],
       "repeated_sentences": [],
-      "issue_tags": [
-        "章尾弱"
-      ],
+      "issue_tags": [],
       "binge_score": 10
     },
     {
