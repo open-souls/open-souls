@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import statistics
 import sys
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,9 +73,9 @@ def main() -> int:
     lines = [
         "# Distance to Jinjiang blowup - full season engineering snapshot",
         "",
-        "> Generated: 2026-09-04 (post frontmatter-strip fix, regenerated from chapter-distance.json)",
+        f"> Generated: {date.today().isoformat()} (regenerated from chapter-distance.json)",
         "> Source: tools/jinjiang_chapter_distance.py + tools/chapter_by_chapter_audit.py",
-        "> Range: 1145 contiguous chapters",
+        f"> Range: {len(recs)} chapter records",
         "> Baseline: docs/standards/jinjiang-blowup-baseline.md section 6",
         "> Honest note: R-track real reader evidence = 0 valid samples (L2-real = "
         f"{l2_real}, L1-effective filtered by echo_panel).",
