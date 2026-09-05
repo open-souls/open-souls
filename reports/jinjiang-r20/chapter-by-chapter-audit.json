@@ -9,13 +9,13 @@
     "issue_counts": {
       "填充描写": 41,
       "句子重复": 193,
-      "章尾弱": 154,
+      "章尾弱": 153,
       "开句同构": 3,
       "编辑标记": 23,
       "短章": 61,
       "公式回环": 3
     },
-    "avg_chars": 1816.9,
+    "avg_chars": 1817.0,
     "avg_binge_score": 9.98,
     "low_score_chapters": [],
     "editorial_leak_chapters": [
@@ -387,20 +387,18 @@
       "chapter": 15,
       "file": "seasons\\01-xianxia\\chronicle\\015-代签.md",
       "title": "代签",
-      "chars": 2038,
-      "paragraphs": 108,
-      "sentences": 180,
-      "dialogue_marks": 52,
-      "action_verbs": 138,
-      "ending": "「嗯。」林夙说。",
-      "hook_signal": false,
+      "chars": 2183,
+      "paragraphs": 112,
+      "sentences": 189,
+      "dialogue_marks": 53,
+      "action_verbs": 149,
+      "ending": "林窈手里那盏茶，已经凉了大半。她没喝。",
+      "hook_signal": true,
       "editorial_hits": [],
       "formula_hits": [],
       "filler_hits": [],
       "repeated_sentences": [],
-      "issue_tags": [
-        "章尾弱"
-      ],
+      "issue_tags": [],
       "binge_score": 10
     },
     {

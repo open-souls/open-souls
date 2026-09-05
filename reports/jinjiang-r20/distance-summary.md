@@ -9,15 +9,15 @@
 
 ## 1. One-line answer
 
-After the frontmatter-strip fix, **5 chapters** clear the engineering 8.5 blowup line and **259 (21.1%)** sit in the 7-8.49 publish-eligible band.
+After the frontmatter-strip fix, **5 chapters** clear the engineering 8.5 blowup line and **260 (21.2%)** sit in the 7-8.49 publish-eligible band.
 
 ## 2. Engineering score distribution (E_min = min(E1..E5))
 
 | bucket | chapters | share | meaning |
 |---|---:|---:|---|
-| <5 | 392 | 31.9% | clearly needs rewrite (structural) |
+| <5 | 391 | 31.9% | clearly needs rewrite (structural) |
 | 5-6.99 | 571 | 46.5% | needs choice or action |
-| 7-7.99 | 208 | 17.0% | near entry, fix one dim |
+| 7-7.99 | 209 | 17.0% | near entry, fix one dim |
 | 8-8.49 | 51 | 4.2% | publish-ready single-chapter |
 | >=8.5 | 5 | 0.4% | blowup-engineered single-chapter |
 
@@ -29,7 +29,7 @@ Average E_min: **5.39/10**. This is the engineering floor; do not cite it as 接
 |---|---:|---|
 | E1 opening conflict | 0 | opens on scenery or character relations, no action or resistance |
 | E2 mid-turn choice | 326 | POV never makes a real mid-chapter choice, just records or passes through |
-| E3 ending hook | 128 | ends on mood or generalization, leaves no specific next-chapter question |
+| E3 ending hook | 127 | ends on mood or generalization, leaves no specific next-chapter question |
 | E4 POV agency | 878 | agency-verb density is too low, POV feels like an observer |
 | E5 relationship cost | 537 | named characters are present but no relationship moves |
 
@@ -42,7 +42,7 @@ Average E_min: **5.39/10**. This is the engineering floor; do not cite it as 接
 
 | gate | engineering pass count | real pass count with R-track | gap |
 |---|---:|---:|---|
-| publish (min>=7.0) | 264 | 0 | reader evidence missing |
+| publish (min>=7.0) | 265 | 0 | reader evidence missing |
 | blowup chapter (min>=8.5) | 5 | 0 | same |
 | addictive (5 consecutive chapters >=8.5 AND R>=7.5) | n/a | 0 | same |
 
