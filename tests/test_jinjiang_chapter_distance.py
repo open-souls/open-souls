@@ -49,6 +49,18 @@ def _body_with(action_count, has_resistance, decision_count, named, hook_signal)
     return body
 
 
+def test_e_score_recognizes_concrete_agency_without_magic_keywords(module_loaded):
+    body = "\n\n".join([
+        "东堂外门。",
+        "林彻把笔尖压在见证人一栏旁，先封住东堂东架。",
+        "他按下旧印，给周平两条路：进去取册，或关门登记。",
+        "林彻站在门槛边。",
+    ])
+    scores = module_loaded.e_score(body, {"hook_signal": True})
+    assert scores["E4_agency"] >= 7
+    assert scores["E5_relationship_cost"] >= 6
+
+
 def test_e_score_deterministic(module_loaded):
     body = _body_with(8, True, 4, ["苏挽", "林夙"], True)
     e1 = module_loaded.e_score(body, {"hook_signal": True})
