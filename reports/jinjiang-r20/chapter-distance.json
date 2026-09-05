@@ -4764,11 +4764,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 8,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -4776,7 +4776,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
