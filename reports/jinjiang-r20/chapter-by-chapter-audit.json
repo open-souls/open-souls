@@ -8,7 +8,7 @@
     ],
     "issue_counts": {
       "填充描写": 26,
-      "章尾弱": 94,
+      "章尾弱": 93,
       "句子重复": 89,
       "开句同构": 1
     },
@@ -21537,20 +21537,18 @@
       "chapter": 1100,
       "file": "seasons\\01-xianxia\\chronicle\\1100-林彻站.md",
       "title": "林彻站",
-      "chars": 1502,
-      "paragraphs": 118,
+      "chars": 1506,
+      "paragraphs": 117,
       "sentences": 137,
       "dialogue_marks": 77,
       "action_verbs": 107,
-      "ending": "门内亮。",
-      "hook_signal": false,
+      "ending": "炉上水声细响，没停。",
+      "hook_signal": true,
       "editorial_hits": [],
       "formula_hits": [],
       "filler_hits": [],
       "repeated_sentences": [],
-      "issue_tags": [
-        "章尾弱"
-      ],
+      "issue_tags": [],
       "binge_score": 10
     },
     {
