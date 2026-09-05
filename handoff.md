@@ -153,6 +153,9 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 e
 
 ## 读者盲读 + 距离工具（r20 工作流，必跑节点）
 
+> 项目级四层证据栈（S0 晋江官方 / S1 行业共识 / S2 工程启发式 / S3 真人读者）
+> 的完整定义见 docs/standards/jinjiang-quality-architecture.md。本节是主编交接侧的复述。
+
 > 这是项目级读者质量基线。5 读者交叉办法已经焊死在 canonical 工作流，不是附录。
 > `effective_n = 0` / `L2 = 0` 的窗口期，"读者会追 / 爆款 / 上瘾"任何措辞一律禁止。
 

@@ -197,9 +197,16 @@ def validate(verbose: bool = True) -> tuple[int, int, list[str], dict]:
     return ok, total, issues, by_kind
 
 
-def _load_panel() -> tuple[list[tuple[Path, dict, str, str]], list[str]]:
+def _load_panel() -> tuple[list[tuple[Path, dict, str, str]], list[str], list[str]]:
+    """Return rows, parse issues, and stale-pack-hash warnings.
+
+    A reader JSON is stale when its pack_hash drifts from the current one.
+    Stale entries are returned to the caller for surfacing but must NOT
+    count toward effective_n. See aggregate().
+    """
     rows: list[tuple[Path, dict, str, str]] = []
     issues: list[str] = []
+    stale = _pack_hash_stale_entries(_pack_hash())
     for path in _iter_reader_files():
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -213,7 +220,7 @@ def _load_panel() -> tuple[list[tuple[Path, dict, str, str]], list[str]]:
             issues.append(f"{path.name}: missing keys")
             continue
         rows.append((path, data, kind, reason))
-    return rows, issues
+    return rows, issues, stale
 
 
 def effective_n(l2_real: int, l2_reader: int, diversity: dict) -> int:
@@ -221,11 +228,15 @@ def effective_n(l2_real: int, l2_reader: int, diversity: dict) -> int:
 
 
 def aggregate() -> Path:
-    rows, issues = _load_panel()
+    rows, issues, stale = _load_panel()
+    # Stale entries (pack_hash drift) must NOT count toward effective_n.
+    stale_names = {line.split(":", 1)[0] for line in stale}
+    rows = [r for r in rows if r[0].name not in stale_names]
     agents = [d for _, d, k, _ in rows if k == "L1-agent"]
     l2_real = [d for _, d, k, _ in rows if k == "L2-real"]
     l2_reader = [d for _, d, k, _ in rows if k == "L2-reader"]
     flagged = [(path, reason) for path, _, k, reason in rows if k == "L1-agent" and reason != "default L1"]
+    current_pack_hash = _pack_hash()
 
     diversity = diversity_score(agents)
     eff_n = effective_n(len(l2_real), len(l2_reader), diversity)
@@ -242,6 +253,17 @@ def aggregate() -> Path:
         f"echo_panel = {diversity['echo_panel']} ， L1 复读嫌疑高时 L1 不计入 effective_n",
         "provenance = schema_version=2 / model_id / reading_log / pack_hash are required for new records",
     ]
+
+    if stale:
+        lines.append("")
+        lines.append("## pack_hash drift 警告（stale，不计入 effective_n）")
+        for line in stale:
+            lines.append(f"- {line}")
+        lines.append("")
+        lines.append("盲读包文本已变，旧 reader JSON 的 pack_hash 与当前不一致；")
+        lines.append("必须重新生成 reader JSON 才能恢复 L1 / L2 计数。")
+    lines.append("")
+    lines.append(f"current pack_hash = {current_pack_hash}")
 
     if flagged:
         lines.append("")
@@ -338,12 +360,40 @@ def aggregate() -> Path:
             lines.append(f"- {issue}")
 
     lines.append("")
-    lines.append(f"## 4. 盲读包指纹（{_pack_hash()}）")
+    lines.append(f"## 4. 盲读包指纹（{current_pack_hash}）")
     lines.append("复测必须沿用同一指纹；想刷新读者记忆时用 `regenerate --new-seed`。")
+    if stale:
+        lines.append("")
+        lines.append("注意：本轮有 pack_hash drift 条目（见顶部警告），旧 reader JSON 已不计入 effective_n。")
 
     RESULTS_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return RESULTS_MD
 
+
+
+def _pack_hash_stale_entries(current_hash):
+    """Return names of reader JSONs whose pack_hash drifts from current.
+
+    A reader JSON is stale when its pack_hash differs from the current
+    blindtest pack hash. Stale entries are surfaced in the aggregate
+    report but must NOT count toward effective_n. See aggregate().
+    """
+    if current_hash == "no-packs":
+        return []
+    stale = []
+    for path in REPORTS.glob("reader-*.json"):
+        if path.name.endswith("-prompt.txt"):
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        row_hash = data.get("pack_hash")
+        if not row_hash:
+            stale.append(f"{path.name}: missing pack_hash current={current_hash}")
+        elif row_hash != current_hash:
+            stale.append(f"{path.name}: pack_hash={row_hash} current={current_hash}")
+    return stale
 
 def _pack_hash() -> str:
     h = hashlib.sha256()

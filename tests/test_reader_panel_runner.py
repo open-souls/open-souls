@@ -53,7 +53,7 @@ def module_with_tmp(monkeypatch, tmp_path):
     return runner
 
 
-def _panel_row(idx: int, *, isolation: bool, source: str, label_suffix: str = "", schema: int = 2):
+def _panel_row(idx: int, *, isolation: bool, source: str, label_suffix: str = "", schema: int = 2, pack_hash: str = "test-hash"):
     base = {
         "id": str(idx),
         "label": f"label{idx}{label_suffix}",
@@ -71,7 +71,7 @@ def _panel_row(idx: int, *, isolation: bool, source: str, label_suffix: str = ""
         "source": source,
         "schema_version": schema,
         "model_id": "test-model",
-        "pack_hash": "test-hash",
+        "pack_hash": pack_hash,
         "reading_log": [
             {"pack": "open", "chapter": 1, "signal": "complete"},
             {"pack": "mid_a", "chapter": 506, "signal": "stop"},
@@ -95,14 +95,15 @@ def _panel_row(idx: int, *, isolation: bool, source: str, label_suffix: str = ""
 
 
 def test_filename_alone_does_not_count_as_L2(module_with_tmp):
+    ph = module_with_tmp._pack_hash()
     rows = {
         f"reader-{i}.json": _panel_row(
-            i, isolation=False, source="模型代理模拟，不是真人读者。"
+            i, isolation=False, source="模型代理模拟，不是真人读者。", pack_hash=ph,
         )
         for i in range(1, 6)
     }
     rows["reader-6-真人.json"] = _panel_row(
-        6, isolation=False, source="真人 sub-agent，historical"
+        6, isolation=False, source="真人 sub-agent，historical", pack_hash=ph,
     )
     _write_panel(module_with_tmp.REPORTS, rows)
 
@@ -113,9 +114,10 @@ def test_filename_alone_does_not_count_as_L2(module_with_tmp):
 
 
 def test_real_subagent_with_isolation_is_L2(module_with_tmp):
+    ph = module_with_tmp._pack_hash()
     rows = {
         f"reader-{i}.json": _panel_row(
-            i, isolation=False, source="模型代理模拟"
+            i, isolation=False, source="模型代理模拟", pack_hash=ph,
         )
         for i in range(1, 6)
     }
@@ -123,6 +125,7 @@ def test_real_subagent_with_isolation_is_L2(module_with_tmp):
         6,
         isolation=True,
         source="真人 sub-agent（独立 fork 模型会话），通过 mcp 回到本会话。",
+        pack_hash=ph,
     )
     _write_panel(module_with_tmp.REPORTS, rows)
 
@@ -132,9 +135,10 @@ def test_real_subagent_with_isolation_is_L2(module_with_tmp):
 
 
 def test_effective_n_drops_when_l1_echoes(module_with_tmp):
+    ph = module_with_tmp._pack_hash()
     rows = {
         f"reader-{i}.json": _panel_row(
-            i, isolation=False, source="模型代理模拟"
+            i, isolation=False, source="模型代理模拟", pack_hash=ph,
         )
         for i in range(1, 6)
     }
@@ -153,6 +157,7 @@ def test_effective_n_grows_with_real_subagent(module_with_tmp):
             isolation=False,
             source="模型代理模拟",
             label_suffix=f"-diverse-{i}",
+            pack_hash=module_with_tmp._pack_hash(),
         )
         for i in range(1, 6)
     }
@@ -173,6 +178,7 @@ def test_effective_n_grows_with_real_subagent(module_with_tmp):
         6,
         isolation=True,
         source="真人 sub-agent（独立 fork 模型会话），通过 mcp 回到本会话。",
+        pack_hash=module_with_tmp._pack_hash(),
     )
     _write_panel(module_with_tmp.REPORTS, rows)
 
@@ -182,11 +188,12 @@ def test_effective_n_grows_with_real_subagent(module_with_tmp):
     assert "echo_panel = False" in text
 
 def test_missing_isolation_block_downgrades_real_subagent(module_with_tmp):
-    rows = {f"reader-{i}.json": _panel_row(i, isolation=False, source="模型代理模拟") for i in range(1, 6)}
+    rows = {f"reader-{i}.json": _panel_row(i, isolation=False, source="模型代理模拟", pack_hash=module_with_tmp._pack_hash()) for i in range(1, 6)}
     rows["reader-7-真人.json"] = _panel_row(
         7,
         isolation=False,
         source="真人 sub-agent，独立 fork 模型会话",
+        pack_hash=module_with_tmp._pack_hash(),
     )
     _write_panel(module_with_tmp.REPORTS, rows)
 
@@ -200,7 +207,7 @@ def test_missing_isolation_block_downgrades_real_subagent(module_with_tmp):
 
 
 def test_missing_pattern_flag_is_blocked(module_with_tmp):
-    row = _panel_row(1, isolation=True, source="真人 sub-agent，独立 fork")
+    row = _panel_row(1, isolation=True, source="真人 sub-agent，独立 fork", pack_hash=module_with_tmp._pack_hash())
     del row["pattern_flags"]["smart_drop"]
     _write_panel(module_with_tmp.REPORTS, {"reader-1-真人.json": row})
     ok, total, issues, by_kind = module_with_tmp.validate(verbose=False)
@@ -215,3 +222,34 @@ def test_pack_hash_is_stable(module_with_tmp):
     (module_with_tmp.PACK_DIR / "open.md").write_text("changed", encoding="utf-8")
     h3 = module_with_tmp._pack_hash()
     assert h3 != h1
+
+
+def test_stale_pack_hash_is_filtered(module_with_tmp):
+    """Reader JSONs with a drifted pack_hash must be excluded from effective_n.
+
+    Locks the r20 §4 contract: changing the blindtest pack text invalidates
+    any reader JSON that still claims the old pack_hash. They surface in
+    the aggregate report as a `## pack_hash drift 警告` block but they
+    must NOT count toward L1 / L2 effective_n.
+    """
+    rows = {
+        f"reader-{i}.json": _panel_row(
+            i, isolation=False, source="模型代理模拟", pack_hash=module_with_tmp._pack_hash(),
+        )
+        for i in range(1, 6)
+    }
+    _write_panel(module_with_tmp.REPORTS, rows)
+
+    out = module_with_tmp.aggregate()
+    text = out.read_text(encoding="utf-8")
+    assert "## pack_hash drift" not in text  # no drift when hashes match
+    assert "echo_panel = True" in text  # L1 echo still flagged
+
+    # Now drift one pack and verify the file is surfaced + excluded.
+    (module_with_tmp.PACK_DIR / "open.md").write_text("drifted", encoding="utf-8")
+    out2 = module_with_tmp.aggregate()
+    text2 = out2.read_text(encoding="utf-8")
+    assert "## pack_hash drift 警告" in text2
+    # All 5 reader files drift because they all carry the old pack_hash.
+    # So effective_n must stay 0 even with diverse L1 data.
+    assert "current pack_hash =" in text2

@@ -1,13 +1,3 @@
----
-name: open-souls
-description: >
-  Open Souls / 众魂 —— 一个开源的无限流网文世界。把一个魂(soul.md)用 PR 或填表送进来，
-  写手系统(策划→写→审，自带流量密码评分与上线审查)按篇幅持续续写一部可追的群像连载，
-  每季换一个世界(现代→异世界→…)，角色有迹可循。触发场景：续写一回 / run open souls /
-  过一回日子 / 送一个角色 / 加新魂 / 换季 / 看连载进展 / 给某角色立传 / 调写手手感。
-  也用于把一份角色描述转成 soul.md、或重写不够"嗑"的章节。
----
-
 # Open Souls
 
 开源无限流网文世界。详见 `README.md`。常用动作：
@@ -42,23 +32,32 @@ description: >
 ```
 
 - 距离快照：`reports/jinjiang-r20/distance-summary.md` 是当前工作树距离晋江爆款的诚实答案。
-  在 `effective_n = 0` 或 `L2 = 0` 的窗口期，禁止使用任何"读者会追 / 爆款 / 上瘾"类措辞。
+  在 `effective_n = 0` 或 reader L2 = 0 的窗口期，禁止使用任何"读者会追 / 爆款 / 上瘾"类措辞。
 - 五读者交叉协议：`tools/reader_subagent_driver.py emit` 一次性出 5 份 persona prompt +
-  1 份 L2 真人 sub-agent prompt；每个 persona 内嵌不同的 `isolation.persona_seed`、
+  1 份 reader L2 真人 sub-agent prompt；每个 persona 内嵌不同的 `isolation.persona_seed`、
   `drop_chapter`、`drop_pack`、`love_relation`、`next_chapter_focus`。`verify` 子命令会
   锁定每条轴 >= 4 个不同值；任一轴退化就视为复读嫌疑，echo_panel 翻 True。
-- 真人 sub-agent 通过 `agent-relay delegate --backend claude-task --task <prompt-file>`
-  跑独立 fork 会话，独立 cwd 启动。回填 JSON 必须带齐 schema_version=2、model_id、
-  reading_log、pack_hash、isolation 双证据，缺一项 `check` 自动降级为 L1。
-- 真人 sub-agent / 真人读者回填 `reports/jinjiang-r20/reader-N.json` 之后，必须 `check + aggregate`。
-- 硬约束（与 `docs/standards/晋江爆款基线.md` 一致）：
-  - 工程分 < 7.0 → 不进盲读池。
-  - 真人分 < 7.0 → 不进发布候选。
-  - `L2 = 0` → 任何爆款 / 上瘾 / 读者会追判断禁止。
-  - `effective_n < 3` 或 `diversity_score < 0.5` → 不升级。
-  - 改稿前没跑盲读 → 不准下笔。改稿后没跑盲读复测 → 不准 commit。
+- 真人 sub-agent / 真人读者在 `tools/reader_panel_runner.py` 的 `_classify` 里看 `source` + `isolation` 双证据；
+  文件名带 "真人" 但缺 isolation 字段一律降级为 L1，**不**计入 effective_n。
+- `pack_hash` 漂移：reader JSON 的 `pack_hash` 与当前 `_pack_hash()` 不一致时，
+  `aggregate()` 报告顶部会出 `## pack_hash drift 警告`，对应文件**不**计入 effective_n。
+  修改 `tools/reader_blindtest_pack.py` 的章节范围或 random seed 时必须 `--new-seed` 并归档旧 pack。
+- reader L2 sub-agent 启动失败的兜底 SOP：见 `docs/standards/jinjiang-quality-architecture.md §5`。
+
+硬约束（与 `docs/standards/晋江爆款基线.md` 一致）：
+
+- 工程分 < 7.0 → 不进盲读池。
+- 真人分 < 7.0 → 不进发布候选。
+- reader L2 = 0 → 任何爆款 / 上瘾 / 读者会追判断禁止。
+- `effective_n < 3` 或 `diversity_score < 0.5` → 不升级。
+- 改稿前没跑盲读 → 不准下笔。改稿后没跑盲读复测 → 不准 commit。
+
+四层证据栈（S0 晋江官方 / S1 行业共识 / S2 工程启发式 / S3 真人读者）和改稿循环的不可越级门禁，
+都在 `docs/standards/jinjiang-quality-architecture.md` 里完整描述。它是项目级架构的入口文档，
+本节是它在 AI 入口处的复述。
 
 详见：
+- `docs/standards/jinjiang-quality-architecture.md`（项目级架构入口，S0-S3 四层）
 - `docs/standards/jinjiang-blowup-baseline-operator.md`（§5/§8/§9 工程实现）
 - `docs/standards/晋江爆款基线.md`（E1–E5 + R1–R5 阈值）
 - `docs/reader-subagent-workflow.md`（persona 池 + 隔离协议）
@@ -73,13 +72,13 @@ description: >
 
 生成稿只有同时满足以下条件，`engine/village.py` 才会推进关系、记忆、节拍并写入连载：
 
-- `prose_lint` 通过：中文叙述、句子节奏、填充描写、机械公式、重复句式回环（包括“方向落在/方向不必替/不必替上一世/自己守”变体）和目标字数都过线；strict editorial 还会卡同一物象位置与“我/他/她自己”高频回声。
+- `prose_lint` 通过：中文叙述、句子节奏、填充描写、机械公式、重复句式回环（包括"方向落在/方向不必替/不必替上一世/自己守"变体）和目标字数都过线；strict editorial 还会卡同一物象位置与"我/他/她自己"高频回声。
 - 审校分数、开篇冲突、节拍、连续性、人物主动性和安全门都通过；文笔复读失败会继续重写，达到次数上限仍失败则拒发。
 - 章节带完整 YAML frontmatter：季、回数、标题、角色、POV、主线、节拍、关系线和章末 hook；缺字段或占位标题拒发。
 - 新生成章还必须落真实 review 证据块和 score: N/14；review 至少逐字引用一条正文原句（用「」等标记），上线档分数低于 12/14 拒发；不能沿用模型随手写的虚高分数。
 - 批量重写必须通过受限 `python engine/run_dispatch.py --max-budget-usd 12.0 --effort high`：Claude 只拿目标章 prompt，只获 `Read,Edit` 且单任务 420 秒上限；Windows 超时会按进程树终止 `claude.cmd` 包装进程及其子进程，避免孤儿任务。runner 还会快照目标以外的 prompt、receipt、根目录和 agent/tool/test 文件，任何副作用都 BLOCKED。返回后由本地 lint、strict editorial 和公式/回声扫描独立决定 PASS；Claude 自报 PASS 不具备放行权。
 - 元数据也会防回路：章末 hook 不能原样重复最近章节，关系线不能写成角色与自己的自配对。
-- Claude 批量写手提示已加内容先行门：范章只作节奏参照，不得复制其病句；每章先落一个可观察冲突、一个人物选择和一个不可逆新信息，再写成 1800–2600 字正文。`方向/位置/那一寸/那一截/那一道` 不能承担心理解释，物象重复必须带来新信息；hook 必须是正文真实出现的独特动作或对白，不能用“下一章切下批头一章”占位。
+- Claude 批量写手提示已加内容先行门：范章只作节奏参照，不得复制其病句；每章先落一个可观察冲突、一个人物选择和一个不可逆新信息，再写成 1800–2600 字正文。`方向/位置/那一寸/那一截/那一道` 不能承担心理解释，物象重复必须带来新信息；hook 必须是正文真实出现的独特动作或对白，不能用"下一章切下批头一章"占位。
 - 结构化模型输出会做有限重试；模型/API/JSON 失败是干净 no-op，不推进状态、不写半章。
 
-这些是机器上线门，不等同于“晋江爆款”证明。编辑仍需逐章检查人物欲望、情绪兑现、追更钩子、连续性和原创边界；`VILLAGE_MOCK=1` 只验证流程与拒发逻辑，不代表成稿质量。
+这些是机器上线门，不等同于"晋江爆款"证明。编辑仍需逐章检查人物欲望、情绪兑现、追更钩子、连续性和原创边界；`VILLAGE_MOCK=1` 只验证流程与拒发逻辑，不代表成稿质量。

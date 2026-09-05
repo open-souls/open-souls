@@ -71,6 +71,31 @@ souls/角色名/
 
 读连载：[`seasons/01-xianxia/chronicle/`](seasons/01-xianxia/chronicle/)，或开 GitHub Pages 指到 `/docs`。
 
+## 5 读者交叉 + 距离工具（r20 工作流 · 必跑节点）
+
+本仓库把“晋江爆款 / 上瘾”拆成四层证据栈：
+
+- S0 晋江官方可验证事实（help.jjwxc.net 的收藏 / VIP / 营养液 / 霸王票 / 合规）
+- S1 行业共识（钩子前置、情感碾压、关系升级等，标为推断）
+- S2 本项目工程启发式（E1–E5 五维，由 tools/jinjiang_chapter_distance.py 打分）
+- S3 真人读者证据（reader L2，≥1 份真人 sub-agent / 真人读者）
+
+完整定义、术语命名（S0-S3 vs 工程 L1/L2）和不可越线边界在
+[docs/standards/jinjiang-quality-architecture.md](docs/standards/jinjiang-quality-architecture.md)。
+
+任何改稿循环必须按 SKILL.md 与 docs/standards/novel-workflow.md 的硬约束顺序跑：
+
+```
+跑盲读包 → 锁交叉协议 → 生成 5+1 prompt → 聚合 baseline
+  ↓
+改稿 + review_batch + prose_lint
+  ↓
+距离快照 → 复跑 verify / emit / check / aggregate → commit
+```
+
+reader L2 = 0 期间，README / 报告 / 群消息里一律不得使用
+“读者会追 / 爆款 / 上瘾 / 读者确认 / 多数读者” 这类措辞。tools/reader_panel_runner.py aggregate()
+报告顶部有当前 pack_hash 与漂移警告，旧 reader JSON 不计入 effective_n。
 ## 给另一个 AI：先选读者，再写章节
 
 本仓库不是“模型自己挑一个最爽方案然后连写”的黑箱。完整协议在
