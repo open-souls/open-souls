@@ -237,6 +237,21 @@ JJ_LINT_ZIJI_WARN_DIV = 4
 JJ_LINT_ZIJI_ERROR_DIV = 2
 JJ_LINT_TAIL = re.compile(r"^[一-鿿]{1,2}[。！？…」』]?$")
 
+# JJ-LINT-03 末段短句密度 (batch 14 焊入)
+JJ_LINT_TAIL_SHORT = re.compile(r"^[一-鿿]{1,6}[。，！？…」』]?$")
+JJ_LINT_03_WARN = 4
+JJ_LINT_03_WINDOW = 6
+
+# JJ-LINT-05 问答空转 (batch 14 焊入)
+JJ_LINT_05_DIALOG = re.compile(r"[「『]")
+JJ_LINT_05_AGENCY = re.compile(r"决定|改为|改成|主动|亲自|自己开|自己拿|自己写|签下|不签|不再|拒绝|逼得|先封|按下旧印|设定|现在去|先写下|要求|把.{0,12}推到|说是我让你")
+JJ_LINT_05_DIALOG_WARN = 8
+JJ_LINT_05_AGENCY_MAX = 2
+
+# JJ-LINT-06 末段气氛句 (batch 14 焊入)
+JJ_LINT_TAIL_ATMOSPHERE = re.compile(r"(屋里|夜|风|雪|火|雨|街上).{0,12}(很静|没停|没熄|没响|没?再响|一片静|没?作声)")
+JJ_LINT_06_WINDOW = 3
+
 SEG_SPLIT = re.compile(r"[，。！？、：；\n]")
 HAN = re.compile(r"[一-鿿]")
 
@@ -321,6 +336,10 @@ def measure(body):
         "jj_nayix": jj_nayix,
         "jj_ziji": len(jj_ziji),
         "jj_tail": jj_tail,
+        "jj_tail_short_count": sum(1 for line in body_lines[-JJ_LINT_03_WINDOW:] if JJ_LINT_TAIL_SHORT.match(line.strip()) and HAN.search(line)),
+        "jj_dialog_count": len(JJ_LINT_05_DIALOG.findall(body)),
+        "jj_agency_count": len(JJ_LINT_05_AGENCY.findall(body)),
+        "jj_tail_atmosphere": any(JJ_LINT_TAIL_ATMOSPHERE.search(line.strip()) for line in body_lines[-JJ_LINT_06_WINDOW:]),
         "body_lines": len(body_lines),
         "open_div": _open_diversity(body),
         "open_top": _open_top(body),
@@ -462,8 +481,37 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
                 f"自我承担回环：{echo_hits['self_claim']} 处「我/他/她自己」后置解释，"
                 "删掉口号式自证，让选择用代价、物件或他人反应落地"
             )
+    # JJ-LINT-03/05/06/07 promoted to top-level (batch 14 weld):
+    if m.get("jj_tail"):
+        warns.append(
+            "JJ-LINT-07 单字断章:章末 <= 2 汉字 (M3 章尾钩禁用);"
+            "至少扩到「她/他 + 一个未完成动作」"
+        )
+    # JJ-LINT-03 末段短句密度
+    if m.get("jj_tail_short_count", 0) >= JJ_LINT_03_WARN:
+        warns.append(
+            "JJ-LINT-03 末段短句密度:末 6 行里有 "
+            + str(m["jj_tail_short_count"])
+            + " 行 <= 6 字且无具体动作;扩写或合并"
+        )
+    # JJ-LINT-05 问答空转
+    if m.get("jj_dialog_count", 0) >= JJ_LINT_05_DIALOG_WARN and m.get("jj_agency_count", 0) < JJ_LINT_05_AGENCY_MAX:
+        warns.append(
+            "JJ-LINT-05 问答空转:"
+            + str(m["jj_dialog_count"])
+            + " 处对话引号,但 agency 触发仅 "
+            + str(m["jj_agency_count"])
+            + " 次 (< " + str(JJ_LINT_05_AGENCY_MAX) + ");对话不能取代动作,补具体决策或代价"
+        )
+    # JJ-LINT-06 末段气氛句
+    if m.get("jj_tail_atmosphere"):
+        warns.append(
+            "JJ-LINT-06 末段气氛句:章末 3 行命中 (屋里|夜|风|雪|火|雨|街上) + (很静|没停|没熄|没响);"
+            "换成具名角色的未完成动作或对话"
+        )
     # WARN 级
     if not errors:
+
         if m["micro"] > MICRO_WARN:
             warns.append(
                 f"微碎片率 {m['micro']*100:.0f}% 偏高(>{MICRO_WARN*100:.0f}%)，可再揉顺"
@@ -495,11 +543,6 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
             warns.append(
                 "JJ-LINT-02 自己回环临界：" + str(m["jj_ziji"]) + " 处 / " + str(_ziji_lines) + " 行 ( > 行数/" + str(JJ_LINT_ZIJI_WARN_DIV) + ");"
                 "把动作主语换成具名角色,自查是否开始染病"
-            )
-        if m.get("jj_tail"):
-            warns.append(
-                "JJ-LINT-07 单字断章:章末 <= 2 汉字 (M3 章尾钩禁用);"
-                "至少扩到「她/他 + 一个未完成动作」"
             )
     if m["latin"]:
         warns.append(

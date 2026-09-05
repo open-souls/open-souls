@@ -67,7 +67,7 @@ def main() -> None:
         )
     scoreboard = []
     for bucket_number, chapter_scores in sorted(bucket_scores.items()):
-        chapter_scores.sort()
+        chapter_scores.sort(key=lambda x: x[0])
         count = len(chapter_scores)
         averages = {
             metric: round(sum(scores[metric] for _, scores in chapter_scores) / count, 2)

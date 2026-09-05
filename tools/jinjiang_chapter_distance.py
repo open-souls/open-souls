@@ -42,6 +42,38 @@ HAN = re.compile(r"[一-鿿]")
 ACTION = re.compile(r"走|来|去|问|答|拿|放|递|收|拆|开|关|挡|写|烧|抬|转身|停|进|出|抓|握|听|闻|落|动|转|挪|按|拂|盯|擦|撕|换|验|翻|压|推|扶")
 RESISTANCE = re.compile(r"却|但|不肯|不能|没有|未|拦|拒绝|停住|不让|来不及|门外|追")
 DECISION = re.compile(r"决定|改为|改成|只[把将]|不再|不肯|拒绝|主动|亲自|自己开|自己拿|自己写|签下|不签|先封|按下旧印|设定|逼得|给.{0,8}两条路|要求.{0,8}落名|先写下|把.{0,12}推到.{0,12}面前|说是我让你|现在去")
+
+# 末 6 行作为章尾钩分析窗
+TAIL_WINDOW = 6
+
+# E6 章末钩子类型枚举（batch 14 焊入）。每个枚举都给一个或多个特征词；
+# 分类顺序固定,先匹配先赢;不可判 fallback。
+HOOK_REVERSAL = re.compile(r"原来|不料|谁知|岂料|竟|然而|却[是为]?" r"|没想到|反转|翻供|认错")
+HOOK_CHOICE = re.compile(r"两条路|二择|二选|要不要|留.{0,4}还是|去.{0,4}还是|留.{0,4}或去")
+HOOK_BURST = re.compile(r"一刀|一剑|一掌|一拳|拔刀|拔剑|一刀落|一刀下|血溅|血落|血从|摔了|砸了|碎了|断了|爆了|炸了|炸开|撕了|撕开|劈了|撞开")
+HOOK_UNFINISHED = re.compile(r"等.{0,4}(?:他|她|它|谁)" r"|再.{0,3}不来|还没.{0,3}|还没来|还没回|等一根|等一柄|等一句|等一个|还差|尚未")
+HOOK_CREEPY = re.compile(r"那.{0,3}(?:不?动|不?响|没?有)|没有.{0,3}(?:回|答|应|声|响)|不.{0,3}(?:回答|应答)|不回|不答|不应|不答话|不作声|不接话|装.{0,3}死|装.{0,3}没听见|装.{0,3}不在")
+HOOK_RELATION = re.compile(r"手|指|肩|发|眼|泪|笑|沉默|没.{0,3}接|没.{0,3}应|没.{0,3}答|没.{0,3}看|没.{0,3}说话|没.{0,3}问|没.{0,3}动|没.{0,3}回|没.{0,3}递|没.{0,3}挡|没.{0,3}替")
+HOOK_VAGUE = re.compile(r"夜.{0,3}(?:很|深|长)|风.{0,3}(?:很|起)|屋里.{0,3}(?:很|空|暗)|月.{0,3}(?:很|淡)|心里.{0,3}(?:很|咯)|不知.{0,3}(?:为|怎)")
+HOOK_ENUM = (
+    ("reversal", HOOK_REVERSAL),
+    ("choice", HOOK_CHOICE),
+    ("burst", HOOK_BURST),
+    ("unfinished", HOOK_UNFINISHED),
+    ("creepy", HOOK_CREEPY),
+    ("relation", HOOK_RELATION),
+    ("vague", HOOK_VAGUE),
+)
+
+# E5 POV 主动发起方识别:POV 名字在中段选择动词主语位置出现占比
+POV_AGENCY_VERB = re.compile(r"(?:^|[。！？\n])" r"([^。！？\n]{1,30}?)" r"(?:决定|改为|改成|主动|亲自|签下|不签|不再|拒绝|逼得|先封|按下旧印|设定|先写下|把.{0,8}推到|说是我让你)")
+
+POV_NAME_TO_CHAR = {
+    "苏挽": "苏挽", "林夙": "林夙", "阿湄": "阿湄",
+    "林崇": "林崇", "林彻": "林彻", "林窈": "林窈",
+    "林叙": "林叙", "叶观澜": "叶观澜", "余伯": "余伯",
+    "凌朔": "凌朔", "裴无咎": "裴无咎", "牛阿大": "牛阿大",
+}
 NAMED = ("苏挽", "林夙", "阿湄", "林崇", "林彻", "林窈", "林叙", "叶观澜", "余伯", "凌朔", "裴无咎", "牛阿大")
 
 PUBLISH_FLOOR = 7.0
@@ -102,7 +134,7 @@ def _opening_paragraph(body):
     return ""
 
 
-def e_score(body, audit_row):
+def e_score(body, audit_row, pov_name=""):
     paras = [p.strip() for p in body.split("\n\n") if p.strip() and not p.strip().startswith("#")]
     first = _opening_paragraph(body)
     mid = "\n\n".join(paras[1:-1])
@@ -116,7 +148,61 @@ def e_score(body, audit_row):
     e4 = min(10, 4 + len(DECISION.findall(body)))
     named = len({c for c in NAMED if c in body})
     e5 = min(10, 4 + max(0, named - 2) // 2 + (2 if DECISION.search(body) else 0))
-    return {"E1_open_conflict": e1, "E2_mid_turn": e2, "E3_hook_stop": e3, "E4_agency": e4, "E5_relationship_cost": e5}
+    pov_name, pov_ratio, pov_sample = _pov_initiator_score(body, pov_name)
+    hook_type = _hook_type(body)
+    e5_sub_init = (pov_ratio or 0) * 10 if pov_ratio is not None else 4
+    if pov_ratio is not None and pov_ratio < 0.5:
+        e5 = max(4, e5 - 1)  # POV 不主动 -> E5 降一档
+    # E6:枚举钩类型。vague / undetermined 不算有效钩,分 4;其他按枚举分
+    if hook_type in {"vague", "undetermined"}:
+        e6 = 4
+    elif hook_type == "reversal":
+        e6 = 10
+    elif hook_type in {"choice", "burst"}:
+        e6 = 9
+    elif hook_type in {"unfinished", "creepy"}:
+        e6 = 8
+    elif hook_type == "relation":
+        e6 = 7
+    else:
+        e6 = 5
+    return {"E1_open_conflict": e1, "E2_mid_turn": e2, "E3_hook_stop": e3, "E4_agency": e4, "E5_relationship_cost": e5, "E5_pov_initiator": round(e5_sub_init, 2), "E6_hook_type": e6, "E6_hook_label": hook_type, "E6_pov_sample": pov_sample}
+
+def _pov_initiator_score(body, pov_name):
+    """Return (pov_name, ratio, sample) tuple.
+
+    ratio = occurrences where POV character appears in the clause preceding
+    a mid-turn verb / total mid-turn verb clauses. If POV character is not
+    in POV_NAME_TO_CHAR, return (pov_name, None, "").
+
+    S2 工程启发式:不假装这是「晋江标准」,只是机器代理「POV 主动发起」信号。
+    """
+    if not pov_name or pov_name not in POV_NAME_TO_CHAR:
+        return pov_name, None, ""
+    char = POV_NAME_TO_CHAR[pov_name]
+    clauses = POV_AGENCY_VERB.findall(body)
+    if not clauses:
+        return pov_name, 0.0, ""
+    hits = sum(1 for clause in clauses if char in clause)
+    ratio = round(hits / len(clauses), 2)
+    sample = next((c.strip() for c in clauses if char in c), "")[:40]
+    return pov_name, ratio, sample
+
+
+def _hook_type(body):
+    """Classify the tail window into one HOOK_ENUM category or 'undetermined'.
+
+    S2 工程启发式:每个枚举有显式触发词,顺序固定,先匹配先赢。
+    「vague」被记录但不算有效钩(等同于原 E3 不触发)。
+    """
+    lines = [line.strip() for line in body.splitlines() if line.strip()]
+    tail = "\n".join(lines[-TAIL_WINDOW:]) if lines else ""
+    for name, regex in HOOK_ENUM:
+        if regex.search(tail):
+            return name
+    return "undetermined"
+
+
 
 
 def r_score(chapter_number, panel):
@@ -233,8 +319,10 @@ def main():
         n, pov, body = read_chapter(path)
         if not HAN.search(body):
             continue
-        e = e_score(body, audit_by_chapter.get(n))
-        e_min = min(e.values())
+        e = e_score(body, audit_by_chapter.get(n), pov_name=pov)
+        # Only numeric keys count toward e_min.
+        _e_num = {k: v for k, v in e.items() if isinstance(v, (int, float)) and k != "E5_pov_initiator"}
+        e_min = min(_e_num.values())
         r, reason = r_score(n, panel)
         r_min = min(r.values()) if r else None
         g = gates(e_min, r_min)

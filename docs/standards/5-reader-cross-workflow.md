@@ -337,6 +337,7 @@ source: 读者 sub-agent 模拟
 ### 12.3 措辞词表同步
 
 - `tools/reader_panel_runner.py` 的 `FORBIDDEN_TERMS_ALWAYS` 与本文件 §9.5 + `磨斧头研究-2026-09-04.md §13` 同步；改任一必须三处同步。
+- E5 POV 主动发起方、E6 章尾钩类型枚举和 JJ-LINT-03/05/06 的本轮焊接证据见 `磨斧头研究-2026-09-05.md`；修改对应代码时必须同步该备忘与 canonical workflow 索引。
 
 ## 14. 维护纪律（batch 14 增补）
 

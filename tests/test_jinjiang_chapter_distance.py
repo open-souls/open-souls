@@ -42,11 +42,39 @@ def _body_with(action_count, has_resistance, decision_count, named, hook_signal)
     decision_words = ["决定", "主动", "不再", "签下"]
     for i in range(decision_count):
         body_lines.append(f"中段{decision_words[i % len(decision_words)]}了一件事。")
-    body_lines.append("末段。她递出最后那封信。")
+    # 末段必须触发 E6 钩子枚举,否则 strong 的 E6 会被压回 4。
+    body_lines.append("末段。她递出那封信，等一句回答。")
     body = "\n\n".join(body_lines)
     for c in named:
         body = body.replace("人物", c)
     return body
+
+
+def test_e_score_exposes_hook_type_and_pov_initiator(module_loaded):
+    body = (
+        "林夙看见林彻。林夙决定亲自去问。\n\n"
+        "林夙签下那卷旧账。\n\n"
+        "林彻把旧账递来，林夙没有接。\n\n"
+        "她没有回答。"
+    )
+    scores = module_loaded.e_score(body, {"hook_signal": True}, pov_name="林夙")
+
+    assert scores["E5_pov_initiator"] == 10.0
+    assert scores["E6_hook_label"] == "creepy"
+    assert scores["E6_hook_type"] == 8
+
+
+def test_e_score_does_not_mix_diagnostic_pov_ratio_into_engineering_min(module_loaded):
+    body = "林夙看见林彻。\n\n林彻把旧账放下。\n\n屋里很静。"
+    scores = module_loaded.e_score(body, {}, pov_name="林夙")
+    numeric_engineering = {
+        key: value
+        for key, value in scores.items()
+        if isinstance(value, (int, float)) and key != "E5_pov_initiator"
+    }
+
+    assert min(numeric_engineering.values()) >= 4
+    assert scores["E5_pov_initiator"] == 0.0
 
 
 def test_e_score_recognizes_concrete_agency_without_magic_keywords(module_loaded):
@@ -66,13 +94,23 @@ def test_e_score_deterministic(module_loaded):
     e1 = module_loaded.e_score(body, {"hook_signal": True})
     e2 = module_loaded.e_score(body, {"hook_signal": True})
     assert e1 == e2
-    assert all(0 <= v <= 10 for v in e1.values())
+    assert all(0 <= v <= 10 for v in e1.values() if isinstance(v, (int, float)))
 
 
 def test_e_score_rewards_action_and_decision(module_loaded):
     weak = module_loaded.e_score(_body_with(0, False, 0, [], False), {"hook_signal": False})
     strong = module_loaded.e_score(_body_with(8, True, 4, ["苏挽", "林夙", "阿湄"], True), {"hook_signal": True})
-    assert min(strong.values()) > min(weak.values())
+    weak_numeric = {
+        key: value
+        for key, value in weak.items()
+        if isinstance(value, (int, float)) and key != "E5_pov_initiator"
+    }
+    strong_numeric = {
+        key: value
+        for key, value in strong.items()
+        if isinstance(value, (int, float)) and key != "E5_pov_initiator"
+    }
+    assert min(strong_numeric.values()) > min(weak_numeric.values())
     assert strong["E3_hook_stop"] == 10
     assert weak["E3_hook_stop"] == 4
 

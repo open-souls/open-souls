@@ -159,6 +159,8 @@
 - 改稿 playbook：`reports/jinjiang-r20/blow-up-playbook.md`
 - 距离快照：`reports/jinjiang-r20/distance-summary.md`（不可手写）
 - 盲读结果：`reports/jinjiang-r20/reader-blindtest-results.md`（不可手写）
+- 本轮磨斧头研究留底：`reports/jinjiang-r20/磨斧头研究-2026-09-05.md`（rubric 修复实测 / E5 POV 主动发起方 / E6 钩子类型枚举 / JJ-LINT-03/05/06 焊接记录）
+- 7 维工程 rubric：`reports/jinjiang-r20/rubric-scoreboard.{json,md}`（与距离 E1-E5 并列,取低;rubric 修复于 2026-09-05）
 
 ## 8. 文档维护纪律
 

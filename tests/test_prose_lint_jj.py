@@ -68,6 +68,50 @@ def test_normal_chapter_clean():
     assert not any("JJ-LINT-07" in w for w in warns)
 
 
+def test_jj_lint_03_short_tail_density():
+    # 末 6 行里 >= 4 行 <= 6 字 -> WARN
+    body = (
+        "林彻看见她，林彻没有说话。林彻只是把那碗糖水端走。\n" * 30
+        + "夜里。\n火很静。\n雪没响。\n夜深。\n她停。\n她等。"
+    )
+    errs, warns, m = lint_text(_wrap(body))
+    assert m["jj_tail_short_count"] >= 4
+    assert any("JJ-LINT-03" in w for w in warns), warns
+
+
+def test_jj_lint_05_dialog_without_agency():
+    # dialog >= 8 && agency < 2 -> WARN
+    body = ("「你来了？」「坐。」「喝。」「吃。」「等。」「说。」「走。」「停。」\n") * 30
+    errs, warns, m = lint_text(_wrap(body))
+    assert m["jj_dialog_count"] >= 8
+    assert m["jj_agency_count"] < 2
+    assert any("JJ-LINT-05" in w for w in warns), warns
+
+
+def test_jj_lint_06_tail_atmosphere():
+    # 末 3 行命中 (屋里|夜|风|雪|火|雨|街上) + (很静|没停|没熄|没响) -> WARN
+    body = (
+        "林彻看见她，林彻没有说话。林彻只是把那碗糖水端走。\n" * 30
+        + "屋里很静。\n火没有熄。\n夜没有停。"
+    )
+    errs, warns, m = lint_text(_wrap(body))
+    assert m["jj_tail_atmosphere"] is True
+    assert any("JJ-LINT-06" in w for w in warns), warns
+
+
+def test_jj_lint_03_promoted_above_error_gate():
+    # 即使 ERROR 已触发,JJ-LINT-03 仍应出现
+    body = (
+        "她。" * 200
+        + "\n"
+        + ("她看向他。" * 1 + "\n") * 30
+        + "夜里。\n火很静。\n雪没响。\n夜深。\n她停。\n她等。"
+    )
+    errs, warns, m = lint_text(_wrap(body))
+    # JJ-LINT-03 must fire even when errors list is non-empty.
+    assert any("JJ-LINT-03" in w for w in warns), warns
+
+
 if __name__ == "__main__":
     test_nayix_warn_at_6()
     test_nayix_error_at_10()
