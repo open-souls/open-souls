@@ -116,3 +116,88 @@ def test_gates_addictive_requires_high_R(module_loaded):
     g_high = module_loaded.gates(9.5, 9.0)
     assert g_high["blowup_chapter"] is True
     assert g_high["addictive_chapter"] is True
+
+
+def test_read_chapter_strips_all_frontmatter_blocks(module_loaded, tmp_path):
+    """A chronicle with two consecutive --- ... --- blocks must drop both.
+
+    Old regex only matched the first block, so review metadata leaked into
+    body and inflated DECISION counts (E4/E5 false positives).
+    """
+    p = tmp_path / "ch.md"
+    p.write_text(
+        "---\n"
+        "season: 5\n"
+        "chapter: 777\n"
+        "title: test\n"
+        "pov: 苏挽\n"
+        "---\n"
+        "review: >-\n"
+        "  旧稿 139 把「改成」计进正文，导致 E4 假阳性。本改砍掉这段。\n"
+        "  末段「阿湄昨夜那张油纸」同步改成「阿湄昨夜那四个字的小纸」。\n"
+        "---\n"
+        "\n"
+        "# 第七百七十七回 · 测试\n"
+        "\n"
+        "她开窗。院门那辆车没动。\n",
+        encoding="utf-8",
+    )
+    n, pov, body = module_loaded.read_chapter(p)
+    assert n == 777
+    assert pov == "苏挽"
+    # body must NOT contain review YAML metadata
+    assert "review" not in body
+    assert "改成" not in body
+    assert "小纸" not in body
+    # body must contain the actual opening
+    assert "她开窗" in body
+
+
+def test_read_chapter_strips_review_block_decisions(module_loaded, tmp_path):
+    """End-to-end: read_chapter must drop review-block DECISION hits.
+
+    Locks the ch504 bug where review metadata such as
+    「改成」「主动」「签下」 were counted as 正文 agency in E4 and E5.
+    """
+    audit = {"hook_signal": True}
+    p1 = tmp_path / "ch_decision.md"
+    p1.write_text(
+        "---" + chr(10) +
+        "chapter: 888" + chr(10) +
+        "pov: 苏挽" + chr(10) +
+        "---" + chr(10) + chr(10) +
+        "开场。她走出门。他接了她。" + chr(10) + chr(10) +
+        "review: >-" + chr(10) +
+        "  本改把「改成」「主动」「签下」从 review 块里清掉。" + chr(10) + chr(10) +
+        "末段。她递出最后那封信。" + chr(10),
+        encoding="utf-8",
+    )
+    _, _, body1 = module_loaded.read_chapter(p1)
+    e_real = module_loaded.e_score(body1, audit)
+
+    p2 = tmp_path / "ch_clean.md"
+    p2.write_text(
+        "---" + chr(10) +
+        "chapter: 889" + chr(10) +
+        "pov: 苏挽" + chr(10) +
+        "---" + chr(10) + chr(10) +
+        "开场。她走出门。他接了她。" + chr(10) + chr(10) +
+        "末段。她递出最后那封信。" + chr(10),
+        encoding="utf-8",
+    )
+    _, _, body2 = module_loaded.read_chapter(p2)
+    e_clean = module_loaded.e_score(body2, audit)
+
+    assert e_real["E4_agency"] == e_clean["E4_agency"]
+    assert e_real["E5_relationship_cost"] == e_clean["E5_relationship_cost"]
+
+def test_strip_post_review_no_op_when_review_inside_paragraph(module_loaded):
+    """_strip_post_review must not eat a review mention that lives in prose."""
+    raw = (
+        "开场。她走出门。\n"
+        "\n"
+        "末段。她在 review 会上递出那封信。\n"
+    )
+    out = module_loaded._strip_post_review(raw)
+    assert out == raw
+

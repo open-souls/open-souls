@@ -36,7 +36,8 @@ CHRONICLE = ROOT / "seasons" / "01-xianxia" / "chronicle"
 REPORTS = ROOT / "reports" / "jinjiang-r20"
 AUDIT_PATH = REPORTS / "chapter-by-chapter-audit.json"
 
-FRONTMATTER = re.compile(r"^---\s*\$([\s\S]*?)^---\s*\$", re.M)
+FRONTMATTER = re.compile(r"^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)", re.M)
+POST_FRONT = re.compile(r"^[ \t]*review:\s*>-?\s*\n((?:[ \t]+[^\n]*\n|[ \t]*\n)*)", re.M)
 HAN = re.compile(r"[一-鿿]")
 ACTION = re.compile(r"走|来|去|问|答|拿|放|递|收|拆|开|关|挡|写|烧|抬|转身|停|进|出|抓|握|听|闻|落|动|转|挪|按|拂|盯|擦|撕|换|验|翻|压|推|扶")
 RESISTANCE = re.compile(r"却|但|不肯|不能|没有|未|拦|拒绝|停住|不让|来不及|门外|追")
@@ -48,15 +49,45 @@ BLOWUP_FLOOR = 8.5
 ADDICT_R_FLOOR = 7.5
 
 
+def _strip_all_frontmatter(raw):
+    """Strip every YAML frontmatter block.
+
+    Some chronicles embed a second frontmatter block (review / score / hook)
+    after the first. We drop both before counting DECISION hits; otherwise
+    review metadata inflates E4 agency.
+    """
+    cursor = 0
+    while True:
+        m = FRONTMATTER.search(raw, cursor)
+        if not m:
+            return raw[cursor:]
+        cursor = m.end()
+
+
+def _strip_post_review(raw):
+    """Drop a trailing review: >- block if it lives outside the YAML fence.
+
+    Defensive belt-and-suspenders for chronicles whose second frontmatter
+    block is malformed enough that FRONTMATTER misses it.
+    """
+    m = POST_FRONT.search(raw)
+    if not m:
+        return raw
+    head = raw[: m.start()]
+    if "\n\n" in head.strip():
+        return raw
+    return raw.replace(m.group(0), "")
+
+
 def read_chapter(path):
     raw = path.read_text(encoding="utf-8")
-    m = FRONTMATTER.search(raw)
-    fm = m.group(1) if m else ""
-    body = raw[m.end():] if m else raw
-    n_match = re.search(r"^chapter:\s*(\d+)", fm, re.M)
+    n_match = re.search(r"^chapter:\s*(\d+)", raw, re.M)
+    pov = re.search(r"^pov:\s*(.+)$", raw, re.M)
     n = int(n_match.group(1)) if n_match else int(path.name.split("-", 1)[0])
-    pov = re.search(r"^pov:\s*(.+)$", fm, re.M)
-    return n, (pov.group(1).strip() if pov else ""), body.strip()
+    pov_name = pov.group(1).strip() if pov else ""
+    body = _strip_all_frontmatter(raw)
+    body = _strip_post_review(body)
+    return n, pov_name, body.strip()
 
 
 def e_score(body, audit_row):
