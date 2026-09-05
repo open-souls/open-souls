@@ -10,7 +10,7 @@
     "publish_floor": 7.0,
     "blowup_floor": 8.5,
     "addict_R_floor": 7.5,
-    "distance_definition": "combined = min(engineering_min, reader_min). distance = max(0, 7.0 - combined). blowup needs 3 consecutive chapters with combined >= 8.5; addictive needs 5 consecutive chapters with combined >= 8.5 and all R >= 7.5."
+    "avg_engineering_min": 5.114
   },
   "records": [
     {
@@ -5707,11 +5707,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 6,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -5719,7 +5719,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -26231,11 +26231,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 9,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -26243,7 +26243,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
