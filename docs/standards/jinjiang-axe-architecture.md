@@ -83,8 +83,8 @@
 | 研究端产出 | 落地位置 | 落地状态 |
 |---|---|---|
 | 6 文档脊柱索引（本文件） | `docs/standards/jinjiang-axe-architecture.md` | **本批新增** |
-| JJ-LINT-01 那一X 物象回环 | `engine/prose_lint.py` | **本批焊入**（thresholds: 6 WARN / 10 ERROR） |
-| JJ-LINT-02 自己 回环（独立计） | `engine/prose_lint.py` | **本批焊入**（thresholds: 行数/4 WARN / 行数/2 ERROR） |
+| JJ-LINT-01 那一X 物象回环 | `engine/prose_lint.py` | **本批焊入**（6 WARN；40 仅作研究分层参考，默认不升级 ERROR） |
+| JJ-LINT-02 自己 回环（独立计） | `engine/prose_lint.py` | **本批焊入**（thresholds: 行数/4 WARN，WARN-only 不升级 ERROR） |
 | JJ-LINT-07 单字断章 | `engine/prose_lint.py` | **本批焊入**（thresholds: 末行 ≤ 2 汉字 WARN） |
 | sub-agent 模拟真人 · 1 次端到端 demo | `reports/jinjiang-r20/sub-agent-reads/sub-agent-reader-Demo-2026-09-04.md` | **本批新增** |
 | demo run 留底 | §6 §15 + §4 §11 | **本批追加** |

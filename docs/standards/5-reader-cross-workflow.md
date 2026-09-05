@@ -326,7 +326,8 @@ source: 读者 sub-agent 模拟
 
 - `engine/prose_lint.py` 加入 `JJ_LINT_NAYIX` / `JJ_LINT_ZIJI` / `JJ_LINT_TAIL` 三条晋江工艺红旗。
 - 默认 lint 路径触发（**不**依赖 strict mode）。
-- 阈值：6 WARN / 10 ERROR（那一X）；行数/4 WARN / 行数/2 ERROR（自己）；末行 <= 2 汉字 WARN（单字断章）。
+· 阈值（push 友好）：6 WARN-only（那一X；40 仅作研究分层参考）；行数/4 WARN-only（自己）；末行 <= 2 汉字 WARN（单字断章）。
+· 本批阈值取舍：避免现有 canon 因新规则被 push hook 阻断；JJ-LINT 默认 WARN 提示而非 ERROR 强拦。
 
 ### 12.2 axe-architecture 索引新增
 

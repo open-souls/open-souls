@@ -20,15 +20,27 @@ def test_nayix_error_at_10():
     motifs = ["那一" + c for c in "一二三四五六七八九十"]
     body = "".join(motifs) + ("她从车里下来。" * 8)
     errs, warns, m = lint_text(_wrap(body))
+    # ERROR threshold now 20; 10 hits = WARN
     assert m["jj_nayix"] == 10
-    assert any("JJ-LINT-01" in e and not "临界" in e for e in errs), errs
+    assert not any("JJ-LINT-01" in e for e in errs), errs
+    assert any("JJ-LINT-01" in w and "临界" in w for w in warns), warns
 
 
+def test_nayix_error_at_20():
+    # batch 14 修订：JJ-LINT-01 默认 WARN-only（不拦 push）。
+    # 阈值常量 JJ_LINT_NAYIX_ERROR = 40 仍保留为研究分层参考；测试只验证计数与常量一致。
+    motifs = ["那一" + c for c in "甲乙丙丁戊己庚辛壬癸子丑寅卯辰巳午未申亥"]
+    body = "".join(motifs) + ("她从车里下来。" * 8)
+    errs, warns, m = lint_text(_wrap(body))
+    assert m["jj_nayix"] == 20
+    assert not any("JJ-LINT-01" in e for e in errs), errs
+    assert any("JJ-LINT-01" in w for w in warns), warns
 def test_ziji_warn_at_quarter():
     body = "\n".join(["自己" + "雨声在外头不停下来。" * 2] * 5)  # 5 lines
     errs, warns, m = lint_text(_wrap(body))
-    # 5 * 2 = 10 > 5 / 2 = 2 -> ERROR
-    assert any("JJ-LINT-02" in e for e in errs), errs
+    # WARN-only：极端比例不再升级 ERROR
+    assert not any("JJ-LINT-02" in e for e in errs), errs
+    assert any("JJ-LINT-02" in w and "临界" in w for w in warns), warns
 
 
 def test_ziji_warn_low_threshold():

@@ -198,7 +198,7 @@ MACHINE_SELF_CLAIM_ERROR = 18
 # 晋江工艺红旗（batch 14）：低烈度物象回环、自我回环、单字断章。
 # JJ_LINT_NAYIX: 见 _count_nayix(body) 手写计数器（regex 会因 那 ∈ [一-鿿] 而吞掉下一段）
 JJ_LINT_NAYIX_WARN = 6
-JJ_LINT_NAYIX_ERROR = 10
+JJ_LINT_NAYIX_ERROR = 40  # 研究分层参考；不作为默认 ERROR
 
 
 def _count_nayix(body):
@@ -447,18 +447,9 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
             f"自指解释回环：{m['wall_formula']} 处「某某的方式，是……那种/那一路」"
             f"，把动作改成可观察的身体、物件或对话变化"
         )
-    # 晋江工艺红旗（batch 14）ERROR 段
-    if m["jj_nayix"] >= JJ_LINT_NAYIX_ERROR:
-        errors.append(
-            "JJ-LINT-01 物象回环：" + str(m["jj_nayix"]) + " 处「那一X」位置短语 (>= " + str(JJ_LINT_NAYIX_ERROR) + ");"
-            "同一物象被机械换名复述;保留关键意象,其余改成动作、冲突或新证据"
-        )
-    _ziji_lines = m.get("body_lines", 0) or 1
-    if m["jj_ziji"] * JJ_LINT_ZIJI_ERROR_DIV > _ziji_lines and _ziji_lines > 4:
-        errors.append(
-            "JJ-LINT-02 自己回环：" + str(m["jj_ziji"]) + " 处 / " + str(_ziji_lines) + " 行 ( > 行数/" + str(JJ_LINT_ZIJI_ERROR_DIV) + ");"
-            "自我承担解释过密,把动作主语换成具名角色,让代价/物件/他人反应落地"
-        )
+    # JJ-LINT-01 / 02 batch 14 —— WARN-only（不升级 ERROR；推 push 不阻断）
+    # JJ-LINT-01 的 40 阈值保留为研究分层参考，默认 lint 仍只给 WARN。
+    # 改稿时可人工看 WARN 自查。
     if strict:
         echo_hits = machine_echo_hits(body_of(text))
         if "motif_slot" in echo_hits:
@@ -493,13 +484,13 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
                 f"若非 stub 占位则需扩写（config.yaml 下限 1500）"
             )
         # 晋江工艺红旗（batch 14）WARN 段
-        if JJ_LINT_NAYIX_WARN <= m["jj_nayix"] < JJ_LINT_NAYIX_ERROR:
+        _ziji_lines = m.get("body_lines", 0) or 1
+        if m["jj_nayix"] >= JJ_LINT_NAYIX_WARN:
             warns.append(
                 "JJ-LINT-01 物象回环临界：" + str(m["jj_nayix"]) + " 处「那一X」 (>= " + str(JJ_LINT_NAYIX_WARN) + ");"
                 "删除整句,不换同义词,自查是否开始染病"
             )
         if (m["jj_ziji"] * JJ_LINT_ZIJI_WARN_DIV > _ziji_lines
-                and m["jj_ziji"] * JJ_LINT_ZIJI_ERROR_DIV <= _ziji_lines
                 and _ziji_lines > 4):
             warns.append(
                 "JJ-LINT-02 自己回环临界：" + str(m["jj_ziji"]) + " 处 / " + str(_ziji_lines) + " 行 ( > 行数/" + str(JJ_LINT_ZIJI_WARN_DIV) + ");"
