@@ -1,7 +1,7 @@
 # L2 真人 sub-agent prompt
 Read only the five isolated persona directories under reports/jinjiang-r20/isolated-reader-packs/persona-{1..5}/.
 Do NOT read chronicle, frontmatter, review, score, existing reader JSONs or grader outputs.
-For each persona (1..5), write reports/jinjiang-r20/reader-N.json with schema_version=2, model_id, reading_log, pack_hash=892df4c69d659635.
+For each persona (1..5), write reports/jinjiang-r20/reader-N.json with schema_version=2, model_id, reading_log, pack_hash=af30fdded0c67cee.
 Each JSON MUST satisfy the per-persona rotation in reader-prompt-N.txt: drop_chapter, drop_pack, love_relation, next_chapter_focus.
 source MUST start with 真人 sub-agent.
 isolation MUST contain no_chronicle=true, no_frontmatter=true, the actual isolation.cwd path, and a unique isolation.persona_seed string per JSON.

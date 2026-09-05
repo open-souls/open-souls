@@ -15,6 +15,6 @@ isolation.no_chronicle: true
 isolation.no_frontmatter: true
 isolation.cwd: reports/jinjiang-r20/isolated-reader-packs/persona-4
 isolation.persona_seed: l1-persona-4-2026-09-04
-pack_hash: 892df4c69d659635
+pack_hash: af30fdded0c67cee
 output: reports/jinjiang-r20/reader-4.json
 output must include schema_version=2, model_id, reading_log, source, drop, love_relation, next_chapter_focus, stay_to_50, stay_reason, pattern_flags
