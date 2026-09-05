@@ -324,12 +324,12 @@
       "pov": "林夙",
       "engineering": {
         "E1_open_conflict": 7,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -337,7 +337,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -1429,11 +1429,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -1441,7 +1441,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -2349,11 +2349,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -2361,7 +2361,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -5109,7 +5109,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -10785,11 +10785,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 6,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -10797,7 +10797,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -10831,11 +10831,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 6,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -10843,7 +10843,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -10923,11 +10923,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 9
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -10935,7 +10935,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -11038,7 +11038,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -11751,11 +11751,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -11763,7 +11763,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -13499,7 +13499,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 4
       },
@@ -13798,7 +13798,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -13890,7 +13890,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -14695,7 +14695,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -15293,11 +15293,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -15305,7 +15305,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -15823,11 +15823,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 10,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": {
         "R1_cross_genre": 5.0,
         "R2_hook_carry": 7.5,
@@ -15841,7 +15841,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": true
       }
     },
@@ -15852,7 +15852,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -16111,7 +16111,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -16134,11 +16134,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 7,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -16146,7 +16146,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -16387,11 +16387,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 6,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -16399,7 +16399,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -16410,7 +16410,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -16479,7 +16479,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -16502,7 +16502,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -17675,7 +17675,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -17698,11 +17698,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 5,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -17710,7 +17710,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -17951,7 +17951,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -17974,11 +17974,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 10,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -17986,7 +17986,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -18158,7 +18158,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 4
       },
@@ -18664,11 +18664,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 8,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -18676,7 +18676,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -19193,11 +19193,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 6,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -19205,7 +19205,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -19262,11 +19262,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 9
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -19274,7 +19274,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -19492,7 +19492,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -19607,11 +19607,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -19619,7 +19619,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -19676,11 +19676,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -19688,7 +19688,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -19722,11 +19722,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -19734,7 +19734,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -19768,7 +19768,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -19906,7 +19906,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 4
       },
@@ -19952,11 +19952,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -19964,7 +19964,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -19975,7 +19975,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -20021,32 +20021,9 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 641,
-      "file": "seasons\\01-xianxia\\chronicle\\641-守门.md",
-      "pov": "凌朔",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
-        "E4_agency": 8,
-        "E5_relationship_cost": 6
       },
       "engineering_min": 4,
       "reader": null,
@@ -20061,17 +20038,17 @@
       }
     },
     {
-      "chapter": 642,
-      "file": "seasons\\01-xianxia\\chronicle\\642-苏挽端糖.md",
-      "pov": "苏挽",
+      "chapter": 641,
+      "file": "seasons\\01-xianxia\\chronicle\\641-守门.md",
+      "pov": "凌朔",
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
         "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
+        "E4_agency": 8,
+        "E5_relationship_cost": 6
       },
-      "engineering_min": 7,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -20079,7 +20056,30 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 642,
+      "file": "seasons\\01-xianxia\\chronicle\\642-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 4,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -20435,11 +20435,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 10,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -20447,7 +20447,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -20872,11 +20872,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 10,
         "E5_relationship_cost": 9
       },
-      "engineering_min": 4,
+      "engineering_min": 9,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -20884,7 +20884,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 9,
         "r_track_present": false
       }
     },
@@ -20964,11 +20964,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -20976,7 +20976,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -21062,11 +21062,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 7,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -21074,7 +21074,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -22419,11 +22419,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 9,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -22431,7 +22431,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -22833,11 +22833,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -22845,7 +22845,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -23224,11 +23224,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 6,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -23236,7 +23236,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -23546,11 +23546,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 6,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -23558,7 +23558,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -23753,11 +23753,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -23765,7 +23765,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -23799,7 +23799,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -23891,11 +23891,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 8,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 4,
+      "engineering_min": 8,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -23903,7 +23903,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 8,
         "r_track_present": false
       }
     },
@@ -23937,7 +23937,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 4,
         "E5_relationship_cost": 6
       },
@@ -24351,11 +24351,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 8,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -24363,7 +24363,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -24535,7 +24535,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -24558,11 +24558,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -24570,7 +24570,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -24811,11 +24811,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 6,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -24823,7 +24823,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -24995,11 +24995,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 8,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -25007,7 +25007,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -25041,11 +25041,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 8,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -25053,7 +25053,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -25455,11 +25455,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -25467,7 +25467,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -25915,11 +25915,11 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -25927,7 +25927,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -26053,7 +26053,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 4
       },
@@ -26122,7 +26122,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -26375,11 +26375,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -26387,7 +26387,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -26421,11 +26421,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 6,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -26433,7 +26433,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -26789,11 +26789,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 6,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -26801,7 +26801,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -26835,7 +26835,7 @@
       "engineering": {
         "E1_open_conflict": 7,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -26881,11 +26881,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 6,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -26893,7 +26893,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 6,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -27065,7 +27065,7 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 4,
         "E5_relationship_cost": 5
       },
@@ -27755,11 +27755,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 7,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -27767,7 +27767,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -27778,11 +27778,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 5,
         "E5_relationship_cost": 8
       },
-      "engineering_min": 5,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -27790,7 +27790,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 5,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -27893,11 +27893,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 10,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -27905,7 +27905,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -28077,11 +28077,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 10,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -28089,7 +28089,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },
@@ -28215,11 +28215,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
+        "E3_hook_stop": 4,
         "E4_agency": 10,
         "E5_relationship_cost": 7
       },
-      "engineering_min": 7,
+      "engineering_min": 4,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -28227,7 +28227,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 4,
         "r_track_present": false
       }
     },

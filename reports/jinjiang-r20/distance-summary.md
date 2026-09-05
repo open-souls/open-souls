@@ -9,29 +9,29 @@
 
 ## 1. One-line answer
 
-After the frontmatter-strip fix, **4 chapters** clear the engineering 8.5 blowup line and **262 (21.4%)** sit in the 7-8.49 publish-eligible band.
+After the frontmatter-strip fix, **5 chapters** clear the engineering 8.5 blowup line and **259 (21.1%)** sit in the 7-8.49 publish-eligible band.
 
 ## 2. Engineering score distribution (E_min = min(E1..E5))
 
 | bucket | chapters | share | meaning |
 |---|---:|---:|---|
-| <5 | 375 | 30.6% | clearly needs rewrite (structural) |
-| 5-6.99 | 586 | 47.8% | needs choice or action |
-| 7-7.99 | 212 | 17.3% | near entry, fix one dim |
-| 8-8.49 | 50 | 4.1% | publish-ready single-chapter |
-| >=8.5 | 4 | 0.3% | blowup-engineered single-chapter |
+| <5 | 392 | 31.9% | clearly needs rewrite (structural) |
+| 5-6.99 | 571 | 46.5% | needs choice or action |
+| 7-7.99 | 208 | 17.0% | near entry, fix one dim |
+| 8-8.49 | 51 | 4.2% | publish-ready single-chapter |
+| >=8.5 | 5 | 0.4% | blowup-engineered single-chapter |
 
-Average E_min: **5.41/10**. This is the engineering floor; do not cite it as 接近爆款.
+Average E_min: **5.39/10**. This is the engineering floor; do not cite it as 接近爆款.
 
 ## 3. Per-dimension fail counts (E_dim < 7.0)
 
 | dim | failing chapters | meaning |
 |---|---:|---|
 | E1 opening conflict | 0 | opens on scenery or character relations, no action or resistance |
-| E2 mid-turn choice | 327 | POV never makes a real mid-chapter choice, just records or passes through |
-| E3 ending hook | 98 | ends on mood or generalization, leaves no specific next-chapter question |
+| E2 mid-turn choice | 326 | POV never makes a real mid-chapter choice, just records or passes through |
+| E3 ending hook | 128 | ends on mood or generalization, leaves no specific next-chapter question |
 | E4 POV agency | 878 | agency-verb density is too low, POV feels like an observer |
-| E5 relationship cost | 538 | named characters are present but no relationship moves |
+| E5 relationship cost | 537 | named characters are present but no relationship moves |
 
 ## 4. Reader blindtest layer (R-track)
 
@@ -42,8 +42,8 @@ Average E_min: **5.41/10**. This is the engineering floor; do not cite it as 接
 
 | gate | engineering pass count | real pass count with R-track | gap |
 |---|---:|---:|---|
-| publish (min>=7.0) | 266 | 0 | reader evidence missing |
-| blowup chapter (min>=8.5) | 4 | 0 | same |
+| publish (min>=7.0) | 264 | 0 | reader evidence missing |
+| blowup chapter (min>=8.5) | 5 | 0 | same |
 | addictive (5 consecutive chapters >=8.5 AND R>=7.5) | n/a | 0 | same |
 
 ## 6. Bottom 15 chapters by E_min (next-round rewrite candidates)
@@ -73,13 +73,13 @@ Average E_min: **5.41/10**. This is the engineering floor; do not cite it as 接
 | 557 | 9 | 10 | 10 | 10 | 9 | 9 | `seasons\01-xianxia\chronicle\557-新痕.md` |
 | 605 | 9 | 10 | 10 | 10 | 9 | 9 | `seasons\01-xianxia\chronicle\605-水落.md` |
 | 653 | 9 | 10 | 10 | 10 | 9 | 9 | `seasons\01-xianxia\chronicle\653-新痕.md` |
+| 677 | 9 | 10 | 10 | 10 | 10 | 9 | `seasons\01-xianxia\chronicle\677-收信人.md` |
 | 775 | 9 | 10 | 10 | 10 | 9 | 9 | `seasons\01-xianxia\chronicle\775-林叙看.md` |
 | 339 | 8 | 10 | 10 | 10 | 10 | 8 | `seasons\01-xianxia\chronicle\339-她说.md` |
 | 460 | 8 | 10 | 10 | 10 | 8 | 8 | `seasons\01-xianxia\chronicle\460-接下.md` |
 | 485 | 8 | 10 | 10 | 10 | 9 | 8 | `seasons\01-xianxia\chronicle\485-来的人.md` |
 | 597 | 8 | 10 | 10 | 10 | 8 | 8 | `seasons\01-xianxia\chronicle\597-灶边雪.md` |
 | 598 | 8 | 10 | 10 | 10 | 8 | 8 | `seasons\01-xianxia\chronicle\598-回问.md` |
-| 660 | 8 | 10 | 10 | 10 | 10 | 8 | `seasons\01-xianxia\chronicle\660-第三人.md` |
 
 ## 8. Distance is regenerated, never hand-edited
 
