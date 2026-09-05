@@ -1,0 +1,424 @@
+{
+  "rubric": "reports/jinjiang-r20/jinjiang-rubric.md",
+  "buckets": [
+    {
+      "bucket": 1,
+      "range": [
+        1,
+        50
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.42,
+        "mid_turn": 8.96,
+        "hook_stop": 6.28,
+        "agency": 5.72,
+        "relationship_cost": 5.86,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.04
+      },
+      "weak_hooks": 31
+    },
+    {
+      "bucket": 2,
+      "range": [
+        51,
+        100
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.42,
+        "mid_turn": 7.76,
+        "hook_stop": 7.36,
+        "agency": 4.72,
+        "relationship_cost": 5.28,
+        "payoff_clock": 5.0,
+        "engineering_score": 5.76
+      },
+      "weak_hooks": 22
+    },
+    {
+      "bucket": 3,
+      "range": [
+        101,
+        150
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.36,
+        "mid_turn": 8.64,
+        "hook_stop": 7.36,
+        "agency": 5.22,
+        "relationship_cost": 6.4,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.16
+      },
+      "weak_hooks": 22
+    },
+    {
+      "bucket": 4,
+      "range": [
+        151,
+        200
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.54,
+        "mid_turn": 7.92,
+        "hook_stop": 6.64,
+        "agency": 4.56,
+        "relationship_cost": 5.52,
+        "payoff_clock": 5.0,
+        "engineering_score": 5.7
+      },
+      "weak_hooks": 28
+    },
+    {
+      "bucket": 5,
+      "range": [
+        201,
+        250
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.6,
+        "mid_turn": 8.56,
+        "hook_stop": 6.88,
+        "agency": 5.26,
+        "relationship_cost": 6.12,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.07
+      },
+      "weak_hooks": 26
+    },
+    {
+      "bucket": 6,
+      "range": [
+        251,
+        300
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.9,
+        "mid_turn": 8.96,
+        "hook_stop": 6.76,
+        "agency": 5.3,
+        "relationship_cost": 6.92,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.31
+      },
+      "weak_hooks": 27
+    },
+    {
+      "bucket": 7,
+      "range": [
+        301,
+        350
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.66,
+        "mid_turn": 8.48,
+        "hook_stop": 6.76,
+        "agency": 4.92,
+        "relationship_cost": 6.08,
+        "payoff_clock": 5.0,
+        "engineering_score": 5.98
+      },
+      "weak_hooks": 27
+    },
+    {
+      "bucket": 8,
+      "range": [
+        351,
+        400
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.72,
+        "mid_turn": 8.56,
+        "hook_stop": 7.0,
+        "agency": 5.02,
+        "relationship_cost": 6.18,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.08
+      },
+      "weak_hooks": 25
+    },
+    {
+      "bucket": 9,
+      "range": [
+        401,
+        450
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.6,
+        "mid_turn": 7.52,
+        "hook_stop": 7.12,
+        "agency": 4.52,
+        "relationship_cost": 6.02,
+        "payoff_clock": 5.0,
+        "engineering_score": 5.8
+      },
+      "weak_hooks": 24
+    },
+    {
+      "bucket": 10,
+      "range": [
+        451,
+        500
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.48,
+        "mid_turn": 8.24,
+        "hook_stop": 6.4,
+        "agency": 5.12,
+        "relationship_cost": 6.2,
+        "payoff_clock": 5.0,
+        "engineering_score": 5.91
+      },
+      "weak_hooks": 30
+    },
+    {
+      "bucket": 11,
+      "range": [
+        501,
+        550
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.3,
+        "mid_turn": 8.64,
+        "hook_stop": 7.36,
+        "agency": 5.34,
+        "relationship_cost": 6.5,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.19
+      },
+      "weak_hooks": 22
+    },
+    {
+      "bucket": 12,
+      "range": [
+        551,
+        600
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.6,
+        "mid_turn": 9.28,
+        "hook_stop": 7.84,
+        "agency": 6.24,
+        "relationship_cost": 7.04,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.67
+      },
+      "weak_hooks": 18
+    },
+    {
+      "bucket": 13,
+      "range": [
+        601,
+        650
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.42,
+        "mid_turn": 9.2,
+        "hook_stop": 8.8,
+        "agency": 5.84,
+        "relationship_cost": 6.96,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.7
+      },
+      "weak_hooks": 10
+    },
+    {
+      "bucket": 14,
+      "range": [
+        651,
+        700
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.42,
+        "mid_turn": 9.92,
+        "hook_stop": 8.2,
+        "agency": 7.64,
+        "relationship_cost": 7.38,
+        "payoff_clock": 5.0,
+        "engineering_score": 7.09
+      },
+      "weak_hooks": 15
+    },
+    {
+      "bucket": 15,
+      "range": [
+        701,
+        750
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.48,
+        "mid_turn": 9.6,
+        "hook_stop": 7.72,
+        "agency": 7.74,
+        "relationship_cost": 6.94,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.91
+      },
+      "weak_hooks": 19
+    },
+    {
+      "bucket": 16,
+      "range": [
+        751,
+        800
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.66,
+        "mid_turn": 8.96,
+        "hook_stop": 6.88,
+        "agency": 6.1,
+        "relationship_cost": 7.04,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.44
+      },
+      "weak_hooks": 26
+    },
+    {
+      "bucket": 17,
+      "range": [
+        801,
+        850
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.3,
+        "mid_turn": 9.44,
+        "hook_stop": 7.0,
+        "agency": 6.72,
+        "relationship_cost": 6.92,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.56
+      },
+      "weak_hooks": 25
+    },
+    {
+      "bucket": 18,
+      "range": [
+        851,
+        900
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.36,
+        "mid_turn": 9.36,
+        "hook_stop": 8.44,
+        "agency": 6.22,
+        "relationship_cost": 6.7,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.68
+      },
+      "weak_hooks": 13
+    },
+    {
+      "bucket": 19,
+      "range": [
+        901,
+        950
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.84,
+        "mid_turn": 8.96,
+        "hook_stop": 8.2,
+        "agency": 5.42,
+        "relationship_cost": 6.22,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.44
+      },
+      "weak_hooks": 15
+    },
+    {
+      "bucket": 20,
+      "range": [
+        951,
+        1000
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.6,
+        "mid_turn": 9.76,
+        "hook_stop": 6.4,
+        "agency": 6.9,
+        "relationship_cost": 7.16,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.64
+      },
+      "weak_hooks": 30
+    },
+    {
+      "bucket": 21,
+      "range": [
+        1001,
+        1050
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.12,
+        "mid_turn": 9.36,
+        "hook_stop": 6.52,
+        "agency": 5.78,
+        "relationship_cost": 6.42,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.2
+      },
+      "weak_hooks": 29
+    },
+    {
+      "bucket": 22,
+      "range": [
+        1051,
+        1100
+      ],
+      "count": 50,
+      "averages": {
+        "open_conflict": 4.0,
+        "mid_turn": 9.6,
+        "hook_stop": 6.76,
+        "agency": 6.3,
+        "relationship_cost": 6.72,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.4
+      },
+      "weak_hooks": 27
+    },
+    {
+      "bucket": 23,
+      "range": [
+        1101,
+        1145
+      ],
+      "count": 45,
+      "averages": {
+        "open_conflict": 4.13,
+        "mid_turn": 8.76,
+        "hook_stop": 8.0,
+        "agency": 5.53,
+        "relationship_cost": 6.47,
+        "payoff_clock": 5.0,
+        "engineering_score": 6.32
+      },
+      "weak_hooks": 15
+    }
+  ],
+  "overall": {
+    "engineering_score": 6.31,
+    "weak_hook_share": 0.459
+  },
+  "boundary": "Engineering score is a mechanical signal. It cannot establish reader addiction or market success."
+}
