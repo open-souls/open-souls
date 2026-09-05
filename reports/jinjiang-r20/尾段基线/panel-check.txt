@@ -1,0 +1,7 @@
+  ok  reader-1-真人.json  (L1-agent: L2-real source missing modern provenance: reader-1-真人.json)
+  ok  reader-1.json  (L1-agent)
+  ok  reader-2.json  (L1-agent)
+  ok  reader-3.json  (L1-agent)
+  ok  reader-4.json  (L1-agent)
+  ok  reader-5.json  (L1-agent)
+reader files: 6/6 pass  by_kind={'L1-agent': 6}

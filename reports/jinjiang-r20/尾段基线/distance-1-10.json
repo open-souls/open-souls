@@ -1,0 +1,278 @@
+[
+ {
+  "chapter": 1,
+  "file": "seasons\\01-xianxia\\chronicle\\001-退婚书.md",
+  "pov": "苏挽",
+  "engineering": {
+   "E1_open_conflict": 10,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 10,
+   "E5_relationship_cost": 6,
+   "E5_pov_initiator": 3.9,
+   "E6_hook_type": 7,
+   "E6_hook_label": "relation",
+   "E6_pov_sample": "苏挽打开漆盒，把退婚书取出来"
+  },
+  "engineering_min": 6,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 6,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 2,
+  "file": "seasons\\01-xianxia\\chronicle\\002-叫对人.md",
+  "pov": "苏挽",
+  "engineering": {
+   "E1_open_conflict": 7,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 9,
+   "E5_relationship_cost": 5,
+   "E5_pov_initiator": 2.9,
+   "E6_hook_type": 8,
+   "E6_hook_label": "question",
+   "E6_pov_sample": "苏挽抬眼：“还送退婚书"
+  },
+  "engineering_min": 5,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 5,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 3,
+  "file": "seasons\\01-xianxia\\chronicle\\003-三年一碗.md",
+  "pov": "苏挽",
+  "engineering": {
+   "E1_open_conflict": 7,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 8,
+   "E5_relationship_cost": 6,
+   "E5_pov_initiator": 4.5,
+   "E6_hook_type": 8,
+   "E6_hook_label": "question",
+   "E6_pov_sample": "苏挽站在林家后门的门房前，第二次问这个名字"
+  },
+  "engineering_min": 6,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 6,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 4,
+  "file": "seasons\\01-xianxia\\chronicle\\004-林窈井边.md",
+  "pov": "林窈",
+  "engineering": {
+   "E1_open_conflict": 10,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 6,
+   "E5_relationship_cost": 5,
+   "E5_pov_initiator": 4.1,
+   "E6_hook_type": 8,
+   "E6_hook_label": "unfinished",
+   "E6_pov_sample": "她没问白灰是哪来的"
+  },
+  "engineering_min": 5,
+  "reader": {
+   "R1_cross_genre": 5.0,
+   "R2_hook_carry": 5.0,
+   "R3_relationship": 7.5,
+   "R4_agency": 5.0,
+   "R5_no_forbidden": 4.0
+  },
+  "reader_min": 4.0,
+  "reader_reason": "ok",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 5,
+   "r_track_present": true
+  }
+ },
+ {
+  "chapter": 5,
+  "file": "seasons\\01-xianxia\\chronicle\\005-两清.md",
+  "pov": "苏挽",
+  "engineering": {
+   "E1_open_conflict": 10,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 10,
+   "E5_relationship_cost": 6,
+   "E5_pov_initiator": 4.8,
+   "E6_hook_type": 10,
+   "E6_hook_label": "reversal",
+   "E6_pov_sample": "她把手在围裙上擦了两下，低声道：“老爷说，苏家不能叫人以为是被林家赶出来的"
+  },
+  "engineering_min": 6,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 6,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 6,
+  "file": "seasons\\01-xianxia\\chronicle\\006-苏漪夜坐.md",
+  "pov": "苏漪",
+  "engineering": {
+   "E1_open_conflict": 10,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 6,
+   "E5_relationship_cost": 6,
+   "E5_pov_initiator": 5.4,
+   "E6_hook_type": 10,
+   "E6_hook_label": "reversal",
+   "E6_pov_sample": "她走了七步，停下"
+  },
+  "engineering_min": 6,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 6,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 7,
+  "file": "seasons\\01-xianxia\\chronicle\\007-林崇称量.md",
+  "pov": "林崇",
+  "engineering": {
+   "E1_open_conflict": 10,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 5,
+   "E5_relationship_cost": 5,
+   "E5_pov_initiator": 3.7,
+   "E6_hook_type": 10,
+   "E6_hook_label": "reversal",
+   "E6_pov_sample": "林崇把砣向前推了一格，没推到林彻手边，只推到桌子中间"
+  },
+  "engineering_min": 5,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 5,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 8,
+  "file": "seasons\\01-xianxia\\chronicle\\008-一眼.md",
+  "pov": "苏挽",
+  "engineering": {
+   "E1_open_conflict": 10,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 5,
+   "E5_relationship_cost": 6,
+   "E5_pov_initiator": 5.7,
+   "E6_hook_type": 7,
+   "E6_hook_label": "relation",
+   "E6_pov_sample": "她把视线收回来"
+  },
+  "engineering_min": 5,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 5,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 9,
+  "file": "seasons\\01-xianxia\\chronicle\\009-林彻磨局.md",
+  "pov": "林彻",
+  "engineering": {
+   "E1_open_conflict": 7,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 8,
+   "E5_relationship_cost": 6,
+   "E5_pov_initiator": 5.6,
+   "E6_hook_type": 10,
+   "E6_hook_label": "reversal",
+   "E6_pov_sample": "他看见林彻脸色，没问——他第一眼看的是林彻手边的杯子"
+  },
+  "engineering_min": 6,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 6,
+   "r_track_present": false
+  }
+ },
+ {
+  "chapter": 10,
+  "file": "seasons\\01-xianxia\\chronicle\\010-赤渊茶凉.md",
+  "pov": "赤渊",
+  "engineering": {
+   "E1_open_conflict": 10,
+   "E2_mid_turn": 10,
+   "E3_hook_stop": 10,
+   "E4_agency": 9,
+   "E5_relationship_cost": 6,
+   "E5_pov_initiator": 6.4,
+   "E6_hook_type": 10,
+   "E6_hook_label": "reversal",
+   "E6_pov_sample": "赤渊记得他——林崇那时候在宗门里走动，话不多，但每句话都按着秤砣讲，按着讲的人，"
+  },
+  "engineering_min": 6,
+  "reader": null,
+  "reader_min": null,
+  "reader_reason": "no reader blindtest evidence for this chapter",
+  "gates": {
+   "publish": false,
+   "blowup_chapter": false,
+   "addictive_chapter": false,
+   "combined_when_R_missing": 6,
+   "r_track_present": false
+  }
+ }
+]

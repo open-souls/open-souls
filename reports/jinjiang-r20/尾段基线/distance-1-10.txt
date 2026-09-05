@@ -1,0 +1,15 @@
+chapters scored: 10  panel files: {'files': 6, 'l1': 6, 'l2': 0, 'downgraded': 0}
+publish floor: 7.0  blowup floor: 8.5  addictive R floor: 7.5
+chapters with reader track: 1 / 10
+
+chapter   E_min   R_min   pub   blow   add  file
+     1    6.00      --     n      n     n  seasons\01-xianxia\chronicle\001-退婚书.md
+     2    5.00      --     n      n     n  seasons\01-xianxia\chronicle\002-叫对人.md
+     3    6.00      --     n      n     n  seasons\01-xianxia\chronicle\003-三年一碗.md
+     4    5.00     4.0     n      n     n  seasons\01-xianxia\chronicle\004-林窈井边.md
+     5    6.00      --     n      n     n  seasons\01-xianxia\chronicle\005-两清.md
+     6    6.00      --     n      n     n  seasons\01-xianxia\chronicle\006-苏漪夜坐.md
+     7    5.00      --     n      n     n  seasons\01-xianxia\chronicle\007-林崇称量.md
+     8    5.00      --     n      n     n  seasons\01-xianxia\chronicle\008-一眼.md
+     9    6.00      --     n      n     n  seasons\01-xianxia\chronicle\009-林彻磨局.md
+    10    6.00      --     n      n     n  seasons\01-xianxia\chronicle\010-赤渊茶凉.md
