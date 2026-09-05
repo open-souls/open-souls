@@ -23,6 +23,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import csv
 import shutil
 import subprocess
 import sys
@@ -49,17 +50,20 @@ def pack_hash() -> str:
 
 
 def _rotated_keys():
-    summary_path = REPORTS / "distance-summary.md"
-    chapters = []
-    if summary_path.exists():
-        for line in summary_path.read_text(encoding="utf-8").splitlines():
-            if not line.strip().startswith("|"):
-                continue
-            cells = [cell.strip() for cell in line.strip("|").split("|")]
-            if cells and cells[0].isdigit():
-                chapters.append(cells[0])
-    if not chapters:
-        chapters = ["506", "505", "504", "502", "682", "4", "1143"]
+    """Return per-persona (pack, chapter, next_chapter, relation) tuples
+    backed by the actual blindtest pack index. Prevents the prior bug
+    where drop_chapter came from the distance-summary rewrite queue and
+    pointed at chapters the reader never saw (e.g. persona-1 was given
+    drop_chapter=1141 while its drop_pack was mid_a covering ch501-510).
+    """
+    index_csv = REPORTS / "blindtest-index.csv"
+    by_pack = {"open": [], "mid_a": [], "mid_b": [], "latest": []}
+    if index_csv.exists():
+        with index_csv.open(encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                by_pack.setdefault(row["pack"], []).append(int(row["chapter"]))
+    for pack in by_pack:
+        by_pack[pack].sort()
     relations = [
         "林窈×阿湄",
         "林夙×苏挽",
@@ -67,16 +71,29 @@ def _rotated_keys():
         "苏挽×林窈",
         "林崇×林夙",
     ]
-    return chapters, relations
+    assignments = [
+        ("mid_a", 502, 503, relations[0]),
+        ("mid_a", 504, 505, relations[1]),
+        ("open", 4, 5, relations[2]),
+        ("latest", 1138, 1139, relations[3]),
+        ("mid_b", 684, 685, relations[4]),
+    ]
+    result = []
+    for pack, chapter, next_chapter, relation in assignments:
+        available = by_pack.get(pack, [])
+        if chapter not in available:
+            if not available:
+                continue
+            chapter = available[0]
+            next_chapter = available[1] if len(available) > 1 else available[0]
+        result.append((pack, str(chapter), str(next_chapter), relation))
+    while len(result) < 5:
+        result.append(("mid_a", "502", "503", relations[len(result) % 5]))
+    return result
 
 
-def _build_persona_prompt(persona, persona_id, isolated_dir, current_pack_hash, seed_date, rotation):
-    chapters, relations = rotation
-    index = int(persona_id) - 1
-    drop_chapter = chapters[index % len(chapters)]
-    next_chapter = chapters[(index + 1) % len(chapters)]
-    drop_pack = ["mid_a", "mid_b", "open", "latest"][index % 4]
-    relation = relations[index % len(relations)]
+def _build_persona_prompt(persona, persona_id, isolated_dir, current_pack_hash, seed_date, assignment):
+    drop_pack, drop_chapter, next_chapter, relation = assignment
     seed = "l1-persona-" + persona_id + "-" + seed_date
     lines = [
         "# Five-reader blindtest prompt",
@@ -108,9 +125,10 @@ def _emit(args):
     seed_date = datetime.date.today().isoformat() if args.new_seed else "2026-09-04"
     current_pack_hash = pack_hash()
     ISOLATED.mkdir(parents=True, exist_ok=True)
-    rotation = _rotated_keys()
+    assignments = _rotated_keys()
     for persona in load_personas():
         persona_id = str(persona["id"])
+        assignment = assignments[(int(persona_id) - 1) % len(assignments)]
         target = ISOLATED / ("persona-" + persona_id)
         if target.exists():
             shutil.rmtree(target)
@@ -121,7 +139,7 @@ def _emit(args):
             isolated_dir = target.relative_to(ROOT).as_posix()
         except ValueError:
             isolated_dir = target.as_posix()
-        prompt = _build_persona_prompt(persona, persona_id, isolated_dir, current_pack_hash, seed_date, rotation)
+        prompt = _build_persona_prompt(persona, persona_id, isolated_dir, current_pack_hash, seed_date, assignment)
         (REPORTS / ("reader-prompt-" + persona_id + ".txt")).write_text(prompt, encoding="utf-8")
     l2_lines = [
         "# L2 真人 sub-agent prompt",
@@ -146,19 +164,31 @@ def _aggregate(_args):
 
 
 def _verify(_args):
-    chapters, relations = _rotated_keys()
+    assignments = _rotated_keys()
     personas = load_personas()
     if len(personas) != 5:
         print("FAIL: expected 5 personas, got " + str(len(personas)))
         return 1
-    drops = [chapters[(int(p["id"]) - 1) % len(chapters)] for p in personas]
-    nexts = [chapters[int(p["id"]) % len(chapters)] for p in personas]
-    rels = [relations[(int(p["id"]) - 1) % len(relations)] for p in personas]
+    drops = [a[1] for a in assignments]
+    nexts = [a[2] for a in assignments]
+    rels = [a[3] for a in assignments]
+    packs = [a[0] for a in assignments]
     for name, values in [("drop_chapter", drops), ("next_chapter_focus", nexts), ("love_relation", rels)]:
         if len(set(values)) < 4:
             print("FAIL: " + name + " rotation too uniform: " + repr(values))
             return 1
+    by_pack = {}
+    index_csv = REPORTS / "blindtest-index.csv"
+    if index_csv.exists():
+        with index_csv.open(encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                by_pack.setdefault(row["pack"], set()).add(int(row["chapter"]))
+    for pack, chapter, _, _ in assignments:
+        if chapter.isdigit() and pack in by_pack and int(chapter) not in by_pack[pack]:
+            print("FAIL: persona assigned drop_chapter=" + chapter + " to pack=" + pack + " but that chapter is not in the pack")
+            return 1
     print("cross-pollination invariants hold:")
+    print("  drop_packs: " + str(packs))
     print("  drop_chapters: " + str(drops))
     print("  love_relations: " + str(rels))
     print("  next_chapter_focus: " + str(nexts))

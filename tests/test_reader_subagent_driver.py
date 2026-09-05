@@ -32,31 +32,49 @@ def _load():
     return module
 
 
-def test_rotation_keys_match_summary(tmp_path, monkeypatch):
+def test_rotation_keys_backed_by_pack_index(tmp_path, monkeypatch):
     driver = _load()
-    summary = tmp_path / "distance-summary.md"
-    summary.write_text(
-        "\n".join([
-            "# snapshot",
-            "",
-            "| 506 | 4 | 4 | 6 | 5 | 6 | seasons/01-xianxia/chronicle/506.md |",
-            "| 504 | 4 | 6 | 4 | 4 | 4 | seasons/01-xianxia/chronicle/504.md |",
-            "| 502 | 4 | 10 | 4 | 7 | 6 | seasons/01-xianxia/chronicle/502.md |",
-        ]),
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    packs = reports / "blindtest_packs"
+    packs.mkdir()
+    index_csv = reports / "blindtest-index.csv"
+    index_csv.write_text(
+        "pack,chapter,source\n"
+        "mid_a,502,seasons/01-xianxia/chronicle/502.md\n"
+        "mid_a,503,seasons/01-xianxia/chronicle/503.md\n"
+        "open,4,seasons/01-xianxia/chronicle/4.md\n"
+        "latest,1138,seasons/01-xianxia/chronicle/1138.md\n"
+        "mid_b,684,seasons/01-xianxia/chronicle/684.md\n",
         encoding="utf-8",
     )
-    monkeypatch.setattr(driver, "REPORTS", tmp_path)
-    chapters, relations = driver._rotated_keys()
-    assert chapters[:3] == ["506", "504", "502"]
-    assert len(relations) == 5
+    monkeypatch.setattr(driver, "REPORTS", reports)
+    assignments = driver._rotated_keys()
+    assert len(assignments) == 5
+    chapters = [a[1] for a in assignments]
+    packs_used = [a[0] for a in assignments]
+    relations = [a[3] for a in assignments]
+    assert len(set(chapters)) >= 4
+    assert len(set(packs_used)) >= 3
+    assert len(set(relations)) == 5
+    by_pack = {}
+    import csv
+    with index_csv.open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            by_pack.setdefault(row["pack"], set()).add(int(row["chapter"]))
+    for pack, chapter, _, _ in assignments:
+        assert int(chapter) in by_pack[pack]
 
 
 def test_persona_prompts_cross_pollinate():
     driver = _load()
     personas = driver.load_personas()
-    rotation = driver._rotated_keys()
+    assignments = driver._rotated_keys()
     prompts = {
-        str(p["id"]): driver._build_persona_prompt(p, str(p["id"]), "/iso", "abcd", "2026-09-04", rotation)
+        str(p["id"]): driver._build_persona_prompt(
+            p, str(p["id"]), "/iso", "abcd", "2026-09-04",
+            assignments[(int(p["id"]) - 1) % len(assignments)],
+        )
         for p in personas
     }
     seeds = [line for body in prompts.values() for line in body.splitlines() if line.startswith("isolation.persona_seed:")]

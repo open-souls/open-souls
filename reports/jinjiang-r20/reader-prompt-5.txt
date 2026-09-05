@@ -3,18 +3,18 @@ persona_id: 5
 persona: 晋江新读者
 perspective: 敏感情感碾压与人物动机，不预设世界观知识。
 keep_if: 出现一次让人心里疼过的关系动作。
-drop_if: 三章以上没有新建立的关系升压。 (per-persona drop_chapter=25, pack=mid_a)
+drop_if: 三章以上没有新建立的关系升压。 (per-persona drop_chapter=684, pack=mid_b)
 must_disagree_with: 不要用‘文笔好’作为留下理由，必须说清人物动作。
-rotation.drop_chapter: 25
-rotation.drop_pack: mid_a
+rotation.drop_chapter: 684
+rotation.drop_pack: mid_b
 rotation.love_relation: 林崇×林夙
-rotation.next_chapter_focus: 37
+rotation.next_chapter_focus: 685
 read only: reports/jinjiang-r20/isolated-reader-packs/persona-5/{open,mid_a,mid_b,latest}.md
 forbidden: chronicle, frontmatter, review, score, existing reader JSONs
 isolation.no_chronicle: true
 isolation.no_frontmatter: true
 isolation.cwd: reports/jinjiang-r20/isolated-reader-packs/persona-5
 isolation.persona_seed: l1-persona-5-2026-09-04
-pack_hash: f64e35b7cac0c896
+pack_hash: 892df4c69d659635
 output: reports/jinjiang-r20/reader-5.json
 output must include schema_version=2, model_id, reading_log, source, drop, love_relation, next_chapter_focus, stay_to_50, stay_reason, pattern_flags
