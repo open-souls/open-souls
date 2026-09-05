@@ -28,7 +28,7 @@ Average E_min: **5.41/10**. This is the engineering floor; do not cite it as 接
 | dim | failing chapters | meaning |
 |---|---:|---|
 | E1 opening conflict | 0 | opens on scenery or character relations, no action or resistance |
-| E2 mid-turn choice | 329 | POV never makes a real mid-chapter choice, just records or passes through |
+| E2 mid-turn choice | 328 | POV never makes a real mid-chapter choice, just records or passes through |
 | E3 ending hook | 98 | ends on mood or generalization, leaves no specific next-chapter question |
 | E4 POV agency | 878 | agency-verb density is too low, POV feels like an observer |
 | E5 relationship cost | 538 | named characters are present but no relationship moves |
