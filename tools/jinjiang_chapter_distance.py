@@ -36,7 +36,7 @@ CHRONICLE = ROOT / "seasons" / "01-xianxia" / "chronicle"
 REPORTS = ROOT / "reports" / "jinjiang-r20"
 AUDIT_PATH = REPORTS / "chapter-by-chapter-audit.json"
 
-FRONTMATTER = re.compile(r"^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)", re.M)
+FRONTMATTER = re.compile(r"\A---\s*\n([\s\S]*?)\n---\s*(?:\n|\Z)", re.M)
 POST_FRONT = re.compile(r"^[ \t]*review:\s*>-?\s*\n((?:[ \t]+[^\n]*\n|[ \t]*\n)*)", re.M)
 HAN = re.compile(r"[一-鿿]")
 ACTION = re.compile(r"走|来|去|问|答|拿|放|递|收|拆|开|关|挡|写|烧|抬|转身|停|进|出|抓|握|听|闻|落|动|转|挪|按|拂|盯|擦|撕|换|验|翻|压|推|扶")
@@ -90,12 +90,27 @@ def read_chapter(path):
     return n, pov_name, body.strip()
 
 
+def _opening_paragraph(body):
+    """Return the first real prose paragraph, skipping H1 / H2 titles."""
+    for p in body.split("\n\n"):
+        p = p.strip()
+        if not p:
+            continue
+        if p.startswith("#"):
+            continue
+        return p
+    return ""
+
+
 def e_score(body, audit_row):
-    paras = [p.strip() for p in body.split("\n\n") if p.strip()]
-    first = paras[0] if paras else ""
+    paras = [p.strip() for p in body.split("\n\n") if p.strip() and not p.strip().startswith("#")]
+    first = _opening_paragraph(body)
     mid = "\n\n".join(paras[1:-1])
-    open_actions = len(ACTION.findall(first[:180]))
-    e1 = 10 if open_actions >= 2 and RESISTANCE.search(first) else 7 if open_actions else 4
+    # E1 reads the first 180 chars of the chapter body so the action+resistance
+    # signal can come from the first few real paragraphs, not only the opening line.
+    head180 = body[:180]
+    open_actions = len(ACTION.findall(head180))
+    e1 = 10 if open_actions >= 2 and RESISTANCE.search(head180) else 7 if open_actions else 4
     e2 = 10 if DECISION.search(mid) else 6 if ACTION.search(mid) else 4
     e3 = 10 if (audit_row or {}).get("hook_signal") else 4
     e4 = min(10, 4 + len(DECISION.findall(body)))
