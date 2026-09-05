@@ -207,3 +207,86 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 e
 ### 与上一节「读者盲读 + 距离工具」的固定顺序
 
 诊断（reader_panel_runner + chapter_distance） → 诊断（M1–M5 哪条失败） → 操作（工艺 5 条） → 验证（重跑 reader_panel_runner + chapter_distance）。任一环跳过 = 改稿循环不闭环。
+
+---
+
+## 磨斧头阶段检查表（2026-09-04，本会话）
+
+> 本节是「编辑端 5 模式 + 工艺 5 条」段的**同伴节点**，不是替代。
+> 触发：用户原话「先暂停。我们先研究一下怎么样子架构 architect, 磨斧头。
+> 我们怎么才能知道什么是晋江高分标准，规范，和文笔，编辑悬念等等。
+> 把研究好的新思路，焊死进 repo 里面，然后我们再继续。」
+
+### 改稿循环必跑的 4 道门（顺序固定，不允许跳过）
+
+每改一章必跑：
+1. `py -3 -X utf8 tools/jinjiang_chapter_distance.py <file>` — E1-E5 工程 5 维 + E_min。
+2. `py -3 -X utf8 tools/review_batch.py --strict-editorial --file <file>` — M1-M5 编辑端校验。
+3. `py -3 -X utf8 engine/prose_lint.py <file>` — 6 道墙 + 未来 JJ-LINT-01-07。
+4. `py -3 -X utf8 tools/chapter_by_chapter_audit.py --chapter <ch>` — hook_signal / binge_score / issue tag。
+
+每批改稿后必跑：
+5. `py -3 -X utf8 tools/jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json`
+6. `py -3 -X utf8 tools/refresh_distance_summary.py`
+7. `py -3 -X utf8 tools/reader_panel_runner.py check`
+8. `py -3 -X utf8 tools/reader_panel_runner.py aggregate`
+
+任一 ERROR / 任一 stale / 任一复读嫌疑 = 不准 commit。
+
+### 5 读者交叉必跑的 3 步（顺序固定）
+
+每批改稿前：
+- `py -3 -X utf8 tools/reader_subagent_driver.py verify` — 5 份 L1 三轴必须各自 >= 4 个不同值。
+- `py -3 -X utf8 tools/reader_subagent_driver.py emit` — 生成 5 份 persona prompt + 1 份 L2 真人 sub-agent prompt。
+
+真人 sub-agent / 真人读者落 JSON 后：
+- `py -3 -X utf8 tools/reader_panel_runner.py check` — schema_version=2 + model_id + reading_log + pack_hash + isolation 双证据，缺一项 = 降级 L1。
+
+### 文档自检表（每章必查）
+
+| 文档 | 必须存在的关键字 | 检查方法 |
+|---|---|---|
+| `docs/standards/novel-workflow.md` | 含「磨斧头阶段焊死段」+「JJ-LINT-01-07」+「M1-M5 vs E1-E5」 | `grep -c 磨斧头阶段焊死段` 应 >= 1 |
+| `docs/standards/5-reader-cross-workflow.md` | 含「drop_chapter / love_relation / next_chapter_focus 三轴」+「effective_n >= 3」+「L2 >= 1」 | `grep -c 复读嫌疑` 应 >= 1 |
+| `docs/standards/jinjiang-quality-architecture.md` | 含「四层证据栈 S0-S3」+「effective_n = 0」+「>= 14 天」 | `grep -c pack_hash drift` 应 >= 1 |
+| `docs/standards/jinjiang-blowup-baseline-operator.md` | 含「lint + audit + distance + review_batch」+「E1-E5 互为校验」 | `grep -c distance 重跑` 应 >= 1 |
+| `docs/standards/jinjiang-edit-modes.md` | 含「M1 开场钩 / M3 章尾钩 / M5 关系后果」+「禁用」清单 | `grep -c 改稿操作表` 应 >= 1 |
+| `docs/standards/晋江爆款基线.md` | 含「工程 5 维 + 真人 5 维」+「禁区 1-8」+「上瘾单元」 | `grep -c 双轨打分` 应 >= 1 |
+| `handoff.md`（本文件） | 含「读者盲读 + 距离工具」+「5 模式 + 工艺 5 条」+「磨斧头检查表」 | `grep -c 磨斧头阶段检查表` 应 >= 1 |
+| `reports/jinjiang-r20/distance-summary.md` | 含「197 publish-eligible」+「1 ch775 at 9.0」+「L2 = 0」 | 必须由 `refresh_distance_summary.py` 生成，不准手写 |
+| `reports/jinjiang-r20/reader-blindtest-results.md` | 含「effective_n」+「diversity_score」+「echo_panel」+「L2 = 0」 | 同上 |
+| `reports/jinjiang-r20/磨斧头研究-2026-09-04.md` | 含「S0/S1/S2/S3」+「JJ-LINT-01-07」+「不允许的省略」 | 新增留底 |
+| `reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md` | 含「sub-agent A」+「sub-agent B / C」+「同点 >= 3」 | 既有 |
+
+### 工艺 / 编辑 5 维（M1-M5）vs 工程 5 维（E1-E5） vs 真人 5 维（R1-R5）自检
+
+- M1 开场钩 <-> E1 开场冲突 <-> R1 跨题材可读：1:1 已焊。
+- M2 中段选择 <-> E2 中段选择 <-> R2 钩兑现：1:1 已焊，缺「下一章是否兑现」跨章。
+- M3 章尾钩 <-> E3 章尾钩 <-> R3 关系后果兑现：1:1 + 缺 E6 钩子类型枚举 + 缺跨章兑现。
+- M4 POV 主动 <-> E4 POV 主动 <-> R4 主动选择：1:1 已焊。
+- M5 关系后果 <-> E5 关系后果 <-> R5 不踩禁区：1:1 + 缺 POV 主动发起方识别 + 缺禁区 9。
+
+任一缺位 = 下批 batch 13 起施工对象。
+
+### 不可越线的边界（汇总）
+
+- 工程 7.0 != 爆款，工程 9.8 也不是市场分。
+- L1 unanimous 在 echo_panel = True 时**不**构成多人共识。
+- L2 = 0 时，禁止在 README / 报告 / 群里使用「读者会追 / 爆款 / 上瘾 / 读者确认」。
+- 真人 sub-agent / 真人读者的 isolation 双证据必须机器可校验，不是自报。
+- 不把 sub-agent 模拟的内部数字（不是它报的章号 / 关系 / 钩子）当成事实；事实以可重跑核数为准。
+- pack_hash = f64e35b7cac0c896 是当前基线；动 `reader_blindtest_pack.py` 必须显式告诉用户漂移。
+- 不改 chapter md 的 review / score 字段（已写好的 12/14 是诚实判断，不准为了提分而改）。
+- 不改 reader JSON 已写好的 drop / love_relation / next_chapter_focus 字段。
+- 一次只 stage 明确的目标文件，不要 `git add .`。
+
+### 与上一节「编辑端 5 模式 + 工艺 5 条」的接驳
+
+诊断（reader_panel_runner + chapter_distance） → 诊断（M1-M5 哪条失败） → 操作（工艺 5 条） → 验证（重跑 reader_panel_runner + chapter_distance） → 自检（本检查表）→ commit。任一环跳过 = 改稿循环不闭环。
+
+### 维护纪律
+
+- 改本检查表任一条 -> 必须同步改 `docs/standards/novel-workflow.md` 末尾「磨斧头阶段焊死段」段。
+- 改 JJ-LINT 任意一条 -> 必须先在 `reports/jinjiang-r20/磨斧头研究-2026-09-04.md` 第 4.2 节登记，再写 lint。
+- 派 B / C sub-agent -> 必须先在 `reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md` 第 2 节追加完成状态。
+- L2 真人 sub-agent >= 1 份落盘 -> 必须更新本检查表「S3 真人读者」行 + 文档自检表 + 对外口径。

@@ -234,3 +234,102 @@ mock 只证明门禁和状态写入顺序，不证明文学质量。真正的章
 - 5 读者交叉 = **判断层**（同一章 / 同一关系 / 同一钩子被多读者锁定，才升级为结构性改稿任务）。
 - 编辑模式 5 维（M1–M5）= **诊断层**（每章在哪一维失败，由它点名）。
 - 三层必须同时跑：先 `5-reader-cross-workflow.md` 锁定读者判断 → 再 `jinjiang-edit-modes.md` 锁定失败维 → 再读本节工艺 5 条锁定改稿动作。任一层跳过 = 改稿循环不闭环。
+
+---
+---
+
+## 附 · 磨斧头阶段焊死段（2026-09-04，本会话）
+
+> 触发：用户原话「先暂停。我们先研究一下怎么样子架构 architect, 磨斧头。
+> 我们怎么才能知道什么是晋江高分标准，规范，和文笔，编辑悬念等等。
+> 把研究好的新思路，焊死进 repo 里面，然后我们再继续。」
+
+> 研究报告落盘：`reports/jinjiang-r20/磨斧头研究-2026-09-04.md`
+> 上游 sub-agent 报告：
+>   - sub-agent A（晋江文笔与悬念工艺员）= 已落 `reports/jinjiang-r20/sub-agent-reads/sub-agent-reader-A-plotsim-mid_a-502-510.md`
+>   - sub-agent Raman（晋江编辑标准研究员）= 已落 研究总结第 1 / 6 节
+>   - sub-agent B / C = 待后续会话派发
+
+> 这一节是「改稿工艺 5 条」的**升级版研究总结**，不重复上一节已焊规则。
+> 只补「上一节之后又发现的事」与「下一批必须跑的施工清单」。
+
+### 三层证据栈自检（截至 2026-09-04 实地核数）
+
+| 层 | 已焊 | 缺口 | 下批施工 |
+|---|---|---|---|
+| S0 晋江官方事实 | `research-notes.md` 第 1 节 手写笔记 | 缺机器可校验版本 | 落 `reports/jinjiang-r20/jinjiang-official-facts.md` |
+| S1 行业共识 | `晋江爆款基线.md` 第 1-5 节 + `文笔范文标准.md` | 缺 E6 钩类型 + POV 主动发起方 + 节奏周期 + 上瘾单元 | 加 E6 / info_gap_count / bucket_beat_score / addictive_units |
+| S2 工程启发式 | E1-E5 + 6 道 lint | 缺工艺 5 条实现 + 禁区 9 | 把 JJ-LINT-01-07 焊进 `engine/prose_lint.py` + `review_batch.py` |
+| S3 真人读者 | `reader_panel_runner.py` + `5-reader-cross-workflow.md` | L2 = 0 / effective_n = 0 | 派 B / C 真人 sub-agent；>= 14 天仍 0 启动工程单轨模式 |
+
+### M1-M5 vs E1-E5 vs R1-R5 一致性矩阵（2026-09-04 实地核）
+
+- M1 = E1：1:1 已焊。
+- M2 = E2：1:1 已焊。
+- M3 = E3：1:1 已焊 + 缺 E6 钩子类型枚举 + 连续 <= 2 章硬门。
+- M4 = E4：1:1 已焊。
+- M5 = E5：1:1 已焊 + 缺 POV 主动发起方识别。
+- R1-R5：与 M1-M5 对位，已落 `reader_panel_runner.py`，缺 sub-agent B / C 真人证据。
+
+### 工艺 5 条 -> 升级版 lint 草表（JJ-LINT-01-07）
+
+来自 sub-agent A 直读 + 本会话核数（992 / 1097 / 1086 / 1076 / 1074 / 1131）。
+
+| 规则 | 触发 | 等级 | 现 lint 状态 | 抽样命中 |
+|---|---|---|---|---|
+| JJ-LINT-01 那一 X | len(re.findall(r"那一[一-鿿]{1,3}", body)) >= 6 | WARN, >= 10 ERROR | MOTIF_SLOT 阈 30 偏高 | 1076 = 18 (ERROR 阈) |
+| JJ-LINT-02 自己 | body.count("自己") >= 行数 / 4 | WARN, >= 1/2 ERROR | SELF_CLAIM 只匹配"我/他/她自己" | 6 章全部 < 阈（实测 0-4） |
+| JJ-LINT-03 末段短句密度 | 末 6 行 >= 4 行 <= 6 字且无具体动作 | WARN | 无 | 1097 = 4/6 (WARN) |
+| JJ-LINT-04 POV 远观 | 同章 >= 5 个有名角色 >= 80% 描写仅手 / 袖 / 背影 | WARN | 无 | 6 章 = 0 |
+| JJ-LINT-05 问答空转 | len(re.findall(r"「", body)) >= 8 且 agency < 2 | ERROR | 无 | 6 章 = 0 |
+| JJ-LINT-06 末段气氛句 | 末 3 行内任意一行匹配 (屋里|夜|风|雪|火|雨|街上).*(很静|没?停|没?熄|没?响) | WARN | 无 | 1074 = 「灶里的火没有熄。」命中 |
+| JJ-LINT-07 单字断章 | 末行匹配 ^[一-鿿]{1,2}[。！？…」』]$ | ERROR | 无 | 1097 = 「等一根。」边界 (5 字) |
+
+### 必须焊进 repo 的硬规则（下一批 batch 13 起执行）
+
+1. **E6 钩子类型枚举 + 连续 <= 2 章硬门** 落到 `tools/jinjiang_chapter_distance.py`
+   与 `docs/standards/jinjiang-edit-modes.md` 第 4.3 节。类型枚举见
+   `docs/standards/文笔范文标准.md` 第 三.3 节（炸钩 / 反转钩 / 抉择钩 / 未竟钩 /
+   细思极恐钩 / 关系钩 / 泛化情绪 / 不可判）。
+2. **POV 主动发起方识别** 落到 `tools/jinjiang_chapter_distance.py` E5 子项
+   `e5_pov_initiator`：POV 角色本句是否动作主语占 >= 50% 中段选择动词。不达标则 E5 降一档（4 分）。
+3. **禁区 9 女主被动** 落到 `engine/prose_lint.py` WARN + `晋江爆款基线.md` 第 3 节：
+   单章 POV 是女主时，被动语态 / 被替 / 被让位累计 >= 3 次 -> WARN。
+4. **JJ-LINT-01-05** 落到 `engine/prose_lint.py` + `tools/review_batch.py --strict-editorial` + 钉死回归测试。
+5. **JJ-LINT-06-07** 落到 `engine/prose_lint.py`（与 M3 禁用直接冲突的补充）。
+6. **info_gap_count / bucket_beat_score / addictive_units** 三个字段加进
+   `tools/chapter_by_chapter_audit.py` 输出，并在 `distance-summary.md` 第 6 节之后
+   新增一段「节奏 / 信息差 / 上瘾单元」。
+7. **本季定位 虐心 7:3** 从 `文笔范文标准.md` 第 三.4 节 移到 season_manifest.yaml，
+   并在 `research-notes.md` 第 2 节 注明这是项目级定位而非晋江标准。
+8. **book_launched: true** 加进 season_manifest.yaml，锁定本季已过开书期。
+
+### 工程 / 真人 / sub-agent 模拟 三层证据链（与主流程硬耦合）
+
+- 任一 chapter 改稿前必跑：`tools/jinjiang_chapter_distance.py <file>` +
+  `tools/review_batch.py --strict-editorial --file <file>` + `engine/prose_lint.py <file>`
+  （任一 ERROR 都不准下笔）。
+- 任一 chapter 改稿后必跑：同上 + `tools/refresh_distance_summary.py` +
+  `tools/reader_panel_runner.py check` + `tools/reader_panel_runner.py aggregate`
+  （任一 stale 都不准 commit）。
+- 5 读者交叉协议任一轴退化 = 复读嫌疑 = 改稿循环中断，先修 `reader_subagent_driver.py`。
+- L2 = 0 + drift 非空 = 读者基线双重削弱 = 所有文档「读者分」降级「工程分」。
+
+### 不允许的省略（焊进本节是为了防反复踩坑）
+
+- 工程 7.0 != 爆款。
+- 工程 9.8 只是机械信号接近上限，不是市场分。
+- L1 unanimous 在 echo_panel = True 时**不**构成多人共识。
+- 真人 sub-agent / 真人读者的 isolation 双证据必须机器可校验，不是 sub-agent 自报。
+- 不能把 sub-agent 模拟的内部数字（不是它报的章号 / 关系 / 钩子）当成事实。
+- pack_hash = f64e35b7cac0c896 是当前基线；动 `reader_blindtest_pack.py` 必须显式告诉用户漂移。
+
+### 维护纪律
+
+- 改本节任一条 -> 必须同步改 `handoff.md` 末尾「磨斧头检查表」段，
+  避免两份文档漂移。
+- 改 JJ-LINT 任意一条 -> 必须先在 `reports/jinjiang-r20/磨斧头研究-2026-09-04.md` 第 4.2 节
+  登记，再写 lint，最后才修改章节。
+- 派 B / C sub-agent -> 必须先在 `reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md` 第 2 节
+  追加「已完成」状态。
+- L2 真人 sub-agent >= 1 份落盘 -> 必须更新本节「S3 真人读者」行 + 第 4.2 节 命中率 + 第 10 节 第 2 条。
