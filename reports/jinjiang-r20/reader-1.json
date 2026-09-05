@@ -1,0 +1,65 @@
+{
+  "id": 1,
+  "label": "晋江古言仙侠资深读者",
+  "perspective": "常读古言仙侠、耽美，不读言情但会读女强线。",
+  "drop": {
+    "pack": "mid_a",
+    "chapter": "504",
+    "reason": "首段平铺人物关系、没有立刻出现可被复述的阻力；读到第三段我已经想看别的事。"
+  },
+  "love_relation": {
+    "name": "林夙×苏挽",
+    "reason": "本章反复在谈“那一段关系的代价由谁担”，我想要看到一个明确承担动作。"
+  },
+  "next_chapter_focus": {
+    "chapter": "508",
+    "reason": "信笺里那句不寄临安是最有意思的动作结尾，我立刻想知道她接下来会不会把信封递出去。"
+  },
+  "stay_to_50": false,
+  "stay_reason": "中段包三章以上看不到身份后果的兑现，几次 POV 切换后接力的还是同一句“再翻”，更像单篇散文不像连载。",
+  "pattern_flags": {
+    "info_not_action": true,
+    "smart_drop": false,
+    "passive_chain": true
+  },
+  "source": "模型代理模拟，不是真人读者。",
+  "isolation": {
+    "no_chronicle": false,
+    "no_frontmatter": false,
+    "cwd": "historical-no-record",
+    "persona_seed": "historical"
+  },
+  "schema_version": 2,
+  "pack_hash": "f64e35b7cac0c896",
+  "model_id": "historical-L1-agent-2026-09-04",
+  "reading_log": [
+    {
+      "pack": "open",
+      "chapters_read": [
+        "1-10"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_a",
+      "chapters_read": [
+        "501-510"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_b",
+      "chapters_read": [
+        "681-690"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "latest",
+      "chapters_read": [
+        "1136-1145"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    }
+  ]
+}

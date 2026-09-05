@@ -1,0 +1,65 @@
+{
+  "id": 2,
+  "label": "晋江追更党，敏感钩子",
+  "perspective": "对钩子和兑现节奏极度敏感，套路失望会立刻弃读。",
+  "drop": {
+    "pack": "mid_a",
+    "chapter": "505",
+    "reason": "首句就铺静态，三行无动作；正文最后落到“她没回”，对追更党没有下一章必答的问题。"
+  },
+  "love_relation": {
+    "name": "林夙×阿湄",
+    "reason": "阿湄在最新包开场说“先说活着的两个”，我希望看到她必须做出选择的那一刻。"
+  },
+  "next_chapter_focus": {
+    "chapter": "1145",
+    "reason": "门槛外的雪塌了一角、双脚无脚印的人，这是只有追更党才等得到的那种钩子，我立刻想读下一章。"
+  },
+  "stay_to_50": false,
+  "stay_reason": "中段包太多章只是“纸归纸、账归账”，我看不到主角身份层面的动作代价。",
+  "pattern_flags": {
+    "info_not_action": true,
+    "smart_drop": false,
+    "passive_chain": true
+  },
+  "source": "模型代理模拟，不是真人读者。",
+  "isolation": {
+    "no_chronicle": false,
+    "no_frontmatter": false,
+    "cwd": "historical-no-record",
+    "persona_seed": "historical"
+  },
+  "schema_version": 2,
+  "pack_hash": "f64e35b7cac0c896",
+  "model_id": "historical-L1-agent-2026-09-04",
+  "reading_log": [
+    {
+      "pack": "open",
+      "chapters_read": [
+        "1-10"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_a",
+      "chapters_read": [
+        "501-510"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_b",
+      "chapters_read": [
+        "681-690"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "latest",
+      "chapters_read": [
+        "1136-1145"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    }
+  ]
+}

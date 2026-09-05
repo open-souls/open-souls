@@ -1,0 +1,65 @@
+{
+  "id": "1-real",
+  "label": "晋江古言仙侠资深读者",
+  "perspective": "家斗权谋底子好，对后期验物留白敏感。",
+  "drop": {
+    "pack": "mid_a",
+    "chapter": "506",
+    "reason": "同一物证反复释义，局势没有前进。"
+  },
+  "love_relation": {
+    "name": "林彻×林夙",
+    "reason": "父权压制下的旧伤、竞争与互相承认，比感情线更有家斗张力。"
+  },
+  "next_chapter_focus": {
+    "chapter": "1145",
+    "reason": "必须立刻揭开谷外两名活人并做救援选择，否则又会回到验纸拖延。"
+  },
+  "stay_to_50": false,
+  "stay_reason": "人物不降智，但中后段把每次推进拆成反复登记，阅读回报不足。",
+  "pattern_flags": {
+    "info_not_action": true,
+    "smart_drop": false,
+    "passive_chain": true
+  },
+  "source": "真人 sub-agent（fork 出来的独立模型会话），通过 mcp 通信回到本会话。",
+  "isolation": {
+    "no_chronicle": false,
+    "no_frontmatter": false,
+    "cwd": "historical-no-record",
+    "persona_seed": "historical"
+  },
+  "schema_version": 2,
+  "pack_hash": "f64e35b7cac0c896",
+  "model_id": "historical-L1-agent-2026-09-04",
+  "reading_log": [
+    {
+      "pack": "open",
+      "chapters_read": [
+        "1-10"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_a",
+      "chapters_read": [
+        "501-510"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_b",
+      "chapters_read": [
+        "681-690"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "latest",
+      "chapters_read": [
+        "1136-1145"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    }
+  ]
+}

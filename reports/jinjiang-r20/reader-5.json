@@ -1,0 +1,65 @@
+{
+  "id": 5,
+  "label": "晋江新读者",
+  "perspective": "敏感情感碾压与人物动机。",
+  "drop": {
+    "pack": "open",
+    "chapter": "4",
+    "reason": "首段井边+线头，被告知“那截线头藏在掌心”，却没有动机驱动的选择。"
+  },
+  "love_relation": {
+    "name": "阿湄×苏挽",
+    "reason": "她们各自守着证据不替对方说话，能看到她们一起承担一次后果我就会继续看。"
+  },
+  "next_chapter_focus": {
+    "chapter": "1143",
+    "reason": "林夙在东院外犹豫进与不进，朱圈落在等字底下，这种克制的情感碾压对一个新读者也成立。"
+  },
+  "stay_to_50": false,
+  "stay_reason": "中段包两本书都在翻账或递纸，没有一次让我心里疼过的情感动作，新读者会走。",
+  "pattern_flags": {
+    "info_not_action": true,
+    "smart_drop": false,
+    "passive_chain": true
+  },
+  "source": "模型代理模拟，不是真人读者。",
+  "isolation": {
+    "no_chronicle": false,
+    "no_frontmatter": false,
+    "cwd": "historical-no-record",
+    "persona_seed": "historical"
+  },
+  "schema_version": 2,
+  "pack_hash": "f64e35b7cac0c896",
+  "model_id": "historical-L1-agent-2026-09-04",
+  "reading_log": [
+    {
+      "pack": "open",
+      "chapters_read": [
+        "1-10"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_a",
+      "chapters_read": [
+        "501-510"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_b",
+      "chapters_read": [
+        "681-690"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "latest",
+      "chapters_read": [
+        "1136-1145"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    }
+  ]
+}

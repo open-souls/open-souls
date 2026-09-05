@@ -1,0 +1,65 @@
+{
+  "id": 3,
+  "label": "晋江现言读者跨题材测试",
+  "perspective": "完全没看过古言仙侠，只读现言与职场小说，用来验证跨题材吸力。",
+  "drop": {
+    "pack": "mid_b",
+    "chapter": "682",
+    "reason": "POV 一直换、人物动机停在“写不写自己名字”，我作为一个不熟古言设定的人很难跟上。"
+  },
+  "love_relation": {
+    "name": "苏挽×林窈",
+    "reason": "女性视角的人物拉扯我看懂了；如果让我看到她们一起承担证据后果，我会追下去。"
+  },
+  "next_chapter_focus": {
+    "chapter": "1145",
+    "reason": "门槛外的雪塌了、阿湄先把名字压在账封上——这种动作+人名钩子对跨题材读者也成立。"
+  },
+  "stay_to_50": false,
+  "stay_reason": "中段包两本书都在谈账、信、印，没有能让我看懂的现言式关系升压；跨题材门槛没跨过去。",
+  "pattern_flags": {
+    "info_not_action": true,
+    "smart_drop": false,
+    "passive_chain": true
+  },
+  "source": "模型代理模拟，不是真人读者。",
+  "isolation": {
+    "no_chronicle": false,
+    "no_frontmatter": false,
+    "cwd": "historical-no-record",
+    "persona_seed": "historical"
+  },
+  "schema_version": 2,
+  "pack_hash": "f64e35b7cac0c896",
+  "model_id": "historical-L1-agent-2026-09-04",
+  "reading_log": [
+    {
+      "pack": "open",
+      "chapters_read": [
+        "1-10"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_a",
+      "chapters_read": [
+        "501-510"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_b",
+      "chapters_read": [
+        "681-690"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "latest",
+      "chapters_read": [
+        "1136-1145"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    }
+  ]
+}

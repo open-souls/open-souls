@@ -1,0 +1,65 @@
+{
+  "id": 4,
+  "label": "晋江女强权谋线读者",
+  "perspective": "对替谁守、上一世、回环等模板特别敏感。",
+  "drop": {
+    "pack": "mid_a",
+    "chapter": "502",
+    "reason": "首段大段铺人物静观、阿湄没有主动决定，只有“看见了、没合眼”，对权谋线读者太轻。"
+  },
+  "love_relation": {
+    "name": "林崇×林夙",
+    "reason": "父子按印线是权谋主线，私印悬而未落那一刻如果换成林夙自己押上，我才愿意读下去。"
+  },
+  "next_chapter_focus": {
+    "chapter": "1144",
+    "reason": "三本账分开、退婚书翻转，是权谋线读者最在意的“账与名”清算；我想看下一章陆师兄到底是谁。"
+  },
+  "stay_to_50": true,
+  "stay_reason": "最新包把人命与账连起来了，权谋线读者至少能熬到下一章归隐谷三死真相。",
+  "pattern_flags": {
+    "info_not_action": true,
+    "smart_drop": false,
+    "passive_chain": false
+  },
+  "source": "模型代理模拟，不是真人读者。",
+  "isolation": {
+    "no_chronicle": false,
+    "no_frontmatter": false,
+    "cwd": "historical-no-record",
+    "persona_seed": "historical"
+  },
+  "schema_version": 2,
+  "pack_hash": "f64e35b7cac0c896",
+  "model_id": "historical-L1-agent-2026-09-04",
+  "reading_log": [
+    {
+      "pack": "open",
+      "chapters_read": [
+        "1-10"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_a",
+      "chapters_read": [
+        "501-510"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "mid_b",
+      "chapters_read": [
+        "681-690"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    },
+    {
+      "pack": "latest",
+      "chapters_read": [
+        "1136-1145"
+      ],
+      "isolation": "no_chronicle+no_frontmatter"
+    }
+  ]
+}
