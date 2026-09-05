@@ -2320,236 +2320,6 @@
       }
     },
     {
-      "chapter": 1000,
-      "file": "seasons\\01-xianxia\\chronicle\\1000-灶边.md",
-      "pov": "牛阿大",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1001,
-      "file": "seasons\\01-xianxia\\chronicle\\1001-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1002,
-      "file": "seasons\\01-xianxia\\chronicle\\1002-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1003,
-      "file": "seasons\\01-xianxia\\chronicle\\1003-阿湄断蓝线.md",
-      "pov": "阿湄",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1004,
-      "file": "seasons\\01-xianxia\\chronicle\\1004-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1005,
-      "file": "seasons\\01-xianxia\\chronicle\\1005-三人迎上.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1006,
-      "file": "seasons\\01-xianxia\\chronicle\\1006-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1007,
-      "file": "seasons\\01-xianxia\\chronicle\\1007-凌朔不动.md",
-      "pov": "凌朔",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1008,
-      "file": "seasons\\01-xianxia\\chronicle\\1008-裴无咎看.md",
-      "pov": "裴无咎",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1009,
-      "file": "seasons\\01-xianxia\\chronicle\\1009-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
       "chapter": 101,
       "file": "seasons\\01-xianxia\\chronicle\\101-归隐谷.md",
       "pov": "苏挽",
@@ -2569,236 +2339,6 @@
         "blowup_chapter": false,
         "addictive_chapter": false,
         "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1010,
-      "file": "seasons\\01-xianxia\\chronicle\\1010-沈疏桐搁.md",
-      "pov": "沈疏桐",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1011,
-      "file": "seasons\\01-xianxia\\chronicle\\1011-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1012,
-      "file": "seasons\\01-xianxia\\chronicle\\1012-不在设计里.md",
-      "pov": "叶观澜",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1013,
-      "file": "seasons\\01-xianxia\\chronicle\\1013-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 9
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1014,
-      "file": "seasons\\01-xianxia\\chronicle\\1014-还有气.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1015,
-      "file": "seasons\\01-xianxia\\chronicle\\1015-阿湄背.md",
-      "pov": "阿湄",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1016,
-      "file": "seasons\\01-xianxia\\chronicle\\1016-林窈跟.md",
-      "pov": "林窈",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1017,
-      "file": "seasons\\01-xianxia\\chronicle\\1017-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1018,
-      "file": "seasons\\01-xianxia\\chronicle\\1018-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1019,
-      "file": "seasons\\01-xianxia\\chronicle\\1019-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -2826,236 +2366,6 @@
       }
     },
     {
-      "chapter": 1020,
-      "file": "seasons\\01-xianxia\\chronicle\\1020-灶边.md",
-      "pov": "余伯/苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 9,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1021,
-      "file": "seasons\\01-xianxia\\chronicle\\1021-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1022,
-      "file": "seasons\\01-xianxia\\chronicle\\1022-不接.md",
-      "pov": "叶观澜",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1023,
-      "file": "seasons\\01-xianxia\\chronicle\\1023-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1024,
-      "file": "seasons\\01-xianxia\\chronicle\\1024-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1025,
-      "file": "seasons\\01-xianxia\\chronicle\\1025-灶边雪.md",
-      "pov": "老仆",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1026,
-      "file": "seasons\\01-xianxia\\chronicle\\1026-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1027,
-      "file": "seasons\\01-xianxia\\chronicle\\1027-对视.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1028,
-      "file": "seasons\\01-xianxia\\chronicle\\1028-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1029,
-      "file": "seasons\\01-xianxia\\chronicle\\1029-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
       "chapter": 103,
       "file": "seasons\\01-xianxia\\chronicle\\103-六十年前.md",
       "pov": "苏挽",
@@ -3075,236 +2385,6 @@
         "blowup_chapter": false,
         "addictive_chapter": false,
         "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1030,
-      "file": "seasons\\01-xianxia\\chronicle\\1030-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 10,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1031,
-      "file": "seasons\\01-xianxia\\chronicle\\1031-灶边.md",
-      "pov": "阿湄",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1032,
-      "file": "seasons\\01-xianxia\\chronicle\\1032-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1033,
-      "file": "seasons\\01-xianxia\\chronicle\\1033-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 9,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1034,
-      "file": "seasons\\01-xianxia\\chronicle\\1034-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1035,
-      "file": "seasons\\01-xianxia\\chronicle\\1035-灶边雪.md",
-      "pov": "老仆",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1036,
-      "file": "seasons\\01-xianxia\\chronicle\\1036-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1037,
-      "file": "seasons\\01-xianxia\\chronicle\\1037-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1038,
-      "file": "seasons\\01-xianxia\\chronicle\\1038-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1039,
-      "file": "seasons\\01-xianxia\\chronicle\\1039-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -3332,236 +2412,6 @@
       }
     },
     {
-      "chapter": 1040,
-      "file": "seasons\\01-xianxia\\chronicle\\1040-灶边.md",
-      "pov": "牛阿大",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 4
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1041,
-      "file": "seasons\\01-xianxia\\chronicle\\1041-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1042,
-      "file": "seasons\\01-xianxia\\chronicle\\1042-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1043,
-      "file": "seasons\\01-xianxia\\chronicle\\1043-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1044,
-      "file": "seasons\\01-xianxia\\chronicle\\1044-不收回.md",
-      "pov": "林窈",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1045,
-      "file": "seasons\\01-xianxia\\chronicle\\1045-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1046,
-      "file": "seasons\\01-xianxia\\chronicle\\1046-灶边.md",
-      "pov": "老仆",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1047,
-      "file": "seasons\\01-xianxia\\chronicle\\1047-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1048,
-      "file": "seasons\\01-xianxia\\chronicle\\1048-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1049,
-      "file": "seasons\\01-xianxia\\chronicle\\1049-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
       "chapter": 105,
       "file": "seasons\\01-xianxia\\chronicle\\105-普通人.md",
       "pov": "阿湄",
@@ -3581,236 +2431,6 @@
         "blowup_chapter": false,
         "addictive_chapter": false,
         "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1050,
-      "file": "seasons\\01-xianxia\\chronicle\\1050-灶边雪.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1051,
-      "file": "seasons\\01-xianxia\\chronicle\\1051-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 10,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1052,
-      "file": "seasons\\01-xianxia\\chronicle\\1052-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1053,
-      "file": "seasons\\01-xianxia\\chronicle\\1053-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1054,
-      "file": "seasons\\01-xianxia\\chronicle\\1054-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1055,
-      "file": "seasons\\01-xianxia\\chronicle\\1055-灶边.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1056,
-      "file": "seasons\\01-xianxia\\chronicle\\1056-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1057,
-      "file": "seasons\\01-xianxia\\chronicle\\1057-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 9,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1058,
-      "file": "seasons\\01-xianxia\\chronicle\\1058-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 4
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1059,
-      "file": "seasons\\01-xianxia\\chronicle\\1059-灶边雪.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -3838,236 +2458,6 @@
       }
     },
     {
-      "chapter": 1060,
-      "file": "seasons\\01-xianxia\\chronicle\\1060-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1061,
-      "file": "seasons\\01-xianxia\\chronicle\\1061-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 8,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 8,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1062,
-      "file": "seasons\\01-xianxia\\chronicle\\1062-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 10,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1063,
-      "file": "seasons\\01-xianxia\\chronicle\\1063-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 9,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1064,
-      "file": "seasons\\01-xianxia\\chronicle\\1064-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1065,
-      "file": "seasons\\01-xianxia\\chronicle\\1065-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1066,
-      "file": "seasons\\01-xianxia\\chronicle\\1066-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1067,
-      "file": "seasons\\01-xianxia\\chronicle\\1067-灶边.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1068,
-      "file": "seasons\\01-xianxia\\chronicle\\1068-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1069,
-      "file": "seasons\\01-xianxia\\chronicle\\1069-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
       "chapter": 107,
       "file": "seasons\\01-xianxia\\chronicle\\107-刮去.md",
       "pov": "林夙",
@@ -4087,236 +2477,6 @@
         "blowup_chapter": false,
         "addictive_chapter": false,
         "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1070,
-      "file": "seasons\\01-xianxia\\chronicle\\1070-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 4
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1071,
-      "file": "seasons\\01-xianxia\\chronicle\\1071-灶边雪.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1072,
-      "file": "seasons\\01-xianxia\\chronicle\\1072-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1073,
-      "file": "seasons\\01-xianxia\\chronicle\\1073-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1074,
-      "file": "seasons\\01-xianxia\\chronicle\\1074-灶边.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 8,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 8,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1075,
-      "file": "seasons\\01-xianxia\\chronicle\\1075-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1076,
-      "file": "seasons\\01-xianxia\\chronicle\\1076-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 8,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 8,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1077,
-      "file": "seasons\\01-xianxia\\chronicle\\1077-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1078,
-      "file": "seasons\\01-xianxia\\chronicle\\1078-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1079,
-      "file": "seasons\\01-xianxia\\chronicle\\1079-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -4344,469 +2504,9 @@
       }
     },
     {
-      "chapter": 1080,
-      "file": "seasons\\01-xianxia\\chronicle\\1080-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1081,
-      "file": "seasons\\01-xianxia\\chronicle\\1081-灶边.md",
-      "pov": "老仆",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1082,
-      "file": "seasons\\01-xianxia\\chronicle\\1082-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1083,
-      "file": "seasons\\01-xianxia\\chronicle\\1083-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1084,
-      "file": "seasons\\01-xianxia\\chronicle\\1084-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1085,
-      "file": "seasons\\01-xianxia\\chronicle\\1085-灶边雪.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1086,
-      "file": "seasons\\01-xianxia\\chronicle\\1086-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1087,
-      "file": "seasons\\01-xianxia\\chronicle\\1087-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1088,
-      "file": "seasons\\01-xianxia\\chronicle\\1088-灶边.md",
-      "pov": "老仆",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1089,
-      "file": "seasons\\01-xianxia\\chronicle\\1089-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
       "chapter": 109,
       "file": "seasons\\01-xianxia\\chronicle\\109-堂兄.md",
       "pov": "阿湄",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1090,
-      "file": "seasons\\01-xianxia\\chronicle\\1090-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1091,
-      "file": "seasons\\01-xianxia\\chronicle\\1091-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1092,
-      "file": "seasons\\01-xianxia\\chronicle\\1092-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1093,
-      "file": "seasons\\01-xianxia\\chronicle\\1093-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1094,
-      "file": "seasons\\01-xianxia\\chronicle\\1094-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1095,
-      "file": "seasons\\01-xianxia\\chronicle\\1095-灶边.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1096,
-      "file": "seasons\\01-xianxia\\chronicle\\1096-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1097,
-      "file": "seasons\\01-xianxia\\chronicle\\1097-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1098,
-      "file": "seasons\\01-xianxia\\chronicle\\1098-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1099,
-      "file": "seasons\\01-xianxia\\chronicle\\1099-灶边雪.md",
-      "pov": "林夙",
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 6,
@@ -4850,236 +2550,6 @@
       }
     },
     {
-      "chapter": 1100,
-      "file": "seasons\\01-xianxia\\chronicle\\1100-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1101,
-      "file": "seasons\\01-xianxia\\chronicle\\1101-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1102,
-      "file": "seasons\\01-xianxia\\chronicle\\1102-灶边.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1103,
-      "file": "seasons\\01-xianxia\\chronicle\\1103-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1104,
-      "file": "seasons\\01-xianxia\\chronicle\\1104-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1105,
-      "file": "seasons\\01-xianxia\\chronicle\\1105-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1106,
-      "file": "seasons\\01-xianxia\\chronicle\\1106-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1107,
-      "file": "seasons\\01-xianxia\\chronicle\\1107-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1108,
-      "file": "seasons\\01-xianxia\\chronicle\\1108-灶边.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1109,
-      "file": "seasons\\01-xianxia\\chronicle\\1109-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
       "chapter": 111,
       "file": "seasons\\01-xianxia\\chronicle\\111-玉牌.md",
       "pov": "阿湄",
@@ -5099,236 +2569,6 @@
         "blowup_chapter": false,
         "addictive_chapter": false,
         "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1110,
-      "file": "seasons\\01-xianxia\\chronicle\\1110-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1111,
-      "file": "seasons\\01-xianxia\\chronicle\\1111-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1112,
-      "file": "seasons\\01-xianxia\\chronicle\\1112-灶边雪.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1113,
-      "file": "seasons\\01-xianxia\\chronicle\\1113-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1114,
-      "file": "seasons\\01-xianxia\\chronicle\\1114-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1115,
-      "file": "seasons\\01-xianxia\\chronicle\\1115-灶边.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1116,
-      "file": "seasons\\01-xianxia\\chronicle\\1116-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 10,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1117,
-      "file": "seasons\\01-xianxia\\chronicle\\1117-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1118,
-      "file": "seasons\\01-xianxia\\chronicle\\1118-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1119,
-      "file": "seasons\\01-xianxia\\chronicle\\1119-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -5356,236 +2596,6 @@
       }
     },
     {
-      "chapter": 1120,
-      "file": "seasons\\01-xianxia\\chronicle\\1120-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1121,
-      "file": "seasons\\01-xianxia\\chronicle\\1121-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 4
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1122,
-      "file": "seasons\\01-xianxia\\chronicle\\1122-灶边.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1123,
-      "file": "seasons\\01-xianxia\\chronicle\\1123-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1124,
-      "file": "seasons\\01-xianxia\\chronicle\\1124-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1125,
-      "file": "seasons\\01-xianxia\\chronicle\\1125-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 9,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1126,
-      "file": "seasons\\01-xianxia\\chronicle\\1126-灶边雪.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1127,
-      "file": "seasons\\01-xianxia\\chronicle\\1127-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1128,
-      "file": "seasons\\01-xianxia\\chronicle\\1128-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 5,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1129,
-      "file": "seasons\\01-xianxia\\chronicle\\1129-灶边.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
       "chapter": 113,
       "file": "seasons\\01-xianxia\\chronicle\\113-再压.md",
       "pov": "苏挽",
@@ -5605,236 +2615,6 @@
         "blowup_chapter": false,
         "addictive_chapter": false,
         "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1130,
-      "file": "seasons\\01-xianxia\\chronicle\\1130-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1131,
-      "file": "seasons\\01-xianxia\\chronicle\\1131-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1132,
-      "file": "seasons\\01-xianxia\\chronicle\\1132-林崇信.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1133,
-      "file": "seasons\\01-xianxia\\chronicle\\1133-苏挽在.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1134,
-      "file": "seasons\\01-xianxia\\chronicle\\1134-林叙看.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 8
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1135,
-      "file": "seasons\\01-xianxia\\chronicle\\1135-林崇看.md",
-      "pov": "林崇",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1136,
-      "file": "seasons\\01-xianxia\\chronicle\\1136-灶边.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 4,
-        "E4_agency": 4,
-        "E5_relationship_cost": 4
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1137,
-      "file": "seasons\\01-xianxia\\chronicle\\1137-苏挽端糖.md",
-      "pov": "苏挽",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1138,
-      "file": "seasons\\01-xianxia\\chronicle\\1138-林彻看林夙.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 8,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1139,
-      "file": "seasons\\01-xianxia\\chronicle\\1139-林叙等.md",
-      "pov": "林叙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 10,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 7,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -5859,162 +2639,6 @@
         "addictive_chapter": false,
         "combined_when_R_missing": 4,
         "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1140,
-      "file": "seasons\\01-xianxia\\chronicle\\1140-灶边雪.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1141,
-      "file": "seasons\\01-xianxia\\chronicle\\1141-林彻站.md",
-      "pov": "林彻",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 6,
-        "E3_hook_stop": 10,
-        "E4_agency": 4,
-        "E5_relationship_cost": 5
-      },
-      "engineering_min": 4,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 4,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1142,
-      "file": "seasons\\01-xianxia\\chronicle\\1142-真合前夜.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 7,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": null,
-      "reader_min": null,
-      "reader_reason": "no reader blindtest evidence for this chapter",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": false
-      }
-    },
-    {
-      "chapter": 1143,
-      "file": "seasons\\01-xianxia\\chronicle\\1143-真合前拂晓.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 9,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 6,
-      "reader": {
-        "R1_cross_genre": 5.0,
-        "R2_hook_carry": 7.5,
-        "R3_relationship": 7.5,
-        "R4_agency": 5.0,
-        "R5_no_forbidden": 4.0
-      },
-      "reader_min": 4.0,
-      "reader_reason": "ok",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": true
-      }
-    },
-    {
-      "chapter": 1144,
-      "file": "seasons\\01-xianxia\\chronicle\\1144-撕账.md",
-      "pov": "林夙",
-      "engineering": {
-        "E1_open_conflict": 7,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 6,
-        "E5_relationship_cost": 7
-      },
-      "engineering_min": 6,
-      "reader": {
-        "R1_cross_genre": 5.0,
-        "R2_hook_carry": 7.5,
-        "R3_relationship": 7.5,
-        "R4_agency": 7.5,
-        "R5_no_forbidden": 7.5
-      },
-      "reader_min": 5.0,
-      "reader_reason": "ok",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 6,
-        "r_track_present": true
-      }
-    },
-    {
-      "chapter": 1145,
-      "file": "seasons\\01-xianxia\\chronicle\\1145-门槛外.md",
-      "pov": "阿湄",
-      "engineering": {
-        "E1_open_conflict": 10,
-        "E2_mid_turn": 10,
-        "E3_hook_stop": 10,
-        "E4_agency": 5,
-        "E5_relationship_cost": 6
-      },
-      "engineering_min": 5,
-      "reader": {
-        "R1_cross_genre": 5.0,
-        "R2_hook_carry": 7.5,
-        "R3_relationship": 7.5,
-        "R4_agency": 5.0,
-        "R5_no_forbidden": 4.0
-      },
-      "reader_min": 4.0,
-      "reader_reason": "ok",
-      "gates": {
-        "publish": false,
-        "blowup_chapter": false,
-        "addictive_chapter": false,
-        "combined_when_R_missing": 5,
-        "r_track_present": true
       }
     },
     {
@@ -26406,6 +23030,3382 @@
         "addictive_chapter": false,
         "combined_when_R_missing": 6,
         "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1000,
+      "file": "seasons\\01-xianxia\\chronicle\\1000-灶边.md",
+      "pov": "牛阿大",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1001,
+      "file": "seasons\\01-xianxia\\chronicle\\1001-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1002,
+      "file": "seasons\\01-xianxia\\chronicle\\1002-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1003,
+      "file": "seasons\\01-xianxia\\chronicle\\1003-阿湄断蓝线.md",
+      "pov": "阿湄",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1004,
+      "file": "seasons\\01-xianxia\\chronicle\\1004-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1005,
+      "file": "seasons\\01-xianxia\\chronicle\\1005-三人迎上.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1006,
+      "file": "seasons\\01-xianxia\\chronicle\\1006-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1007,
+      "file": "seasons\\01-xianxia\\chronicle\\1007-凌朔不动.md",
+      "pov": "凌朔",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1008,
+      "file": "seasons\\01-xianxia\\chronicle\\1008-裴无咎看.md",
+      "pov": "裴无咎",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1009,
+      "file": "seasons\\01-xianxia\\chronicle\\1009-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1010,
+      "file": "seasons\\01-xianxia\\chronicle\\1010-沈疏桐搁.md",
+      "pov": "沈疏桐",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1011,
+      "file": "seasons\\01-xianxia\\chronicle\\1011-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1012,
+      "file": "seasons\\01-xianxia\\chronicle\\1012-不在设计里.md",
+      "pov": "叶观澜",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1013,
+      "file": "seasons\\01-xianxia\\chronicle\\1013-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 9
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1014,
+      "file": "seasons\\01-xianxia\\chronicle\\1014-还有气.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1015,
+      "file": "seasons\\01-xianxia\\chronicle\\1015-阿湄背.md",
+      "pov": "阿湄",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1016,
+      "file": "seasons\\01-xianxia\\chronicle\\1016-林窈跟.md",
+      "pov": "林窈",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1017,
+      "file": "seasons\\01-xianxia\\chronicle\\1017-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1018,
+      "file": "seasons\\01-xianxia\\chronicle\\1018-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1019,
+      "file": "seasons\\01-xianxia\\chronicle\\1019-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1020,
+      "file": "seasons\\01-xianxia\\chronicle\\1020-灶边.md",
+      "pov": "余伯/苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 9,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1021,
+      "file": "seasons\\01-xianxia\\chronicle\\1021-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1022,
+      "file": "seasons\\01-xianxia\\chronicle\\1022-不接.md",
+      "pov": "叶观澜",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1023,
+      "file": "seasons\\01-xianxia\\chronicle\\1023-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1024,
+      "file": "seasons\\01-xianxia\\chronicle\\1024-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1025,
+      "file": "seasons\\01-xianxia\\chronicle\\1025-灶边雪.md",
+      "pov": "老仆",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 4,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1026,
+      "file": "seasons\\01-xianxia\\chronicle\\1026-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1027,
+      "file": "seasons\\01-xianxia\\chronicle\\1027-对视.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1028,
+      "file": "seasons\\01-xianxia\\chronicle\\1028-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1029,
+      "file": "seasons\\01-xianxia\\chronicle\\1029-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1030,
+      "file": "seasons\\01-xianxia\\chronicle\\1030-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 10,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1031,
+      "file": "seasons\\01-xianxia\\chronicle\\1031-灶边.md",
+      "pov": "阿湄",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1032,
+      "file": "seasons\\01-xianxia\\chronicle\\1032-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1033,
+      "file": "seasons\\01-xianxia\\chronicle\\1033-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 9,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1034,
+      "file": "seasons\\01-xianxia\\chronicle\\1034-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1035,
+      "file": "seasons\\01-xianxia\\chronicle\\1035-灶边雪.md",
+      "pov": "老仆",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1036,
+      "file": "seasons\\01-xianxia\\chronicle\\1036-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 4,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1037,
+      "file": "seasons\\01-xianxia\\chronicle\\1037-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1038,
+      "file": "seasons\\01-xianxia\\chronicle\\1038-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1039,
+      "file": "seasons\\01-xianxia\\chronicle\\1039-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1040,
+      "file": "seasons\\01-xianxia\\chronicle\\1040-灶边.md",
+      "pov": "牛阿大",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 4
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1041,
+      "file": "seasons\\01-xianxia\\chronicle\\1041-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1042,
+      "file": "seasons\\01-xianxia\\chronicle\\1042-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1043,
+      "file": "seasons\\01-xianxia\\chronicle\\1043-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1044,
+      "file": "seasons\\01-xianxia\\chronicle\\1044-不收回.md",
+      "pov": "林窈",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1045,
+      "file": "seasons\\01-xianxia\\chronicle\\1045-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1046,
+      "file": "seasons\\01-xianxia\\chronicle\\1046-灶边.md",
+      "pov": "老仆",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1047,
+      "file": "seasons\\01-xianxia\\chronicle\\1047-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1048,
+      "file": "seasons\\01-xianxia\\chronicle\\1048-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1049,
+      "file": "seasons\\01-xianxia\\chronicle\\1049-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1050,
+      "file": "seasons\\01-xianxia\\chronicle\\1050-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1051,
+      "file": "seasons\\01-xianxia\\chronicle\\1051-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 10,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1052,
+      "file": "seasons\\01-xianxia\\chronicle\\1052-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1053,
+      "file": "seasons\\01-xianxia\\chronicle\\1053-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1054,
+      "file": "seasons\\01-xianxia\\chronicle\\1054-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1055,
+      "file": "seasons\\01-xianxia\\chronicle\\1055-灶边.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1056,
+      "file": "seasons\\01-xianxia\\chronicle\\1056-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1057,
+      "file": "seasons\\01-xianxia\\chronicle\\1057-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 9,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1058,
+      "file": "seasons\\01-xianxia\\chronicle\\1058-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 4
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1059,
+      "file": "seasons\\01-xianxia\\chronicle\\1059-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1060,
+      "file": "seasons\\01-xianxia\\chronicle\\1060-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1061,
+      "file": "seasons\\01-xianxia\\chronicle\\1061-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 8,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 8,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1062,
+      "file": "seasons\\01-xianxia\\chronicle\\1062-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 10,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1063,
+      "file": "seasons\\01-xianxia\\chronicle\\1063-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 9,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1064,
+      "file": "seasons\\01-xianxia\\chronicle\\1064-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1065,
+      "file": "seasons\\01-xianxia\\chronicle\\1065-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1066,
+      "file": "seasons\\01-xianxia\\chronicle\\1066-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1067,
+      "file": "seasons\\01-xianxia\\chronicle\\1067-灶边.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1068,
+      "file": "seasons\\01-xianxia\\chronicle\\1068-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1069,
+      "file": "seasons\\01-xianxia\\chronicle\\1069-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1070,
+      "file": "seasons\\01-xianxia\\chronicle\\1070-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 4
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1071,
+      "file": "seasons\\01-xianxia\\chronicle\\1071-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1072,
+      "file": "seasons\\01-xianxia\\chronicle\\1072-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1073,
+      "file": "seasons\\01-xianxia\\chronicle\\1073-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1074,
+      "file": "seasons\\01-xianxia\\chronicle\\1074-灶边.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 8,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 8,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1075,
+      "file": "seasons\\01-xianxia\\chronicle\\1075-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1076,
+      "file": "seasons\\01-xianxia\\chronicle\\1076-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 8,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 8,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1077,
+      "file": "seasons\\01-xianxia\\chronicle\\1077-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1078,
+      "file": "seasons\\01-xianxia\\chronicle\\1078-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1079,
+      "file": "seasons\\01-xianxia\\chronicle\\1079-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1080,
+      "file": "seasons\\01-xianxia\\chronicle\\1080-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1081,
+      "file": "seasons\\01-xianxia\\chronicle\\1081-灶边.md",
+      "pov": "老仆",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1082,
+      "file": "seasons\\01-xianxia\\chronicle\\1082-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1083,
+      "file": "seasons\\01-xianxia\\chronicle\\1083-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1084,
+      "file": "seasons\\01-xianxia\\chronicle\\1084-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1085,
+      "file": "seasons\\01-xianxia\\chronicle\\1085-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1086,
+      "file": "seasons\\01-xianxia\\chronicle\\1086-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1087,
+      "file": "seasons\\01-xianxia\\chronicle\\1087-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1088,
+      "file": "seasons\\01-xianxia\\chronicle\\1088-灶边.md",
+      "pov": "老仆",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1089,
+      "file": "seasons\\01-xianxia\\chronicle\\1089-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1090,
+      "file": "seasons\\01-xianxia\\chronicle\\1090-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1091,
+      "file": "seasons\\01-xianxia\\chronicle\\1091-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1092,
+      "file": "seasons\\01-xianxia\\chronicle\\1092-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1093,
+      "file": "seasons\\01-xianxia\\chronicle\\1093-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1094,
+      "file": "seasons\\01-xianxia\\chronicle\\1094-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1095,
+      "file": "seasons\\01-xianxia\\chronicle\\1095-灶边.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1096,
+      "file": "seasons\\01-xianxia\\chronicle\\1096-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1097,
+      "file": "seasons\\01-xianxia\\chronicle\\1097-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1098,
+      "file": "seasons\\01-xianxia\\chronicle\\1098-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1099,
+      "file": "seasons\\01-xianxia\\chronicle\\1099-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1100,
+      "file": "seasons\\01-xianxia\\chronicle\\1100-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1101,
+      "file": "seasons\\01-xianxia\\chronicle\\1101-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1102,
+      "file": "seasons\\01-xianxia\\chronicle\\1102-灶边.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1103,
+      "file": "seasons\\01-xianxia\\chronicle\\1103-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1104,
+      "file": "seasons\\01-xianxia\\chronicle\\1104-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1105,
+      "file": "seasons\\01-xianxia\\chronicle\\1105-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1106,
+      "file": "seasons\\01-xianxia\\chronicle\\1106-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1107,
+      "file": "seasons\\01-xianxia\\chronicle\\1107-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 10,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1108,
+      "file": "seasons\\01-xianxia\\chronicle\\1108-灶边.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1109,
+      "file": "seasons\\01-xianxia\\chronicle\\1109-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1110,
+      "file": "seasons\\01-xianxia\\chronicle\\1110-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1111,
+      "file": "seasons\\01-xianxia\\chronicle\\1111-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1112,
+      "file": "seasons\\01-xianxia\\chronicle\\1112-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1113,
+      "file": "seasons\\01-xianxia\\chronicle\\1113-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1114,
+      "file": "seasons\\01-xianxia\\chronicle\\1114-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1115,
+      "file": "seasons\\01-xianxia\\chronicle\\1115-灶边.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1116,
+      "file": "seasons\\01-xianxia\\chronicle\\1116-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 10,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1117,
+      "file": "seasons\\01-xianxia\\chronicle\\1117-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1118,
+      "file": "seasons\\01-xianxia\\chronicle\\1118-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1119,
+      "file": "seasons\\01-xianxia\\chronicle\\1119-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1120,
+      "file": "seasons\\01-xianxia\\chronicle\\1120-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1121,
+      "file": "seasons\\01-xianxia\\chronicle\\1121-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 4
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1122,
+      "file": "seasons\\01-xianxia\\chronicle\\1122-灶边.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1123,
+      "file": "seasons\\01-xianxia\\chronicle\\1123-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1124,
+      "file": "seasons\\01-xianxia\\chronicle\\1124-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1125,
+      "file": "seasons\\01-xianxia\\chronicle\\1125-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 9,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1126,
+      "file": "seasons\\01-xianxia\\chronicle\\1126-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 4,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1127,
+      "file": "seasons\\01-xianxia\\chronicle\\1127-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1128,
+      "file": "seasons\\01-xianxia\\chronicle\\1128-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 5,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1129,
+      "file": "seasons\\01-xianxia\\chronicle\\1129-灶边.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1130,
+      "file": "seasons\\01-xianxia\\chronicle\\1130-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1131,
+      "file": "seasons\\01-xianxia\\chronicle\\1131-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1132,
+      "file": "seasons\\01-xianxia\\chronicle\\1132-林崇信.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1133,
+      "file": "seasons\\01-xianxia\\chronicle\\1133-苏挽在.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1134,
+      "file": "seasons\\01-xianxia\\chronicle\\1134-林叙看.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 8
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1135,
+      "file": "seasons\\01-xianxia\\chronicle\\1135-林崇看.md",
+      "pov": "林崇",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1136,
+      "file": "seasons\\01-xianxia\\chronicle\\1136-灶边.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 4,
+        "E4_agency": 4,
+        "E5_relationship_cost": 4
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1137,
+      "file": "seasons\\01-xianxia\\chronicle\\1137-苏挽端糖.md",
+      "pov": "苏挽",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1138,
+      "file": "seasons\\01-xianxia\\chronicle\\1138-林彻看林夙.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 8,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1139,
+      "file": "seasons\\01-xianxia\\chronicle\\1139-林叙等.md",
+      "pov": "林叙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 10,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 7,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 7,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1140,
+      "file": "seasons\\01-xianxia\\chronicle\\1140-灶边雪.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1141,
+      "file": "seasons\\01-xianxia\\chronicle\\1141-林彻站.md",
+      "pov": "林彻",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 6,
+        "E3_hook_stop": 10,
+        "E4_agency": 4,
+        "E5_relationship_cost": 5
+      },
+      "engineering_min": 4,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 4,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1142,
+      "file": "seasons\\01-xianxia\\chronicle\\1142-真合前夜.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 7,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": null,
+      "reader_min": null,
+      "reader_reason": "no reader blindtest evidence for this chapter",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": false
+      }
+    },
+    {
+      "chapter": 1143,
+      "file": "seasons\\01-xianxia\\chronicle\\1143-真合前拂晓.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 9,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 6,
+      "reader": {
+        "R1_cross_genre": 5.0,
+        "R2_hook_carry": 7.5,
+        "R3_relationship": 7.5,
+        "R4_agency": 5.0,
+        "R5_no_forbidden": 4.0
+      },
+      "reader_min": 4.0,
+      "reader_reason": "ok",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": true
+      }
+    },
+    {
+      "chapter": 1144,
+      "file": "seasons\\01-xianxia\\chronicle\\1144-撕账.md",
+      "pov": "林夙",
+      "engineering": {
+        "E1_open_conflict": 7,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 6,
+        "E5_relationship_cost": 7
+      },
+      "engineering_min": 6,
+      "reader": {
+        "R1_cross_genre": 5.0,
+        "R2_hook_carry": 7.5,
+        "R3_relationship": 7.5,
+        "R4_agency": 7.5,
+        "R5_no_forbidden": 7.5
+      },
+      "reader_min": 5.0,
+      "reader_reason": "ok",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 6,
+        "r_track_present": true
+      }
+    },
+    {
+      "chapter": 1145,
+      "file": "seasons\\01-xianxia\\chronicle\\1145-门槛外.md",
+      "pov": "阿湄",
+      "engineering": {
+        "E1_open_conflict": 10,
+        "E2_mid_turn": 10,
+        "E3_hook_stop": 10,
+        "E4_agency": 5,
+        "E5_relationship_cost": 6
+      },
+      "engineering_min": 5,
+      "reader": {
+        "R1_cross_genre": 5.0,
+        "R2_hook_carry": 7.5,
+        "R3_relationship": 7.5,
+        "R4_agency": 5.0,
+        "R5_no_forbidden": 4.0
+      },
+      "reader_min": 4.0,
+      "reader_reason": "ok",
+      "gates": {
+        "publish": false,
+        "blowup_chapter": false,
+        "addictive_chapter": false,
+        "combined_when_R_missing": 5,
+        "r_track_present": true
       }
     }
   ],
