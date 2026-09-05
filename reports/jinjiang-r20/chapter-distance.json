@@ -26357,11 +26357,11 @@
       "engineering": {
         "E1_open_conflict": 10,
         "E2_mid_turn": 10,
-        "E3_hook_stop": 4,
+        "E3_hook_stop": 10,
         "E4_agency": 5,
         "E5_relationship_cost": 6
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": {
         "R1_cross_genre": 5.0,
         "R2_hook_carry": 7.5,
@@ -26375,7 +26375,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": true
       }
     },

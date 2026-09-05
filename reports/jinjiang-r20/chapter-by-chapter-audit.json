@@ -8,7 +8,7 @@
     ],
     "issue_counts": {
       "填充描写": 26,
-      "章尾弱": 93,
+      "章尾弱": 92,
       "句子重复": 89,
       "开句同构": 1
     },
@@ -22345,20 +22345,18 @@
       "chapter": 1144,
       "file": "seasons\\01-xianxia\\chronicle\\1144-撕账.md",
       "title": "撕账",
-      "chars": 1624,
+      "chars": 1638,
       "paragraphs": 112,
-      "sentences": 150,
+      "sentences": 151,
       "dialogue_marks": 80,
-      "action_verbs": 71,
-      "ending": "门槛外的雪，塌了一角。",
-      "hook_signal": false,
+      "action_verbs": 74,
+      "ending": "陆师兄伸手，把薄纸递进门槛。林夙的手指接住纸边，没动。",
+      "hook_signal": true,
       "editorial_hits": [],
       "formula_hits": [],
       "filler_hits": [],
       "repeated_sentences": [],
-      "issue_tags": [
-        "章尾弱"
-      ],
+      "issue_tags": [],
       "binge_score": 10
     },
     {

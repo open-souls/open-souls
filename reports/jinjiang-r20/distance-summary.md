@@ -15,8 +15,8 @@ After the frontmatter-strip fix, **1 chapters** clear the engineering 8.5 blowup
 
 | bucket | chapters | share | meaning |
 |---|---:|---:|---|
-| <5 | 518 | 45.2% | clearly needs rewrite (structural) |
-| 5-6.99 | 429 | 37.5% | needs choice or action |
+| <5 | 517 | 45.2% | clearly needs rewrite (structural) |
+| 5-6.99 | 430 | 37.6% | needs choice or action |
 | 7-7.99 | 153 | 13.4% | near entry, fix one dim |
 | 8-8.49 | 44 | 3.8% | publish-ready single-chapter |
 | >=8.5 | 1 | 0.1% | blowup-engineered single-chapter |
@@ -29,7 +29,7 @@ Average E_min: **5.12/10**. This is the engineering floor; do not cite it as 接
 |---|---:|---|
 | E1 opening conflict | 14 | opens on scenery or character relations, no action or resistance |
 | E2 mid-turn choice | 492 | POV never makes a real mid-chapter choice, just records or passes through |
-| E3 ending hook | 93 | ends on mood or generalization, leaves no specific next-chapter question |
+| E3 ending hook | 92 | ends on mood or generalization, leaves no specific next-chapter question |
 | E4 POV agency | 888 | agency-verb density is too low, POV feels like an observer |
 | E5 relationship cost | 689 | named characters are present but no relationship moves |
 
@@ -50,7 +50,6 @@ Average E_min: **5.12/10**. This is the engineering floor; do not cite it as 接
 
 | chapter | E_min | E1 | E2 | E3 | E4 | E5 | file |
 |---:|---:|---:|---:|---:|---:|---:|---|
-| 1144 | 4 | 10 | 10 | 4 | 5 | 6 | `seasons\01-xianxia\chronicle\1144-撕账.md` |
 | 1141 | 4 | 10 | 6 | 10 | 4 | 5 | `seasons\01-xianxia\chronicle\1141-林彻站.md` |
 | 1136 | 4 | 10 | 6 | 4 | 4 | 4 | `seasons\01-xianxia\chronicle\1136-灶边.md` |
 | 1135 | 4 | 10 | 6 | 10 | 4 | 5 | `seasons\01-xianxia\chronicle\1135-林崇看.md` |
@@ -65,6 +64,7 @@ Average E_min: **5.12/10**. This is the engineering floor; do not cite it as 接
 | 1107 | 4 | 10 | 6 | 10 | 4 | 5 | `seasons\01-xianxia\chronicle\1107-林崇看.md` |
 | 1106 | 4 | 10 | 6 | 10 | 4 | 5 | `seasons\01-xianxia\chronicle\1106-林叙看.md` |
 | 1099 | 4 | 10 | 6 | 10 | 4 | 6 | `seasons\01-xianxia\chronicle\1099-灶边雪.md` |
+| 1083 | 4 | 10 | 6 | 10 | 4 | 4 | `seasons\01-xianxia\chronicle\1083-林彻看林夙.md` |
 
 ## 7. Top 10 chapters by E_min (model-paragraph candidates)
 
