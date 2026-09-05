@@ -4,7 +4,7 @@
 方法：5 份模型代理盲读（L1）+ 真人 sub-agent / 真人读者 ≥1 份（L2）；只读盲读包正文。
 边界：本结果不等同于真人读者反馈；L1 < 5 份或 L2 < 1 份时禁止聚合判断。
 
-agent_n = 6 （读者端 sub-agent 模拟 + 研究端 sub-agent 审查，仅参考，不计 effective_n）
+agent_n = 7  # batch 14 新增 sub-agent reader A Demo （读者端 sub-agent 模拟 + 研究端 sub-agent 审查，仅参考，不计 effective_n）
 human_reader_n = 0 （真人读者 / 真人 sub-agent 有效 JSON 数，升级 effective_n 的真凭据）
 platform_signal_n = 0 （晋江站内收藏 / 营养液 / 霸王票接入数；本季未接入）
 
@@ -13,7 +13,7 @@ diversity_score = 0.167 (flag) / 1.0 (drop) / 1.0 (reason)
 echo_panel = True ， L1 复读嫌疑高时 L1 不计入 effective_n
 provenance = schema_version=2 / model_id / reading_log / pack_hash are required for new records
 
-current pack_hash = f64e35b7cac0c896
+current pack_hash = 892df4c69d659635
 
 ### 真人文件名被降级为 L1（必须先修 isolation 才能进 L2）
 - reader-1-真人.json: L2-real source missing modern provenance: reader-1-真人.json
@@ -57,7 +57,7 @@ L2 = 0。真人证据缺失；任何「读者会追 / 爆款」判断禁止。
 3. 处理弃读热点章节。
 4. 再次生成盲读包 + 重新校验 isolation / diversity，确认未恶化的方向。
 
-## 4. 盲读包指纹（f64e35b7cac0c896）
+## 4. 盲读包指纹（892df4c69d659635）
 复测必须沿用同一指纹；想刷新读者记忆时用 `regenerate --new-seed`。
 
 ## 5. 词表拦截清单 (per 5-reader-cross-workflow.md §9.5)

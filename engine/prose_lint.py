@@ -195,6 +195,48 @@ SELF_CLAIM = re.compile(r"(?:我|他|她)自己")
 MACHINE_MOTIF_ERROR = 30
 MACHINE_SELF_CLAIM_ERROR = 18
 
+# 晋江工艺红旗（batch 14）：低烈度物象回环、自我回环、单字断章。
+# JJ_LINT_NAYIX: 见 _count_nayix(body) 手写计数器（regex 会因 那 ∈ [一-鿿] 而吞掉下一段）
+JJ_LINT_NAYIX_WARN = 6
+JJ_LINT_NAYIX_ERROR = 10
+
+
+def _count_nayix(body):
+    """Count non-overlapping 那-一-X phrases (X = 1-3 chinese chars, X != 那).
+
+    The regex r"那一[一-鿿]{1,3}" is greedy and U+90A3 (那) is inside
+    [一-鿿] (U+4E00..U+9FFF), so the regex swallows the next 那. This
+    hand-rolled counter walks the string left-to-right and consumes the
+    X suffix explicitly, producing a non-overlapping count that matches
+    what the project considers "那一X" in editor review.
+    """
+    count = 0
+    i = 0
+    n = len(body)
+    while i < n - 1:
+        if body[i] == "那" and body[i + 1] == "一":
+            j = i + 2
+            k = 0
+            while j < n and k < 3:
+                ch = body[j]
+                if "\u4e00" <= ch <= "\u9fff" and ch != "那":
+                    j += 1
+                    k += 1
+                else:
+                    break
+            if k >= 1:
+                count += 1
+                i = j
+                continue
+        i += 1
+    return count
+
+
+JJ_LINT_ZIJI = re.compile(r"自己")
+JJ_LINT_ZIJI_WARN_DIV = 4
+JJ_LINT_ZIJI_ERROR_DIV = 2
+JJ_LINT_TAIL = re.compile(r"^[一-鿿]{1,2}[。！？…」』]?$")
+
 SEG_SPLIT = re.compile(r"[，。！？、：；\n]")
 HAN = re.compile(r"[一-鿿]")
 
@@ -255,6 +297,11 @@ def measure(body):
     wall_formula = WALL_FORMULA.findall(body)
     motif_slot = MOTIF_SLOT.findall(body)
     self_claim = SELF_CLAIM.findall(body)
+    jj_nayix = _count_nayix(body)
+    jj_ziji = JJ_LINT_ZIJI.findall(body)
+    body_lines = [line for line in body.splitlines() if line.strip()]
+    last_line = body_lines[-1].strip() if body_lines else ""
+    jj_tail = bool(JJ_LINT_TAIL.match(last_line))
     return {
         "chars": chars,
         "micro": micro,
@@ -271,6 +318,10 @@ def measure(body):
         "wall_formula": len(wall_formula),
         "motif_slot": len(motif_slot),
         "self_claim": len(self_claim),
+        "jj_nayix": jj_nayix,
+        "jj_ziji": len(jj_ziji),
+        "jj_tail": jj_tail,
+        "body_lines": len(body_lines),
         "open_div": _open_diversity(body),
         "open_top": _open_top(body),
         "xiang_count": body.count("看向"),
@@ -396,6 +447,18 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
             f"自指解释回环：{m['wall_formula']} 处「某某的方式，是……那种/那一路」"
             f"，把动作改成可观察的身体、物件或对话变化"
         )
+    # 晋江工艺红旗（batch 14）ERROR 段
+    if m["jj_nayix"] >= JJ_LINT_NAYIX_ERROR:
+        errors.append(
+            "JJ-LINT-01 物象回环：" + str(m["jj_nayix"]) + " 处「那一X」位置短语 (>= " + str(JJ_LINT_NAYIX_ERROR) + ");"
+            "同一物象被机械换名复述;保留关键意象,其余改成动作、冲突或新证据"
+        )
+    _ziji_lines = m.get("body_lines", 0) or 1
+    if m["jj_ziji"] * JJ_LINT_ZIJI_ERROR_DIV > _ziji_lines and _ziji_lines > 4:
+        errors.append(
+            "JJ-LINT-02 自己回环：" + str(m["jj_ziji"]) + " 处 / " + str(_ziji_lines) + " 行 ( > 行数/" + str(JJ_LINT_ZIJI_ERROR_DIV) + ");"
+            "自我承担解释过密,把动作主语换成具名角色,让代价/物件/他人反应落地"
+        )
     if strict:
         echo_hits = machine_echo_hits(body_of(text))
         if "motif_slot" in echo_hits:
@@ -428,6 +491,24 @@ def lint_text(text, min_chars=None, file_size=None, strict=False):
             warns.append(
                 f"文件 {file_size}B 但正文仅 {m['chars']} 字——"
                 f"若非 stub 占位则需扩写（config.yaml 下限 1500）"
+            )
+        # 晋江工艺红旗（batch 14）WARN 段
+        if JJ_LINT_NAYIX_WARN <= m["jj_nayix"] < JJ_LINT_NAYIX_ERROR:
+            warns.append(
+                "JJ-LINT-01 物象回环临界：" + str(m["jj_nayix"]) + " 处「那一X」 (>= " + str(JJ_LINT_NAYIX_WARN) + ");"
+                "删除整句,不换同义词,自查是否开始染病"
+            )
+        if (m["jj_ziji"] * JJ_LINT_ZIJI_WARN_DIV > _ziji_lines
+                and m["jj_ziji"] * JJ_LINT_ZIJI_ERROR_DIV <= _ziji_lines
+                and _ziji_lines > 4):
+            warns.append(
+                "JJ-LINT-02 自己回环临界：" + str(m["jj_ziji"]) + " 处 / " + str(_ziji_lines) + " 行 ( > 行数/" + str(JJ_LINT_ZIJI_WARN_DIV) + ");"
+                "把动作主语换成具名角色,自查是否开始染病"
+            )
+        if m.get("jj_tail"):
+            warns.append(
+                "JJ-LINT-07 单字断章:章末 <= 2 汉字 (M3 章尾钩禁用);"
+                "至少扩到「她/他 + 一个未完成动作」"
             )
     if m["latin"]:
         warns.append(
@@ -512,5 +593,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

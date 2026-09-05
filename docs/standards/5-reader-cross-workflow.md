@@ -263,3 +263,82 @@ CI 或报告生成器在以下文档输出时拦截下列词:
 - tools/reader_panel_runner.py aggregate 输出顶部新增「agent_n / human_reader_n / platform_signal_n」三栏(本季:agent_n=1, human_reader_n=0, platform_signal_n=0)。
 - reports/jinjiang-r20/reader-blindtest-results.md 顶部新增「词表拦截清单」段(本季:0 命中,CI 词表尚未跑)。
 - reports/jinjiang-r20/distance-summary.md §4 R-track 段补一行「读者证据空窗期:agent_n=1, human_reader_n=0」。
+
+
+## 11. 兜底路径 demo run（2026-09-04 batch 14 留底）
+
+> 触发：用户原话（2026-09-04）「你自己安排 subagent 模拟真人」。
+> 本节是 §6.3 兜底路径的端到端 demo run，把「sub-agent 模拟」从纸面 SOP 落到实际文件。
+
+### 11.1 派发链（与 §6.3 一致）
+
+1. 派发人 = 本会话主编。
+2. 收件人 sub-agent = persona 1 (晋江古言仙侠资深读者)。
+3. 盲读包：`reports/jinjiang-r20/isolated-reader-packs/persona-1/mid_a.md`（501–510）。
+4. 8 字段硬门（per §9.2）全填：`run_id / persona_seed / persona_id / pack_hash / cwd / no_chronicle / no_frontmatter / read_time`。
+5. 落盘位置：`reports/jinjiang-r20/sub-agent-reads/sub-agent-reader-A-Demo-2026-09-04.md`。
+
+### 11.2 写文件，不写 JSON
+
+- **写**：`sub-agent-reads/*.md`（persona 1 demo 已落）。
+- **不写**：`reports/jinjiang-r20/reader-N.json`（避免污染 reader panel 真证据层）。
+- **不写**：`reports/jinjiang-r20/sub-agent-reads/sub-agent-reader-X-plotsim-*.md`（避免覆盖 sub-agent A 原报告）。
+
+### 11.3 与 sub-agent A 原报告的同点统计
+
+| 维度 | A 原（2026-08 plotsim） | A Demo（2026-09-04 batch 14） |
+|---|---|---|
+| 留存最强钩 | ch505「蜡信压在棋盒盖上，叶观澜拈起，没拆」 | 同（未漂移） |
+| 关系动作 | ch504 林窈替林夙问糖 → 苏挽还糖 + 自己答活 | 同（未漂移） |
+| drop 候选 | ch510 末段短句密度高 | 同（未漂移） |
+| 下一章必答 | 蜡信拆不拆 | 同（未漂移） |
+
+**同章 / 同物 / 同动作 = 100% 重合**。结论：方向稳定，可写入 `edit-decision-protocol.md §3`
+作为优先级 1 改稿顺序。**不**升级 L2，不写「读者会追」措辞。
+
+### 11.4 边界重申
+
+- 本 demo run **不**升级 effective_n。
+- 本 demo run **不**触发 §4「同点 >= 3」升级（effective_n=0，diversity_score 暂无）。
+- 本 demo run 仅作为 §6.3 兜底路径的**真实可跑示例**，不替代真人 sub-agent / 真人读者。
+
+### 11.5 persona 2 / 3 / 4 / 5 派发的样例头部
+
+每份 sub-agent 报告必填头部（机器可校验，缺任一 = 该报告不计入同点统计）：
+
+```yaml
+---
+run_id: <uuid 或 timestamp-rand>
+persona_seed: l1-persona-N-YYYY-MM-DD
+persona_id: 1..5
+pack_hash: <与 reader-prompt-N.txt 一致>
+cwd: <实际 run path>
+no_chronicle: true
+no_frontmatter: true
+read_time: <读到第几章 / 总章数>
+source: 读者 sub-agent 模拟
+---
+```
+
+## 12. 与本流程同步的工程硬门（2026-09-04 batch 14 焊入）
+
+### 12.1 prose_lint 新增
+
+- `engine/prose_lint.py` 加入 `JJ_LINT_NAYIX` / `JJ_LINT_ZIJI` / `JJ_LINT_TAIL` 三条晋江工艺红旗。
+- 默认 lint 路径触发（**不**依赖 strict mode）。
+- 阈值：6 WARN / 10 ERROR（那一X）；行数/4 WARN / 行数/2 ERROR（自己）；末行 <= 2 汉字 WARN（单字断章）。
+
+### 12.2 axe-architecture 索引新增
+
+- `docs/standards/jinjiang-axe-architecture.md` 作为 6 文档脊柱的项目级索引。
+- §3 三张表区分已焊 / 本批新焊 / 待焊。
+
+### 12.3 措辞词表同步
+
+- `tools/reader_panel_runner.py` 的 `FORBIDDEN_TERMS_ALWAYS` 与本文件 §9.5 + `磨斧头研究-2026-09-04.md §13` 同步；改任一必须三处同步。
+
+## 14. 维护纪律（batch 14 增补）
+
+- 改 §11.5 demo 头部任一字段 → 必须同步改 §9.2 8 字段硬门。
+- 改 §12.1 JJ-LINT 阈值 → 必须先在 `磨斧头研究-2026-09-04.md §16.1` 同步改。
+- 新增 sub-agent demo run → 必须追加 §11 一段，不覆盖旧 demo。
