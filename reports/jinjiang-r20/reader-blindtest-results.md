@@ -38,11 +38,3 @@ L1 < 5 份，禁止聚合。
 
 ## 5. 词表拦截清单 (per 5-reader-cross-workflow.md §9.5)
 - 0 命中（本季 effective_n = 0，语言门禁尚未触发）
-
-## 3. sub-agent 兜底路径 demo run (batch 14)
-
-- sub-agent 模拟报告: 5 份（A Demo + B persona2 + C persona3 + D persona4 + E persona5）
-  落 `reports/jinjiang-r20/sub-agent-reads/`，不升级 effective_n。
-- 同点统计：ch510 = 4 / 5 persona drop 候选 → 触发方向层升级（per 5-reader-cross-workflow §4）。
-- L2 真证据 = 0 (effective_n = 0); 任何「读者会追 / 爆款 / 上瘾」措辞仍被禁词清单拦截。
-- cross-pollination 详细：`reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md`。
