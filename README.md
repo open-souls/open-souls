@@ -82,6 +82,9 @@ souls/角色名/
 
 完整定义、术语命名（S0-S3 vs 工程 L1/L2）和不可越线边界在
 [docs/standards/jinjiang-quality-architecture.md](docs/standards/jinjiang-quality-architecture.md)。
+五份差异化 persona（资深 / 追更党 / 跨题材 / 女强 / 新读者）的 keep_if / drop_if / isolation seed
+协议焊死在 [docs/standards/5-reader-cross-workflow.md](docs/standards/5-reader-cross-workflow.md) §1 + §12；
+每轮改稿前后必跑 verify / emit / check / aggregate 四道门，缺一不可。
 
 任何改稿循环必须按 SKILL.md 与 docs/standards/novel-workflow.md 的硬约束顺序跑：
 

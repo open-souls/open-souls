@@ -52,6 +52,7 @@ HOOK_REVERSAL = re.compile(r"原来|不料|谁知|岂料|竟|然而|却[是为]?
 HOOK_CHOICE = re.compile(r"两条路|二择|二选|要不要|留.{0,4}还是|去.{0,4}还是|留.{0,4}或去")
 HOOK_BURST = re.compile(r"一刀|一剑|一掌|一拳|拔刀|拔剑|一刀落|一刀下|血溅|血落|血从|摔了|砸了|碎了|断了|爆了|炸了|炸开|撕了|撕开|劈了|撞开")
 HOOK_UNFINISHED = re.compile(r"等.{0,4}(?:他|她|它|谁)" r"|再.{0,3}不来|还没.{0,3}|还没来|还没回|等一根|等一柄|等一句|等一个|还差|尚未")
+HOOK_QUESTION = re.compile(r"[^。！？\n]{2,80}[\uff1f\?]$", re.M)
 HOOK_CREEPY = re.compile(r"那.{0,3}(?:不?动|不?响|没?有)|没有.{0,3}(?:回|答|应|声|响)|不.{0,3}(?:回答|应答)|不回|不答|不应|不答话|不作声|不接话|装.{0,3}死|装.{0,3}没听见|装.{0,3}不在")
 HOOK_RELATION = re.compile(r"手|指|肩|发|眼|泪|笑|沉默|没.{0,3}接|没.{0,3}应|没.{0,3}答|没.{0,3}看|没.{0,3}说话|没.{0,3}问|没.{0,3}动|没.{0,3}回|没.{0,3}递|没.{0,3}挡|没.{0,3}替")
 HOOK_VAGUE = re.compile(r"夜.{0,3}(?:很|深|长)|风.{0,3}(?:很|起)|屋里.{0,3}(?:很|空|暗)|月.{0,3}(?:很|淡)|心里.{0,3}(?:很|咯)|不知.{0,3}(?:为|怎)")
@@ -60,6 +61,7 @@ HOOK_ENUM = (
     ("choice", HOOK_CHOICE),
     ("burst", HOOK_BURST),
     ("unfinished", HOOK_UNFINISHED),
+    ("question", HOOK_QUESTION),
     ("creepy", HOOK_CREEPY),
     ("relation", HOOK_RELATION),
     ("vague", HOOK_VAGUE),
@@ -160,7 +162,7 @@ def e_score(body, audit_row, pov_name=""):
         e6 = 10
     elif hook_type in {"choice", "burst"}:
         e6 = 9
-    elif hook_type in {"unfinished", "creepy"}:
+    elif hook_type in {"unfinished", "question", "creepy"}:
         e6 = 8
     elif hook_type == "relation":
         e6 = 7
@@ -197,8 +199,11 @@ def _hook_type(body):
     """
     lines = [line.strip() for line in body.splitlines() if line.strip()]
     tail = "\n".join(lines[-TAIL_WINDOW:]) if lines else ""
+    normalized_tail = "\n".join(
+        line.strip('“”「」『』\" ') for line in lines[-TAIL_WINDOW:]
+    ) if lines else ""
     for name, regex in HOOK_ENUM:
-        if regex.search(tail):
+        if regex.search(normalized_tail):
             return name
     return "undetermined"
 

@@ -14,24 +14,24 @@ echo_panel = False ， L1 复读嫌疑高时 L1 不计入 effective_n
 provenance = schema_version=2 / model_id / reading_log / pack_hash are required for new records
 
 ## pack_hash drift 警告（stale，不计入 effective_n）
-- reader-1-真人.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
-- reader-1.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
-- reader-2.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
-- reader-3.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
-- reader-4.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
-- reader-5.json: pack_hash=f64e35b7cac0c896 current=892df4c69d659635
+- reader-1-真人.json: pack_hash=f64e35b7cac0c896 current=4361d7ec7ad68ba7
+- reader-1.json: pack_hash=f64e35b7cac0c896 current=4361d7ec7ad68ba7
+- reader-2.json: pack_hash=f64e35b7cac0c896 current=4361d7ec7ad68ba7
+- reader-3.json: pack_hash=f64e35b7cac0c896 current=4361d7ec7ad68ba7
+- reader-4.json: pack_hash=f64e35b7cac0c896 current=4361d7ec7ad68ba7
+- reader-5.json: pack_hash=f64e35b7cac0c896 current=4361d7ec7ad68ba7
 
 盲读包文本已变，旧 reader JSON 的 pack_hash 与当前不一致；
 必须重新生成 reader JSON 才能恢复 L1 / L2 计数。
 
-current pack_hash = 892df4c69d659635
+current pack_hash = 4361d7ec7ad68ba7
 
 L2 = 0。真人证据缺失；任何「读者会追 / 爆款」判断禁止。
 
 ## 1. 模型代理（L1）数据不足
 L1 < 5 份，禁止聚合。
 
-## 4. 盲读包指纹（892df4c69d659635）
+## 4. 盲读包指纹（4361d7ec7ad68ba7）
 复测必须沿用同一指纹；想刷新读者记忆时用 `regenerate --new-seed`。
 
 注意：本轮有 pack_hash drift 条目（见顶部警告），旧 reader JSON 已不计入 effective_n。

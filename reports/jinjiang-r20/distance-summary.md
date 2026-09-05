@@ -9,19 +9,19 @@
 
 ## 1. One-line answer
 
-After the frontmatter-strip fix, **0 chapters** clear the engineering 8.5 blowup line and **119 (9.7%)** sit in the 7-8.49 publish-eligible band.
+After the frontmatter-strip fix, **0 chapters** clear the engineering 8.5 blowup line and **129 (10.5%)** sit in the 7-8.49 publish-eligible band.
 
 ## 2. Engineering score distribution (E_min = min(E1..E5))
 
 | bucket | chapters | share | meaning |
 |---|---:|---:|---|
-| <5 | 500 | 40.7% | clearly needs rewrite (structural) |
-| 5-6.99 | 608 | 49.6% | needs choice or action |
-| 7-7.99 | 116 | 9.5% | near entry, fix one dim |
-| 8-8.49 | 3 | 0.2% | publish-ready single-chapter |
+| <5 | 473 | 38.5% | clearly needs rewrite (structural) |
+| 5-6.99 | 625 | 50.9% | needs choice or action |
+| 7-7.99 | 124 | 10.1% | near entry, fix one dim |
+| 8-8.49 | 5 | 0.4% | publish-ready single-chapter |
 | >=8.5 | 0 | 0.0% | blowup-engineered single-chapter |
 
-Average E_min: **5.01/10**. This is the engineering floor; do not cite it as 接近爆款.
+Average E_min: **5.06/10**. This is the engineering floor; do not cite it as 接近爆款.
 
 ## 3. Per-dimension fail counts (E_dim < 7.0)
 
@@ -42,7 +42,7 @@ Average E_min: **5.01/10**. This is the engineering floor; do not cite it as 接
 
 | gate | engineering pass count | real pass count with R-track | gap |
 |---|---:|---:|---|
-| publish (min>=7.0) | 119 | 0 | reader evidence missing |
+| publish (min>=7.0) | 129 | 0 | reader evidence missing |
 | blowup chapter (min>=8.5) | 0 | 0 | same |
 | addictive (5 consecutive chapters >=8.5 AND R>=7.5) | n/a | 0 | same |
 
@@ -63,14 +63,16 @@ Average E_min: **5.01/10**. This is the engineering floor; do not cite it as 接
 | 1106 | 4 | 10 | 6 | 10 | 4 | 4 | `seasons\01-xianxia\chronicle\1106-林叙看.md` |
 | 1099 | 4 | 10 | 6 | 10 | 4 | 5 | `seasons\01-xianxia\chronicle\1099-灶边雪.md` |
 | 1089 | 4 | 10 | 10 | 10 | 7 | 8 | `seasons\01-xianxia\chronicle\1089-苏挽端糖.md` |
-| 1082 | 4 | 10 | 10 | 10 | 7 | 5 | `seasons\01-xianxia\chronicle\1082-苏挽端糖.md` |
 | 1080 | 4 | 10 | 10 | 10 | 5 | 6 | `seasons\01-xianxia\chronicle\1080-林崇看.md` |
+| 1078 | 4 | 10 | 10 | 10 | 5 | 6 | `seasons\01-xianxia\chronicle\1078-苏挽在.md` |
 
 ## 7. Top 10 chapters by E_min (model-paragraph candidates)
 
 | chapter | E_min | E1 | E2 | E3 | E4 | E5 | file |
 |---:|---:|---:|---:|---:|---:|---:|---|
+| 597 | 8 | 10 | 10 | 10 | 8 | 8 | `seasons\01-xianxia\chronicle\597-灶边雪.md` |
 | 598 | 8 | 10 | 10 | 10 | 8 | 8 | `seasons\01-xianxia\chronicle\598-回问.md` |
+| 703 | 8 | 10 | 10 | 10 | 10 | 8 | `seasons\01-xianxia\chronicle\703-判官.md` |
 | 775 | 8 | 10 | 10 | 10 | 9 | 9 | `seasons\01-xianxia\chronicle\775-林叙看.md` |
 | 1074 | 8 | 10 | 10 | 10 | 8 | 8 | `seasons\01-xianxia\chronicle\1074-灶边.md` |
 | 115 | 7 | 7 | 10 | 10 | 7 | 7 | `seasons\01-xianxia\chronicle\115-炉下.md` |
@@ -78,8 +80,6 @@ Average E_min: **5.01/10**. This is the engineering floor; do not cite it as 接
 | 244 | 7 | 7 | 10 | 10 | 7 | 7 | `seasons\01-xianxia\chronicle\244-知道一些.md` |
 | 275 | 7 | 7 | 10 | 10 | 7 | 7 | `seasons\01-xianxia\chronicle\275-回来了.md` |
 | 291 | 7 | 10 | 10 | 10 | 7 | 8 | `seasons\01-xianxia\chronicle\291-升堂.md` |
-| 339 | 7 | 10 | 10 | 10 | 10 | 7 | `seasons\01-xianxia\chronicle\339-她说.md` |
-| 380 | 7 | 7 | 10 | 10 | 7 | 7 | `seasons\01-xianxia\chronicle\380-来过了.md` |
 
 ## 8. Distance is regenerated, never hand-edited
 

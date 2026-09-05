@@ -64,6 +64,15 @@ def test_e_score_exposes_hook_type_and_pov_initiator(module_loaded):
     assert scores["E6_hook_type"] == 8
 
 
+def test_hook_type_recognizes_concrete_question_inside_chinese_quotes(module_loaded):
+    body = '她抬眼：“林夙在哪儿？”'
+
+    assert module_loaded._hook_type(body) == "question"
+    scores = module_loaded.e_score(body, {"hook_signal": True})
+    assert scores["E6_hook_label"] == "question"
+    assert scores["E6_hook_type"] == 8
+
+
 def test_e_score_does_not_mix_diagnostic_pov_ratio_into_engineering_min(module_loaded):
     body = "林夙看见林彻。\n\n林彻把旧账放下。\n\n屋里很静。"
     scores = module_loaded.e_score(body, {}, pov_name="林夙")

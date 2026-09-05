@@ -51,11 +51,11 @@
         "E4_agency": 8,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 5.0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "苏挽听着那声音，数到第七步时，文书上的墨已经"
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -63,7 +63,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -78,11 +78,11 @@
         "E4_agency": 8,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -90,7 +90,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -138,11 +138,11 @@
         "E4_agency": 10,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 10,
+        "E6_hook_label": "reversal",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -150,7 +150,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -219,11 +219,11 @@
         "E4_agency": 5,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 7,
+        "E6_hook_label": "relation",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -231,7 +231,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -409,7 +409,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 3.3,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": "拖的理由苏挽知道——苏家在等林家"
       },
       "engineering_min": 6,
@@ -462,11 +462,11 @@
         "E4_agency": 5,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 7,
+        "E6_hook_label": "relation",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -474,7 +474,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -516,8 +516,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -571,7 +571,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -706,7 +706,7 @@
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -2838,8 +2838,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -2920,7 +2920,7 @@
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -3000,8 +3000,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "”林崇"
       },
       "engineering_min": 6,
@@ -3378,8 +3378,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -3865,7 +3865,7 @@
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -3891,8 +3891,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -4053,8 +4053,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 8,
         "E5_pov_initiator": 6.7,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林窈逐字看过，把“收件未明”圈住：“别"
       },
       "engineering_min": 7,
@@ -4242,11 +4242,11 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -4254,7 +4254,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -4458,8 +4458,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -4485,8 +4485,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -4539,11 +4539,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 3.3,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林彻"
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -4551,7 +4551,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -4566,8 +4566,8 @@
         "E4_agency": 8,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -4836,8 +4836,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -5187,11 +5187,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -5199,7 +5199,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -5295,8 +5295,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -5808,8 +5808,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -5862,8 +5862,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -6133,7 +6133,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -7581,8 +7581,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -7608,8 +7608,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -11632,7 +11632,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -13197,8 +13197,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -17976,8 +17976,8 @@
         "E4_agency": 8,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -18003,8 +18003,8 @@
         "E4_agency": 8,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -18111,8 +18111,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -19228,7 +19228,7 @@
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -19390,7 +19390,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -20065,7 +20065,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -21577,7 +21577,7 @@
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -21658,7 +21658,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -21847,7 +21847,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 6.7,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": "林崇"
       },
       "engineering_min": 7,
@@ -22008,11 +22008,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -22020,7 +22020,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -22062,8 +22062,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -22089,8 +22089,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -22332,11 +22332,11 @@
         "E4_agency": 8,
         "E5_relationship_cost": 8,
         "E5_pov_initiator": 4,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 7,
+      "engineering_min": 8,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -22344,7 +22344,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 7,
+        "combined_when_R_missing": 8,
         "r_track_present": false
       }
     },
@@ -22386,11 +22386,11 @@
         "E4_agency": 8,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -22398,7 +22398,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -22629,8 +22629,8 @@
         "E4_agency": 9,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -23169,11 +23169,11 @@
         "E4_agency": 6,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "余伯"
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -23181,7 +23181,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -23359,7 +23359,7 @@
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -23520,8 +23520,8 @@
         "E4_agency": 8,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -24060,11 +24060,11 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -24072,7 +24072,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -24087,8 +24087,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -24768,8 +24768,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 8,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林彻把三份抄件装回各自的纸套，旧账那张"
       },
       "engineering_min": 6,
@@ -24877,7 +24877,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -25065,8 +25065,8 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -25119,8 +25119,8 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -25200,11 +25200,11 @@
         "E4_agency": 10,
         "E5_relationship_cost": 8,
         "E5_pov_initiator": 5.0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林夙拿笔，"
       },
-      "engineering_min": 4,
+      "engineering_min": 8,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -25212,7 +25212,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 8,
         "r_track_present": false
       }
     },
@@ -25389,8 +25389,8 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -25470,11 +25470,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 5.0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林彻把“车轮、牌、车帘、未下车”分别写进四格，没有把叶府二字"
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -25482,7 +25482,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -25497,11 +25497,11 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 1.7,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "叶观澜"
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -25509,7 +25509,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -25686,8 +25686,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -25740,8 +25740,8 @@
         "E4_agency": 9,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -25768,7 +25768,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 2.0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": "林崇踏过门槛：「这封信我"
       },
       "engineering_min": 6,
@@ -25821,8 +25821,8 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -25848,8 +25848,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -26280,8 +26280,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -26416,7 +26416,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -26631,8 +26631,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林叙看向林夙：“由他"
       },
       "engineering_min": 6,
@@ -26875,7 +26875,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 6.7,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": "林叙"
       },
       "engineering_min": 7,
@@ -26982,8 +26982,8 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -27063,8 +27063,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林彻将玉佩包回布里：“那就把东西放在他能"
       },
       "engineering_min": 6,
@@ -27145,7 +27145,7 @@
         "E5_relationship_cost": 9,
         "E5_pov_initiator": 5.0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": "林叙看见信封背面的白线结，"
       },
       "engineering_min": 8,
@@ -27198,8 +27198,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -27306,8 +27306,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -27333,8 +27333,8 @@
         "E4_agency": 10,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 2.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林彻看着那行字，忽然觉得这比一声"
       },
       "engineering_min": 5,
@@ -27388,7 +27388,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -27550,7 +27550,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -27684,8 +27684,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -27819,8 +27819,8 @@
         "E4_agency": 8,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -27873,8 +27873,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -27900,8 +27900,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 3.3,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林叙将“暂用”划掉，"
       },
       "engineering_min": 6,
@@ -27982,7 +27982,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 2.0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": "林崇"
       },
       "engineering_min": 6,
@@ -28035,11 +28035,11 @@
         "E4_agency": 8,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -28047,7 +28047,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -28116,8 +28116,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -28143,11 +28143,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林叙"
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -28155,7 +28155,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -28171,7 +28171,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -28251,8 +28251,8 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -28278,11 +28278,11 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -28290,7 +28290,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -28521,8 +28521,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -28603,7 +28603,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 7,
@@ -28737,8 +28737,8 @@
         "E4_agency": 8,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 3.3,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "她没有问林彻为何"
       },
       "engineering_min": 5,
@@ -29034,8 +29034,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林叙没有"
       },
       "engineering_min": 5,
@@ -29332,7 +29332,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -29386,7 +29386,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -29520,8 +29520,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -29602,7 +29602,7 @@
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 2.5,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": "林夙只是"
       },
       "engineering_min": 7,
@@ -29682,11 +29682,11 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 3.3,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "”苏挽说，“等原页和旧信都看过，再"
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -29694,7 +29694,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -29709,11 +29709,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -29721,7 +29721,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -29763,8 +29763,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -29790,8 +29790,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -29898,8 +29898,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -30384,8 +30384,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 5.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林夙"
       },
       "engineering_min": 6,
@@ -30546,11 +30546,11 @@
         "E4_agency": 5,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -30558,7 +30558,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -30654,8 +30654,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -31032,11 +31032,11 @@
         "E4_agency": 6,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -31044,7 +31044,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -31113,8 +31113,8 @@
         "E4_agency": 5,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 10.0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "林叙"
       },
       "engineering_min": 5,
@@ -31168,7 +31168,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 5,
@@ -31248,8 +31248,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -31275,8 +31275,8 @@
         "E4_agency": 6,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -31302,8 +31302,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 3.3,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "苏挽把信纸按原折叠回去，封口"
       },
       "engineering_min": 6,
@@ -31383,8 +31383,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -31518,11 +31518,11 @@
         "E4_agency": 6,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -31530,7 +31530,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -31761,8 +31761,8 @@
         "E4_agency": 4,
         "E5_relationship_cost": 4,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 4,
@@ -31870,7 +31870,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -32004,8 +32004,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -32383,7 +32383,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -32517,11 +32517,11 @@
         "E4_agency": 6,
         "E5_relationship_cost": 5,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 5,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -32529,7 +32529,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 5,
         "r_track_present": false
       }
     },
@@ -32733,11 +32733,11 @@
         "E4_agency": 10,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 4,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -32745,7 +32745,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -32814,11 +32814,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 2.5,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": "叶观澜"
       },
-      "engineering_min": 4,
+      "engineering_min": 6,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -32826,7 +32826,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 6,
         "r_track_present": false
       }
     },
@@ -32841,11 +32841,11 @@
         "E4_agency": 7,
         "E5_relationship_cost": 7,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 4,
-        "E6_hook_label": "undetermined",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
-      "engineering_min": 4,
+      "engineering_min": 7,
       "reader": null,
       "reader_min": null,
       "reader_reason": "no reader blindtest evidence for this chapter",
@@ -32853,7 +32853,7 @@
         "publish": false,
         "blowup_chapter": false,
         "addictive_chapter": false,
-        "combined_when_R_missing": 4,
+        "combined_when_R_missing": 7,
         "r_track_present": false
       }
     },
@@ -32976,8 +32976,8 @@
         "E4_agency": 7,
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
-        "E6_hook_type": 7,
-        "E6_hook_label": "relation",
+        "E6_hook_type": 8,
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
@@ -33031,7 +33031,7 @@
         "E5_relationship_cost": 6,
         "E5_pov_initiator": 0,
         "E6_hook_type": 8,
-        "E6_hook_label": "creepy",
+        "E6_hook_label": "question",
         "E6_pov_sample": ""
       },
       "engineering_min": 6,
