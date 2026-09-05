@@ -462,10 +462,10 @@
       "pov": "牛阿大",
       "engineering": {
         "E1_open_conflict": 7,
-        "E2_mid_turn": 6,
+        "E2_mid_turn": 10,
         "E3_hook_stop": 4,
-        "E4_agency": 4,
-        "E5_relationship_cost": 4
+        "E4_agency": 6,
+        "E5_relationship_cost": 6
       },
       "engineering_min": 4,
       "reader": null,
