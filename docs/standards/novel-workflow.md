@@ -110,6 +110,9 @@ mock 只证明门禁和状态写入顺序，不证明文学质量。真正的章
 
 ## 附 · 5 读者交叉 + 真人 sub-agent 工作流（必跑节点）
 
+> 项目级四层证据栈（S0 晋江官方 / S1 行业共识 / S2 工程启发式 / S3 真人读者）的完整定义见
+> docs/standards/jinjiang-quality-architecture.md；本节是它在 canonical 主流程的复述与硬约束落地。
+
 这一节不是附录，是 canonical 工作流的固定节点。任何改稿循环在动笔前、动笔后都要按
 下面序列跑完，缺一不可。背景解释放在 `docs/reader-subagent-workflow.md`，工程实现细节
 放在 `docs/standards/jinjiang-blowup-baseline-operator.md` §5/§8/§9，
@@ -178,3 +181,56 @@ mock 只证明门禁和状态写入顺序，不证明文学质量。真正的章
 - echo_panel = True：5 份 L1 flag Jaccard 仅 0.167，复读嫌疑高。
 - 在 effective_n 大于等于 3 + diversity_score 大于等于 0.5 + L2 大于等于 1 三项同时满足之前，
   本节描述的工作流只能跑 verify / emit / aggregate 骨架，不能跑出"读者会追"以外的升级证据。
+
+---
+
+## 附 · 改稿工艺 5 条硬规则（sub-agent 模拟 + 真人盲读共同支持，2026-09-04 焊入）
+
+> 这一节是上一节的**同伴节点**：盲读协议只负责「谁来判断 / 怎么判断」，
+> 工艺规则只负责「判断出失败时，改稿具体怎么改」。
+>
+> 来源：`reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md §3.2`
+> 操作表：`docs/standards/jinjiang-edit-modes.md §8`
+>
+> 这一节是工艺清单层，下一节是「哪一章必须改」的选择层。
+
+### 5 条硬规则
+
+1. **「那一 X」回环禁单章 ≥ 6 次**
+   - 触发：单章出现「那一 + (一/两/三/几) + (量词/名词)」≥ 6 次（≥ 10 视为 ERROR）。
+   - 出处：sub-agent A 直接红旗，mid_a 502–510 出现 30+ 次。
+   - 改稿：删整句；不换同义词。
+
+2. **「自己」高频禁单章 ≥ 章长 / 4**
+   - 触发：单章「自己」出现次数 ≥ 章长行数 / 4。
+   - 出处：sub-agent A 直接红旗，mid_a 包出现 50+ 次。
+   - 改稿：把「自己」换成动作主语；不删动作。
+
+3. **章末「五字断句」 ≥ 4 行**
+   - 触发：章末段连续 ≥ 4 行 ≤ 6 字。
+   - 出处：sub-agent A 直接红旗，mid_a 多个章末「手炉没暖 / 茶没倒 / 棋盒阖着 / 蜡信未拆 / 她没回」是散文断句。
+   - 改稿：合并或补具体动作 / 问题；不要把 5 字断句当连载断章。
+
+4. **POV 远观角色 ≥ 5 仅看见手 / 袖**
+   - 触发：单章 POV 远观有名角色 ≥ 5，但仅描写手 / 袖 / 背影（POV 距离过远）。
+   - 出处：sub-agent A 直接红旗，mid_a 第 502 全章阿湄远观九人只看见手。
+   - 改稿：拆 POV；让 POV 进入单人近景；不要远观一群。
+
+5. **问 / 答循环 ≥ 4 段 + agency verb < 2**
+   - 触发：单章出现「X 问 / Y 答」结构 ≥ 4 段，且本章 agency verb < 2。
+   - 出处：sub-agent A 直接红旗，mid_a 第 510 二十九年前旧账问答占前 80 行。
+   - 改稿：在循环里插 ≥ 1 个动作兑现；agency verb 加到 ≥ 2；不要 paraphrase 旧问答。
+
+### 与改稿循环的硬耦合（不可省略）
+
+- 任一条触发 ERROR → 该章必须结构性重写，不准 commit。
+- 任一条触发 WARN → 该章必须重写一段才准 commit，不准 silent filter。
+- 5 条规则写入 `engine/prose_lint.py` + `tools/review_batch.py --strict-editorial` 是工程硬门，不在 README 里写「读者建议」。
+- 5 条规则与 `tools/jinjiang_chapter_distance.py` 的 E1–E5 互为校验：lint ERROR 的章，E 维必有一条 < 7；E 维 < 7 的章，lint 必报至少一条 WARN。
+
+### 与「5 读者交叉 + 真人 sub-agent 工作流」的关系
+
+- 工艺 5 条 = **改稿操作层**（哪条失败就改哪条）。
+- 5 读者交叉 = **判断层**（同一章 / 同一关系 / 同一钩子被多读者锁定，才升级为结构性改稿任务）。
+- 编辑模式 5 维（M1–M5）= **诊断层**（每章在哪一维失败，由它点名）。
+- 三层必须同时跑：先 `5-reader-cross-workflow.md` 锁定读者判断 → 再 `jinjiang-edit-modes.md` 锁定失败维 → 再读本节工艺 5 条锁定改稿动作。任一层跳过 = 改稿循环不闭环。

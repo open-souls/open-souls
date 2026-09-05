@@ -190,3 +190,20 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 e
 - `docs/standards/novel-workflow.md` 末尾"5 读者交叉 + 真人 sub-agent 工作流（必跑节点）"段（verify / emit / aggregate 三步必须出现在改稿循环）
 
 提交规范保持不变：每批只 stage 明确的目标文件，不要 `git add .`。
+
+
+## 编辑端 5 模式 + 工艺 5 条（2026-09-04 焊入，与上面四层证据栈 + 5 读者交叉并列硬约束）
+
+> 主流程新增的两个**编辑端**硬约束：每个 chapter md 写之前必须先回答「5 模式（M1–M5）」中的哪几条、哪几条踩禁；每个 chapter md 改稿时必须按「工艺 5 条」的具体动作执行。
+>
+> 这是 `novel-workflow.md` 末尾「5 读者交叉 + 真人 sub-agent 工作流」的**同伴节点**，不是替代。
+>
+> 详见：
+> - `docs/standards/jinjiang-edit-modes.md` —— M1–M5 的诊断层 + 改稿操作表 §8
+> - `docs/standards/novel-workflow.md` 末尾「改稿工艺 5 条硬规则」段 —— 改稿工艺层
+> - `docs/standards/5-reader-cross-workflow.md` —— 5 读者交叉协议的完整定义
+> - `reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md` —— sub-agent A 直读发现的 5 条工艺红旗出处
+
+### 与上一节「读者盲读 + 距离工具」的固定顺序
+
+诊断（reader_panel_runner + chapter_distance） → 诊断（M1–M5 哪条失败） → 操作（工艺 5 条） → 验证（重跑 reader_panel_runner + chapter_distance）。任一环跳过 = 改稿循环不闭环。
