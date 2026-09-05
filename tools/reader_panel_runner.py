@@ -23,8 +23,40 @@ import json
 import math
 import re
 import subprocess
+import os
 import sys
 from collections import Counter
+
+
+# 词表拦截清单 (per 5-reader-cross-workflow.md §9.5 + 磨斧头研究-2026-09-04.md §13)
+# 拒绝词(无例外): 爆款 / 上瘾 / 上头 / 近晋江档 / 基本达到晋江水平 / 差不多爆款
+# 例外词(需附合格 S3 provenance + effective_n >= 3 + diversity_score >= 0.5 + L2 >= 1):
+#   读者会追 / 读者确认 / 多数读者 / 读者认为 / 追更率高
+FORBIDDEN_TERMS_ALWAYS = [
+    "爆款", "上瘾", "上头",
+    "近晋江档", "基本达到晋江水平", "差不多爆款",
+]
+FORBIDDEN_TERMS_WITH_PROVENANCE = [
+    "读者会追", "读者确认", "多数读者", "读者认为", "追更率高",
+]
+
+
+def _scan_forbidden_terms(lines):
+    """Scan generated conclusion lines for unsupported market claims.
+
+    Rule definitions, boundary warnings, and the vocabulary section itself
+    are not claims. Only lines generated before the vocabulary section are
+    scanned, so documenting a forbidden term does not create a false hit.
+    """
+    hits = []
+    negation_markers = ("禁止", "拒绝", "词表", "边界", "不等同", "不计入", "不豁免", "缺失")
+    for line in lines:
+        if any(marker in line for marker in negation_markers):
+            continue
+        for term in FORBIDDEN_TERMS_ALWAYS + FORBIDDEN_TERMS_WITH_PROVENANCE:
+            if term in line:
+                hits.append(("reader-blindtest-results.md", term))
+    return hits
 from pathlib import Path
 from typing import Iterable
 
@@ -248,6 +280,10 @@ def aggregate() -> Path:
         "方法：5 份模型代理盲读（L1）+ 真人 sub-agent / 真人读者 ≥1 份（L2）；只读盲读包正文。",
         "边界：本结果不等同于真人读者反馈；L1 < 5 份或 L2 < 1 份时禁止聚合判断。",
         "",
+        f"agent_n = {len(agents)} （读者端 sub-agent 模拟 + 研究端 sub-agent 审查，仅参考，不计 effective_n）",
+        f"human_reader_n = {len(l2_real) + len(l2_reader)} （真人读者 / 真人 sub-agent 有效 JSON 数，升级 effective_n 的真凭据）",
+        f"platform_signal_n = 0 （晋江站内收藏 / 营养液 / 霸王票接入数；本季未接入）",
+        "",
         f"effective_n = {eff_n} (L2-real={len(l2_real)} + L2-reader={len(l2_reader)} + L1-effective={diversity['effective_l1']})",
         f"diversity_score = {diversity['flag_jaccard']} (flag) / {diversity['drop_jaccard']} (drop) / {diversity['reason_jaccard']} (reason)",
         f"echo_panel = {diversity['echo_panel']} ， L1 复读嫌疑高时 L1 不计入 effective_n",
@@ -365,6 +401,23 @@ def aggregate() -> Path:
     if stale:
         lines.append("")
         lines.append("注意：本轮有 pack_hash drift 条目（见顶部警告），旧 reader JSON 已不计入 effective_n。")
+
+    # 词表拦截清单 (per 5-reader-cross-workflow.md §9.5 + 磨斧头研究-2026-09-04.md §13)
+    term_hits = _scan_forbidden_terms(lines)
+    lines.append("")
+    lines.append("## 5. 词表拦截清单 (per 5-reader-cross-workflow.md §9.5)")
+    if not term_hits:
+        lines.append("- 0 命中（本季 effective_n = 0，语言门禁尚未触发）")
+    else:
+        lines.append(f"- {len(term_hits)} 命中（本季 effective_n = {eff_n}）")
+        from collections import Counter as _C2
+        by_term = _C2(t for _, t in term_hits)
+        for term, n in by_term.most_common():
+            lines.append(f"  - {term}: {n} 处")
+        if eff_n >= 3 and diversity["flag_jaccard"] >= DIVERSITY_FLAG_JACCARD_FLOOR and (l2_real or l2_reader):
+            lines.append("- 有效 provenance 已附，例外词允许；拒绝词仍按 §9.5 拒。")
+        else:
+            lines.append(f"- 当前 effective_n = {eff_n}（需求 ≥ 3）；diversity flag_jaccard = {diversity['flag_jaccard']:.2f}（需求 ≥ {DIVERSITY_FLAG_JACCARD_FLOOR}）；L2 = {len(l2_real) + len(l2_reader)}。例外词不豁免。")
 
     RESULTS_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return RESULTS_MD

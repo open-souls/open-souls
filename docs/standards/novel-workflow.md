@@ -25,6 +25,39 @@
 canonical chapter + plot_state 更新
 ```
 
+## 读者承诺侧 · 5 读者交叉协议(2026-09-04 焊入)
+
+> 用户原话(2026-09-04):「btw, 我喜欢你这个五个读者交叉的办法,完成之后,写进我们的 project 工作流」。
+> 本节就是把上一会话已焊死的 docs/standards/5-reader-cross-workflow.md 作为读者承诺侧硬约束焊进本主流程。
+> 完整规则与 persona 表 / 独立性硬门 / 语言门禁 见 5-reader-cross-workflow.md。
+
+### 主流程读者侧三问
+
+1. **谁判断?**:5 份 L1(模型代理)+ ≥ 1 份 L2(真人读者 / 真人 sub-agent)。L1 unanimous 在 echo_panel=True 时不构成共识。
+2. **怎么升级?**:读者结论升级为「方向」必须 effective_n ≥ 3 + diversity_score ≥ 0.5 + L2 ≥ 1 同时满足;升级为「结构性改稿任务」再叠加同点 ≥ 3 + ≥ 1 份 L2 真证据。任一不满足只能作为单点观察,不写进 edit-decision-protocol.md §3 改稿顺序。
+3. **何时跑?**:动笔前 / 动笔后 / 跨章 ≥ 30 章累计改稿后,具体步骤见 5-reader-cross-workflow.md §2 与 §6。
+
+### 真人证据空窗期(本季硬约束)
+
+- effective_n = 0:所有「真人」文件名文件因缺 modern provenance 被 reader_panel_runner.py check 降级为 L1。
+- 文档 / README / commit message / 群聊 全部禁止「读者会追」「爆款」「上瘾」「上头」「读者确认」等措辞(完整词表见 磨斧头研究-2026-09-04.md §13)。
+- 工程分不等于市场分;真人证据空窗期一切「读者分」措辞一律降级为「工程分」。
+
+### sub-agent 模拟的边界(2026-09-04 焊入)
+
+本季真人 sub-agent / 真人读者启动失败(≥ 14 天无新增 L2 JSON),自动进入 sub-agent 模拟兜底路径。sub-agent 模拟分两类:
+
+- **读者端 sub-agent 模拟**:落 reports/jinjiang-r20/sub-agent-reads/*.md,**不升级 L2**,仅作方向 + 工艺清单。
+- **研究端 sub-agent 审查**:代码 / 文档 / 工程审查,落 磨斧头研究-<date>.md 留底,**不计入 effective_n**。
+
+派发协议见 磨斧头研究-2026-09-04.md §14。
+
+### 与「权威状态文件」段的接驳
+
+- 读者侧判断不进入 season_manifest.yaml(那是产品定位层)。
+- 读者侧判断进入 reports/jinjiang-r20/reader-blindtest-results.md(那是读者证据层)。
+- 改稿顺序进入 reports/jinjiang-r20/edit-decision-protocol.md §3(那是工程改稿层)。
+
 ## 权威状态文件
 
 每个新 season 必须拥有：

@@ -165,7 +165,10 @@ py -3 -X utf8 tools/jinjiang_chapter_distance.py <目标章>
 
 If a chapter fails one of these after the rewrite, do NOT raise the engineering score by lowering the audit threshold. Re-edit.
 
+
+
 ## 11. Cross-chapter rewrite cadence
+
 
 1. Pick the bottom 3 chapters from reports/jinjiang-r20/distance-summary.md section 5.
 2. For each, decide which E dim to fix (the distance output already names it).
@@ -173,3 +176,75 @@ If a chapter fails one of these after the rewrite, do NOT raise the engineering 
 4. Run the per-chapter runtime check listed above.
 5. Run py -3 -X utf8 tools/jinjiang_chapter_distance.py --out reports/jinjiang-r20/chapter-distance.json and py -3 -X utf8 tools/reader_panel_runner.py aggregate.
 6. Commit and push. The push gate (tools/validate_changed.py) only escalates when chapter files changed, so infrastructure commits can land without retesting every chapter.
+
+## 12. 5 读者交叉在 operator 主流程的位置(2026-09-04 焊入)
+
+> 用户原话:「btw, 我喜欢你这个五个读者交叉的办法,完成之后,写进我们的 project 工作流」。
+> 本节把 5-reader-cross-workflow.md 的硬规则投射到 operator 主流程。
+
+### 12.1 三段固定调用(每批改稿前后必跑)
+
+```
+# 改稿前
+py -3 -X utf8 tools/reader_subagent_driver.py verify
+py -3 -X utf8 tools/reader_subagent_driver.py emit
+py -3 -X utf8 tools/reader_panel_runner.py check
+py -3 -X utf8 tools/reader_panel_runner.py aggregate
+
+# 改稿后
+py -3 -X utf8 tools/reader_subagent_driver.py verify
+py -3 -X utf8 tools/reader_subagent_driver.py emit
+py -3 -X utf8 tools/reader_panel_runner.py check
+py -3 -X utf8 tools/reader_panel_runner.py aggregate
+```
+
+**硬规则**:任一阶段 FAIL / stale / echo_panel=True / diversity < 0.5 → 不准下笔;任一阶段 stale / drift → 不准 commit。
+
+### 12.2 五条工程硬门(来自 5-reader-cross-workflow.md §9)
+
+1. **独立性硬门**:每份 reader sub-agent 报告必填 8 个头部字段(run_id / persona_seed / persona_id / pack_hash / cwd / no_chronicle / no_frontmatter / read_time)。缺任一项 = 该报告不计入同点 ≥ 3 升级统计。
+2. **分栏硬门**:reader-blindtest-results.md 顶部必分 agent_n / human_reader_n / platform_signal_n 三栏。本季:agent_n=1, human_reader_n=0, platform_signal_n=0。
+3. **同包前后对照硬门**:改稿后必须用同一 pack_hash + 同一 persona_seed 复跑;漂移 = 旧 reader JSON 全部 stale。
+4. **语言门禁**:CI / 报告生成器在 README / 文档 / commit message 拦截「读者会追 / 爆款 / 上瘾 / 上头 / 读者确认 / 多数读者 / 读者认为 / 追更率高 / 近晋江档 / 基本达到晋江水平 / 差不多爆款」。完整词表见 磨斧头研究-2026-09-04.md §13。
+5. **阈值统一**:有效_n ≥ 3 + diversity_score ≥ 0.5 + L2 ≥ 1 同时满足 → 升级为「方向」;再叠加同点 ≥ 3 + ≥ 1 份 L2 真证据 → 升级为「结构性改稿任务」。
+
+### 12.3 sub-agent 模拟真人读者的边界 SOP
+
+#### 12.3.1 何时可以派 sub-agent 模拟
+
+- **真人 sub-agent / 真人读者启动失败**(≥ 14 天无新增 L2 JSON)→ 触发「sub-agent 模拟」兜底路径。启动条件见 jinjiang-quality-architecture.md §5。
+- **研究端审查**(代码 / 文档 / 工程审查)→ 不需要 L2 真人证据,可单独派研究端 sub-agent。
+
+#### 12.3.2 派发协议
+
+```
+[派发前]
+  step 1: 确认任务属于「读者端模拟」或「研究端审查」,二选一。
+  step 2: 读者端模拟 → 锁 pack_hash(读 isolated-reader-packs/<persona>/<pack>.md)
+    与 persona_seed(读 reader-prompt-N.txt 的 isolation.persona_seed)。
+  step 3: 研究端审查 → 锁审查范围(代码文件 / 文档文件),不读盲读包。
+
+[派发中]
+  step 4: 读者端 sub-agent → 输出 markdown 落 reports/jinjiang-r20/sub-agent-reads/<slug>.md,
+    必填头部 8 字段。**绝不**写 reader-N.json。
+  step 5: 研究端 sub-agent → 输出 markdown 留底到本文件或会话 transcripts,**绝不**写
+    sub-agent-reads/。
+
+[派发后]
+  step 6: 主编在 磨斧头研究-<date>.md §4.2 追加命中率 + 独立性核数。
+  step 7: 读者端 sub-agent 报告 ≥ 3 份同点 → 触发 5-reader-cross-workflow.md §4 检查,
+    但仍**不能升级**为 L2 真证据。
+```
+
+#### 12.3.3 边界
+
+- sub-agent 模拟的「同点 ≥ 3」 ≠ 真人读者结论。
+- sub-agent 模拟只能作为「方向 + 工艺清单」,不能给「读者会追」判断。
+- L2 真人 sub-agent ≥ 1 份落盘后,sub-agent 模拟降级为「交叉比对」,不替代真人结论。
+- 兜底启动 ≥ 14 天无新增 L2 → 本季回「工程单轨模式」,所有「读者分」措辞降级为「工程分」。
+
+## 13. 维护纪律
+
+- 改 §12 / §12.3 任一条 → 必须同步改 5-reader-cross-workflow.md §9 与 磨斧头研究-<date>.md §3.5 + §14,避免三份文档漂移。
+- 新增 sub-agent 报告 → 写进 sub-agent-cross-pollination-<date>.md,不要覆盖旧报告。
+- CI 词表拦截 → 加进 tools/reader_panel_runner.py aggregate 输出顶部 + docs/standards/jinjiang-quality-architecture.md §5 硬边界段。

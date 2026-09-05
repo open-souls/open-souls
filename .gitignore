@@ -19,3 +19,5 @@ engine/_*.repr
 tools/tts_out/
 tools/tts_*.mp3
 tools/tts_*.log
+# weld helpers (local only)
+.weld/

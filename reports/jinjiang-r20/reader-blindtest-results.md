@@ -4,6 +4,10 @@
 方法：5 份模型代理盲读（L1）+ 真人 sub-agent / 真人读者 ≥1 份（L2）；只读盲读包正文。
 边界：本结果不等同于真人读者反馈；L1 < 5 份或 L2 < 1 份时禁止聚合判断。
 
+agent_n = 6 （读者端 sub-agent 模拟 + 研究端 sub-agent 审查，仅参考，不计 effective_n）
+human_reader_n = 0 （真人读者 / 真人 sub-agent 有效 JSON 数，升级 effective_n 的真凭据）
+platform_signal_n = 0 （晋江站内收藏 / 营养液 / 霸王票接入数；本季未接入）
+
 effective_n = 0 (L2-real=0 + L2-reader=0 + L1-effective=0)
 diversity_score = 0.167 (flag) / 1.0 (drop) / 1.0 (reason)
 echo_panel = True ， L1 复读嫌疑高时 L1 不计入 effective_n
@@ -37,14 +41,14 @@ L2 = 0。真人证据缺失；任何「读者会追 / 爆款」判断禁止。
 - 愿意：1 / 6
 
 ### 三类问题命中
-- passive_chain：5 人
 - info_not_action：6 人
 - smart_drop：0 人
+- passive_chain：5 人
 
 ## 2. 升级与下一轮改稿顺序（按 effective_n 阈值）
-- passive_chain：L1 命中 5 人；L2 命中 0 人（L1 复读嫌疑高，仅作方向记录，不升级）
 - info_not_action：L1 命中 6 人；L2 命中 0 人（L1 复读嫌疑高，仅作方向记录，不升级）
 - smart_drop：L1 命中 0 人；L2 命中 0 人（L1 复读嫌疑高，仅作方向记录，不升级）
+- passive_chain：L1 命中 5 人；L2 命中 0 人（L1 复读嫌疑高，仅作方向记录，不升级）
 - 中段包 50 章留存意愿不达标，结构任务。
 
 下一轮建议顺序：
@@ -55,3 +59,6 @@ L2 = 0。真人证据缺失；任何「读者会追 / 爆款」判断禁止。
 
 ## 4. 盲读包指纹（f64e35b7cac0c896）
 复测必须沿用同一指纹；想刷新读者记忆时用 `regenerate --new-seed`。
+
+## 5. 词表拦截清单 (per 5-reader-cross-workflow.md §9.5)
+- 0 命中（本季 effective_n = 0，语言门禁尚未触发）

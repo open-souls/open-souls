@@ -284,6 +284,48 @@ stubs_total=607 stubs_remaining=194 stubs_missing=0 disease_or_lint_errors=331 e
 
 诊断（reader_panel_runner + chapter_distance） → 诊断（M1-M5 哪条失败） → 操作（工艺 5 条） → 验证（重跑 reader_panel_runner + chapter_distance） → 自检（本检查表）→ commit。任一环跳过 = 改稿循环不闭环。
 
+
+### 研究端 sub-agent 报告检查表（2026-09-04 焊入）
+
+> 触发:用户原话「你自己安排 subagent 模拟真人」。本轮派发 Turing(代码审查)/ Gibbs(标准研究)/ Hooke(工程审查) 三位研究端 sub-agent,加上上一会话 sub-agent A(读者端模拟)。
+> 边界:三份研究端报告都不升级 effective_n,不写入 sub-agent-reads/,只留底在本文件 + 磨斧头研究-<date>.md §3.5 + sub-agent-cross-pollination-2026-09-04.md §1.5。
+> 详细规则:5-reader-cross-workflow.md §9 + 磨斧头研究-2026-09-04.md §14。
+
+#### 5 条研究端硬规则(机器可校验)
+
+1. **独立性硬门** — 每份读者端 sub-agent 报告必填头部 8 字段(run_id / persona_seed / persona_id / pack_hash / cwd / no_chronicle / no_frontmatter / read_time)。缺任一项 = 该报告不计入同点 ≥ 3 升级统计。
+2. **分栏硬门** — reader-blindtest-results.md 顶部必分 agent_n / human_reader_n / platform_signal_n 三栏。本季:agent_n=1, human_reader_n=0, platform_signal_n=0。
+3. **同包前后对照硬门** — 改稿后必须用同一 pack_hash + 同一 persona_seed 复跑;若 reader_blindtest_pack.py 输出有变(pack_hash 漂移),旧 reader JSON 全部 stale,不得做「改善 / 退步」对比。
+4. **语言门禁** — CI / 报告生成器在 README / 文档 / commit message 拦截 11 个词(完整词表见 磨斧头研究-2026-09-04.md §13)。本季 effective_n = 0 期间,所有「读者分」措辞一律降级为「工程分」。
+5. **阈值统一** — effective_n ≥ 3 + diversity_score ≥ 0.5 + L2 ≥ 1 同时满足 → 升级为「方向」;再叠加同点 ≥ 3 + ≥ 1 份 L2 真证据 → 升级为「结构性改稿任务」。
+
+#### 措辞词表(完整版见 磨斧头研究-2026-09-04.md §13)
+
+| 词 | 状态 | 例外 |
+|---|---|---|
+| 爆款 / 上瘾 / 上头 | 拒绝 | 无 |
+| 读者会追 / 读者确认 / 多数读者 / 读者认为 / 追更率高 | 拒绝 | effective_n ≥ 3 + diversity ≥ 0.5 + L2 ≥ 1 |
+| 近晋江档 / 基本达到晋江水平 / 差不多爆款 | 拒绝 | 无 |
+| 工程分 / 距离爆款还差 X 分 | 允许 | (本季读者证据空窗期默认) |
+
+#### sub-agent 派发协议(来自 磨斧头研究-2026-09-04.md §14)
+
+- 派发前:确认「读者端模拟」或「研究端审查」二选一。
+- 派发中:读者端落 sub-agent-reads/*.md,研究端落 磨斧头研究-<date>.md。绝不写错。
+- 派发后:主编在 磨斧头研究-<date>.md §4.2 追加命中率 + 独立性核数。
+- 边界:sub-agent 模拟的「同点 ≥ 3」 ≠ 真人读者结论;只能作为方向 + 工艺清单。
+
+### 文档自检表（2026-09-04 更新版）
+
+| 文档 | 必须存在的关键字 | 检查方法 |
+|---|---|---|
+| `docs/standards/novel-workflow.md` | 含「读者承诺侧 · 5 读者交叉协议」段 + 「磨斧头阶段焊死段」+「JJ-LINT-01-07」+「M1-M5 vs E1-E5」 | `grep -c 读者承诺侧` 应 >= 1 |
+| `docs/standards/5-reader-cross-workflow.md` | 含「§9 工程硬门 · 研究端 sub-agent 报告约束」+「§10 与 §9 同步输出」+「drop_chapter / love_relation / next_chapter_focus 三轴」 | `grep -c § 9. 工程硬门` 应 >= 1 |
+| `docs/standards/jinjiang-blowup-baseline-operator.md` | 含「§12 5 读者交叉在 operator 主流程」+「§12.3 sub-agent 边界」+「lint + audit + distance + review_batch」+「E1-E5 互为校验」 | `grep -c 12.3 sub-agent` 应 >= 1 |
+| `reports/jinjiang-r20/磨斧头研究-2026-09-04.md` | 含「S0/S1/S2/S3」+「§3.5 五条硬规则」+「§13 措辞词表」+「§14 sub-agent 边界 SOP」+「不允许的省略」 | `grep -c § 3.5 研究端` 应 >= 1 |
+| `reports/jinjiang-r20/sub-agent-cross-pollination-2026-09-04.md` | 含「sub-agent A」+「§1.5 研究端 sub-agent 报告」+「Turing / Gibbs / Hooke」+「同点 >= 3」 | `grep -c § 1.5 研究端` 应 >= 1 |
+| `handoff.md`（本文件） | 含「磨斧头阶段检查表」+「研究端 sub-agent 报告检查表」+「措辞词表」+「5 模式 + 工艺 5 条」 | `grep -c 研究端 sub-agent` 应 >= 1 |
+
 ### 维护纪律
 
 - 改本检查表任一条 -> 必须同步改 `docs/standards/novel-workflow.md` 末尾「磨斧头阶段焊死段」段。

@@ -45,6 +45,47 @@
    - 第 502 全章阿湄远观九个人,只看见手看不见脸(POV 距离过近 / 过远 同时失灵)。
 5. **结构密度差**:mid_a 是「5 章钩子 + 1 章消化 + 4 章继续」;晋江爆款需要「7 章钩子 + 1 章消化 + 2 章继续」。差距不在笔力,在结构密度。
 
+## 1.5 研究端 sub-agent 报告 · 2026-09-04(已完成)
+
+> **重要**:本节的三份报告都是「研究 sub-agent」审查,不是「读者 sub-agent」模拟。
+> 三份都不升级 effective_n,不写入 reports/jinjiang-r20/sub-agent-reads/,只在本文件 + 磨斧头研究-2026-09-04.md §3.5 留底。
+> 边界硬门:5-reader-cross-workflow.md §9.1。
+
+### 1.5.1 sub-agent Turing · 代码审查(已完成)
+
+范围:tools/reader_subagent_driver.py + tools/reader_panel_runner.py + tests/test_*.py(3 份,等价 20/20 pytest 全过)。
+
+- **verify 子命令**:完全只读,8 份关键报告 SHA 一致;不会破坏既有报告。
+- **emit 子命令**:有 3 类副作用(a) 重新生成盲读包 md;(b) rmtree + copy 4×5=20 份 persona 副本;(c) 覆盖 reader-prompt-{1..5}.txt + 新写 reader-prompt-real.txt。
+- **aggregate 子命令**:整体覆盖 reader-blindtest-results.md。
+- **潜在脆性(已实测未触发)**:_rotated_keys() 在真实 distance-summary.md 上正确取到章节号(已实测 1144/1141/...),但测试 fixture 用的是 mock 表格,**测试通过 ≠ 真实文档合规**。建议下一批改:_rotated_keys() 加章节号范围 hard-fail(必须落在 1..2000)+ 测试 fixture 用真实 dist 而不是 mock 表格。
+
+### 1.5.2 sub-agent Gibbs · 标准研究(已完成)
+
+范围:docs/standards/jinjiang-quality-architecture.md + 晋江爆款基线.md + 5-reader-cross-workflow.md。
+
+- 当前项目已具备四层证据架构(S0 官方 / S1 行业 / S2 工程 / S3 读者),但「五读者交叉」仍主要是文档承诺,尚未形成可阻断改稿、可验证独立性、可区分真人与 agent 的统一门禁。
+- 当前结果 effective_n=0、echo_panel=True,现有盲读热点只能作为工程诊断方向,不能称为读者结论。
+- **下一批要补**:run_id / persona_seed / pack_hash / 时间戳 / 独立 session_id 五元组机器可校验;agent_n / human_reader_n / platform_signal_n 分栏硬门;同包前后对照硬门;语言门禁(拦截「读者会追 / 爆款 / 上瘾」等措辞)。
+
+### 1.5.3 sub-agent Hooke · 工程审查(已完成)
+
+范围:engine/prose_lint.py + tools/jinjiang_chapter_distance.py + tools/chapter_by_chapter_audit.py。
+
+- **三份 pytest 全过**(20/20):test_jinjiang_chapter_distance 9/9、test_reader_subagent_driver 4/4、test_reader_panel_runner 7/7。
+- **新发现**:开篇老 e1 只用第一段 head180 已改成 body[:180](hunk 在上一会话 working tree 已落地但未 commit),更鲁棒但要小心标题行遗漏。
+- **建议下一批**:JJ-LINT-01-07 焊进 prose_lint.py;info_gap_count / bucket_beat_score / addictive_units 三字段加进 chapter_by_chapter_audit.py 输出。
+
+### 1.5.4 三份报告的硬规则结晶
+
+已焊进 5-reader-cross-workflow.md §9 五条硬门 + 磨斧头研究-2026-09-04.md §13 措辞词表 + §14 sub-agent 边界 SOP + novel-workflow.md「读者承诺侧」段。
+
+### 1.5.5 不允许的省略
+
+- 研究端 sub-agent 报告 ≠ 读者端 sub-agent 模拟;前者只用于研究,后者只用于方向。
+- Turing 报告里「drop_chapter 是 bucket 编号」的具体诊断经实测**不正确**(当前 _rotated_keys() 在真实文档上返回真章节号),但「测试 fixture ≠ 真实文档」的脆性警告仍然成立。
+- 三份报告里任何「建议」都未自动落地为代码改动;下一批 batch 13 起,在主编核数后才执行。
+
 ## 2. sub-agent B / C 状态
 
 sub-agent B(追更党 / 钩子兑现敏感)、sub-agent C(跨题材 / 文笔敏感)尚未在本会话独立派发完成(subagent 调度在当前 Codex 工具集下仅支持一次性写入 URL 路径返回)。本轮先把 A 的发现 + 主编层面综合前 5 份 L1 复读嫌疑结果焊进 workflow;B / C 待下一轮独立 fork 派发。

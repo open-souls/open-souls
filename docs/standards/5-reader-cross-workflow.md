@@ -157,7 +157,11 @@
 - 在 effective_n ≥ 3 + diversity_score ≥ 0.5 + L2 ≥ 1 三项同时满足之前,
   本节描述的工作流只能跑 verify / emit / aggregate 骨架,不能跑出「读者会追」以外的升级证据。
 
+
+
+
 ## 8. 维护纪律
+
 
 - 改 §1 persona 表任一行的 keep_if / drop_if / must_disagree_with → 必须同步改
   `prompts\reader\personas.json` + `tools\reader_subagent_driver.py` 公式 +
@@ -168,3 +172,94 @@
   追加,不要覆盖旧报告。
 - sub-agent 报告 ≥ 3 份同点(同一章 / 同一关系 / 同一钩子) → 触发 §4 升级规则的「同点 ≥ 3」检查,
   通过后写入 `reports\jinjiang-r20\edit-decision-protocol.md §3` 改稿顺序。
+
+## 9. 工程硬门 · 研究端 sub-agent 报告约束(2026-09-04 焊入)
+
+> 这一节是上一会话「sub-agent A 报告 + 本轮研究端 3 个 sub-agent」共同验证出的硬规则。
+> 适用对象:读者端 sub-agent 模拟报告(落 reports/jinjiang-r20/sub-agent-reads/ 的 markdown 文件)。
+> 不适用对象:工具脚本(tools/*) / 工程脚本 / commit receipt。
+> 写入文件:tools/reader_panel_runner.py 不变(它是读者端 JSON 校验);本节只约束
+> reports/jinjiang-r20/sub-agent-reads/*.md 的标题、引用、措辞、来源标注。
+
+### 9.1 来源与边界(硬边界)
+
+| 类型 | 来源前缀 | 是否升级 effective_n | 是否计入 structural 同点 | 落盘位置 |
+|---|---|---|---|---|
+`"真人读者(real human)"` | `"source: 真人读者"` | 是(L2 真) | 是 | reports/jinjiang-r20/reader-N.json |
+`"真人 sub-agent(fork run)"` | `"source: 真人 sub-agent"` | 是(L2 真) | 是 | reports/jinjiang-r20/reader-N.json |
+`"读者端 sub-agent 模拟"` | `"source: 读者 sub-agent"` | 否 | 否 | reports/jinjiang-r20/sub-agent-reads/*.md |
+`"研究端 sub-agent 审查"` | `"source: 研究 sub-agent"` | 否 | 否 | 只进 reports/jinjiang-r20/磨斧头研究-date.md |
+
+**禁止把研究端 sub-agent 报告混入读者端**。本轮明确:
+
+- Turing / Gibbs / Hooke 三份都是研究端审查(研究 sub-agent),不写入 sub-agent-reads/,也不计入 effective_n。
+- sub-agent A(已完成)是读者端(读者 sub-agent),落 sub-agent-reads/,不升级 L2。
+
+### 9.2 独立性硬门(每份读者端 sub-agent 报告必填头部)
+
+```yaml
+run_id: <uuid 或 timestamp-rand>
+persona_seed: l1-persona-N-YYYY-MM-DD
+persona_id: 1..5
+pack_hash: <与 reader-prompt-N.txt 一致>
+cwd: <实际 run path>
+no_chronicle: true
+no_frontmatter: true
+read_time: <读到第几章 / 总章数>
+```
+
+缺任一项,主编在 reports/jinjiang-r20/磨斧头研究-date.md §4.2 标注「独立性不足」,
+该报告不计入 5 读者交叉协议的「同点 ≥ 3」升级统计。
+
+### 9.3 分栏硬门(agent_n / human_reader_n / platform_signal_n)
+
+reports/jinjiang-r20/reader-blindtest-results.md 顶部必须分栏报告:
+
+- agent_n:研究端 + 读者端 sub-agent 模拟的总数(仅参考,不计 effective_n)。
+- human_reader_n:真人读者 / 真人 sub-agent 的有效 JSON 数(升级 effective_n 的真凭据)。
+- platform_signal_n:晋江站内收藏 / 营养液 / 霸王票接入数(本季 = 0)。
+
+任一栏缺失,视为「全栈空窗」,在 distance-summary.md §4 同步标注「读者证据空窗期」。
+
+### 9.4 同包前后对照硬门
+
+任一 chapter 改稿后,必须用同一 pack_hash + 同一 persona_seed 复跑;
+若 tools/reader_blindtest_pack.py 输出有变(pack_hash 漂移),所有 reader JSON 视为 stale,
+不得与改稿前的同章结果做「改善 / 退步」对比。
+
+### 9.5 语言门禁硬规则
+
+CI 或报告生成器在以下文档输出时拦截下列词:
+
+- 读者会追 / 读者确认 / 多数读者 / 读者认为  → 必须附合格 S3 provenance(见 §9.3)且 effective_n ≥ 3 + diversity_score ≥ 0.5 + L2 ≥ 1 三项同时满足。
+- 爆款 / 上瘾 / 上头 / 追更率高            → 同上。
+- 近晋江档 / 基本达到晋江水平 / 差不多爆款   → 直接拒绝,无法被任何 provenance 救回。
+
+不允许在 README / 文档 / 群聊 / commit message / 报告标题里使用。
+本季 effective_n = 0 期间,所有「读者分」措辞一律降级为「工程分」。
+
+### 9.6 阈值统一硬门
+
+之前冲突的两套升级阈值:
+
+- rubric.md「三位读者同类问题」 → 已在 2026-09-04 取消,改为 §4 的「同点 ≥ 3 + diversity ≥ 0.5 + L2 ≥ 1」。
+- architecture.md §5「≥ 3 仅作方向、≥ 5 才升级」 → 取消,统一为 §4。
+
+统一规则(本节生效后全 repo 唯一):
+
+- effective_n ≥ 3 + diversity_score ≥ 0.5 + L2 ≥ 1 同时满足 → 升级读者结论为「方向」。
+- 升级为「结构性改稿任务」必须再满足 §4 同点 ≥ 3 + ≥ 1 份 L2 真证据。
+- 任一不满足 → 只能作为「单点观察」,不写入 edit-decision-protocol.md §3 改稿顺序。
+
+### 9.7 维护纪律
+
+- 改 §9 任一条 → 必须同步改 docs/standards/jinjiang-quality-architecture.md §5
+  + reports/jinjiang-r20/磨斧头研究-date.md §3.5,避免三份文档漂移。
+- 新增研究端 sub-agent 报告 → 写进 磨斧头研究-date.md,不要覆盖旧报告。
+- CI 词表拦截 → 加进 tools/reader_panel_runner.py aggregate 输出顶部 + docs/standards/jinjiang-quality-architecture.md §5 硬边界段。
+
+## 10. 与 §9 硬门同步的输出变化(2026-09-04 焊入)
+
+- tools/reader_panel_runner.py aggregate 输出顶部新增「agent_n / human_reader_n / platform_signal_n」三栏(本季:agent_n=1, human_reader_n=0, platform_signal_n=0)。
+- reports/jinjiang-r20/reader-blindtest-results.md 顶部新增「词表拦截清单」段(本季:0 命中,CI 词表尚未跑)。
+- reports/jinjiang-r20/distance-summary.md §4 R-track 段补一行「读者证据空窗期:agent_n=1, human_reader_n=0」。
