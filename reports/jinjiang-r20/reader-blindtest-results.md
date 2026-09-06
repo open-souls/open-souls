@@ -19,7 +19,7 @@ provenance = schema_version=2 / model_id / reading_log / pack_hash are required 
 - reader-2.json: pack_hash=f64e35b7cac0c896 current=9c5fc5eaee1cab56
 - reader-3.json: pack_hash=f64e35b7cac0c896 current=9c5fc5eaee1cab56
 - reader-4.json: pack_hash=f64e35b7cac0c896 current=9c5fc5eaee1cab56
-- reader-5.json: pack_hash=f64e35b7cac0c896 current=9c5fc5eaee1cab56
+- reader-5.json: pack_hash=open-ch001-ch050-2026-09-06 current=9c5fc5eaee1cab56
 
 盲读包文本已变，旧 reader JSON 的 pack_hash 与当前不一致；
 必须重新生成 reader JSON 才能恢复 L1 / L2 计数。

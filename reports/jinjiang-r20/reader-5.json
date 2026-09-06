@@ -1,65 +1,393 @@
 {
   "id": 5,
   "label": "晋江新读者",
-  "perspective": "敏感情感碾压与人物动机。",
+  "perspective": "敏感情感碾压与人物动机，不预设世界观知识。",
   "drop": {
     "pack": "open",
-    "chapter": "4",
-    "reason": "首段井边+线头，被告知“那截线头藏在掌心”，却没有动机驱动的选择。"
+    "chapter": "009",
+    "reason": "林彻磨人、磨话、磨自己三层全是内部信息整理，没有一次对关键人物的当场不可逆动作；读者愿意等他做一件事，但他这一章只是把砝码摆在桌上。"
   },
   "love_relation": {
-    "name": "阿湄×苏挽",
-    "reason": "她们各自守着证据不替对方说话，能看到她们一起承担一次后果我就会继续看。"
+    "name": "苏挽×林夙",
+    "reason": "她替他把眼神不对说成挺好的，把假信还回去说顺路；这一对每一到三章就有一个主动承担的克制动作，是新读者最能立刻按住的线。"
   },
   "next_chapter_focus": {
-    "chapter": "1143",
-    "reason": "林夙在东院外犹豫进与不进，朱圈落在等字底下，这种克制的情感碾压对一个新读者也成立。"
+    "chapter": "051",
+    "reason": "前五十章停在阿湄给盗跖地图与石室不止一人，并把最后那条带名字的消息压到他站稳之后再给；下一章必须让那个名字落一次，或者让那张图付出可见代价。"
   },
-  "stay_to_50": false,
-  "stay_reason": "中段包两本书都在翻账或递纸，没有一次让我心里疼过的情感动作，新读者会走。",
+  "stay_to_50": true,
+  "stay_reason": "前五十章里 yes 33、hesitate 13、no 4；最强连续追读窗口 025 到 027，三章里关系代价与外部压力同时升压，新读者会被这段按住；但 009 到 010 是连续两章掉读，需要修复才不会流失。",
   "pattern_flags": {
     "info_not_action": true,
-    "smart_drop": false,
+    "smart_drop": true,
     "passive_chain": true
   },
   "source": "模型代理模拟，不是真人读者。",
   "isolation": {
-    "no_chronicle": false,
-    "no_frontmatter": false,
-    "cwd": "historical-no-record",
-    "persona_seed": "historical"
+    "no_chronicle": true,
+    "no_frontmatter": true,
+    "cwd": "reports/jinjiang-r20/isolated-reader-packs/persona-5",
+    "persona_seed": "l1-persona-5-2026-09-06"
   },
   "schema_version": 2,
-  "pack_hash": "f64e35b7cac0c896",
-  "model_id": "historical-L1-agent-2026-09-04",
+  "pack_hash": "open-ch001-ch050-2026-09-06",
+  "model_id": "l1-persona-5-2026-09-06",
   "reading_log": [
     {
       "pack": "open",
       "chapters_read": [
-        "1-10"
+        "001-050"
       ],
-      "isolation": "no_chronicle+no_frontmatter"
-    },
-    {
-      "pack": "mid_a",
-      "chapters_read": [
-        "501-510"
-      ],
-      "isolation": "no_chronicle+no_frontmatter"
-    },
-    {
-      "pack": "mid_b",
-      "chapters_read": [
-        "681-690"
-      ],
-      "isolation": "no_chronicle+no_frontmatter"
-    },
-    {
-      "pack": "latest",
-      "chapters_read": [
-        "1136-1145"
-      ],
-      "isolation": "no_chronicle+no_frontmatter"
+      "isolation": "no_chronicle+no_frontmatter",
+      "range": "001 到 050 全文逐章",
+      "rule": "keep_if: 出现一次让人心里疼过的关系动作；drop_if: 三章以上无新建立的关系升压；不能用文笔好作为留下理由。"
     }
-  ]
+  ],
+  "chapter_judgement": [
+    {
+      "ch": "001",
+      "feel": "退婚书当面撕，明天还来",
+      "click_next": "yes"
+    },
+    {
+      "ch": "002",
+      "feel": "把林三公子改成林夙",
+      "click_next": "yes"
+    },
+    {
+      "ch": "003",
+      "feel": "三年粥与这一世换我来双钩",
+      "click_next": "yes"
+    },
+    {
+      "ch": "004",
+      "feel": "靛色线头藏起来，疼感在，主线没动",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "005",
+      "feel": "信写林夙收，主动替具体的人落名",
+      "click_next": "yes"
+    },
+    {
+      "ch": "006",
+      "feel": "苏漪藏信替姐姐，关系延续",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "007",
+      "feel": "林崇把三儿重新放上秤，旁观式",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "008",
+      "feel": "赤渊认出林夙，关系未动",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "009",
+      "feel": "三层磨局，没有当场不可逆动作",
+      "click_next": "no"
+    },
+    {
+      "ch": "010",
+      "feel": "凉茶、泥脚印、旧匣全部延后",
+      "click_next": "no"
+    },
+    {
+      "ch": "011",
+      "feel": "林夙说认识，关系从偶遇变留意",
+      "click_next": "yes"
+    },
+    {
+      "ch": "012",
+      "feel": "封条门里有人，救人自保留下",
+      "click_next": "yes"
+    },
+    {
+      "ch": "013",
+      "feel": "苏挽多买一份驱寒药放下就走",
+      "click_next": "yes"
+    },
+    {
+      "ch": "014",
+      "feel": "林夙主动接苏家线，压名字到悬赏令背后",
+      "click_next": "yes"
+    },
+    {
+      "ch": "015",
+      "feel": "苏挽隔墙说挺好的",
+      "click_next": "yes"
+    },
+    {
+      "ch": "016",
+      "feel": "姐妹余温写得细，目标不强",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "017",
+      "feel": "牛阿大说好，林夙第一次叫阿大",
+      "click_next": "yes"
+    },
+    {
+      "ch": "018",
+      "feel": "师徒规矩到位，主角关系远",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "019",
+      "feel": "陈情驳回，赤渊指出三百年旧眼",
+      "click_next": "yes"
+    },
+    {
+      "ch": "020",
+      "feel": "苏挽等半个时辰只问你欠了谁",
+      "click_next": "yes"
+    },
+    {
+      "ch": "021",
+      "feel": "被叫庶子，一招让顾凌翻盘",
+      "click_next": "yes"
+    },
+    {
+      "ch": "022",
+      "feel": "苏挽送药到耳房，林窈用等待支持",
+      "click_next": "yes"
+    },
+    {
+      "ch": "023",
+      "feel": "赢林彻，隔场停一秒看他",
+      "click_next": "yes"
+    },
+    {
+      "ch": "024",
+      "feel": "苏挽对父亲说不，外部静",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "025",
+      "feel": "救沈疏桐，停等牛阿大出来",
+      "click_next": "yes"
+    },
+    {
+      "ch": "026",
+      "feel": "苏挽听见戒、封门、空石室对账",
+      "click_next": "yes"
+    },
+    {
+      "ch": "027",
+      "feel": "牛阿大说您还在，行动回应",
+      "click_next": "yes"
+    },
+    {
+      "ch": "028",
+      "feel": "母女线疼感在，主线远",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "029",
+      "feel": "煮粥等林夙，情节停滞",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "030",
+      "feel": "赢周晋，看见林彻一夜未归",
+      "click_next": "yes"
+    },
+    {
+      "ch": "031",
+      "feel": "识破假信，亲走林家还信，顺路",
+      "click_next": "yes"
+    },
+    {
+      "ch": "032",
+      "feel": "林彻问是敌人还是另一种",
+      "click_next": "yes"
+    },
+    {
+      "ch": "033",
+      "feel": "放榜第一与第三，苏挽资格被漏",
+      "click_next": "yes"
+    },
+    {
+      "ch": "034",
+      "feel": "林夷不报官，给阿湄留铜钱与街",
+      "click_next": "yes"
+    },
+    {
+      "ch": "035",
+      "feel": "互相试探，关系推进偏隐",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "036",
+      "feel": "提醒苏挽问宗门，她自己问",
+      "click_next": "yes"
+    },
+    {
+      "ch": "037",
+      "feel": "存档室白签闭关，动作偏旁观",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "038",
+      "feel": "程序性称量多，追读压力弱",
+      "click_next": "no"
+    },
+    {
+      "ch": "039",
+      "feel": "阿湄问能看见我的命吗，用线索换",
+      "click_next": "yes"
+    },
+    {
+      "ch": "040",
+      "feel": "苏挽主动进屋交信，你先顾你自己",
+      "click_next": "yes"
+    },
+    {
+      "ch": "041",
+      "feel": "凌朔补给位置，情感关系未落地",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "042",
+      "feel": "制度钩子成立，人物距离远",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "043",
+      "feel": "林窈逼林叙承认只能站",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "044",
+      "feel": "两人在街口各自站，事件没发生",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "045",
+      "feel": "教闭眼辨药，药单留作调查线",
+      "click_next": "yes"
+    },
+    {
+      "ch": "046",
+      "feel": "三人等取药人，确认宗门暗线",
+      "click_next": "yes"
+    },
+    {
+      "ch": "047",
+      "feel": "赤渊透考核换规则，关系动作少",
+      "click_next": "hesitate"
+    },
+    {
+      "ch": "048",
+      "feel": "阿湄塞药丸，苏挽送药，并置",
+      "click_next": "yes"
+    },
+    {
+      "ch": "049",
+      "feel": "苏挽第八林夙第一，凌朔补位",
+      "click_next": "yes"
+    },
+    {
+      "ch": "050",
+      "feel": "阿湄给地图与第二人，最后消息压后",
+      "click_next": "yes"
+    }
+  ],
+  "earliest_drop": {
+    "chapter": "009",
+    "reason": "林彻磨人、磨话、磨自己三层全是信息整理，没有任何当场不可逆动作；赤渊在 010 延续同一问题（凉茶、泥脚印、旧匣全是等下一章），两章断链。"
+  },
+  "second_drop": {
+    "chapter": "038",
+    "reason": "钱执事全程程序性称量，与上一章 037 存档室钩子之间缺一个能翻下一页的动作。"
+  },
+  "strongest_window": {
+    "range": "025 到 027",
+    "reason": "025 救沈疏桐并停等牛阿大，026 苏挽听见戒、封门、空石室对账，027 牛阿大说您还在林夙用行动回应，三章构成完整关系代价链。"
+  },
+  "secondary_windows": [
+    "013 到 015",
+    "019 到 023",
+    "031 到 033",
+    "045 到 050"
+  ],
+  "hook_debt": [
+    {
+      "hook": "010 余长生遗记木匣、储物戒、林夙身上是谁的东西",
+      "status": "至 050 未正面兑现"
+    },
+    {
+      "hook": "012 夹道石室里的人",
+      "status": "025 救出沈疏桐，至 050 阿湄确认石室不止一人"
+    },
+    {
+      "hook": "031 苏挽判断假信背后有人借苏漪开门",
+      "status": "至 050 操盘者未正面兑现"
+    },
+    {
+      "hook": "035 四年前冷案、兰纹帕、林夷旧名",
+      "status": "至 050 仍停在查绣娘和旧册"
+    },
+    {
+      "hook": "036-037 宗门里有鬼、沈疏桐名册闭关与对外悬赏",
+      "status": "内鬼身份至 050 未揭示"
+    },
+    {
+      "hook": "039-050 阿湄知道石室第二人及未说出的名字",
+      "status": "阿湄压到他站稳之后再给"
+    },
+    {
+      "hook": "047-050 第三场规则变化与第三四柱位置",
+      "status": "至 050 未真正发生"
+    },
+    {
+      "hook": "045 苏挽长期密闭空间药单、赤渊随侍取药",
+      "status": "被压制者身份至 050 未揭示"
+    }
+  ],
+  "rewrite_priority_top10": [
+    {
+      "ch": "009",
+      "why": "磨局末尾必须加入对林夙或林崇的当场不可逆动作"
+    },
+    {
+      "ch": "010",
+      "why": "全章延后，章末赤渊应做一件不等打听回来的事"
+    },
+    {
+      "ch": "038",
+      "why": "程序性称量过多，建议把钱执事拿掉或压缩，让 037 直接过渡到 039"
+    },
+    {
+      "ch": "047",
+      "why": "赤渊来访应在章末对林夙或牛阿大落一个关系动作"
+    },
+    {
+      "ch": "016",
+      "why": "姐妹线应在本章与苏挽线做一次交叉"
+    },
+    {
+      "ch": "028",
+      "why": "姜氏封信或沈疏桐按封口应与石室第二人挂钩"
+    },
+    {
+      "ch": "029",
+      "why": "煮粥等林夙应换成林夙回来后的具体动作"
+    },
+    {
+      "ch": "037",
+      "why": "存档室门口应让林夙做出改变后续追踪路径的选择"
+    },
+    {
+      "ch": "041",
+      "why": "凌朔应在章末对林夙落一句能被记住的关系动作"
+    },
+    {
+      "ch": "044",
+      "why": "两人在街口应换成其中一人做出可见动作"
+    }
+  ],
+  "summary": "本报告由 L1 simulated 读者产生，依据为完整顺序读完 001 到 050 的正文体感；不引用 score、review、旧报告、其他读者反馈或 metadata；不能证明上瘾、爆款、晋江排名或市场结论，也不能等同于真人晋江新读者。"
 }
