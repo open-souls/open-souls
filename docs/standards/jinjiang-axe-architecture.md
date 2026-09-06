@@ -77,6 +77,9 @@
 | 同包前后对照硬门 | §6 §9.4 + §4 §9.4 | 已焊 |
 | 升级阈值统一（§4 §9.6） | §4 §9.6 + §1 §6 | 已焊 |
 | 真人 sub-agent 兜底 SOP | §1 §5 + §4 §6 | 已焊 |
+| 按压-拉抬规则与 P1 十章队列 | `docs/standards/jinjiang-press-pull-v1.md` | 2026-09-06 本批新增 |
+| 钩子债、关系弧、POV 不在场账 | `reports/jinjiang-r20/reader-debt/reader-debt-v1.md` | 2026-09-06 本批新增 |
+| 兑现账目录和关账模板 | `reports/jinjiang-r20/redemption-ledger/redemption_ledger_index.md` | 2026-09-06 本批新增 |
 
 ### 3.2 本批 v1 新焊（2026-09-04 batch 14）
 

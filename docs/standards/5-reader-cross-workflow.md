@@ -29,6 +29,8 @@
 | 4 | 晋江女强权谋线读者 | 女主或 POV 主动决定并承担身份后果 | 主角静观、不替、不决定 | 不要用男主是否强大替代女主的行动证据 |
 | 5 | 晋江新读者 | 出现一次让人心里疼过的关系动作 | 三章以上没有新建立的关系升压 | 不要用「文笔好」作为留下理由,必须说清人物动作 |
 
+persona4 的每次顺序读取还必须复核 `reports/jinjiang-r20/reader-debt/reader-debt-v1.md §2` 的女主主动决策密度账：它是 keep_if 的跨章对照，不是把单章好感、男主强度或氛围描写换算成女主行动证据。
+
 **焊死的差异化轴**:
 - drop_chapter:每份 persona 必须锁一个不同的章号(默认由 `tools/reader_subagent_driver.py emit` 决定)。
 - love_relation:每份 persona 必须锁一个不同的关系(默认由 emit 决定)。

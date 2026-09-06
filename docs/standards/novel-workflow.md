@@ -58,6 +58,15 @@ canonical chapter + plot_state 更新
 - 读者侧判断进入 reports/jinjiang-r20/reader-blindtest-results.md(那是读者证据层)。
 - 改稿顺序进入 reports/jinjiang-r20/edit-decision-protocol.md §3(那是工程改稿层)。
 
+### 读者债务查阅点（2026-09-06 焊入）
+
+前五十章进入任何改稿循环前，编辑必须先查两份工程资产：
+
+1. `docs/standards/jinjiang-press-pull-v1.md`：按压、拉抬、P/P 比和十章 P1 队列。
+2. `reports/jinjiang-r20/reader-debt/reader-debt-v1.md`：钩子债、女主主动决策密度、关系弧和 POV 不在场窗口。
+
+改稿不能只把单章 lint 变绿。每次改动都要指定一个待关闭债务，写出该章的“压力、选择、代价、状态变化、下一压力”，并在 `reports/jinjiang-r20/redemption-ledger/` 留下兑现账。若本次不关闭债务，必须说明为什么该债仍可悬停、由哪一章在何种事件中关账。L1 账仅是工程方向，不升级为 L2 或市场结论。
+
 ## 权威状态文件
 
 每个新 season 必须拥有：
